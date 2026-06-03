@@ -17,12 +17,45 @@
           <span class="brand-dot"></span>
           <span>Shark Mobile</span>
         </a>
-        <nav class="topnav" aria-label="Разделы сайта">
+        <div class="topbar-actions">
+          <nav class="topnav" aria-label="Разделы сайта">
+            <a href="#repair">Ремонт</a>
+            <a href="#accessories">Аксессуары</a>
+            <a href="#route">Адрес</a>
+          </nav>
+          <a class="top-call" href="tel:+79818726956">
+            <span>Позвонить</span>
+            <b>+7 981 872-69-56</b>
+          </a>
+          <button class="burger-toggle" type="button" aria-label="Открыть меню" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu__bar">
+          <span>Shark Mobile</span>
+          <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">Закрыть</button>
+        </div>
+        <nav class="mobile-menu__nav" aria-label="Мобильное меню">
+          <a class="mobile-menu__call" href="tel:+79818726956">
+            <span>Главная связь</span>
+            <b>Позвонить</b>
+          </a>
           <a href="#repair">Ремонт</a>
           <a href="#accessories">Аксессуары</a>
           <a href="#route">Адрес</a>
+          <a
+            href="https://yandex.com/maps/2/saint-petersburg/?ll=30.209776%2C59.862434&mode=poi&poi%5Bpoint%5D=30.209705%2C59.862438&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766072614&z=21"
+            target="_blank"
+            rel="noreferrer"
+          >Маршрут</a>
+          <a href="https://wa.me/79818726956" target="_blank" rel="noreferrer">WhatsApp</a>
+          <button type="button" disabled>Telegram · ссылка скоро</button>
         </nav>
-      </header>
+      </div>
 
       <main>
         <section class="hero" id="top" aria-labelledby="hero-title">
@@ -51,27 +84,27 @@
             <p class="trust">4,4 рейтинг · 17 оценок · Санкт-Петербург</p>
 
             <nav class="cta-grid" aria-label="Связаться с Shark Mobile">
+              <button class="cta cta--disabled" type="button" disabled>
+                <span>Telegram</span>
+                <b>Ссылка скоро</b>
+              </button>
               <a class="cta cta--primary" href="tel:+79818726956">
                 <span>Позвонить</span>
                 <b>+7 981 872-69-56</b>
               </a>
+              <a class="cta" href="https://wa.me/79818726956" target="_blank" rel="noreferrer">
+                <span>WhatsApp</span>
+                <b>Написать</b>
+              </a>
               <a
                 class="cta"
-                href="https://yandex.ru/maps/?text=%D1%8F%D1%80%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%20%D0%AE%D0%BD%D0%BE%D0%BD%D0%B0%20%D0%BF%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BE%D0%BD%20506"
+                href="https://yandex.com/maps/2/saint-petersburg/?ll=30.209776%2C59.862434&mode=poi&poi%5Bpoint%5D=30.209705%2C59.862438&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766072614&z=21"
                 target="_blank"
                 rel="noreferrer"
               >
                 <span>Маршрут</span>
                 <b>Яндекс Карты</b>
               </a>
-              <a class="cta" href="https://wa.me/79818726956" target="_blank" rel="noreferrer">
-                <span>WhatsApp</span>
-                <b>Написать</b>
-              </a>
-              <button class="cta cta--disabled" type="button" disabled>
-                <span>Telegram</span>
-                <b>Ссылка скоро</b>
-              </button>
             </nav>
           </div>
 
@@ -134,12 +167,30 @@
               </p>
             </div>
             <div class="catalog-list" aria-label="Категории аксессуаров">
-              <button type="button">Чехлы</button>
-              <button type="button">Стекла</button>
-              <button type="button">Кабели</button>
-              <button type="button">Зарядки</button>
-              <button type="button">Держатели</button>
-              <button type="button">Наушники</button>
+              <button type="button">
+                <img src="./assets/accessory-cases.jpg" alt="" loading="lazy" />
+                <span>Чехлы</span>
+              </button>
+              <button type="button">
+                <img src="./assets/accessory-glass.jpg" alt="" loading="lazy" />
+                <span>Стекла</span>
+              </button>
+              <button type="button">
+                <img src="./assets/accessory-cables.jpg" alt="" loading="lazy" />
+                <span>Кабели</span>
+              </button>
+              <button type="button">
+                <img src="./assets/accessory-chargers.jpg" alt="" loading="lazy" />
+                <span>Зарядки</span>
+              </button>
+              <button type="button">
+                <img src="./assets/accessory-holders.jpg" alt="" loading="lazy" />
+                <span>Держатели</span>
+              </button>
+              <button type="button">
+                <img src="./assets/accessory-headphones.jpg" alt="" loading="lazy" />
+                <span>Наушники</span>
+              </button>
             </div>
           </div>
         </section>
@@ -180,7 +231,7 @@
               </a>
               <a
                 class="cta"
-                href="https://yandex.ru/maps/?text=%D1%8F%D1%80%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%20%D0%AE%D0%BD%D0%BE%D0%BD%D0%B0%20%D0%BF%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BE%D0%BD%20506"
+                href="https://yandex.com/maps/2/saint-petersburg/?ll=30.209776%2C59.862434&mode=poi&poi%5Bpoint%5D=30.209705%2C59.862438&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766072614&z=21"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -189,14 +240,14 @@
               </a>
             </div>
           </div>
+          <div class="map-heading">
+            <span>Карта</span>
+            <b>Shark Mobile · Ярмарка Юнона · павильон 506</b>
+          </div>
           <div class="map-panel" aria-label="Карта: ярмарка Юнона, павильон 506">
-            <div class="map-panel__label">
-              <span>Карта</span>
-              <b>Ярмарка Юнона · павильон 506</b>
-            </div>
             <iframe
-              src="https://yandex.ru/map-widget/v1/?text=%D1%8F%D1%80%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%20%D0%AE%D0%BD%D0%BE%D0%BD%D0%B0%20%D0%BF%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BE%D0%BD%20506"
-              title="Карта: ярмарка Юнона, павильон 506"
+              src="https://yandex.ru/map-widget/v1/?ll=30.209776%2C59.862434&mode=poi&poi%5Bpoint%5D=30.209705%2C59.862438&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766072614&z=21"
+              title="Карта: Shark Mobile, ярмарка Юнона, павильон 506"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
