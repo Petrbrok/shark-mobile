@@ -10,7 +10,6 @@ const setMenuOpen = (isOpen) => {
   burgerToggle.setAttribute("aria-expanded", String(isOpen));
   mobileMenu.setAttribute("aria-hidden", String(!isOpen));
   mobileMenu.classList.toggle("is-open", isOpen);
-  document.body.classList.toggle("menu-open", isOpen);
 };
 
 burgerToggle?.addEventListener("click", () => setMenuOpen(true));
