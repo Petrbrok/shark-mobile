@@ -12,7 +12,9 @@ const setMenuOpen = (isOpen) => {
   mobileMenu.classList.toggle("is-open", isOpen);
 };
 
-burgerToggle?.addEventListener("click", () => setMenuOpen(true));
+burgerToggle?.addEventListener("click", () => {
+  setMenuOpen(!mobileMenu?.classList.contains("is-open"));
+});
 mobileMenuClose?.addEventListener("click", () => setMenuOpen(false));
 mobileMenuLinks.forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
 

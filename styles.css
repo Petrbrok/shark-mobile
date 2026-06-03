@@ -170,10 +170,19 @@ button {
   width: 20px;
   height: 2px;
   background: var(--ink);
+  transition: transform 180ms ease;
 }
 
 .burger-toggle span + span {
   margin-top: 8px;
+}
+
+.burger-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.burger-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .mobile-menu {
@@ -270,7 +279,7 @@ button {
   align-items: start;
   min-height: 100svh;
   overflow: hidden;
-  padding: clamp(92px, 7vw, 124px) clamp(28px, 5vw, 72px) clamp(28px, 5vw, 72px);
+  padding: clamp(112px, 8vw, 142px) clamp(28px, 5vw, 72px) clamp(28px, 5vw, 72px);
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0.96) 45%, rgba(5, 5, 5, 0.82) 100%),
     radial-gradient(circle at 78% 45%, rgba(22, 120, 255, 0.13), transparent 34%),
@@ -841,7 +850,7 @@ h3 {
     grid-template-columns: 1fr;
     align-items: start;
     min-height: 100svh;
-    padding: 76px 28px 28px;
+    padding: 96px 28px 28px;
   }
 
   .hero__visual {
@@ -929,7 +938,7 @@ h3 {
 
 @media (max-width: 520px) {
   .hero {
-    padding: 68px 20px 20px;
+    padding: 90px 20px 20px;
   }
 
   .hero__content {
