@@ -3,6 +3,20 @@ const burgerToggle = document.querySelector(".burger-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuClose = document.querySelector(".mobile-menu__close");
 const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
+const openStatus = document.querySelector("[data-open-status]");
+
+const updateOpenStatus = (now = new Date()) => {
+  if (!openStatus) return;
+
+  const minutes = now.getHours() * 60 + now.getMinutes();
+  const opensAt = 10 * 60;
+  const closesAt = 19 * 60;
+  const isOpen = minutes >= opensAt && minutes < closesAt;
+
+  openStatus.textContent = isOpen ? "Открыто до 19:00" : "Откроемся в 10:00";
+  openStatus.classList.toggle("is-open", isOpen);
+  openStatus.classList.toggle("is-closed", !isOpen);
+};
 
 const setMenuOpen = (isOpen) => {
   if (!burgerToggle || !mobileMenu) return;
@@ -17,6 +31,7 @@ burgerToggle?.addEventListener("click", () => {
 });
 mobileMenuClose?.addEventListener("click", () => setMenuOpen(false));
 mobileMenuLinks.forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
+updateOpenStatus();
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {

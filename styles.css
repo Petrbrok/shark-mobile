@@ -300,6 +300,18 @@ button {
   mask-image: linear-gradient(90deg, #000 0 48%, transparent 86%);
 }
 
+.hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  pointer-events: none;
+  opacity: 0.64;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(18, 72, 142, 0.18), transparent 24%),
+    radial-gradient(circle at 98% 72%, rgba(18, 72, 142, 0.1), transparent 20%);
+}
+
 .scanline {
   position: fixed;
   inset: 0;
@@ -345,6 +357,23 @@ button {
 .micro-row span:first-child {
   border-color: var(--line-strong);
   color: var(--blue-hot);
+}
+
+.open-status {
+  color: rgba(245, 247, 251, 0.72);
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.open-status.is-open {
+  border-color: rgba(91, 111, 74, 0.82);
+  color: #b9c7a6;
+  background: rgba(28, 40, 24, 0.7);
+}
+
+.open-status.is-closed {
+  border-color: rgba(92, 31, 43, 0.82);
+  color: #d5a6ae;
+  background: rgba(42, 15, 22, 0.72);
 }
 
 .title-block {
