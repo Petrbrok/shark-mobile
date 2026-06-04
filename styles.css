@@ -450,8 +450,7 @@ h3 {
 
 .cta::before,
 .catalog-list button::before,
-.service-item::before,
-.section::after {
+.service-item::before {
   position: absolute;
   inset: 0;
   display: none;
@@ -517,8 +516,8 @@ h3 {
   display: block;
   opacity: 0.42;
   background:
-    radial-gradient(circle at right 18%, rgba(18, 72, 142, 0.34), transparent 22%),
-    radial-gradient(circle at left 82%, rgba(18, 72, 142, 0.2), transparent 18%);
+    radial-gradient(circle at 100% 0%, rgba(18, 72, 142, 0.34), transparent 22%),
+    radial-gradient(circle at 0% 100%, rgba(18, 72, 142, 0.2), transparent 18%);
   transform: none;
   transition: opacity 180ms ease;
 }
@@ -688,17 +687,7 @@ h3 {
   padding: clamp(72px, 9vw, 132px) clamp(20px, 5vw, 72px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    radial-gradient(circle at 80% 10%, rgba(18, 111, 232, 0.07), transparent 30%),
     linear-gradient(180deg, rgba(3, 4, 5, 0.99), rgba(7, 9, 13, 0.98));
-}
-
-.section::after {
-  z-index: -2;
-  display: block;
-  opacity: 1;
-  background:
-    radial-gradient(circle at right 8%, rgba(18, 72, 142, 0.18), transparent 20%),
-    radial-gradient(circle at left 92%, rgba(18, 72, 142, 0.14), transparent 18%);
 }
 
 .section-head {
