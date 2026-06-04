@@ -423,6 +423,8 @@ h3 {
 }
 
 .cta {
+  --cta-marker: rgba(154, 164, 181, 0.62);
+
   position: relative;
   display: flex;
   min-width: 0;
@@ -455,6 +457,17 @@ h3 {
   background: linear-gradient(90deg, transparent, rgba(54, 162, 255, 0.24), transparent);
   transform: translateX(-80%);
   transition: opacity 180ms ease, transform 360ms ease;
+}
+
+.cta::after {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  z-index: 1;
+  width: 7px;
+  height: 7px;
+  content: "";
+  background: var(--cta-marker);
 }
 
 .cta span,
@@ -496,6 +509,8 @@ h3 {
 }
 
 .cta--primary {
+  --cta-marker: rgba(3, 16, 36, 0.78);
+
   border-color: var(--blue-hot);
   color: #031024;
   background: var(--blue-hot);
@@ -512,6 +527,8 @@ h3 {
 }
 
 .cta--disabled {
+  --cta-marker: rgba(154, 164, 181, 0.65);
+
   color: rgba(247, 249, 255, 0.42);
   background: rgba(255, 255, 255, 0.055);
   cursor: not-allowed;
@@ -519,16 +536,6 @@ h3 {
 
 .cta--disabled span {
   color: rgba(154, 164, 181, 0.56);
-}
-
-.cta--disabled::after {
-  position: absolute;
-  top: 9px;
-  right: 9px;
-  width: 7px;
-  height: 7px;
-  content: "";
-  background: rgba(154, 164, 181, 0.65);
 }
 
 .cta--disabled:hover {
