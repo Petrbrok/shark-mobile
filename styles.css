@@ -549,7 +549,7 @@ h3 {
   z-index: 1;
   display: flex;
   justify-content: flex-end;
-  padding-top: clamp(24px, 4vw, 62px);
+  padding-top: clamp(0px, 1.2vw, 18px);
   pointer-events: none;
 }
 
@@ -557,6 +557,7 @@ h3 {
   position: relative;
   width: min(64vw, 780px);
   aspect-ratio: 1 / 1;
+  margin-top: clamp(-72px, -4vw, -38px);
   margin-right: max(-9vw, -132px);
 }
 
@@ -840,6 +841,7 @@ h3 {
 
   .logo-frame {
     width: min(42vw, 420px);
+    margin-top: clamp(-46px, -4vw, -24px);
     margin-right: max(-7vw, -72px);
   }
 
@@ -872,14 +874,19 @@ h3 {
     display: block;
     width: min(88vw, 560px);
     aspect-ratio: 1 / 1;
-    opacity: 0.62;
+    opacity: 0.78;
   }
 
   .mobile-mark::after {
     inset: -16%;
     background:
-      radial-gradient(circle, rgba(22, 120, 255, 0.09), transparent 58%),
-      linear-gradient(180deg, rgba(5, 5, 5, 0.18), rgba(5, 5, 5, 0.96));
+      radial-gradient(circle, rgba(22, 120, 255, 0.08), transparent 58%),
+      linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.9));
+  }
+
+  .mobile-mark img {
+    opacity: 0.76;
+    filter: saturate(1.14) contrast(1.1) brightness(1.16);
   }
 
   .title-block {
