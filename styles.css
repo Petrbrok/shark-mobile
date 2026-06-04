@@ -450,7 +450,8 @@ h3 {
 
 .cta::before,
 .catalog-list button::before,
-.service-item::before {
+.service-item::before,
+.section::after {
   position: absolute;
   inset: 0;
   display: none;
@@ -508,6 +509,27 @@ h3 {
 .service-item:hover::before {
   opacity: 1;
   transform: translateX(80%);
+}
+
+.cta::before,
+.service-item::before,
+.catalog-list button::before {
+  display: block;
+  opacity: 0.42;
+  background:
+    radial-gradient(circle at right 18%, rgba(18, 72, 142, 0.34), transparent 22%),
+    radial-gradient(circle at left 82%, rgba(18, 72, 142, 0.2), transparent 18%);
+  transform: none;
+  transition: opacity 180ms ease;
+}
+
+.cta:hover::before,
+.cta:focus-visible::before,
+.catalog-list button:hover::before,
+.catalog-list button:focus-visible::before,
+.service-item:hover::before {
+  opacity: 0.62;
+  transform: none;
 }
 
 .cta--primary {
@@ -670,6 +692,15 @@ h3 {
     linear-gradient(180deg, rgba(3, 4, 5, 0.99), rgba(7, 9, 13, 0.98));
 }
 
+.section::after {
+  z-index: -2;
+  display: block;
+  opacity: 1;
+  background:
+    radial-gradient(circle at right 8%, rgba(18, 72, 142, 0.18), transparent 20%),
+    radial-gradient(circle at left 92%, rgba(18, 72, 142, 0.14), transparent 18%);
+}
+
 .section-head {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
@@ -731,27 +762,6 @@ h3 {
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
   gap: clamp(28px, 6vw, 96px);
   align-items: center;
-}
-
-.accessory-strip {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 10px;
-  max-width: 620px;
-  margin-top: clamp(28px, 4vw, 48px);
-}
-
-.accessory-strip img {
-  display: block;
-  width: 100%;
-  height: clamp(150px, 16vw, 230px);
-  object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  filter: grayscale(0.72) contrast(1.12) brightness(0.8) saturate(0.76);
-}
-
-.accessory-strip img:first-child {
-  transform: translateY(14px);
 }
 
 .catalog-list {
@@ -931,9 +941,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .accessory-strip {
-    max-width: none;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1025,20 +1032,6 @@ h3 {
     width: 100%;
     max-width: none;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .accessory-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    margin-top: 24px;
-  }
-
-  .accessory-strip img {
-    height: 118px;
-  }
-
-  .accessory-strip img:first-child {
-    transform: none;
   }
 
   .cta {
