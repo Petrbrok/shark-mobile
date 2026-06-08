@@ -8,7 +8,10 @@ import {
   Check,
   ChevronRight,
   ClipboardList,
+  Clock,
+  Heart,
   LogOut,
+  Mail,
   Menu,
   Minus,
   PackageCheck,
@@ -55,6 +58,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
   const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("shark-cart") || "[]"));
+  const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem("shark-favorites") || "[]"));
+  const [globalSearch, setGlobalSearch] = useState("");
   const [flyItem, setFlyItem] = useState(null);
 
   useEffect(() => {
@@ -66,6 +71,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("shark-cart", JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("shark-favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     fetch("/api/products")
@@ -122,9 +131,29 @@ function App() {
     );
   };
 
+  const toggleFavorite = (productId) => {
+    setFavorites((current) =>
+      current.includes(productId) ? current.filter((id) => id !== productId) : [...current, productId]
+    );
+  };
+
+  const openSearch = () => {
+    navigate("/");
+    window.setTimeout(() => document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+  };
+
   return (
     <div className="app-shell">
-      <Header navigate={navigate} path={path} cartCount={cartCount} onCart={() => navigate("/cart")} />
+      <Header
+        navigate={navigate}
+        path={path}
+        cartCount={cartCount}
+        favoritesCount={favorites.length}
+        search={globalSearch}
+        setSearch={setGlobalSearch}
+        onSearch={openSearch}
+        onCart={() => navigate("/cart")}
+      />
       <main>
         <div className="route-frame" key={path}>
           {path === "/price" ? (
@@ -137,12 +166,29 @@ function App() {
               clearCart={() => setCart([])}
               navigate={navigate}
             />
+          ) : path === "/favorites" || path === "/favorites/" ? (
+            <FavoritesPage
+              products={products}
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
+              addToCart={addToCart}
+              navigate={navigate}
+            />
           ) : path === "/repair" ? (
             <RepairPage navigate={navigate} />
           ) : path === "/admin" ? (
             <AdminPage products={products} setProducts={setProducts} />
           ) : (
-            <HomePage products={products} loading={loadingProducts} addToCart={addToCart} navigate={navigate} />
+            <HomePage
+              products={products}
+              loading={loadingProducts}
+              addToCart={addToCart}
+              navigate={navigate}
+              search={globalSearch}
+              setSearch={setGlobalSearch}
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
+            />
           )}
         </div>
       </main>
@@ -152,7 +198,7 @@ function App() {
   );
 }
 
-function Header({ navigate, path, cartCount, onCart }) {
+function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, onSearch, onCart }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const links = [
     ["/", "Каталог"],
@@ -163,6 +209,11 @@ function Header({ navigate, path, cartCount, onCart }) {
   const go = (href) => {
     setMenuOpen(false);
     navigate(href);
+  };
+
+  const openMobileSearch = () => {
+    setMenuOpen(true);
+    window.setTimeout(() => document.querySelector(".mobile-menu-search input")?.focus(), 80);
   };
 
   return (
@@ -178,12 +229,36 @@ function Header({ navigate, path, cartCount, onCart }) {
           </button>
         ))}
       </nav>
+      <form
+        className="header-search"
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSearch();
+          setMenuOpen(false);
+        }}
+      >
+        <Search size={18} />
+        <input
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          onFocus={onSearch}
+          placeholder="Поиск товара"
+          aria-label="Поиск по каталогу"
+        />
+      </form>
       <div className="top-actions">
         <a className="call-button top-call-button" href={phoneHref}>
           Позвонить
         </a>
         <button className="admin-button" onClick={() => go("/admin")} aria-label="Личный кабинет">
           <UserRound size={18} />
+        </button>
+        <button className="mobile-search-button" onClick={openMobileSearch} aria-label="Поиск">
+          <Search size={18} />
+        </button>
+        <button className="favorite-nav-button" onClick={() => go("/favorites")} aria-label="Избранное">
+          <Heart size={18} />
+          <span>{favoritesCount}</span>
         </button>
         <button className="cart-button" onClick={onCart} aria-label="Открыть корзину" data-cart-target>
           <ShoppingBag size={18} />
@@ -194,6 +269,22 @@ function Header({ navigate, path, cartCount, onCart }) {
         </button>
       </div>
       <div className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
+        <form
+          className="mobile-menu-search"
+          onSubmit={(event) => {
+            event.preventDefault();
+            onSearch();
+            setMenuOpen(false);
+          }}
+        >
+          <Search size={18} />
+          <input
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder="Поиск товара"
+            aria-label="Поиск по каталогу"
+          />
+        </form>
         <a className="mobile-call" href={phoneHref}>
           Позвонить
           <span>+7 981 872-69-56</span>
@@ -204,15 +295,18 @@ function Header({ navigate, path, cartCount, onCart }) {
             <ChevronRight size={18} />
           </button>
         ))}
+        <button onClick={() => go("/favorites")}>
+          Избранное
+          <ChevronRight size={18} />
+        </button>
       </div>
     </header>
   );
 }
 
-function HomePage({ products, loading, addToCart, navigate }) {
+function HomePage({ products, loading, addToCart, navigate, search, setSearch, favorites, toggleFavorite }) {
   const [category, setCategory] = useState("Все");
   const [selectedBrand, setSelectedBrand] = useState("");
-  const [search, setSearch] = useState("");
   const openStatus = useOpenStatus();
   const brandOptions = useMemo(() => ["Все бренды", ...new Set(products.map((product) => product.brand).sort())], [products]);
   const filtered = useMemo(() => {
@@ -333,7 +427,14 @@ function HomePage({ products, loading, addToCart, navigate }) {
             ) : (
               <div className="product-grid">
                 {filtered.map((product, index) => (
-                  <ProductCard key={product.id} product={product} index={index} onAdd={addToCart} />
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    index={index}
+                    onAdd={addToCart}
+                    isFavorite={favorites.includes(product.id)}
+                    onToggleFavorite={toggleFavorite}
+                  />
                 ))}
               </div>
             )}
@@ -403,10 +504,17 @@ function MapSection() {
   );
 }
 
-function ProductCard({ product, index, onAdd }) {
+function ProductCard({ product, index, onAdd, isFavorite = false, onToggleFavorite }) {
   const available = product.stockQty > 0;
   return (
     <article className="product-card reveal-card" style={{ "--delay": `${Math.min(index, 8) * 42}ms` }}>
+      <button
+        className={`favorite-toggle ${isFavorite ? "is-active" : ""}`}
+        onClick={() => onToggleFavorite?.(product.id)}
+        aria-label={isFavorite ? "Убрать из избранного" : "Добавить в избранное"}
+      >
+        <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
+      </button>
       <div className="product-photo" aria-label="Фото будет добавлено позже">
         <span>{product.brand}</span>
       </div>
@@ -422,7 +530,7 @@ function ProductCard({ product, index, onAdd }) {
           <span>Розница</span>
           <b>{formatRub(product.retailPrice)}</b>
         </div>
-        <div className="wholesale-panel">
+        <div className="wholesale-panel" tabIndex={0}>
           <span>Опт</span>
           <b>{formatRub(product.wholesalePrice)}</b>
         </div>
@@ -580,6 +688,50 @@ function CartPage({ cart, products, updateQty, clearCart, navigate }) {
           </>
         )}
       </div>
+    </section>
+  );
+}
+
+function FavoritesPage({ products, favorites, toggleFavorite, addToCart, navigate }) {
+  const favoriteProducts = products.filter((product) => favorites.includes(product.id));
+
+  return (
+    <section className="favorites-page page-section">
+      <div className="section-title-row favorites-head">
+        <div>
+          <p className="eyebrow">Избранное</p>
+          <h1>Отложенные товары</h1>
+          <p>Сохраняйте позиции для повторной закупки или быстрого заказа на завтра.</p>
+        </div>
+        <button className="price-link" onClick={() => navigate("/")}>
+          В каталог
+          <ChevronRight size={18} />
+        </button>
+      </div>
+
+      {favoriteProducts.length === 0 ? (
+        <div className="empty-favorites">
+          <Heart size={34} />
+          <h2>Пока пусто</h2>
+          <p>Нажмите на сердечко в карточке товара, и он появится здесь.</p>
+          <button className="submit-button narrow" onClick={() => navigate("/")}>
+            Перейти в каталог
+          </button>
+        </div>
+      ) : (
+        <div className="product-grid favorites-grid">
+          {favoriteProducts.map((product, index) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              index={index}
+              onAdd={addToCart}
+              isFavorite
+              onToggleFavorite={toggleFavorite}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -873,12 +1025,33 @@ function AdminPage({ products, setProducts }) {
 function Footer({ navigate }) {
   return (
     <footer className="footer">
-      <div>
-        <span className="brand-dot" />
-        <b>Shark Mobile</b>
+      <div className="footer-brand">
+        <div>
+          <span className="brand-dot" />
+          <b>Shark Mobile</b>
+        </div>
+        <p>Аксессуары, стекла, зарядки и ремонт на ярмарке Юнона. Розница, опт и самовывоз на следующий день.</p>
       </div>
-      <button onClick={() => navigate("/repair")}>Ремонт</button>
-      <span>Юнона · павильон 506 · 10:00-19:00</span>
+      <nav className="footer-col" aria-label="Покупателям">
+        <b>Покупателям</b>
+        <button onClick={() => navigate("/")}>Каталог</button>
+        <button onClick={() => navigate("/price")}>Прайс-лист</button>
+        <button onClick={() => navigate("/favorites")}>Избранное</button>
+        <button onClick={() => navigate("/cart")}>Корзина</button>
+      </nav>
+      <nav className="footer-col" aria-label="Компания">
+        <b>Компания</b>
+        <button onClick={() => navigate("/repair")}>Ремонт</button>
+        <button onClick={() => navigate("/admin")}>Личный кабинет</button>
+        <a href={mapHref} target="_blank" rel="noreferrer">Маршрут</a>
+      </nav>
+      <div className="footer-contacts">
+        <b>Контакты</b>
+        <span><BadgeCheck size={18} /> Юнона, павильон 506</span>
+        <span><Clock size={18} /> Ежедневно 10:00-19:00</span>
+        <a href={phoneHref}><ShoppingBag size={18} /> +7 981 872-69-56</a>
+        <span><Mail size={18} /> Telegram: @Shark_Mobile506</span>
+      </div>
     </footer>
   );
 }

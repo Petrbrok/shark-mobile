@@ -17,6 +17,14 @@
       "destination": "/index.html"
     },
     {
+      "source": "/favorites",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/favorites/",
+      "destination": "/index.html"
+    },
+    {
       "source": "/admin",
       "destination": "/index.html"
     }
