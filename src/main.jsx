@@ -126,23 +126,25 @@ function App() {
     <div className="app-shell">
       <Header navigate={navigate} path={path} cartCount={cartCount} onCart={() => navigate("/cart")} />
       <main>
-        {path === "/price" ? (
-          <PricePage products={products} loading={loadingProducts} navigate={navigate} />
-        ) : path === "/cart" || path === "/korzina" ? (
-          <CartPage
-            cart={cart}
-            products={products}
-            updateQty={updateQty}
-            clearCart={() => setCart([])}
-            navigate={navigate}
-          />
-        ) : path === "/repair" ? (
-          <RepairPage navigate={navigate} />
-        ) : path === "/admin" ? (
-          <AdminPage products={products} setProducts={setProducts} />
-        ) : (
-          <HomePage products={products} loading={loadingProducts} addToCart={addToCart} navigate={navigate} />
-        )}
+        <div className="route-frame" key={path}>
+          {path === "/price" ? (
+            <PricePage products={products} loading={loadingProducts} navigate={navigate} />
+          ) : path === "/cart" || path === "/korzina" ? (
+            <CartPage
+              cart={cart}
+              products={products}
+              updateQty={updateQty}
+              clearCart={() => setCart([])}
+              navigate={navigate}
+            />
+          ) : path === "/repair" ? (
+            <RepairPage navigate={navigate} />
+          ) : path === "/admin" ? (
+            <AdminPage products={products} setProducts={setProducts} />
+          ) : (
+            <HomePage products={products} loading={loadingProducts} addToCart={addToCart} navigate={navigate} />
+          )}
+        </div>
       </main>
       {flyItem && <FlyToCart item={flyItem} />}
       <Footer navigate={navigate} />
@@ -180,7 +182,7 @@ function Header({ navigate, path, cartCount, onCart }) {
         <a className="call-button top-call-button" href={phoneHref}>
           Позвонить
         </a>
-        <button className="admin-button" onClick={() => go("/admin")} aria-label="Личный кабинет владельца">
+        <button className="admin-button" onClick={() => go("/admin")} aria-label="Личный кабинет">
           <UserRound size={18} />
         </button>
         <button className="cart-button" onClick={onCart} aria-label="Открыть корзину" data-cart-target>
@@ -442,10 +444,20 @@ function CartPage({ cart, products, updateQty, clearCart, navigate }) {
   const items = cart
     .map((item) => ({ ...item, product: products.find((product) => product.id === item.productId) }))
     .filter((item) => item.product);
+  const totalQty = items.reduce((sum, item) => sum + item.qty, 0);
+  const wholesaleAvailable = totalQty >= 20;
   const total = items.reduce(
     (sum, item) => sum + item.qty * (priceMode === "wholesale" ? item.product.wholesalePrice : item.product.retailPrice),
     0
   );
+
+  useEffect(() => {
+    if (wholesaleAvailable) {
+      setPriceMode("wholesale");
+    } else if (priceMode === "wholesale") {
+      setPriceMode("retail");
+    }
+  }, [priceMode, wholesaleAvailable]);
 
   const submitOrder = async (event) => {
     event.preventDefault();
@@ -501,10 +513,18 @@ function CartPage({ cart, products, updateQty, clearCart, navigate }) {
               <button className={priceMode === "retail" ? "is-selected" : ""} onClick={() => setPriceMode("retail")}>
                 Розница
               </button>
-              <button className={priceMode === "wholesale" ? "is-selected" : ""} onClick={() => setPriceMode("wholesale")}>
-                Опт
+              <button
+                className={priceMode === "wholesale" ? "is-selected" : ""}
+                onClick={() => wholesaleAvailable && setPriceMode("wholesale")}
+                disabled={!wholesaleAvailable}
+                title={wholesaleAvailable ? "Оптовая цена включена" : "Опт доступен от 20 единиц"}
+              >
+                Опт <span>20+</span>
               </button>
             </div>
+            <p className={`wholesale-note ${wholesaleAvailable ? "is-active" : ""}`}>
+              {wholesaleAvailable ? "Оптовая цена включена автоматически." : `До оптовой цены осталось ${Math.max(20 - totalQty, 0)} ед.`}
+            </p>
 
             <div className="cart-items">
               {items.length === 0 ? (
@@ -747,7 +767,7 @@ function AdminPage({ products, setProducts }) {
   if (!isAuthed) {
     return (
       <section className="page-section admin-login">
-        <p className="eyebrow">Кабинет владельца</p>
+        <p className="eyebrow">Личный кабинет</p>
         <h1>Вход</h1>
         <form className="order-form login-card" onSubmit={submitLogin}>
           <label>
@@ -761,7 +781,7 @@ function AdminPage({ products, setProducts }) {
           <button className="submit-button">Войти</button>
           <div className="telegram-link-box">
             <label>
-              Telegram ID владельца
+              Telegram ID
               <input value={telegramId} onChange={(event) => setTelegramId(event.target.value)} />
             </label>
             <button type="button" className="price-link full" onClick={linkTelegram}>
@@ -779,7 +799,7 @@ function AdminPage({ products, setProducts }) {
     <section className="page-section admin-page">
       <div className="admin-head">
         <div>
-          <p className="eyebrow">Кабинет владельца</p>
+          <p className="eyebrow">Личный кабинет</p>
           <h1>Заказы и наличие</h1>
         </div>
         <button className="cart-button" onClick={logout}>

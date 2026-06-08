@@ -95,6 +95,10 @@ app.post("/api/orders", async (req, res, next) => {
           unitPrice: priceMode === "wholesale" ? product.wholesale_price : product.retail_price
         };
       });
+      const totalQty = orderItems.reduce((sum, item) => sum + item.qty, 0);
+      if (priceMode === "wholesale" && totalQty < 20) {
+        throw httpError(400, "Оптовая цена доступна от 20 единиц.");
+      }
 
       const totalAmount = orderItems.reduce((sum, item) => sum + item.unitPrice * item.qty, 0);
       const pickupDate = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -303,7 +307,7 @@ app.use((error, _req, res, _next) => {
 
 function requireAdmin(req, res, next) {
   if (!req.session?.adminUserId) {
-    return res.status(401).json({ error: "Нужен вход владельца." });
+    return res.status(401).json({ error: "Нужен вход в личный кабинет." });
   }
   next();
 }

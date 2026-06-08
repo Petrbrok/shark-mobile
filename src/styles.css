@@ -72,6 +72,11 @@ main {
   overflow-x: clip;
 }
 
+.route-frame {
+  animation: routeReveal 460ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: left center;
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -302,7 +307,7 @@ select:focus-visible {
   align-items: start;
   min-height: calc(100svh - 82px);
   overflow: hidden;
-  padding: clamp(104px, 8vw, 142px) clamp(28px, 5vw, 72px) clamp(32px, 5vw, 72px);
+  padding: clamp(72px, 5.8vw, 108px) clamp(28px, 5vw, 72px) clamp(32px, 5vw, 72px);
   background:
     linear-gradient(90deg, rgba(3, 4, 5, 1) 0%, rgba(3, 4, 5, 0.97) 48%, rgba(3, 4, 5, 0.84) 100%),
     radial-gradient(circle at 78% 42%, rgba(18, 111, 232, 0.08), transparent 36%),
@@ -1093,6 +1098,10 @@ h3 {
 }
 
 .mode-switch button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
   min-height: 48px;
   border: 1px solid var(--line);
   color: var(--soft);
@@ -1103,6 +1112,32 @@ h3 {
   border-color: var(--blue);
   color: var(--ink);
   background: rgba(47, 145, 255, 0.18);
+}
+
+.mode-switch button:disabled {
+  cursor: not-allowed;
+  color: rgba(244, 247, 251, 0.28);
+  background: rgba(255, 255, 255, 0.025);
+  opacity: 1;
+}
+
+.mode-switch button span {
+  color: var(--blue-2);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.wholesale-note {
+  margin: -6px 0 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.wholesale-note.is-active {
+  color: var(--blue-2);
 }
 
 .cart-items {
@@ -1356,10 +1391,25 @@ td {
 .admin-login {
   display: grid;
   align-content: center;
+  justify-items: center;
+  gap: 14px;
+  min-height: calc(100dvh - 95px);
+  text-align: center;
+}
+
+.admin-login .eyebrow {
+  margin-bottom: 0;
+}
+
+.admin-login h1 {
+  margin-bottom: 8px;
+  font-size: clamp(56px, 8vw, 96px);
 }
 
 .login-card {
-  max-width: 520px;
+  width: min(100%, 520px);
+  margin-inline: auto;
+  text-align: left;
 }
 
 .telegram-link-box {
@@ -1490,6 +1540,21 @@ td {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes routeReveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 18% 0 0);
+    transform: translateX(22px) scaleX(0.985);
+    filter: brightness(0.82);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0) scaleX(1);
+    filter: brightness(1);
   }
 }
 
