@@ -1,0 +1,28 @@
+{
+  "name": "shark-mobile-shop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "server": "node server/index.js",
+    "start": "NODE_ENV=production node server/index.js",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "migrate": "node server/migrate.js",
+    "seed": "node server/seed.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-session": "^2.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "pg": "^8.16.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "vite": "^7.1.7"
+  },
+  "devDependencies": {}
+}
