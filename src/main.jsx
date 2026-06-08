@@ -22,22 +22,26 @@ import {
 import { seedProducts } from "../server/products.seed.js";
 import "./styles.css";
 
+const phoneHref = "tel:+79818726956";
+const mapHref =
+  "https://yandex.com/maps/2/saint-petersburg/?ll=30.209776%2C59.862434&mode=poi&poi%5Bpoint%5D=30.209705%2C59.862438&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766072614&z=21";
+
 const brands = [
-  "Apple",
-  "Samsung",
-  "Dyson",
-  "Xiaomi",
-  "Sony",
-  "Google",
-  "Garmin",
-  "Marshall",
-  "OnePlus",
-  "Huawei",
-  "Honor",
-  "DJI"
+  { name: "Apple", logo: "https://cdn.simpleicons.org/apple/050608" },
+  { name: "Samsung", logo: "https://cdn.simpleicons.org/samsung/050608" },
+  { name: "Dyson", logo: "https://cdn.worldvectorlogo.com/logos/dyson.svg" },
+  { name: "Xiaomi", logo: "https://cdn.simpleicons.org/xiaomi/050608" },
+  { name: "Sony", logo: "https://cdn.simpleicons.org/sony/050608" },
+  { name: "Google", logo: "https://cdn.simpleicons.org/google/050608" },
+  { name: "Garmin", logo: "https://cdn.simpleicons.org/garmin/050608" },
+  { name: "Marshall", logo: "https://cdn.worldvectorlogo.com/logos/marshall.svg" },
+  { name: "OnePlus", logo: "https://cdn.simpleicons.org/oneplus/050608" },
+  { name: "Huawei", logo: "https://cdn.simpleicons.org/huawei/050608" },
+  { name: "Honor", logo: "https://cdn.simpleicons.org/honor/050608" },
+  { name: "DJI", logo: "https://cdn.simpleicons.org/dji/050608" }
 ];
 
-const categories = ["Чехлы", "Стекла", "Кабели", "Зарядки", "Держатели", "Наушники", "Аксессуары"];
+const categories = ["Все", "Чехлы", "Стекла", "Кабели", "Зарядки", "Держатели", "Наушники", "Аксессуары"];
 const orderStatuses = {
   new: "Новый",
   confirmed: "Подтвержден",
@@ -51,7 +55,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
   const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("shark-cart") || "[]"));
-  const [cartOpen, setCartOpen] = useState(false);
+  const [flyItem, setFlyItem] = useState(null);
 
   useEffect(() => {
     const onPop = () => setPath(window.location.pathname);
@@ -85,7 +89,7 @@ function App() {
   };
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
-  const addToCart = (product) => {
+  const addToCart = (product, sourceRect) => {
     setCart((current) => {
       const existing = current.find((item) => item.productId === product.id);
       if (existing) {
@@ -95,7 +99,19 @@ function App() {
       }
       return [...current, { productId: product.id, qty: 1 }];
     });
-    setCartOpen(true);
+    if (sourceRect) {
+      const cartTarget = document.querySelector("[data-cart-target]")?.getBoundingClientRect();
+      if (cartTarget) {
+        const id = `${product.id}-${Date.now()}`;
+        setFlyItem({
+          id,
+          brand: product.brand,
+          from: { x: sourceRect.left + sourceRect.width / 2, y: sourceRect.top + sourceRect.height / 2 },
+          to: { x: cartTarget.left + cartTarget.width / 2, y: cartTarget.top + cartTarget.height / 2 }
+        });
+        window.setTimeout(() => setFlyItem((item) => (item?.id === id ? null : item)), 760);
+      }
+    }
   };
 
   const updateQty = (productId, qty) => {
@@ -108,10 +124,18 @@ function App() {
 
   return (
     <div className="app-shell">
-      <Header navigate={navigate} path={path} cartCount={cartCount} onCart={() => setCartOpen(true)} />
+      <Header navigate={navigate} path={path} cartCount={cartCount} onCart={() => navigate("/cart")} />
       <main>
         {path === "/price" ? (
           <PricePage products={products} loading={loadingProducts} navigate={navigate} />
+        ) : path === "/cart" || path === "/korzina" ? (
+          <CartPage
+            cart={cart}
+            products={products}
+            updateQty={updateQty}
+            clearCart={() => setCart([])}
+            navigate={navigate}
+          />
         ) : path === "/repair" ? (
           <RepairPage navigate={navigate} />
         ) : path === "/admin" ? (
@@ -120,14 +144,7 @@ function App() {
           <HomePage products={products} loading={loadingProducts} addToCart={addToCart} navigate={navigate} />
         )}
       </main>
-      <CartDrawer
-        open={cartOpen}
-        onClose={() => setCartOpen(false)}
-        cart={cart}
-        products={products}
-        updateQty={updateQty}
-        clearCart={() => setCart([])}
-      />
+      {flyItem && <FlyToCart item={flyItem} />}
       <Footer navigate={navigate} />
     </div>
   );
@@ -160,10 +177,13 @@ function Header({ navigate, path, cartCount, onCart }) {
         ))}
       </nav>
       <div className="top-actions">
+        <a className="call-button top-call-button" href={phoneHref}>
+          Позвонить
+        </a>
         <button className="admin-button" onClick={() => go("/admin")} aria-label="Личный кабинет владельца">
           <UserRound size={18} />
         </button>
-        <button className="cart-button" onClick={onCart} aria-label="Открыть корзину">
+        <button className="cart-button" onClick={onCart} aria-label="Открыть корзину" data-cart-target>
           <ShoppingBag size={18} />
           <span>{cartCount}</span>
         </button>
@@ -172,6 +192,10 @@ function Header({ navigate, path, cartCount, onCart }) {
         </button>
       </div>
       <div className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
+        <a className="mobile-call" href={phoneHref}>
+          Позвонить
+          <span>+7 981 872-69-56</span>
+        </a>
         {[...links, ["/admin", "Кабинет"]].map(([href, label]) => (
           <button key={href} onClick={() => go(href)}>
             {label}
@@ -184,30 +208,55 @@ function Header({ navigate, path, cartCount, onCart }) {
 }
 
 function HomePage({ products, loading, addToCart, navigate }) {
-  const [category, setCategory] = useState("Чехлы");
+  const [category, setCategory] = useState("Все");
+  const [selectedBrand, setSelectedBrand] = useState("");
   const [search, setSearch] = useState("");
+  const openStatus = useOpenStatus();
+  const brandOptions = useMemo(() => ["Все бренды", ...new Set(products.map((product) => product.brand).sort())], [products]);
   const filtered = useMemo(() => {
     return products.filter((product) => {
-      const byCategory = product.category === category;
+      const byCategory = category === "Все" || product.category === category;
+      const byBrand = !selectedBrand || product.brand === selectedBrand;
       const bySearch = `${product.name} ${product.brand} ${product.sku}`.toLowerCase().includes(search.toLowerCase());
-      return byCategory && bySearch;
+      return byCategory && byBrand && bySearch;
     });
-  }, [products, category, search]);
+  }, [products, category, selectedBrand, search]);
+
+  const selectBrand = (brandName) => {
+    setSelectedBrand(brandName);
+    setCategory("Все");
+    document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const selectCategory = (item) => {
+    setCategory(item);
+    setSelectedBrand("");
+  };
 
   return (
     <>
       <section className="hero-shop">
+        <div className="mobile-mark" aria-hidden="true">
+          <img src="/assets/logo-background.png" alt="" />
+        </div>
         <div className="hero-copy reveal-up">
-          <p className="eyebrow">Юнона / павильон 506 / опт и розница</p>
+          <div className="micro-row" aria-label="Информация о месте">
+            <span>СПБ</span>
+            <span>Юнона</span>
+            <span>Павильон 506</span>
+            <span className={`open-status ${openStatus.isOpen ? "is-open" : "is-closed"}`}>{openStatus.label}</span>
+          </div>
           <h1>Shark Mobile</h1>
           <p className="lead">
-            Интернет-витрина павильона 506 на ярмарке Юнона. Чехлы, стекла, кабели, зарядки и ходовые аксессуары:
-            розница, опт, самовывоз на следующий день.
+            Ремонт телефонов, стекла, чехлы и зарядки на Юноне, павильон 506. Работаем каждый день с 10:00 до 19:00.
           </p>
-          <div className="hero-stats" aria-label="Информация о магазине">
-            <span>10:00-19:00</span>
-            <span>Розница + опт</span>
-            <span>Самовывоз завтра</span>
+          <div className="hero-actions">
+            <a className="call-button hero-call" href={phoneHref}>
+              Позвонить
+            </a>
+            <button className="catalog-jump" onClick={() => document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth" })}>
+              Перейти в каталог
+            </button>
           </div>
         </div>
         <div className="hero-logo reveal-up" aria-label="Логотип Shark Mobile">
@@ -216,14 +265,18 @@ function HomePage({ products, loading, addToCart, navigate }) {
       </section>
 
       <section className="brand-section" aria-label="Бренды">
-        <BrandCarousel />
+        <div className="brand-heading">
+          <p className="eyebrow">Бренды</p>
+          <h2>Выберите бренд</h2>
+        </div>
+        <BrandCarousel onSelect={selectBrand} selectedBrand={selectedBrand} />
       </section>
 
       <section className="catalog-section" id="catalog">
         <div className="section-title-row">
           <div>
             <p className="eyebrow">Каталог</p>
-            <h2>Полный ассортимент точки</h2>
+            <h2>{selectedBrand ? `${selectedBrand}: товары в наличии` : "Полный ассортимент точки"}</h2>
           </div>
           <button className="price-link" onClick={() => navigate("/price")}>
             Прайс-лист
@@ -234,11 +287,28 @@ function HomePage({ products, loading, addToCart, navigate }) {
         <div className="shop-layout">
           <aside className="category-rail" aria-label="Категории товаров">
             {categories.map((item) => (
-              <button key={item} className={category === item ? "is-selected" : ""} onClick={() => setCategory(item)}>
+              <button key={item} className={category === item && !selectedBrand ? "is-selected" : ""} onClick={() => selectCategory(item)}>
                 <span>{item}</span>
                 <ChevronRight size={18} />
               </button>
             ))}
+            <div className="brand-filter" aria-label="Фильтр по брендам">
+              <span>Бренд</span>
+              <select
+                value={selectedBrand || "Все бренды"}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setSelectedBrand(value === "Все бренды" ? "" : value);
+                  setCategory("Все");
+                }}
+              >
+                {brandOptions.map((brand) => (
+                  <option key={brand} value={brand}>
+                    {brand}
+                  </option>
+                ))}
+              </select>
+            </div>
           </aside>
 
           <div className="product-zone">
@@ -246,6 +316,11 @@ function HomePage({ products, loading, addToCart, navigate }) {
               <Search size={18} />
               <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Поиск по бренду, SKU, названию" />
             </label>
+            {(selectedBrand || search) && (
+              <button className="clear-filter" onClick={() => { setSelectedBrand(""); setSearch(""); setCategory("Все"); }}>
+                Сбросить фильтр
+              </button>
+            )}
 
             {loading ? (
               <div className="skeleton-grid">
@@ -256,18 +331,20 @@ function HomePage({ products, loading, addToCart, navigate }) {
             ) : (
               <div className="product-grid">
                 {filtered.map((product, index) => (
-                  <ProductCard key={product.id} product={product} index={index} onAdd={() => addToCart(product)} />
+                  <ProductCard key={product.id} product={product} index={index} onAdd={addToCart} />
                 ))}
               </div>
             )}
           </div>
         </div>
       </section>
+
+      <MapSection />
     </>
   );
 }
 
-function BrandCarousel() {
+function BrandCarousel({ onSelect, selectedBrand }) {
   const [page, setPage] = useState(0);
   const visible = brands.slice(page * 6, page * 6 + 6);
   const canPrev = page > 0;
@@ -275,12 +352,12 @@ function BrandCarousel() {
 
   return (
     <div className="brand-stage reveal-up" aria-label="Бренды в наличии">
-      <div className="brand-grid">
+      <div className="brand-grid" key={page}>
         {visible.map((brand) => (
-          <article className="brand-card" key={brand}>
-            <span className="brand-mark">{brandMark(brand)}</span>
-            <b>{brand}</b>
-          </article>
+          <button className={`brand-card ${selectedBrand === brand.name ? "is-selected" : ""}`} key={brand.name} onClick={() => onSelect(brand.name)}>
+            <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+            <b>{brand.name}</b>
+          </button>
         ))}
       </div>
       <div className="brand-controls">
@@ -292,6 +369,35 @@ function BrandCarousel() {
         </button>
       </div>
     </div>
+  );
+}
+
+function MapSection() {
+  return (
+    <section className="map-section" id="route" aria-labelledby="route-title">
+      <div className="map-copy">
+        <div>
+          <p className="eyebrow">Где нас найти</p>
+          <h2 id="route-title">Юнона, павильон 506</h2>
+        </div>
+        <div className="map-actions">
+          <a className="call-button" href={phoneHref}>
+            Позвонить
+          </a>
+          <a className="catalog-jump" href={mapHref} target="_blank" rel="noreferrer">
+            Открыть маршрут
+          </a>
+        </div>
+      </div>
+      <div className="map-panel" aria-label="Карта: Shark Mobile, ярмарка Юнона, павильон 506">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=30.209705%2C59.862438&mode=poi&poi%5Bpoint%5D=30.209705%2C59.862438&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766072614&z=18.5"
+          title="Карта: Shark Mobile, ярмарка Юнона, павильон 506"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    </section>
   );
 }
 
@@ -309,17 +415,17 @@ function ProductCard({ product, index, onAdd }) {
         </div>
         <p>{product.description}</p>
       </div>
-      <div className="price-row">
-        <div>
+      <div className="price-row" tabIndex={0} aria-label={`Розница ${formatRub(product.retailPrice)}, опт ${formatRub(product.wholesalePrice)}`}>
+        <div className="retail-panel">
           <span>Розница</span>
           <b>{formatRub(product.retailPrice)}</b>
         </div>
-        <div>
+        <div className="wholesale-panel">
           <span>Опт</span>
           <b>{formatRub(product.wholesalePrice)}</b>
         </div>
       </div>
-      <button className="add-button" onClick={onAdd} disabled={!available}>
+      <button className="add-button" onClick={(event) => onAdd(product, event.currentTarget.closest(".product-card")?.querySelector(".product-photo")?.getBoundingClientRect())} disabled={!available}>
         {available ? "В корзину" : "Нет в наличии"}
         {available && <Plus size={18} />}
       </button>
@@ -327,7 +433,7 @@ function ProductCard({ product, index, onAdd }) {
   );
 }
 
-function CartDrawer({ open, onClose, cart, products, updateQty, clearCart }) {
+function CartPage({ cart, products, updateQty, clearCart, navigate }) {
   const [priceMode, setPriceMode] = useState("retail");
   const [form, setForm] = useState({ customerName: "", customerPhone: "", customerTelegram: "" });
   const [result, setResult] = useState(null);
@@ -355,7 +461,7 @@ function CartDrawer({ open, onClose, cart, products, updateQty, clearCart }) {
           items: items.map((item) => ({ productId: item.product.id, qty: item.qty }))
         })
       });
-      const data = await response.json();
+      const data = await readJson(response);
       if (!response.ok) {
         throw new Error(data.error || "Не удалось оформить заказ.");
       }
@@ -369,16 +475,15 @@ function CartDrawer({ open, onClose, cart, products, updateQty, clearCart }) {
   };
 
   return (
-    <div className={`cart-layer ${open ? "is-open" : ""}`} aria-hidden={!open}>
-      <button className="cart-scrim" onClick={onClose} aria-label="Закрыть корзину" />
-      <aside className="cart-drawer" aria-label="Корзина">
+    <section className="cart-page page-section" aria-label="Корзина">
+      <div className="cart-page-shell">
         <div className="drawer-head">
           <div>
             <p className="eyebrow">Заказ</p>
             <h2>Корзина</h2>
           </div>
-          <button onClick={onClose} aria-label="Закрыть корзину">
-            <ArrowRight size={22} />
+          <button onClick={() => navigate("/")} aria-label="Вернуться в каталог">
+            <ArrowLeft size={22} />
           </button>
         </div>
 
@@ -454,7 +559,27 @@ function CartDrawer({ open, onClose, cart, products, updateQty, clearCart }) {
             </form>
           </>
         )}
-      </aside>
+      </div>
+    </section>
+  );
+}
+
+function FlyToCart({ item }) {
+  const dx = item.to.x - item.from.x;
+  const dy = item.to.y - item.from.y;
+
+  return (
+    <div
+      className="fly-to-cart"
+      style={{
+        left: `${item.from.x}px`,
+        top: `${item.from.y}px`,
+        "--fly-x": `${dx}px`,
+        "--fly-y": `${dy}px`
+      }}
+      aria-hidden="true"
+    >
+      <span>{item.brand}</span>
     </div>
   );
 }
@@ -486,13 +611,13 @@ function PricePage({ products, loading, navigate }) {
             ) : (
               products.map((product) => (
                 <tr key={product.id}>
-                  <td>{product.sku}</td>
-                  <td>{product.name}</td>
-                  <td>{product.category}</td>
-                  <td>{product.brand}</td>
-                  <td>{formatRub(product.retailPrice)}</td>
-                  <td>{formatRub(product.wholesalePrice)}</td>
-                  <td>{product.stockQty} шт.</td>
+                  <td data-label="SKU">{product.sku}</td>
+                  <td data-label="Товар">{product.name}</td>
+                  <td data-label="Категория">{product.category}</td>
+                  <td data-label="Бренд">{product.brand}</td>
+                  <td data-label="Розница">{formatRub(product.retailPrice)}</td>
+                  <td data-label="Опт">{formatRub(product.wholesalePrice)}</td>
+                  <td data-label="Наличие">{product.stockQty} шт.</td>
                 </tr>
               ))
             )}
@@ -518,7 +643,7 @@ function RepairPage({ navigate }) {
   return (
     <section className="page-section repair-page">
       <p className="eyebrow">Ремонт</p>
-      <h1>Ремонт остался, но магазин теперь главный</h1>
+      <h1>Ремонт телефонов на Юноне</h1>
       <p className="lead">
         Если нужен ремонт телефона или установка стекла, приходите в павильон 506. Для аксессуаров удобнее собрать
         корзину заранее.
@@ -738,30 +863,45 @@ function Footer({ navigate }) {
   );
 }
 
-function brandMark(brand) {
-  const marks = {
-    Apple: "A",
-    Samsung: "SAMSUNG",
-    Dyson: "dyson",
-    Xiaomi: "MI",
-    Sony: "SONY",
-    Google: "Google",
-    Garmin: "GARMIN",
-    Marshall: "Marshall",
-    OnePlus: "1+",
-    Huawei: "HUAWEI",
-    Honor: "HONOR",
-    DJI: "dji"
-  };
-  return marks[brand] || brand;
-}
-
 function formatRub(value) {
   return new Intl.NumberFormat("ru-RU").format(Number(value || 0)) + " ₽";
 }
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("ru-RU", { day: "2-digit", month: "long" }).format(new Date(value));
+}
+
+async function readJson(response) {
+  const text = await response.text();
+  if (!text) {
+    return {};
+  }
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { error: "Сервер заказов не отвечает. Проверьте backend и PostgreSQL." };
+  }
+}
+
+function useOpenStatus() {
+  const getStatus = () => {
+    const now = new Date();
+    const minutes = now.getHours() * 60 + now.getMinutes();
+    const isOpen = minutes >= 10 * 60 && minutes < 19 * 60;
+    return {
+      isOpen,
+      label: isOpen ? "Открыто до 19:00" : "Откроемся в 10:00"
+    };
+  };
+
+  const [status, setStatus] = useState(getStatus);
+
+  useEffect(() => {
+    const id = window.setInterval(() => setStatus(getStatus()), 60_000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  return status;
 }
 
 createRoot(document.getElementById("root")).render(<App />);
