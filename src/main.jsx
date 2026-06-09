@@ -15,10 +15,12 @@ import {
   History,
   LogOut,
   Mail,
+  MapPin,
   Menu,
   Minus,
   Plus,
   Search,
+  SlidersHorizontal,
   ShoppingBag,
   UserPlus,
   UserRound,
@@ -163,8 +165,12 @@ function App() {
   };
 
   const openSearch = () => {
+    scrollHomeSection("#catalog");
+  };
+
+  const scrollHomeSection = (selector) => {
     navigate("/");
-    window.setTimeout(() => document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+    window.setTimeout(() => document.querySelector(selector)?.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
   };
 
   return (
@@ -177,6 +183,8 @@ function App() {
         search={globalSearch}
         setSearch={setGlobalSearch}
         onSearch={openSearch}
+        onCatalog={() => scrollHomeSection("#catalog")}
+        onRoute={() => scrollHomeSection("#route")}
         onCart={() => navigate("/cart")}
         customer={customer}
       />
@@ -237,10 +245,9 @@ function App() {
   );
 }
 
-function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, onSearch, onCart, customer }) {
+function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, onSearch, onCatalog, onRoute, onCart, customer }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const links = [
-    ["/", "Каталог"],
     ["/price", "Прайс"],
     ["/repair", "Ремонт"]
   ];
@@ -262,6 +269,9 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
         <span>Shark Mobile</span>
       </button>
       <nav className="topnav" aria-label="Разделы сайта">
+        <button className={path === "/" ? "is-active" : ""} onClick={onCatalog}>
+          Каталог
+        </button>
         {links.map(([href, label]) => (
           <button key={href} className={path === href ? "is-active" : ""} onClick={() => go(href)}>
             {label}
@@ -329,12 +339,30 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
           Позвонить
           <span>+7 981 872-69-56</span>
         </a>
+        <button
+          onClick={() => {
+            setMenuOpen(false);
+            onCatalog();
+          }}
+        >
+          Каталог
+          <ChevronRight size={18} />
+        </button>
         {[...links, ["/cabinet", "Кабинет"]].map(([href, label]) => (
           <button key={href} onClick={() => go(href)}>
             {label}
             <ChevronRight size={18} />
           </button>
         ))}
+        <button
+          onClick={() => {
+            setMenuOpen(false);
+            onRoute();
+          }}
+        >
+          Адрес
+          <MapPin size={18} />
+        </button>
         <button onClick={() => go("/favorites")}>
           Избранное
           <ChevronRight size={18} />
@@ -347,6 +375,7 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
 function HomePage({ products, loading, addToCart, navigate, search, setSearch, favorites, toggleFavorite }) {
   const [category, setCategory] = useState("Все");
   const [selectedBrand, setSelectedBrand] = useState("");
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const openStatus = useOpenStatus();
   const brandOptions = useMemo(() => ["Все бренды", ...new Set(products.map((product) => product.brand).sort())], [products]);
   const filtered = useMemo(() => {
@@ -383,9 +412,13 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
             <span className={`open-status ${openStatus.isOpen ? "is-open" : "is-closed"}`}>{openStatus.label}</span>
           </div>
           <h1>Shark Mobile</h1>
-          <p className="lead">
-            Ремонт телефонов, стекла, чехлы и зарядки на Юноне, павильон 506. Работаем каждый день с 10:00 до 19:00.
-          </p>
+          <div className="hero-offer" aria-label="Основные направления">
+            <span className="offer-primary">Опт</span>
+            <span>Розница</span>
+            <span>Аксессуары</span>
+            <span>Телефоны</span>
+            <span>Ремонт телефонов</span>
+          </div>
           <div className="hero-actions">
             <a className="call-button hero-call" href={phoneHref}>
               Позвонить
@@ -421,9 +454,21 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
         </div>
 
         <div className="shop-layout">
-          <aside className="category-rail" aria-label="Категории товаров">
+          <button className="filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
+            <SlidersHorizontal size={18} />
+            Фильтры
+            <ChevronRight size={18} />
+          </button>
+          <aside className={`category-rail ${filtersOpen ? "is-open" : ""}`} aria-label="Категории товаров">
             {categories.map((item) => (
-              <button key={item} className={category === item && !selectedBrand ? "is-selected" : ""} onClick={() => selectCategory(item)}>
+              <button
+                key={item}
+                className={category === item && !selectedBrand ? "is-selected" : ""}
+                onClick={() => {
+                  selectCategory(item);
+                  setFiltersOpen(false);
+                }}
+              >
                 <span>{item}</span>
                 <ChevronRight size={18} />
               </button>
@@ -436,6 +481,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
                   const value = event.target.value;
                   setSelectedBrand(value === "Все бренды" ? "" : value);
                   setCategory("Все");
+                  setFiltersOpen(false);
                 }}
               >
                 {brandOptions.map((brand) => (
