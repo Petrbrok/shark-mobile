@@ -10,15 +10,15 @@ import {
   ClipboardList,
   Clock,
   Heart,
+  History,
   LogOut,
   Mail,
   Menu,
   Minus,
-  PackageCheck,
   Plus,
   Search,
-  ShieldCheck,
   ShoppingBag,
+  UserPlus,
   UserRound,
   X
 } from "lucide-react";
@@ -61,6 +61,7 @@ function App() {
   const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem("shark-favorites") || "[]"));
   const [globalSearch, setGlobalSearch] = useState("");
   const [flyItem, setFlyItem] = useState(null);
+  const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
     const onPop = () => setPath(window.location.pathname);
@@ -89,6 +90,18 @@ function App() {
         )
       )
       .finally(() => setLoadingProducts(false));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/customer/me")
+      .then(readJson)
+      .then((data) => {
+        if (data.customer) {
+          setCustomer(data.customer);
+          syncCustomerFavorites(favorites, setFavorites);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const navigate = (href) => {
@@ -132,9 +145,14 @@ function App() {
   };
 
   const toggleFavorite = (productId) => {
-    setFavorites((current) =>
-      current.includes(productId) ? current.filter((id) => id !== productId) : [...current, productId]
-    );
+    setFavorites((current) => {
+      const exists = current.includes(productId);
+      const next = exists ? current.filter((id) => id !== productId) : [...current, productId];
+      if (customer) {
+        fetch(`/api/customer/favorites/${productId}`, { method: exists ? "DELETE" : "PUT" }).catch(() => {});
+      }
+      return next;
+    });
   };
 
   const openSearch = () => {
@@ -153,6 +171,7 @@ function App() {
         setSearch={setGlobalSearch}
         onSearch={openSearch}
         onCart={() => navigate("/cart")}
+        customer={customer}
       />
       <main>
         <div className="route-frame" key={path}>
@@ -164,6 +183,19 @@ function App() {
               products={products}
               updateQty={updateQty}
               clearCart={() => setCart([])}
+              navigate={navigate}
+              customer={customer}
+            />
+          ) : path === "/cabinet" || path === "/cabinet/" ? (
+            <CustomerCabinet
+              customer={customer}
+              setCustomer={setCustomer}
+              favorites={favorites}
+              setFavorites={setFavorites}
+              products={products}
+              ordersReloadKey={cart.length}
+              addToCart={addToCart}
+              toggleFavorite={toggleFavorite}
               navigate={navigate}
             />
           ) : path === "/favorites" || path === "/favorites/" ? (
@@ -198,7 +230,7 @@ function App() {
   );
 }
 
-function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, onSearch, onCart }) {
+function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, onSearch, onCart, customer }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const links = [
     ["/", "Каталог"],
@@ -250,8 +282,9 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
         <a className="call-button top-call-button" href={phoneHref}>
           Позвонить
         </a>
-        <button className="admin-button" onClick={() => go("/admin")} aria-label="Личный кабинет">
+        <button className="admin-button" onClick={() => go("/cabinet")} aria-label="Кабинет покупателя">
           <UserRound size={18} />
+          {customer && <span className="account-dot" aria-hidden="true" />}
         </button>
         <button className="mobile-search-button" onClick={openMobileSearch} aria-label="Поиск">
           <Search size={18} />
@@ -289,7 +322,7 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
           Позвонить
           <span>+7 981 872-69-56</span>
         </a>
-        {[...links, ["/admin", "Кабинет"]].map(([href, label]) => (
+        {[...links, ["/cabinet", "Кабинет"]].map(([href, label]) => (
           <button key={href} onClick={() => go(href)}>
             {label}
             <ChevronRight size={18} />
@@ -543,7 +576,7 @@ function ProductCard({ product, index, onAdd, isFavorite = false, onToggleFavori
   );
 }
 
-function CartPage({ cart, products, updateQty, clearCart, navigate }) {
+function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) {
   const [priceMode, setPriceMode] = useState("retail");
   const [form, setForm] = useState({ customerName: "", customerPhone: "", customerTelegram: "" });
   const [result, setResult] = useState(null);
@@ -566,6 +599,16 @@ function CartPage({ cart, products, updateQty, clearCart, navigate }) {
       setPriceMode("retail");
     }
   }, [priceMode, wholesaleAvailable]);
+
+  useEffect(() => {
+    if (customer) {
+      setForm({
+        customerName: customer.name || "",
+        customerPhone: customer.phone || "",
+        customerTelegram: customer.telegram || ""
+      });
+    }
+  }, [customer]);
 
   const submitOrder = async (event) => {
     event.preventDefault();
@@ -659,6 +702,14 @@ function CartPage({ cart, products, updateQty, clearCart, navigate }) {
             </div>
 
             <form className="order-form" onSubmit={submitOrder}>
+              {customer ? (
+                <p className="cabinet-order-note">Заказ будет сохранен в истории кабинета {customer.login}.</p>
+              ) : (
+                <button type="button" className="price-link full" onClick={() => navigate("/cabinet")}>
+                  Войти, чтобы сохранить заказ в истории
+                  <UserRound size={18} />
+                </button>
+              )}
               <label>
                 Имя
                 <input value={form.customerName} onChange={(event) => setForm({ ...form, customerName: event.target.value })} required />
@@ -732,6 +783,246 @@ function FavoritesPage({ products, favorites, toggleFavorite, addToCart, navigat
           ))}
         </div>
       )}
+    </section>
+  );
+}
+
+function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, products, addToCart, toggleFavorite, navigate }) {
+  const [mode, setMode] = useState("login");
+  const [authForm, setAuthForm] = useState({ login: "", password: "", name: "", phone: "", telegram: "" });
+  const [profileForm, setProfileForm] = useState({ name: "", phone: "", telegram: "" });
+  const [orders, setOrders] = useState([]);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const favoriteProducts = products.filter((product) => favorites.includes(product.id));
+
+  const loadOrders = async () => {
+    const response = await fetch("/api/customer/orders");
+    const data = await readJson(response);
+    if (response.ok) {
+      setOrders(data.orders || []);
+    }
+  };
+
+  useEffect(() => {
+    if (customer) {
+      setProfileForm({
+        name: customer.name || "",
+        phone: customer.phone || "",
+        telegram: customer.telegram || ""
+      });
+      loadOrders();
+    }
+  }, [customer]);
+
+  const submitAuth = async (event) => {
+    event.preventDefault();
+    setError("");
+    setMessage("");
+    const response = await fetch(`/api/customer/${mode === "register" ? "register" : "login"}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(authForm)
+    });
+    const data = await readJson(response);
+    if (!response.ok) {
+      setError(data.error || "Не удалось войти.");
+      return;
+    }
+    setCustomer(data.customer);
+    await syncCustomerFavorites(favorites, setFavorites);
+  };
+
+  const saveProfile = async (event) => {
+    event.preventDefault();
+    setError("");
+    setMessage("");
+    const response = await fetch("/api/customer/profile", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(profileForm)
+    });
+    const data = await readJson(response);
+    if (!response.ok) {
+      setError(data.error || "Профиль не сохранен.");
+      return;
+    }
+    setCustomer(data.customer);
+    setMessage("Профиль сохранен.");
+  };
+
+  const logout = async () => {
+    await fetch("/api/customer/logout", { method: "POST" });
+    setCustomer(null);
+    setOrders([]);
+  };
+
+  if (!customer) {
+    return (
+      <section className="page-section customer-auth-page">
+        <div className="customer-auth-copy">
+          <p className="eyebrow">Кабинет покупателя</p>
+          <h1>Ваши заказы</h1>
+          <p className="lead">История покупок, быстрый повтор заказа и избранные позиции в одном месте.</p>
+        </div>
+        <form className="order-form customer-auth-card" onSubmit={submitAuth}>
+          <div className="mode-switch compact" role="group" aria-label="Режим входа">
+            <button type="button" className={mode === "login" ? "is-selected" : ""} onClick={() => setMode("login")}>
+              Вход
+            </button>
+            <button type="button" className={mode === "register" ? "is-selected" : ""} onClick={() => setMode("register")}>
+              Регистрация
+            </button>
+          </div>
+          <label>
+            Логин
+            <input value={authForm.login} onChange={(event) => setAuthForm({ ...authForm, login: event.target.value })} required />
+          </label>
+          <label>
+            Пароль
+            <input
+              value={authForm.password}
+              onChange={(event) => setAuthForm({ ...authForm, password: event.target.value })}
+              required
+              type="password"
+              minLength={6}
+            />
+          </label>
+          {mode === "register" && (
+            <>
+              <label>
+                Имя
+                <input value={authForm.name} onChange={(event) => setAuthForm({ ...authForm, name: event.target.value })} />
+              </label>
+              <label>
+                Телефон
+                <input
+                  value={authForm.phone}
+                  onChange={(event) => setAuthForm({ ...authForm, phone: event.target.value })}
+                  type="tel"
+                />
+              </label>
+              <label>
+                Telegram
+                <input value={authForm.telegram} onChange={(event) => setAuthForm({ ...authForm, telegram: event.target.value })} />
+              </label>
+            </>
+          )}
+          {error && <p className="form-error" role="alert">{error}</p>}
+          <button className="submit-button">
+            {mode === "register" ? <UserPlus size={18} /> : <UserRound size={18} />}
+            {mode === "register" ? "Создать кабинет" : "Войти"}
+          </button>
+          <button type="button" className="price-link full" onClick={() => navigate("/cart")}>
+            Оформить как гость
+            <ChevronRight size={18} />
+          </button>
+        </form>
+      </section>
+    );
+  }
+
+  return (
+    <section className="page-section customer-page">
+      <div className="customer-head">
+        <div>
+          <p className="eyebrow">Кабинет покупателя</p>
+          <h1>{customer.login}</h1>
+        </div>
+        <button className="cart-button" onClick={logout}>
+          <LogOut size={18} />
+          <span>Выйти</span>
+        </button>
+      </div>
+
+      <div className="customer-grid">
+        <article className="customer-panel profile-panel">
+          <div className="panel-title">
+            <UserRound size={22} />
+            <h2>Профиль</h2>
+          </div>
+          <form className="order-form" onSubmit={saveProfile}>
+            <label>
+              Имя
+              <input value={profileForm.name} onChange={(event) => setProfileForm({ ...profileForm, name: event.target.value })} />
+            </label>
+            <label>
+              Телефон
+              <input
+                value={profileForm.phone}
+                onChange={(event) => setProfileForm({ ...profileForm, phone: event.target.value })}
+                type="tel"
+              />
+            </label>
+            <label>
+              Telegram
+              <input value={profileForm.telegram} onChange={(event) => setProfileForm({ ...profileForm, telegram: event.target.value })} />
+            </label>
+            {error && <p className="form-error" role="alert">{error}</p>}
+            {message && <p className="form-success">{message}</p>}
+            <button className="submit-button">Сохранить</button>
+          </form>
+        </article>
+
+        <article className="customer-panel">
+          <div className="panel-title">
+            <History size={22} />
+            <h2>История</h2>
+          </div>
+          <div className="customer-order-list">
+            {orders.length === 0 ? (
+              <p className="empty-note">Заказов пока нет.</p>
+            ) : (
+              orders.map((order) => (
+                <div className="customer-order" key={order.id}>
+                  <div>
+                    <b>{order.orderNumber}</b>
+                    <span>{orderStatuses[order.status]} · {formatRub(order.totalAmount)} · {formatDate(order.pickupDate)}</span>
+                  </div>
+                  <ul>
+                    {order.items.map((item) => (
+                      <li key={`${order.id}-${item.sku}`}>{item.qty} x {item.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            )}
+          </div>
+        </article>
+
+        <article className="customer-panel customer-favorites-panel">
+          <div className="panel-title">
+            <Heart size={22} />
+            <h2>Избранное</h2>
+          </div>
+          {favoriteProducts.length === 0 ? (
+            <div className="soft-empty">
+              <p>Пока пусто. Сохраняйте частые позиции из каталога.</p>
+              <button className="price-link" onClick={() => navigate("/")}>
+                В каталог
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          ) : (
+            <div className="cabinet-favorite-list">
+              {favoriteProducts.map((product) => (
+                <div className="cabinet-favorite" key={product.id}>
+                  <div>
+                    <b>{product.name}</b>
+                    <span>{product.brand} · {formatRub(product.retailPrice)}</span>
+                  </div>
+                  <button className="price-link" onClick={() => addToCart(product)}>
+                    В корзину
+                  </button>
+                  <button className="favorite-toggle is-active static" onClick={() => toggleFavorite(product.id)} aria-label="Убрать из избранного">
+                    <Heart size={18} fill="currentColor" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </article>
+      </div>
     </section>
   );
 }
@@ -837,7 +1128,7 @@ function RepairPage({ navigate }) {
 }
 
 function AdminPage({ products, setProducts }) {
-  const [login, setLogin] = useState("owner");
+  const [login, setLogin] = useState("admin");
   const [password, setPassword] = useState("");
   const [telegramId, setTelegramId] = useState("");
   const [isAuthed, setIsAuthed] = useState(false);
@@ -916,11 +1207,17 @@ function AdminPage({ products, setProducts }) {
     setOrders([]);
   };
 
+  const stats = {
+    new: orders.filter((order) => order.status === "new").length,
+    active: orders.filter((order) => ["new", "confirmed", "ready"].includes(order.status)).length,
+    lowStock: products.filter((product) => product.stockQty <= 3).length
+  };
+
   if (!isAuthed) {
     return (
       <section className="page-section admin-login">
-        <p className="eyebrow">Личный кабинет</p>
-        <h1>Вход</h1>
+        <p className="eyebrow">Админ-панель</p>
+        <h1>Вход админа</h1>
         <form className="order-form login-card" onSubmit={submitLogin}>
           <label>
             Логин
@@ -951,8 +1248,13 @@ function AdminPage({ products, setProducts }) {
     <section className="page-section admin-page">
       <div className="admin-head">
         <div>
-          <p className="eyebrow">Личный кабинет</p>
-          <h1>Заказы и наличие</h1>
+          <p className="eyebrow">Админ-панель</p>
+          <h1>Операции</h1>
+          <div className="admin-stats" aria-label="Сводка">
+            <span>Новые: {stats.new}</span>
+            <span>В работе: {stats.active}</span>
+            <span>Мало остатков: {stats.lowStock}</span>
+          </div>
         </div>
         <button className="cart-button" onClick={logout}>
           <LogOut size={18} />
@@ -964,7 +1266,7 @@ function AdminPage({ products, setProducts }) {
         <article className="admin-panel">
           <div className="panel-title">
             <ClipboardList size={22} />
-            <h2>Новые заказы</h2>
+            <h2>Заказы</h2>
           </div>
           <div className="order-list">
             {orders.length === 0 ? (
@@ -977,14 +1279,21 @@ function AdminPage({ products, setProducts }) {
                     <span>
                       {order.customerName} · {order.customerPhone} · {formatRub(order.totalAmount)}
                     </span>
+                    {order.customerTelegram && <span>Telegram: {order.customerTelegram}</span>}
+                    {order.customerId && <span className="customer-chip">Кабинет</span>}
                   </div>
-                  <select value={order.status} onChange={(event) => changeStatus(order.id, event.target.value)}>
+                  <div className="admin-status-row" role="group" aria-label={`Статус ${order.orderNumber}`}>
                     {Object.entries(orderStatuses).map(([value, label]) => (
-                      <option key={value} value={value}>
+                      <button
+                        key={value}
+                        className={order.status === value ? "is-selected" : ""}
+                        onClick={() => changeStatus(order.id, value)}
+                        disabled={order.status === value}
+                      >
                         {label}
-                      </option>
+                      </button>
                     ))}
-                  </select>
+                  </div>
                   <ul>
                     {order.items.map((item) => (
                       <li key={`${order.id}-${item.sku}`}>
@@ -1042,7 +1351,8 @@ function Footer({ navigate }) {
       <nav className="footer-col" aria-label="Компания">
         <b>Компания</b>
         <button onClick={() => navigate("/repair")}>Ремонт</button>
-        <button onClick={() => navigate("/admin")}>Личный кабинет</button>
+        <button onClick={() => navigate("/cabinet")}>Кабинет покупателя</button>
+        <button onClick={() => navigate("/admin")}>Админ-панель</button>
         <a href={mapHref} target="_blank" rel="noreferrer">Маршрут</a>
       </nav>
       <div className="footer-contacts">
@@ -1073,6 +1383,17 @@ async function readJson(response) {
     return JSON.parse(text);
   } catch {
     return { error: "Сервер заказов не отвечает. Проверьте backend и PostgreSQL." };
+  }
+}
+
+async function syncCustomerFavorites(localFavorites, setFavorites) {
+  await Promise.all(
+    localFavorites.map((productId) => fetch(`/api/customer/favorites/${productId}`, { method: "PUT" }).catch(() => null))
+  );
+  const response = await fetch("/api/customer/favorites");
+  if (response.ok) {
+    const data = await readJson(response);
+    setFavorites(data.favorites || []);
   }
 }
 

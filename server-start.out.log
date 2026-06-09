@@ -1,0 +1,7 @@
+
+> shark-mobile-shop@1.0.0 server
+> node server/index.js
+
+◇ injected env (8) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Shark Mobile API listening on 3000

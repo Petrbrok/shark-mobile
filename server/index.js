@@ -107,12 +107,13 @@ app.post("/api/orders", async (req, res, next) => {
       const { rows } = await client.query(
         `
           INSERT INTO orders
-            (order_number, customer_name, customer_phone, customer_telegram, price_mode, pickup_date, total_amount)
-          VALUES ($1, $2, $3, $4, $5, $6, $7)
+            (order_number, customer_id, customer_name, customer_phone, customer_telegram, price_mode, pickup_date, total_amount)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
           RETURNING *
         `,
         [
           orderNumber,
+          req.session?.customerUserId || null,
           customerName.trim(),
           customerPhone.trim(),
           customerTelegram?.trim() || null,
@@ -171,6 +172,7 @@ app.post("/api/admin/login", async (req, res, next) => {
       return res.status(401).json({ error: "Неверный логин или пароль." });
     }
     req.session.adminUserId = user.id;
+    req.session.userRole = "admin";
     res.json({ user: { id: user.id, login: user.login } });
   } catch (error) {
     next(error);
@@ -210,7 +212,202 @@ app.post("/api/admin/telegram-login", async (req, res, next) => {
     }
 
     req.session.adminUserId = rows[0].id;
+    req.session.userRole = "admin";
     res.json({ user: rows[0] });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get("/api/customer/me", async (req, res, next) => {
+  try {
+    if (!req.session?.customerUserId) {
+      return res.json({ customer: null });
+    }
+
+    const { rows } = await query(
+      `
+        SELECT id, login, name, phone, telegram
+        FROM customers
+        WHERE id = $1
+      `,
+      [req.session.customerUserId]
+    );
+    res.json({ customer: rows[0] || null });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post("/api/customer/register", async (req, res, next) => {
+  try {
+    const login = normalizeLogin(req.body.login);
+    const password = String(req.body.password || "");
+    const name = String(req.body.name || "").trim();
+    const phone = String(req.body.phone || "").trim();
+    const telegram = String(req.body.telegram || "").trim() || null;
+
+    if (login.length < 3 || password.length < 6) {
+      return res.status(400).json({ error: "Логин от 3 символов, пароль от 6 символов." });
+    }
+
+    const passwordHash = await bcrypt.hash(password, 12);
+    const { rows } = await query(
+      `
+        INSERT INTO customers (login, password_hash, name, phone, telegram)
+        VALUES ($1, $2, $3, $4, $5)
+        RETURNING id, login, name, phone, telegram
+      `,
+      [login, passwordHash, name, phone, telegram]
+    );
+
+    req.session.customerUserId = rows[0].id;
+    req.session.userRole = "customer";
+    res.status(201).json({ customer: rows[0] });
+  } catch (error) {
+    if (error.code === "23505") {
+      return res.status(409).json({ error: "Такой логин уже занят." });
+    }
+    next(error);
+  }
+});
+
+app.post("/api/customer/login", async (req, res, next) => {
+  try {
+    const login = normalizeLogin(req.body.login);
+    const { rows } = await query(
+      `
+        SELECT id, login, password_hash, name, phone, telegram
+        FROM customers
+        WHERE login = $1
+      `,
+      [login]
+    );
+    const customer = rows[0];
+    if (!customer || !(await bcrypt.compare(String(req.body.password || ""), customer.password_hash))) {
+      return res.status(401).json({ error: "Неверный логин или пароль." });
+    }
+
+    req.session.customerUserId = customer.id;
+    req.session.userRole = "customer";
+    delete customer.password_hash;
+    res.json({ customer });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post("/api/customer/logout", (req, res) => {
+  delete req.session.customerUserId;
+  if (req.session.userRole === "customer") {
+    delete req.session.userRole;
+  }
+  res.json({ ok: true });
+});
+
+app.patch("/api/customer/profile", requireCustomer, async (req, res, next) => {
+  try {
+    const name = String(req.body.name || "").trim();
+    const phone = String(req.body.phone || "").trim();
+    const telegram = String(req.body.telegram || "").trim() || null;
+    const { rows } = await query(
+      `
+        UPDATE customers
+        SET name = $1, phone = $2, telegram = $3, updated_at = now()
+        WHERE id = $4
+        RETURNING id, login, name, phone, telegram
+      `,
+      [name, phone, telegram, req.session.customerUserId]
+    );
+    res.json({ customer: rows[0] });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get("/api/customer/orders", requireCustomer, async (req, res, next) => {
+  try {
+    const { rows: orders } = await query(
+      `
+        SELECT
+          id,
+          order_number AS "orderNumber",
+          price_mode AS "priceMode",
+          status,
+          pickup_date AS "pickupDate",
+          total_amount AS "totalAmount",
+          created_at AS "createdAt"
+        FROM orders
+        WHERE customer_id = $1
+        ORDER BY created_at DESC
+        LIMIT 50
+      `,
+      [req.session.customerUserId]
+    );
+    const ids = orders.map((order) => order.id);
+    const { rows: items } = ids.length
+      ? await query(
+          `
+            SELECT order_id AS "orderId", sku, name, qty, unit_price AS "unitPrice"
+            FROM order_items
+            WHERE order_id = ANY($1::uuid[])
+            ORDER BY name
+          `,
+          [ids]
+        )
+      : { rows: [] };
+
+    res.json({
+      orders: orders.map((order) => ({
+        ...order,
+        items: items.filter((item) => item.orderId === order.id)
+      }))
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get("/api/customer/favorites", requireCustomer, async (req, res, next) => {
+  try {
+    const { rows } = await query(
+      `
+        SELECT product_id AS "productId"
+        FROM customer_favorites
+        WHERE customer_id = $1
+        ORDER BY created_at DESC
+      `,
+      [req.session.customerUserId]
+    );
+    res.json({ favorites: rows.map((row) => row.productId) });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.put("/api/customer/favorites/:productId", requireCustomer, async (req, res, next) => {
+  try {
+    await query(
+      `
+        INSERT INTO customer_favorites (customer_id, product_id)
+        VALUES ($1, $2)
+        ON CONFLICT DO NOTHING
+      `,
+      [req.session.customerUserId, req.params.productId]
+    );
+    res.json({ ok: true });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.delete("/api/customer/favorites/:productId", requireCustomer, async (req, res, next) => {
+  try {
+    await query("DELETE FROM customer_favorites WHERE customer_id = $1 AND product_id = $2", [
+      req.session.customerUserId,
+      req.params.productId
+    ]);
+    res.json({ ok: true });
   } catch (error) {
     next(error);
   }
@@ -225,6 +422,7 @@ app.get("/api/admin/orders", requireAdmin, async (_req, res, next) => {
         customer_name AS "customerName",
         customer_phone AS "customerPhone",
         customer_telegram AS "customerTelegram",
+        customer_id AS "customerId",
         price_mode AS "priceMode",
         status,
         pickup_date AS "pickupDate",
@@ -306,10 +504,21 @@ app.use((error, _req, res, _next) => {
 });
 
 function requireAdmin(req, res, next) {
-  if (!req.session?.adminUserId) {
-    return res.status(401).json({ error: "Нужен вход в личный кабинет." });
+  if (!req.session?.adminUserId || req.session.userRole !== "admin") {
+    return res.status(401).json({ error: "Нужен вход администратора." });
   }
   next();
+}
+
+function requireCustomer(req, res, next) {
+  if (!req.session?.customerUserId || req.session.userRole !== "customer") {
+    return res.status(401).json({ error: "Нужен вход в кабинет покупателя." });
+  }
+  next();
+}
+
+function normalizeLogin(value) {
+  return String(value || "").trim().toLowerCase();
 }
 
 async function nextOrderNumber(client) {
