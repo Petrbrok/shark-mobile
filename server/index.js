@@ -159,7 +159,7 @@ app.post("/api/orders", async (req, res, next) => {
       };
     });
 
-    notifyOwner(created.order, created.items).catch((error) => {
+    await notifyOwner(created.order, created.items).catch((error) => {
       console.error(error.message);
     });
 

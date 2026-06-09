@@ -21,53 +21,52 @@ export async function notifyOwner(order, items) {
     return { skipped: true };
   }
 
-  const results = [];
-
-  for (const chatId of chatIds) {
-    const inserted = await query(
-      `
-        INSERT INTO telegram_notifications (order_id, chat_id, status)
-        VALUES ($1, $2, 'sent')
-        ON CONFLICT (order_id, chat_id) DO NOTHING
-        RETURNING id
-      `,
-      [order.id, chatId]
-    );
-
-    if (!inserted.rowCount) {
-      results.push({ chatId, skipped: true });
-      continue;
-    }
-
-    try {
-      const sent = await telegramRequest("sendMessage", {
-        chat_id: chatId,
-        text: renderOrderMessage(order, items),
-        disable_web_page_preview: true,
-        reply_markup: renderOrderKeyboard(order.id, order.status)
-      });
-
-      await query(
+  const results = await Promise.all(
+    chatIds.map(async (chatId) => {
+      const inserted = await query(
         `
-          UPDATE telegram_notifications
-          SET message_id = $1, status = 'sent', error = NULL, updated_at = now()
-          WHERE order_id = $2 AND chat_id = $3
+          INSERT INTO telegram_notifications (order_id, chat_id, status)
+          VALUES ($1, $2, 'sent')
+          ON CONFLICT (order_id, chat_id) DO NOTHING
+          RETURNING id
         `,
-        [String(sent.result.message_id), order.id, chatId]
+        [order.id, chatId]
       );
-      results.push({ chatId, messageId: sent.result.message_id });
-    } catch (error) {
-      await query(
-        `
-          UPDATE telegram_notifications
-          SET status = 'failed', error = $1, updated_at = now()
-          WHERE order_id = $2 AND chat_id = $3
-        `,
-        [error.message.slice(0, 500), order.id, chatId]
-      );
-      results.push({ chatId, error: error.message });
-    }
-  }
+
+      if (!inserted.rowCount) {
+        return { chatId, skipped: true };
+      }
+
+      try {
+        const sent = await telegramRequest("sendMessage", {
+          chat_id: chatId,
+          text: renderOrderMessage(order, items),
+          disable_web_page_preview: true,
+          reply_markup: renderOrderKeyboard(order.id, order.status)
+        });
+
+        await query(
+          `
+            UPDATE telegram_notifications
+            SET message_id = $1, status = 'sent', error = NULL, updated_at = now()
+            WHERE order_id = $2 AND chat_id = $3
+          `,
+          [String(sent.result.message_id), order.id, chatId]
+        );
+        return { chatId, messageId: sent.result.message_id };
+      } catch (error) {
+        await query(
+          `
+            UPDATE telegram_notifications
+            SET status = 'failed', error = $1, updated_at = now()
+            WHERE order_id = $2 AND chat_id = $3
+          `,
+          [error.message.slice(0, 500), order.id, chatId]
+        );
+        return { chatId, error: error.message };
+      }
+    })
+  );
 
   return results;
 }
