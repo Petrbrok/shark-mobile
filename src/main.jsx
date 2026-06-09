@@ -9,6 +9,8 @@ import {
   ChevronRight,
   ClipboardList,
   Clock,
+  Eye,
+  EyeOff,
   Heart,
   History,
   LogOut,
@@ -795,6 +797,7 @@ function FavoritesPage({ products, favorites, toggleFavorite, addToCart, navigat
 function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, products, addToCart, toggleFavorite, navigate }) {
   const [mode, setMode] = useState("login");
   const [authForm, setAuthForm] = useState({ login: "", password: "", name: "", phone: "", telegram: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const [profileForm, setProfileForm] = useState({ name: "", phone: "", telegram: "" });
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState("");
@@ -885,13 +888,23 @@ function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, produ
           </label>
           <label>
             Пароль
-            <input
-              value={authForm.password}
-              onChange={(event) => setAuthForm({ ...authForm, password: event.target.value })}
-              required
-              type="password"
-              minLength={6}
-            />
+            <span className="password-field">
+              <input
+                value={authForm.password}
+                onChange={(event) => setAuthForm({ ...authForm, password: event.target.value })}
+                required
+                type={showPassword ? "text" : "password"}
+                minLength={6}
+              />
+              <button
+                type="button"
+                className="password-toggle-button"
+                onClick={() => setShowPassword((value) => !value)}
+                aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </span>
           </label>
           {mode === "register" && (
             <>
@@ -1135,6 +1148,7 @@ function RepairPage({ navigate }) {
 function AdminPage({ products, setProducts }) {
   const [login, setLogin] = useState("admin");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [telegramId, setTelegramId] = useState("");
   const [isAuthed, setIsAuthed] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -1230,7 +1244,22 @@ function AdminPage({ products, setProducts }) {
           </label>
           <label>
             Пароль
-            <input value={password} onChange={(event) => setPassword(event.target.value)} required type="password" />
+            <span className="password-field">
+              <input
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                required
+                type={showPassword ? "text" : "password"}
+              />
+              <button
+                type="button"
+                className="password-toggle-button"
+                onClick={() => setShowPassword((value) => !value)}
+                aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </span>
           </label>
           <button className="submit-button">Войти</button>
           <div className="telegram-link-box">

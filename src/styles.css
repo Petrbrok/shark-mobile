@@ -1348,6 +1348,34 @@ h3 {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.password-field {
+  position: relative;
+  display: block;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 52px;
+}
+
+.password-toggle-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: grid;
+  width: 44px;
+  min-height: 44px;
+  place-items: center;
+  border: 0;
+  color: var(--blue-2);
+  background: transparent;
+}
+
+.password-toggle-button:hover {
+  color: var(--ink);
+  background: rgba(47, 145, 255, 0.12);
+}
+
 .owner-order select {
   min-width: 160px;
 }
