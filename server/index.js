@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const distDir = path.join(rootDir, "dist");
 
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "1mb" }));
 app.use(
   cookieSession({
