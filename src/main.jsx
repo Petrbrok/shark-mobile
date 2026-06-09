@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowLeft,
-  ArrowRight,
   BadgeCheck,
   Boxes,
   Check,
@@ -36,12 +35,12 @@ const mapHref =
 const brands = [
   { name: "Apple", logo: "https://cdn.simpleicons.org/apple/050608" },
   { name: "Samsung", logo: "https://cdn.simpleicons.org/samsung/050608" },
-  { name: "Dyson", logo: "https://cdn.worldvectorlogo.com/logos/dyson.svg" },
+  { name: "Dyson", markClass: "brand-wordmark dyson-wordmark" },
   { name: "Xiaomi", logo: "https://cdn.simpleicons.org/xiaomi/050608" },
   { name: "Sony", logo: "https://cdn.simpleicons.org/sony/050608" },
   { name: "Google", logo: "https://cdn.simpleicons.org/google/050608" },
   { name: "Garmin", logo: "https://cdn.simpleicons.org/garmin/050608" },
-  { name: "Marshall", logo: "https://cdn.worldvectorlogo.com/logos/marshall.svg" },
+  { name: "Marshall", markClass: "brand-wordmark marshall-wordmark" },
   { name: "OnePlus", logo: "https://cdn.simpleicons.org/oneplus/050608" },
   { name: "Huawei", logo: "https://cdn.simpleicons.org/huawei/050608" },
   { name: "Honor", logo: "https://cdn.simpleicons.org/honor/050608" },
@@ -424,7 +423,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
               Позвонить
             </a>
             <button className="catalog-jump" onClick={() => document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth" })}>
-              Перейти в каталог
+              Каталог
             </button>
           </div>
         </div>
@@ -534,28 +533,19 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
 }
 
 function BrandCarousel({ onSelect, selectedBrand }) {
-  const [page, setPage] = useState(0);
-  const visible = brands.slice(page * 6, page * 6 + 6);
-  const canPrev = page > 0;
-  const canNext = page < Math.ceil(brands.length / 6) - 1;
-
   return (
     <div className="brand-stage reveal-up" aria-label="Бренды в наличии">
-      <div className="brand-grid" key={page}>
-        {visible.map((brand) => (
+      <div className="brand-grid">
+        {brands.map((brand) => (
           <button className={`brand-card ${selectedBrand === brand.name ? "is-selected" : ""}`} key={brand.name} onClick={() => onSelect(brand.name)}>
-            <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+            {brand.logo ? (
+              <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+            ) : (
+              <span className={brand.markClass || "brand-wordmark"}>{brand.name}</span>
+            )}
             <b>{brand.name}</b>
           </button>
         ))}
-      </div>
-      <div className="brand-controls">
-        <button onClick={() => setPage(page - 1)} disabled={!canPrev} aria-label="Предыдущие бренды">
-          <ArrowLeft size={20} />
-        </button>
-        <button onClick={() => setPage(page + 1)} disabled={!canNext} aria-label="Следующие бренды">
-          <ArrowRight size={20} />
-        </button>
       </div>
     </div>
   );
@@ -631,7 +621,14 @@ function ProductCard({ product, index, onAdd, isFavorite = false, onToggleFavori
 
 function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) {
   const [priceMode, setPriceMode] = useState("retail");
-  const [form, setForm] = useState({ customerName: "", customerPhone: "", customerTelegram: "" });
+  const defaultPickupDate = getDefaultPickupDate();
+  const [form, setForm] = useState({
+    customerName: "",
+    customerPhone: "",
+    customerTelegram: "",
+    pickupDate: defaultPickupDate,
+    pickupTime: "12:00"
+  });
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -655,11 +652,14 @@ function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) 
 
   useEffect(() => {
     if (customer) {
-      setForm({
+      setForm((current) => ({
+        ...current,
         customerName: customer.name || "",
         customerPhone: customer.phone || "",
-        customerTelegram: customer.telegram || ""
-      });
+        customerTelegram: customer.telegram || "",
+        pickupDate: current.pickupDate || defaultPickupDate,
+        pickupTime: current.pickupTime || "12:00"
+      }));
     }
   }, [customer]);
 
@@ -708,7 +708,7 @@ function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) 
             <Check size={34} />
             <h3>Заказ создан</h3>
             <p>
-              Номер {result.orderNumber}. Самовывоз: {formatDate(result.pickupDate)}. Назовите номер на точке.
+              Номер {result.orderNumber}. Самовывоз: {formatPickup(result.pickupDate, result.pickupTime)}. Назовите номер на точке.
             </p>
           </div>
         ) : (
@@ -780,6 +780,30 @@ function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) 
                 Telegram
                 <input value={form.customerTelegram} onChange={(event) => setForm({ ...form, customerTelegram: event.target.value })} />
               </label>
+              <div className="pickup-fields" aria-label="Удобные дата и время получения заказа">
+                <label>
+                  Удобная дата получения
+                  <input
+                    value={form.pickupDate}
+                    onChange={(event) => setForm({ ...form, pickupDate: event.target.value })}
+                    required
+                    type="date"
+                    min={defaultPickupDate}
+                  />
+                </label>
+                <label>
+                  Удобное время
+                  <input
+                    value={form.pickupTime}
+                    onChange={(event) => setForm({ ...form, pickupTime: event.target.value })}
+                    required
+                    type="time"
+                    min="10:00"
+                    max="19:00"
+                    step="1800"
+                  />
+                </label>
+              </div>
               {error && <p className="form-error" role="alert">{error}</p>}
               <div className="total-line">
                 <span>Итого</span>
@@ -1041,7 +1065,7 @@ function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, produ
                 <div className="customer-order" key={order.id}>
                   <div>
                     <b>{order.orderNumber}</b>
-                    <span>{orderStatuses[order.status]} · {formatRub(order.totalAmount)} · {formatDate(order.pickupDate)}</span>
+                    <span>{orderStatuses[order.status]} · {formatRub(order.totalAmount)} · {formatPickup(order.pickupDate, order.pickupTime)}</span>
                   </div>
                   <ul>
                     {order.items.map((item) => (
@@ -1359,6 +1383,7 @@ function AdminPage({ products, setProducts }) {
                     <span>
                       {order.customerName} · {order.customerPhone} · {formatRub(order.totalAmount)}
                     </span>
+                    <span>Получение: {formatPickup(order.pickupDate, order.pickupTime)}</span>
                     {order.customerTelegram && <span>Telegram: {order.customerTelegram}</span>}
                     {order.customerId && <span className="customer-chip">Кабинет</span>}
                   </div>
@@ -1452,6 +1477,14 @@ function formatRub(value) {
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("ru-RU", { day: "2-digit", month: "long" }).format(new Date(value));
+}
+
+function formatPickup(date, time) {
+  return `${formatDate(date)}${time ? ` в ${String(time).slice(0, 5)}` : ""}`;
+}
+
+function getDefaultPickupDate() {
+  return new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 }
 
 async function readJson(response) {

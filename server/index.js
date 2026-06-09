@@ -67,8 +67,13 @@ app.get("/api/products", async (_req, res, next) => {
 app.post("/api/orders", async (req, res, next) => {
   try {
     const { customerName, customerPhone, customerTelegram, priceMode = "retail", items = [] } = req.body;
+    const pickupDate = normalizePickupDate(req.body.pickupDate);
+    const pickupTime = normalizePickupTime(req.body.pickupTime);
     if (!customerName?.trim() || !customerPhone?.trim()) {
       return res.status(400).json({ error: "Укажите имя и телефон." });
+    }
+    if (!pickupDate || !pickupTime) {
+      return res.status(400).json({ error: "Выберите удобные дату и время получения заказа." });
     }
     if (!["retail", "wholesale"].includes(priceMode)) {
       return res.status(400).json({ error: "Некорректный тип цены." });
@@ -111,14 +116,13 @@ app.post("/api/orders", async (req, res, next) => {
       }
 
       const totalAmount = orderItems.reduce((sum, item) => sum + item.unitPrice * item.qty, 0);
-      const pickupDate = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
       const orderNumber = await nextOrderNumber(client);
 
       const { rows } = await client.query(
         `
           INSERT INTO orders
-            (order_number, customer_id, customer_name, customer_phone, customer_telegram, price_mode, pickup_date, total_amount)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            (order_number, customer_id, customer_name, customer_phone, customer_telegram, price_mode, pickup_date, pickup_time, total_amount)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
           RETURNING *
         `,
         [
@@ -129,6 +133,7 @@ app.post("/api/orders", async (req, res, next) => {
           customerTelegram?.trim() || null,
           priceMode,
           pickupDate,
+          pickupTime,
           totalAmount
         ]
       );
@@ -166,6 +171,7 @@ app.post("/api/orders", async (req, res, next) => {
     res.status(201).json({
       orderNumber: created.order.order_number,
       pickupDate: created.order.pickup_date,
+      pickupTime: created.order.pickup_time,
       totalAmount: created.order.total_amount
     });
   } catch (error) {
@@ -345,6 +351,7 @@ app.get("/api/customer/orders", requireCustomer, async (req, res, next) => {
           price_mode AS "priceMode",
           status,
           pickup_date AS "pickupDate",
+          pickup_time AS "pickupTime",
           total_amount AS "totalAmount",
           created_at AS "createdAt"
         FROM orders
@@ -436,6 +443,7 @@ app.get("/api/admin/orders", requireAdmin, async (_req, res, next) => {
         price_mode AS "priceMode",
         status,
         pickup_date AS "pickupDate",
+        pickup_time AS "pickupTime",
         total_amount AS "totalAmount",
         created_at AS "createdAt"
       FROM orders
@@ -531,6 +539,27 @@ function requireCustomer(req, res, next) {
 
 function normalizeLogin(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function normalizePickupDate(value) {
+  const date = String(value || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return null;
+  }
+  return date;
+}
+
+function normalizePickupTime(value) {
+  const time = String(value || "").trim();
+  const match = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(time);
+  if (!match) {
+    return null;
+  }
+  const minutes = Number(match[1]) * 60 + Number(match[2]);
+  if (minutes < 10 * 60 || minutes > 19 * 60) {
+    return null;
+  }
+  return time;
 }
 
 async function nextOrderNumber(client) {

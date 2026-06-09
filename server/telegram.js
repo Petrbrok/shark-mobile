@@ -186,7 +186,7 @@ function renderOrderMessage(order, items) {
     `Телефон: ${order.customer_phone}`,
     order.customer_telegram ? `Telegram: ${order.customer_telegram}` : null,
     `Цена: ${order.price_mode === "wholesale" ? "опт" : "розница"}`,
-    `Самовывоз: ${formatDate(order.pickup_date)}`,
+    `Самовывоз: ${formatPickup(order.pickup_date, order.pickup_time)}`,
     `Сумма: ${formatRub(order.total_amount)}`,
     "",
     ...items.map((item) => `${item.qty} x ${item.name} - ${formatRub(item.unit_price)}`)
@@ -251,6 +251,10 @@ function formatRub(value) {
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("ru-RU", { day: "2-digit", month: "long" }).format(new Date(value));
+}
+
+function formatPickup(date, time) {
+  return `${formatDate(date)}${time ? ` в ${String(time).slice(0, 5)}` : ""}`;
 }
 
 function delay(ms) {

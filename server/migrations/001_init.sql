@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS orders (
   price_mode TEXT NOT NULL CHECK (price_mode IN ('retail', 'wholesale')),
   status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'confirmed', 'ready', 'picked_up', 'cancelled')),
   pickup_date DATE NOT NULL,
+  pickup_time TIME NOT NULL DEFAULT '10:00',
   total_amount INTEGER NOT NULL CHECK (total_amount >= 0),
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
