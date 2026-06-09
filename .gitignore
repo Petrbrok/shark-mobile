@@ -7,3 +7,5 @@ npm-debug.log*
 vite-local.*.log
 server-local.*.log
 coverage/
+
+.vercel

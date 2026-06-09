@@ -79,7 +79,12 @@ function App() {
 
   useEffect(() => {
     fetch("/api/products")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Products API unavailable");
+        }
+        return response.json();
+      })
       .then((data) => setProducts(data.products || []))
       .catch(() =>
         setProducts(

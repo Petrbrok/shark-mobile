@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    },
+    {
+      "source": "/cabinet",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/cabinet/",
+      "destination": "/index.html"
+    },
+    {
       "source": "/price",
       "destination": "/index.html"
     },
@@ -26,6 +38,10 @@
     },
     {
       "source": "/admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/",
       "destination": "/index.html"
     }
   ]

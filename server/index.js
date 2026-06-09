@@ -5,7 +5,7 @@ import cookieSession from "cookie-session";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
 import { pool, query, withTransaction } from "./db.js";
-import { notifyOwner } from "./telegram.js";
+import { handleTelegramUpdate, notifyOwner } from "./telegram.js";
 
 dotenv.config();
 
@@ -29,6 +29,15 @@ app.use(
 
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true });
+});
+
+app.post("/api/telegram/webhook", async (req, res, next) => {
+  try {
+    await handleTelegramUpdate(req.body);
+    res.json({ ok: true });
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.get("/api/products", async (_req, res, next) => {
@@ -493,10 +502,12 @@ app.patch("/api/admin/products/:id", requireAdmin, async (req, res, next) => {
   }
 });
 
-app.use(express.static(distDir));
-app.use((_req, res) => {
-  res.sendFile(path.join(distDir, "index.html"));
-});
+if (!process.env.VERCEL) {
+  app.use(express.static(distDir));
+  app.use((_req, res) => {
+    res.sendFile(path.join(distDir, "index.html"));
+  });
+}
 
 app.use((error, _req, res, _next) => {
   console.error(error);
@@ -536,11 +547,15 @@ function httpError(status, publicMessage) {
   return error;
 }
 
-process.on("SIGTERM", async () => {
-  await pool.end();
-  process.exit(0);
-});
+if (!process.env.VERCEL) {
+  process.on("SIGTERM", async () => {
+    await pool.end();
+    process.exit(0);
+  });
 
-app.listen(port, () => {
-  console.log(`Shark Mobile API listening on ${port}`);
-});
+  app.listen(port, () => {
+    console.log(`Shark Mobile API listening on ${port}`);
+  });
+}
+
+export default app;
