@@ -56,6 +56,53 @@ const orderStatuses = {
   cancelled: "Отменен"
 };
 
+const legalDocuments = {
+  "/privacy": {
+    title: "Политика конфиденциальности",
+    lead: "Как Shark Mobile собирает, использует и защищает персональные данные покупателей.",
+    sections: [
+      ["Оператор данных", ["Оператор: [ФИО/ИП/ООО], ИНН [ИНН], ОГРН/ОГРНИП [ОГРН/ОГРНИП], адрес: [юридический адрес], email: [email]. Точка выдачи: Shark Mobile, ярмарка Юнона, павильон 506."]],
+      ["Какие данные обрабатываются", ["Имя, телефон, Telegram, логин кабинета, история заказов, избранные товары, дата и время самовывоза, технические данные браузера и устройства, необходимые для работы сайта."]],
+      ["Цели обработки", ["Оформление и выдача заказов, связь с покупателем, ведение кабинета покупателя, обработка избранного, поддержка и улучшение работы сайта, выполнение требований законодательства РФ."]],
+      ["Хранение и защита", ["Данные хранятся столько, сколько нужно для обработки заказов, поддержки кабинета и выполнения законных обязанностей. Доступ ограничивается техническими и организационными мерами защиты."]],
+      ["Права пользователя", ["Пользователь может запросить уточнение, блокирование или удаление персональных данных, а также отозвать согласие, обратившись по контактам Shark Mobile."]]
+    ]
+  },
+  "/terms": {
+    title: "Пользовательское соглашение",
+    lead: "Условия использования сайта, каталога, корзины, избранного и кабинета покупателя.",
+    sections: [
+      ["Общие условия", ["Сайт Shark Mobile помогает выбрать аксессуары, телефоны и услуги ремонта, оформить заказ на самовывоз и сохранить историю покупок в кабинете."]],
+      ["Кабинет покупателя", ["Пользователь отвечает за сохранность логина и пароля. Данные кабинета используются для истории заказов, избранного и быстрого оформления покупки."]],
+      ["Каталог и наличие", ["Цены, наличие и характеристики показываются по данным сайта и могут уточняться сотрудником при подтверждении заказа."]],
+      ["Ограничения", ["Запрещено нарушать работу сайта, использовать чужой кабинет, передавать недостоверные контактные данные или оформлять фиктивные заказы."]],
+      ["Документы", ["Используя сайт и отправляя формы, пользователь принимает это соглашение, политику конфиденциальности, оферту и согласие на обработку персональных данных."]]
+    ]
+  },
+  "/offer": {
+    title: "Публичная оферта",
+    lead: "Минимальные условия продажи товаров Shark Mobile через сайт с самовывозом.",
+    sections: [
+      ["Продавец", ["Продавец: [ФИО/ИП/ООО], ИНН [ИНН], ОГРН/ОГРНИП [ОГРН/ОГРНИП], адрес: [юридический адрес], email: [email]. Контакты точки: Shark Mobile, Юнона, павильон 506, +7 981 872-69-56, Telegram: @Shark_Mobile506."]],
+      ["Предмет оферты", ["Продавец предлагает покупателю приобрести товары из каталога сайта. Заказ считается оформленным после отправки формы корзины и присвоения номера заказа."]],
+      ["Цены и опт", ["Розничная и оптовая цены отображаются в карточке товара. Оптовый режим заказа доступен от 20 единиц и применяется в корзине согласно текущей логике сайта."]],
+      ["Самовывоз и оплата", ["Получение заказа происходит в павильоне 506 на ярмарке Юнона в выбранные покупателем дату и время, после подтверждения наличия. Условия оплаты уточняются при выдаче или подтверждении заказа."]],
+      ["Возврат и обмен", ["Покупатель вправе отказаться от товара до передачи, а после передачи пользуется правами, предусмотренными законодательством РФ о защите прав потребителей для дистанционной продажи."]]
+    ]
+  },
+  "/personal-data-consent": {
+    title: "Согласие на обработку персональных данных",
+    lead: "Текст согласия, которое пользователь дает при регистрации и оформлении заказа.",
+    sections: [
+      ["Кому дается согласие", ["Оператору [ФИО/ИП/ООО], ИНН [ИНН], ОГРН/ОГРНИП [ОГРН/ОГРНИП], адрес: [юридический адрес], email: [email]."]],
+      ["Состав данных", ["Имя, телефон, Telegram, логин, пароль в защищенном виде, сведения о заказах, избранных товарах, выбранных дате и времени получения заказа."]],
+      ["Цели", ["Создание кабинета покупателя, оформление и выдача заказа, связь по заказу, сохранение истории покупок, выполнение требований законодательства РФ."]],
+      ["Действия с данными", ["Сбор, запись, систематизация, хранение, уточнение, использование, передача в пределах используемой инфраструктуры сайта, блокирование, удаление и уничтожение."]],
+      ["Срок и отзыв", ["Согласие действует до достижения целей обработки или до отзыва пользователем. Отозвать согласие можно через обращение по контактам Shark Mobile."]]
+    ]
+  }
+};
+
 function App() {
   const [path, setPath] = useState(window.location.pathname);
   const [products, setProducts] = useState([]);
@@ -119,6 +166,7 @@ function App() {
   };
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  const currentLegalDocument = legalDocuments[path.replace(/\/$/, "")];
   const addToCart = (product, sourceRect) => {
     setCart((current) => {
       const existing = current.find((item) => item.productId === product.id);
@@ -224,6 +272,8 @@ function App() {
             <RepairPage navigate={navigate} />
           ) : path === "/admin" ? (
             <AdminPage products={products} setProducts={setProducts} />
+          ) : currentLegalDocument ? (
+            <LegalPage document={currentLegalDocument} navigate={navigate} />
           ) : (
             <HomePage
               products={products}
@@ -347,7 +397,7 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
           Каталог
           <ChevronRight size={18} />
         </button>
-        {[...links, ["/cabinet", "Кабинет"]].map(([href, label]) => (
+        {links.map(([href, label]) => (
           <button key={href} onClick={() => go(href)}>
             {label}
             <ChevronRight size={18} />
@@ -632,6 +682,7 @@ function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) 
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [orderConsent, setOrderConsent] = useState(false);
   const items = cart
     .map((item) => ({ ...item, product: products.find((product) => product.id === item.productId) }))
     .filter((item) => item.product);
@@ -666,6 +717,10 @@ function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) 
   const submitOrder = async (event) => {
     event.preventDefault();
     setError("");
+    if (!orderConsent) {
+      setError("Подтвердите согласие на обработку персональных данных и условия оферты.");
+      return;
+    }
     setSubmitting(true);
     try {
       const response = await fetch("/api/orders", {
@@ -804,6 +859,20 @@ function CartPage({ cart, products, updateQty, clearCart, navigate, customer }) 
                   />
                 </label>
               </div>
+              <label className="consent-row">
+                <input
+                  checked={orderConsent}
+                  onChange={(event) => setOrderConsent(event.target.checked)}
+                  required
+                  type="checkbox"
+                />
+                <span>
+                  Согласен на обработку персональных данных и принимаю{" "}
+                  <RouteLink navigate={navigate} to="/personal-data-consent">согласие</RouteLink>,{" "}
+                  <RouteLink navigate={navigate} to="/privacy">политику конфиденциальности</RouteLink> и{" "}
+                  <RouteLink navigate={navigate} to="/offer">оферту</RouteLink>.
+                </span>
+              </label>
               {error && <p className="form-error" role="alert">{error}</p>}
               <div className="total-line">
                 <span>Итого</span>
@@ -867,6 +936,7 @@ function FavoritesPage({ products, favorites, toggleFavorite, addToCart, navigat
 function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, products, addToCart, toggleFavorite, navigate }) {
   const [mode, setMode] = useState("login");
   const [authForm, setAuthForm] = useState({ login: "", password: "", name: "", phone: "", telegram: "" });
+  const [authConsent, setAuthConsent] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [profileForm, setProfileForm] = useState({ name: "", phone: "", telegram: "" });
   const [orders, setOrders] = useState([]);
@@ -897,6 +967,10 @@ function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, produ
     event.preventDefault();
     setError("");
     setMessage("");
+    if (mode === "register" && !authConsent) {
+      setError("Подтвердите согласие на обработку персональных данных и условия сайта.");
+      return;
+    }
     const response = await fetch(`/api/customer/${mode === "register" ? "register" : "login"}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -994,6 +1068,20 @@ function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, produ
                 Telegram
                 <input value={authForm.telegram} onChange={(event) => setAuthForm({ ...authForm, telegram: event.target.value })} />
               </label>
+              <label className="consent-row">
+                <input
+                  checked={authConsent}
+                  onChange={(event) => setAuthConsent(event.target.checked)}
+                  required
+                  type="checkbox"
+                />
+                <span>
+                  Согласен на обработку персональных данных и принимаю{" "}
+                  <RouteLink navigate={navigate} to="/personal-data-consent">согласие</RouteLink>,{" "}
+                  <RouteLink navigate={navigate} to="/privacy">политику конфиденциальности</RouteLink> и{" "}
+                  <RouteLink navigate={navigate} to="/terms">пользовательское соглашение</RouteLink>.
+                </span>
+              </label>
             </>
           )}
           {error && <p className="form-error" role="alert">{error}</p>}
@@ -1048,6 +1136,11 @@ function CustomerCabinet({ customer, setCustomer, favorites, setFavorites, produ
             </label>
             {error && <p className="form-error" role="alert">{error}</p>}
             {message && <p className="form-success">{message}</p>}
+            <p className="legal-note">
+              Сохраняя профиль, вы можете обновить контактные данные для заказов. Обработка идет по{" "}
+              <RouteLink navigate={navigate} to="/privacy">политике конфиденциальности</RouteLink> и{" "}
+              <RouteLink navigate={navigate} to="/personal-data-consent">согласию на обработку данных</RouteLink>.
+            </p>
             <button className="submit-button">Сохранить</button>
           </form>
         </article>
@@ -1436,6 +1529,49 @@ function AdminPage({ products, setProducts }) {
   );
 }
 
+function LegalPage({ document, navigate }) {
+  return (
+    <section className="page-section legal-page">
+      <div className="legal-shell">
+        <button className="price-link legal-back" onClick={() => navigate("/")}>
+          <ArrowLeft size={18} />
+          В каталог
+        </button>
+        <p className="eyebrow">Документы Shark Mobile</p>
+        <h1>{document.title}</h1>
+        <p className="lead">{document.lead}</p>
+        <p className="legal-updated">Редакция от 10.06.2026. Реквизиты продавца указаны как плейсхолдеры и требуют замены.</p>
+        <div className="legal-sections">
+          {document.sections.map(([title, paragraphs]) => (
+            <article className="legal-section" key={title}>
+              <h2>{title}</h2>
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function RouteLink({ navigate, to, children }) {
+  return (
+    <button
+      className="legal-text-link"
+      type="button"
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        navigate(to);
+      }}
+    >
+      {children}
+    </button>
+  );
+}
+
 function Footer({ navigate }) {
   return (
     <footer className="footer">
@@ -1459,6 +1595,13 @@ function Footer({ navigate }) {
         <button onClick={() => navigate("/cabinet")}>Кабинет покупателя</button>
         <button onClick={() => navigate("/admin")}>Админ-панель</button>
         <a href={mapHref} target="_blank" rel="noreferrer">Маршрут</a>
+      </nav>
+      <nav className="footer-col" aria-label="Документы">
+        <b>Документы</b>
+        <button onClick={() => navigate("/privacy")}>Политика конфиденциальности</button>
+        <button onClick={() => navigate("/terms")}>Пользовательское соглашение</button>
+        <button onClick={() => navigate("/offer")}>Публичная оферта</button>
+        <button onClick={() => navigate("/personal-data-consent")}>Согласие на обработку данных</button>
       </nav>
       <div className="footer-contacts">
         <b>Контакты</b>
