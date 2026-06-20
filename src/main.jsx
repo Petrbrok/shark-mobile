@@ -12,17 +12,22 @@ import {
   EyeOff,
   Heart,
   History,
+  Headphones,
   LogOut,
   Mail,
   MapPin,
   Menu,
   Minus,
+  PhoneCall,
   Plus,
   Search,
   SlidersHorizontal,
   ShoppingBag,
+  Smartphone,
   UserPlus,
   UserRound,
+  UsersRound,
+  Wrench,
   X
 } from "lucide-react";
 import { seedProducts } from "../server/products.seed.js";
@@ -447,6 +452,14 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
     setSelectedBrand("");
   };
 
+  const heroServices = [
+    { title: "Ремонт", Icon: Wrench, tone: "repair" },
+    { title: "Аксессуары", Icon: Headphones, tone: "accessories" },
+    { title: "Телефоны", Icon: Smartphone, tone: "phones" },
+    { title: "Опт", Icon: Boxes, tone: "wholesale" },
+    { title: "Розница", Icon: UsersRound, tone: "retail" }
+  ];
+
   return (
     <>
       <section className="hero-shop">
@@ -460,22 +473,32 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
             <span>Павильон 506</span>
             <span className={`open-status ${openStatus.isOpen ? "is-open" : "is-closed"}`}>{openStatus.label}</span>
           </div>
-          <h1>Shark Mobile</h1>
-          <div className="hero-offer" aria-label="Основные направления">
-            <span className="offer-primary">Опт</span>
-            <span>Розница</span>
-            <span>Аксессуары</span>
-            <span>Телефоны</span>
-            <span>Ремонт телефонов</span>
-          </div>
+          <h1>
+            <span>Shark</span>
+            <span>Mobile</span>
+          </h1>
+          <p className="hero-lead">Телефоны и аксессуары в наличии на Юноне.</p>
           <div className="hero-actions">
             <a className="call-button hero-call" href={phoneHref}>
+              <PhoneCall size={22} strokeWidth={2.4} />
               Позвонить
             </a>
             <button className="catalog-jump" onClick={() => document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth" })}>
-              Каталог
+              <ShoppingBag size={22} strokeWidth={2.4} />
+              Перейти в каталог
             </button>
           </div>
+          <div className="hero-services" aria-label="Основные направления">
+            {heroServices.map(({ title, Icon, tone }) => (
+              <span className={`hero-service is-${tone}`} key={title}>
+                <Icon size={22} strokeWidth={2.35} />
+                <b>{title}</b>
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="hero-phone-visual reveal-up" aria-hidden="true">
+          <img src="/assets/hero-iphone-user.png" alt="" />
         </div>
         <div className="hero-logo reveal-up" aria-label="Логотип Shark Mobile">
           <img src="/assets/logo-background.png" alt="Shark Mobile" />

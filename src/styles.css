@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@450;650;700;800;850&display=swap");
+
 :root {
   --bg: #030405;
   --bg-2: #080b10;
@@ -13,8 +15,14 @@
   --green: #b9c7a6;
   --danger: #ff7887;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
-  --mono: "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
-  --sans: "Bahnschrift Condensed", "Bahnschrift", "Aptos Display", "Segoe UI Variable Display", sans-serif;
+  --mono: "Cascadia Mono", "Roboto Mono", Consolas, monospace;
+  --sans: "Nunito Sans", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  --display: "Nunito Sans", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  --radius-xs: 8px;
+  --radius-sm: 26px;
+  --radius-md: 34px;
+  --radius-lg: 42px;
+  --radius-pill: 999px;
 }
 
 * {
@@ -22,15 +30,23 @@
 }
 
 html {
-  min-width: 320px;
+  min-width: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
   scroll-behavior: smooth;
 }
 
+body,
+button,
+input,
+select {
+  letter-spacing: 0;
+}
+
 body {
   margin: 0;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 82% 10%, rgba(47, 145, 255, 0.16), transparent 28%),
     linear-gradient(180deg, #030405 0%, #06080c 42%, #050607 100%);
@@ -190,6 +206,7 @@ select:focus-visible {
   display: inline-block;
   width: 10px;
   height: 10px;
+  border-radius: 50%;
   background: var(--blue);
   box-shadow: 0 0 20px rgba(47, 145, 255, 0.74);
 }
@@ -2037,6 +2054,532 @@ td {
   flex: 0 0 auto;
 }
 
+/* Familiar retail pass: softer shapes and system UI typography. */
+.brand-link,
+.topnav button,
+.cart-button,
+.favorite-nav-button,
+.admin-button,
+.burger-button,
+.mobile-search-button,
+.mobile-menu button,
+.mobile-call,
+.mobile-menu-search,
+.call-button,
+.catalog-jump,
+.clear-filter,
+.price-link,
+.add-button,
+.submit-button,
+.brand-controls button,
+.drawer-head button,
+.qty-control button,
+.footer button,
+.filter-toggle,
+.mode-switch button,
+.admin-status-row button,
+.password-toggle-button {
+  border-radius: var(--radius-sm);
+  font-family: var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.call-button,
+.catalog-jump,
+.submit-button,
+.add-button,
+.price-link,
+.cart-button,
+.mobile-call {
+  font-weight: 750;
+}
+
+.header-search,
+.mobile-menu-search,
+.search-box,
+.brand-filter,
+.brand-filter select,
+.order-form input,
+.order-form select,
+.password-field,
+.telegram-link-box,
+.pickup-fields input,
+.pickup-fields select,
+.stock-list input {
+  border-radius: var(--radius-sm);
+}
+
+.micro-row span,
+.hero-offer span,
+.admin-stats span,
+.customer-chip,
+.product-sku,
+.stock-badge,
+.wholesale-note,
+.legal-note {
+  border-radius: var(--radius-pill);
+  font-family: var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.product-card,
+.brand-card,
+.empty-favorites,
+.success-panel,
+.warning-banner,
+.admin-panel,
+.repair-card,
+.table-shell,
+.map-panel,
+.cart-page-shell,
+.cart-item,
+.customer-auth-card,
+.customer-panel,
+.customer-order,
+.cabinet-favorite,
+.soft-empty,
+.owner-order,
+.legal-shell,
+.legal-section,
+tr {
+  border-radius: var(--radius-md);
+}
+
+.product-card,
+.brand-card,
+.cart-page-shell,
+.customer-auth-card,
+.customer-panel,
+.admin-panel,
+.legal-shell {
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+}
+
+.product-card {
+  padding: 14px;
+}
+
+.product-photo,
+.retail-panel,
+.wholesale-panel {
+  border-radius: var(--radius-sm);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-stretch: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+h1 {
+  max-width: 12ch;
+  font-size: clamp(56px, 8.4vw, 128px);
+  line-height: 0.94;
+}
+
+h2 {
+  font-size: clamp(34px, 4.6vw, 68px);
+  line-height: 0.98;
+}
+
+h3 {
+  line-height: 1.12;
+}
+
+.eyebrow,
+.brand-filter span,
+th,
+.form-error,
+.form-success,
+.cabinet-order-note,
+.total-line b,
+.footer b,
+.cart-button span,
+.favorite-nav-button span {
+  font-family: var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.topnav button {
+  min-width: 118px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.brand-link {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.micro-row,
+.hero-offer {
+  font-family: var(--sans);
+}
+
+.hero-offer {
+  font-size: clamp(13px, 1.25vw, 16px);
+}
+
+.lead,
+.hero-offer,
+.hero-lead {
+  font-weight: 450;
+}
+
+.footer-col button,
+.footer-col a,
+.footer-contacts a,
+.footer-contacts span {
+  font-weight: 650;
+}
+
+.brand-link,
+.topnav button,
+.cart-button,
+.favorite-nav-button,
+.admin-button,
+.burger-button,
+.mobile-search-button,
+.mobile-menu button,
+.mobile-call,
+.call-button,
+.catalog-jump,
+.clear-filter,
+.price-link,
+.add-button,
+.submit-button,
+.filter-toggle,
+.category-rail button,
+.brand-controls button,
+.mode-switch button {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.product-card,
+.brand-card,
+.repair-card,
+.cart-item,
+.customer-panel,
+.admin-panel,
+.legal-section {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Rounded retail hero pass. */
+.hero-shop {
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.82fr);
+  min-height: clamp(500px, calc(100svh - 118px), 590px);
+  align-items: start;
+  gap: clamp(28px, 5vw, 86px);
+  padding-top: clamp(34px, 4vw, 58px);
+  padding-bottom: clamp(26px, 3.5vw, 44px);
+  background:
+    linear-gradient(90deg, rgba(3, 4, 5, 1) 0%, rgba(3, 4, 5, 0.96) 46%, rgba(3, 4, 5, 0.76) 100%),
+    radial-gradient(circle at 80% 45%, rgba(47, 145, 255, 0.2), transparent 34%),
+    radial-gradient(circle at 66% 82%, rgba(116, 187, 255, 0.09), transparent 28%),
+    var(--bg);
+}
+
+.hero-shop::before {
+  opacity: 0.18;
+  background-size: 88px 88px;
+  mask-image: linear-gradient(90deg, #000 0 54%, transparent 90%);
+}
+
+.hero-copy {
+  max-width: min(820px, 100%);
+}
+
+.hero-lead {
+  max-width: min(560px, 100%);
+  margin: clamp(14px, 2vh, 22px) 0 0;
+  color: rgba(244, 247, 251, 0.68);
+  font-size: clamp(19px, 1.55vw, 24px);
+  font-weight: 520;
+  line-height: 1.42;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.hero-spotlight {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  justify-self: end;
+  width: min(25vw, 340px);
+  aspect-ratio: 0.82 / 1;
+  margin-left: 0;
+  overflow: hidden;
+  border: 2px solid rgba(116, 187, 255, 0.54);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 10, 15, 0.84);
+  box-shadow:
+    0 22px 62px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 34px rgba(47, 145, 255, 0.18);
+}
+
+.hero-spotlight::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%),
+    linear-gradient(0deg, rgba(3, 4, 5, 0.08), transparent 38%);
+}
+
+.hero-spotlight img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: saturate(1.08) contrast(1.05) brightness(1.04);
+}
+
+.hero-phone-visual {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  justify-self: end;
+  width: auto;
+  height: clamp(430px, calc(100svh - 172px), 560px);
+  margin-right: 0;
+  margin-top: clamp(-10px, -0.8vw, -4px);
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 94%, transparent 100%);
+}
+
+.hero-phone-visual::before {
+  position: absolute;
+  inset: 8% -10% 8%;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(47, 145, 255, 0.16), transparent 66%);
+  filter: blur(18px);
+}
+
+.hero-phone-visual img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: min(38vw, 520px);
+  object-fit: contain;
+  opacity: 0.96;
+  mix-blend-mode: screen;
+  filter:
+    saturate(1)
+    contrast(1.06)
+    brightness(0.9)
+    drop-shadow(0 26px 52px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 34px rgba(47, 145, 255, 0.18));
+}
+
+.micro-row {
+  gap: 10px;
+  margin-bottom: clamp(18px, 2.4vh, 30px);
+  font-size: clamp(11px, 0.8vw, 13px);
+  font-weight: 700;
+}
+
+.micro-row span {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  white-space: nowrap;
+  background: rgba(12, 17, 25, 0.82);
+}
+
+h1 {
+  max-width: 12ch;
+  font-size: clamp(54px, 6.5vw, 98px);
+  font-weight: 800;
+  line-height: 0.92;
+}
+
+h1 span {
+  display: block;
+}
+
+.hero-services {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 9px;
+  width: min(560px, 100%);
+  margin-top: clamp(16px, 2.5vh, 24px);
+  padding-top: 0;
+  border-top: 0;
+}
+
+.hero-service {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 50px;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(116, 187, 255, 0.14);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  color: rgba(244, 247, 251, 0.62);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    rgba(10, 15, 22, 0.58);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.hero-service.is-repair,
+.hero-service.is-accessories,
+.hero-service.is-phones {
+  grid-column: span 2;
+}
+
+.hero-service svg {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(116, 187, 255, 0.22);
+  border-radius: 50%;
+  padding: 6px;
+  color: rgba(116, 187, 255, 0.62);
+  background: rgba(47, 145, 255, 0.045);
+  filter: none;
+}
+
+.hero-service b {
+  overflow-wrap: anywhere;
+  font-size: clamp(13px, 0.95vw, 15px);
+  font-weight: 740;
+  line-height: 1.1;
+}
+
+.hero-service.is-wholesale {
+  grid-column: span 3;
+  min-height: 52px;
+  border-color: rgba(116, 187, 255, 0.2);
+  color: rgba(244, 247, 251, 0.66);
+  background:
+    linear-gradient(180deg, rgba(47, 145, 255, 0.11), rgba(47, 145, 255, 0.035)),
+    rgba(10, 15, 22, 0.62);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-service.is-wholesale svg {
+  border-color: rgba(116, 187, 255, 0.22);
+  color: rgba(116, 187, 255, 0.62);
+  background: rgba(47, 145, 255, 0.045);
+  filter: none;
+}
+
+.hero-service.is-wholesale b,
+.hero-service.is-retail b {
+  font-size: clamp(13px, 0.95vw, 15px);
+  font-weight: 760;
+}
+
+.hero-service.is-retail {
+  grid-column: span 3;
+  min-height: 52px;
+  border-color: rgba(116, 187, 255, 0.18);
+  color: rgba(244, 247, 251, 0.66);
+  background:
+    linear-gradient(180deg, rgba(47, 145, 255, 0.09), rgba(47, 145, 255, 0.025)),
+    rgba(10, 15, 22, 0.62);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-service.is-wholesale,
+.hero-service.is-retail {
+  justify-content: center;
+}
+
+.hero-actions {
+  position: relative;
+  z-index: 4;
+  grid-template-columns: minmax(170px, 0.85fr) minmax(210px, 1.15fr);
+  gap: 14px;
+  width: min(540px, 100%);
+  margin-top: clamp(20px, 3.2vh, 34px);
+}
+
+.hero-actions .call-button,
+.hero-actions .catalog-jump {
+  min-width: 0;
+  min-height: clamp(60px, 4.6vw, 70px);
+  gap: 12px;
+  border-radius: var(--radius-sm);
+  padding: 0 clamp(26px, 3vw, 40px);
+  font-size: clamp(17px, 1.35vw, 20px);
+  font-weight: 850;
+  white-space: nowrap;
+  box-shadow: 0 20px 58px rgba(0, 0, 0, 0.34);
+}
+
+.hero-actions .hero-call {
+  border-color: rgba(116, 187, 255, 0.54);
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    rgba(9, 12, 17, 0.94);
+}
+
+.hero-actions .catalog-jump {
+  border-color: rgba(116, 187, 255, 0.95);
+  color: #031024;
+  background:
+    linear-gradient(180deg, #91d1ff 0%, #2f91ff 58%, #1977df 100%);
+  box-shadow:
+    0 28px 78px rgba(47, 145, 255, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.hero-logo {
+  display: none;
+  position: absolute;
+  top: clamp(-170px, -10vw, -118px);
+  right: clamp(-210px, -12vw, -128px);
+  z-index: 0;
+  justify-items: end;
+  margin-top: 0;
+  transform: none;
+}
+
+.hero-logo::before {
+  content: none;
+}
+
+.hero-logo::after {
+  content: none;
+}
+
+.hero-logo img {
+  width: min(36vw, 520px);
+  max-width: none;
+  opacity: 0.48;
+  mix-blend-mode: screen;
+  filter: saturate(1.12) contrast(1.08) brightness(1.14);
+}
+
 .reveal-up {
   animation: revealUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -2133,6 +2676,51 @@ td {
 }
 
 @media (max-width: 1120px) {
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 12px clamp(14px, 4vw, 34px);
+  }
+
+  .topnav,
+  .header-search,
+  .top-call-button {
+    display: none;
+  }
+
+  .top-actions {
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .burger-button,
+  .mobile-search-button {
+    display: inline-grid;
+  }
+
+  .admin-button,
+  .burger-button,
+  .favorite-nav-button,
+  .mobile-search-button,
+  .cart-button {
+    width: 52px;
+    min-height: 52px;
+    padding: 0;
+  }
+
+  .cart-button {
+    gap: 0;
+  }
+
+  .cart-button span,
+  .favorite-nav-button span {
+    position: absolute;
+    right: 7px;
+    bottom: 6px;
+    min-width: 15px;
+    font-size: 10px;
+  }
+
   .hero-shop,
   .shop-layout,
   .admin-grid,
@@ -2143,7 +2731,29 @@ td {
 
   .hero-shop {
     min-height: auto;
-    padding-bottom: 28px;
+    padding-bottom: 34px;
+  }
+
+  .hero-services {
+    max-width: 680px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .hero-phone-visual {
+    display: none;
+  }
+
+  .hero-spotlight {
+    justify-self: start;
+    width: min(100%, 520px);
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .hero-actions {
+    position: static;
+    grid-template-columns: minmax(170px, 0.86fr) minmax(240px, 1.14fr);
+    width: min(600px, 100%);
+    margin-top: clamp(30px, 4.8vh, 52px);
   }
 
   .brand-stage {
@@ -2151,11 +2761,14 @@ td {
   }
 
   .hero-logo {
+    position: relative;
+    top: auto;
+    right: auto;
     justify-items: start;
   }
 
   .hero-logo img {
-    width: min(64vw, 420px);
+    width: min(64vw, 460px);
   }
 
   .category-rail {
@@ -2173,6 +2786,16 @@ td {
 
   .repair-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .footer-brand,
+  .footer-contacts {
+    grid-column: 1 / -1;
   }
 }
 
@@ -2289,11 +2912,16 @@ td {
 
   .hero-shop {
     min-height: auto;
-    padding: 22px 20px 24px;
+    padding: 22px 20px 28px;
+  }
+
+  .hero-spotlight {
+    display: none;
   }
 
   h1 {
-    font-size: clamp(70px, 20vw, 104px);
+    font-size: clamp(50px, 16vw, 78px);
+    line-height: 0.92;
   }
 
   h2 {
@@ -2384,7 +3012,7 @@ td {
 
   .hero-copy {
     z-index: 3;
-    max-width: 350px;
+    max-width: min(100%, 380px);
   }
 
   .micro-row {
@@ -2393,28 +3021,82 @@ td {
   }
 
   .micro-row span {
-    padding: 7px 8px 6px;
+    min-height: 34px;
+    padding: 7px 10px 6px;
+    white-space: nowrap;
   }
 
-  .hero-offer {
+  .hero-lead {
+    max-width: 100%;
+    margin-top: 14px;
+    font-size: clamp(16px, 4.6vw, 20px);
+    line-height: 1.34;
+  }
+
+  .hero-services {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 16px;
+    padding-top: 0;
+  }
+
+  .hero-service {
+    min-height: 50px;
     gap: 6px;
-    font-size: 11px;
+    flex-direction: column;
+    padding: 8px 9px;
+    border-radius: var(--radius-sm);
+    text-align: center;
   }
 
-  .hero-offer span {
-    padding: 8px 9px;
+  .hero-service svg {
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+  }
+
+  .hero-service b {
+    font-size: clamp(11px, 3vw, 13px);
+  }
+
+  .hero-service.is-repair,
+  .hero-service.is-accessories,
+  .hero-service.is-phones {
+    grid-column: span 2;
+  }
+
+  .hero-service.is-wholesale,
+  .hero-service.is-retail {
+    flex-direction: row;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .hero-service.is-wholesale {
+    grid-column: span 3;
+  }
+
+  .hero-service.is-retail {
+    grid-column: span 3;
+  }
+
+  .hero-service.is-wholesale b,
+  .hero-service.is-retail b {
+    font-size: clamp(13px, 3.5vw, 15px);
   }
 
   .hero-actions {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    gap: 10px;
     margin-top: 22px;
   }
 
   .hero-actions .call-button,
   .hero-actions .catalog-jump {
     min-width: 0;
-    padding: 0 10px;
-    font-size: 15px;
+    min-height: 58px;
+    padding: 0 16px;
+    font-size: clamp(15px, 4vw, 17px);
     white-space: nowrap;
   }
 
