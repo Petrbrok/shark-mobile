@@ -4,6 +4,7 @@ import express from "express";
 import cookieSession from "cookie-session";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
+import { waitUntil } from "@vercel/functions";
 import { pool, query, withTransaction } from "./db.js";
 import { handleTelegramUpdate, notifyOwner } from "./telegram.js";
 
@@ -164,9 +165,11 @@ app.post("/api/orders", async (req, res, next) => {
       };
     });
 
-    await notifyOwner(created.order, created.items).catch((error) => {
-      console.error(error.message);
-    });
+    waitUntil(
+      notifyOwner(created.order, created.items).catch((error) => {
+        console.error(error.message);
+      })
+    );
 
     res.status(201).json({
       orderNumber: created.order.order_number,
