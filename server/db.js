@@ -1,7 +1,7 @@
 import pg from "pg";
-import dotenv from "dotenv";
+import { loadEnv } from "./env.js";
 
-dotenv.config();
+loadEnv();
 
 const { Pool } = pg;
 const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.POSTGRES_PRISMA_URL;

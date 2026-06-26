@@ -48,16 +48,21 @@ app.get("/api/products", async (_req, res, next) => {
       SELECT
         id,
         sku,
+        slug,
         name,
+        section,
         category,
+        subcategory,
         brand,
         retail_price AS "retailPrice",
         wholesale_price AS "wholesalePrice",
         stock_qty AS "stockQty",
         image_url AS "imageUrl",
-        description
+        gallery,
+        description,
+        attributes
       FROM products
-      ORDER BY category, brand, name
+      ORDER BY section, category, brand, name
     `);
     res.json({ products: rows });
   } catch (error) {
@@ -506,6 +511,8 @@ app.patch("/api/admin/products/:id", requireAdmin, async (req, res, next) => {
     const description = String(req.body.description ?? "").trim();
     const stockQty = Number(req.body.stockQty);
     const imageUrl = req.body.imageUrl == null ? null : String(req.body.imageUrl).trim() || null;
+    const attributes = req.body.attributes && typeof req.body.attributes === "object" ? req.body.attributes : {};
+    const gallery = Array.isArray(req.body.gallery) ? req.body.gallery.filter(Boolean) : imageUrl ? [imageUrl] : [];
 
     if (!name) {
       return res.status(400).json({ error: "Название товара не может быть пустым." });
@@ -525,21 +532,28 @@ app.patch("/api/admin/products/:id", requireAdmin, async (req, res, next) => {
           description = $2,
           stock_qty = $3,
           image_url = $4,
+          gallery = $5::jsonb,
+          attributes = $6::jsonb,
           updated_at = now()
-        WHERE id = $5
+        WHERE id = $7
         RETURNING
           id,
           sku,
+          slug,
           name,
+          section,
           category,
+          subcategory,
           brand,
           retail_price AS "retailPrice",
           wholesale_price AS "wholesalePrice",
           stock_qty AS "stockQty",
           image_url AS "imageUrl",
-          description
+          gallery,
+          description,
+          attributes
       `,
-      [name, description, stockQty, imageUrl, req.params.id]
+      [name, description, stockQty, imageUrl, JSON.stringify(gallery), JSON.stringify(attributes), req.params.id]
     );
     if (!rows[0]) {
       return res.status(404).json({ error: "Товар не найден." });

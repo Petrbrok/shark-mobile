@@ -13,6 +13,7 @@ import {
   Heart,
   History,
   Headphones,
+  Laptop,
   LogOut,
   Mail,
   MapPin,
@@ -24,9 +25,11 @@ import {
   SlidersHorizontal,
   ShoppingBag,
   Smartphone,
+  Tablet,
   UserPlus,
   UserRound,
   UsersRound,
+  Watch,
   Wrench,
   X
 } from "lucide-react";
@@ -52,7 +55,15 @@ const brands = [
   { name: "DJI", logo: "https://cdn.simpleicons.org/dji/050608" }
 ];
 
-const categories = ["Все", "Чехлы", "Стекла", "Кабели", "Зарядки", "Держатели", "Наушники", "Аксессуары"];
+const categories = ["Все", "iPhone", "iPad", "Mac", "Apple Watch", "AirPods", "Android", "Аксессуары"];
+const topCategories = [
+  { label: "iPhone", value: "iPhone", Icon: Smartphone, slug: "iphone" },
+  { label: "iPad", value: "iPad", Icon: Tablet, slug: "ipad" },
+  { label: "Mac", value: "Mac", Icon: Laptop, slug: "mac" },
+  { label: "Apple Watch", value: "Apple Watch", Icon: Watch, slug: "apple-watch" },
+  { label: "Смартфоны", value: "Android", Icon: Smartphone, slug: "smartphones" },
+  { label: "Планшеты", value: "iPad", Icon: Tablet, slug: "tablets" }
+];
 const orderStatuses = {
   new: "Новый",
   confirmed: "Подтвержден",
@@ -173,6 +184,7 @@ function App() {
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const currentLegalDocument = legalDocuments[path.replace(/\/$/, "")];
   const productRouteMatch = path.match(/^\/product\/([^/]+)\/?$/);
+  const catalogRouteMatch = path.match(/^\/catalog(?:\/(.+))?\/?$/);
   const selectedProduct = productRouteMatch
     ? products.find((product) => product.id === decodeURIComponent(productRouteMatch[1]) || product.sku === decodeURIComponent(productRouteMatch[1]))
     : null;
@@ -239,7 +251,7 @@ function App() {
         search={globalSearch}
         setSearch={setGlobalSearch}
         onSearch={openSearch}
-        onCatalog={() => scrollHomeSection("#catalog")}
+        onCatalog={() => navigate("/catalog")}
         onRoute={() => scrollHomeSection("#route")}
         onCart={() => navigate("/cart")}
         customer={customer}
@@ -281,6 +293,18 @@ function App() {
             <RepairPage navigate={navigate} />
           ) : path === "/admin" ? (
             <AdminPage products={products} setProducts={setProducts} />
+          ) : catalogRouteMatch ? (
+            <CatalogPage
+              route={catalogRouteMatch[1] || ""}
+              products={products}
+              loading={loadingProducts}
+              addToCart={addToCart}
+              navigate={navigate}
+              search={globalSearch}
+              setSearch={setGlobalSearch}
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
+            />
           ) : productRouteMatch ? (
             <ProductDetailPage
               product={selectedProduct}
@@ -337,7 +361,7 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
         <span>Shark Mobile</span>
       </button>
       <nav className="topnav" aria-label="Разделы сайта">
-        <button className={path === "/" ? "is-active" : ""} onClick={onCatalog}>
+        <button className={path === "/" || path.startsWith("/catalog") ? "is-active" : ""} onClick={onCatalog}>
           Каталог
         </button>
         {links.map(([href, label]) => (
@@ -440,6 +464,136 @@ function Header({ navigate, path, cartCount, favoritesCount, search, setSearch, 
   );
 }
 
+function CatalogPage({ route, products, loading, addToCart, navigate, search, setSearch, favorites, toggleFavorite }) {
+  const initial = getCatalogState(route);
+  const [category, setCategory] = useState(initial.category);
+  const [selectedModel, setSelectedModel] = useState(initial.model);
+  const [modelsExpanded, setModelsExpanded] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const modelChips = category === "Все" ? [] : moveSelectedFirst(getModelChips(products, category), selectedModel);
+  const visibleModelChips = modelsExpanded ? modelChips : modelChips.slice(0, 8);
+  const filtered = products
+    .filter((product) => matchesCatalogCategory(product, category))
+    .filter((product) => !selectedModel || getProductModelLabel(product).toLowerCase().includes(selectedModel.toLowerCase()))
+    .filter((product) => `${product.name} ${product.brand} ${product.sku}`.toLowerCase().includes(search.toLowerCase()))
+    .sort((a, b) => productRelevanceRank(b, category) - productRelevanceRank(a, category));
+
+  const selectCategory = (item) => {
+    setCategory(item);
+    setSelectedModel("");
+    setModelsExpanded(false);
+    navigate(`/catalog/${catalogSlug(item)}`);
+  };
+
+  return (
+    <>
+      <QuickCatalogNav category={category} navigate={navigate} products={products} />
+      <section className="catalog-section is-full-catalog" id="catalog">
+        <div className="section-title-row">
+          <div>
+            <p className="eyebrow">Каталог</p>
+            <h2>{category === "Все" ? "Полный ассортимент точки" : category}</h2>
+          </div>
+          <button className="price-link" onClick={() => navigate("/price")}>
+            Прайс-лист
+            <ChevronRight size={18} />
+          </button>
+        </div>
+        <div className="shop-layout">
+          <button className="filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
+            <SlidersHorizontal size={18} />
+            Фильтры
+            <ChevronRight size={18} />
+          </button>
+          <aside className={`category-rail ${filtersOpen ? "is-open" : ""}`} aria-label="Категории товаров">
+            {categories.map((item) => (
+              <button key={item} className={category === item ? "is-selected" : ""} onClick={() => selectCategory(item)}>
+                <span>{item}</span>
+                <ChevronRight size={18} />
+              </button>
+            ))}
+          </aside>
+          <div className="product-zone">
+            {modelChips.length > 0 && (
+              <div className="catalog-model-bar" aria-label="Модели">
+                {visibleModelChips.map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    className={selectedModel === item ? "is-selected" : ""}
+                    onClick={() => {
+                      setSelectedModel(item);
+                      navigate(`/catalog/${catalogSlug(category)}/${slugify(item)}`);
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+                {modelChips.length > 8 && (
+                  <button className="more-models" type="button" onClick={() => setModelsExpanded((current) => !current)}>
+                    {modelsExpanded ? "Скрыть" : "Ещё"}
+                  </button>
+                )}
+              </div>
+            )}
+            <label className="search-box">
+              <Search size={18} />
+              <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Поиск по бренду, SKU, названию" />
+            </label>
+            {(selectedModel || search) && (
+              <button className="clear-filter" onClick={() => { setSelectedModel(""); setSearch(""); }}>
+                Сбросить фильтр
+              </button>
+            )}
+            {loading ? (
+              <div className="skeleton-grid">{Array.from({ length: 6 }).map((_, index) => <div className="product-card skeleton" key={index} />)}</div>
+            ) : (
+              <div className="product-grid">
+                {filtered.map((product, index) => (
+                  <ProductCard key={product.id} product={product} index={index} onAdd={addToCart} onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)} isFavorite={favorites.includes(product.id)} onToggleFavorite={toggleFavorite} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function QuickCatalogNav({ category, navigate, products = [] }) {
+  const [hoveredCategory, setHoveredCategory] = useState("");
+  const menuItems = hoveredCategory === "Все" ? [] : getModelChips(products, hoveredCategory).slice(0, 12);
+  return (
+    <section className="quick-catalog" aria-label="Категории каталога" onMouseLeave={() => setHoveredCategory("")}>
+      <div className="quick-catalog-track">
+        {topCategories.map(({ label, value, Icon }) => (
+          <div className="quick-catalog-item" key={label} onMouseEnter={() => setHoveredCategory(value)}>
+            <button className={category === value ? "is-selected" : ""} onClick={() => navigate(`/catalog/${catalogSlug(value)}`)}>
+              <Icon size={24} />
+              <span>{label}</span>
+            </button>
+          </div>
+        ))}
+      </div>
+      {hoveredCategory && menuItems.length > 0 && (
+        <div className="quick-catalog-menu simple-menu">
+          <div className="quick-catalog-menu-column">
+            {menuItems.map((item) => (
+              <button key={item} type="button" onClick={() => navigate(`/catalog/${catalogSlug(hoveredCategory)}/${slugify(item)}`)}>
+                <span className="quick-catalog-menu-image">
+                  <Smartphone size={28} />
+                </span>
+                <span>{item}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 function HomePage({ products, loading, addToCart, navigate, search, setSearch, favorites, toggleFavorite }) {
   const [category, setCategory] = useState("Все");
   const [selectedBrand, setSelectedBrand] = useState("");
@@ -476,6 +630,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
 
   return (
     <>
+      <QuickCatalogNav category="Все" navigate={navigate} products={products} />
       <section className="hero-shop">
         <div className="mobile-mark" aria-hidden="true">
           <img src="/assets/logo-background.png" alt="" />
@@ -497,7 +652,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
               <PhoneCall size={22} strokeWidth={2.4} />
               Позвонить
             </a>
-            <button className="catalog-jump" onClick={() => document.querySelector("#catalog")?.scrollIntoView({ behavior: "smooth" })}>
+            <button className="catalog-jump" onClick={() => navigate("/catalog")}>
               <ShoppingBag size={22} strokeWidth={2.4} />
               Перейти в каталог
             </button>
@@ -639,6 +794,178 @@ function BrandCarousel({ onSelect, selectedBrand }) {
   );
 }
 
+function getCatalogState(route) {
+  const [section = "", model = ""] = String(route || "").split("/").filter(Boolean);
+  const map = {
+    iphone: "iPhone",
+    ipad: "iPad",
+    mac: "Mac",
+    "apple-watch": "Apple Watch",
+    smartphones: "Android",
+    tablets: "iPad"
+  };
+  const category = map[section] || "Все";
+  let selectedModel = model ? unslugify(model) : "";
+  if (category === "iPhone") {
+    selectedModel = selectedModel.replace(/^iPhone\s+/i, "");
+  }
+  return { category, model: selectedModel };
+}
+
+function catalogSlug(category) {
+  return {
+    "Все": "",
+    iPhone: "iphone",
+    iPad: "ipad",
+    Mac: "mac",
+    "Apple Watch": "apple-watch",
+    Android: "smartphones",
+    Планшеты: "tablets",
+    Аксессуары: "accessories",
+    AirPods: "airpods"
+  }[category] || slugify(category);
+}
+
+function matchesCatalogCategory(product, category) {
+  if (category === "Все") return true;
+  return product.section === category || product.category === category;
+}
+
+function getModelChips(products, category) {
+  const base = [...new Set(products.filter((product) => matchesCatalogCategory(product, category)).map(getProductModelLabel).filter(Boolean))];
+  if (category === "iPhone") {
+    [
+      "17 Pro Max", "17 Pro", "Air 17", "17", "17e",
+      "16 Pro Max", "16 Pro", "16 Plus", "16", "16e",
+      "15 Pro Max", "15 Pro", "15 Plus", "15",
+      "14 Pro Max", "14 Pro", "14 Plus", "14",
+      "13 Pro Max", "13 Pro", "13 mini", "13",
+      "12", "11", "SE 2022"
+    ].forEach((item) => {
+      if (!base.includes(item)) base.push(item);
+    });
+  }
+  return base.sort((a, b) => category === "iPhone" ? iphoneRank(a) - iphoneRank(b) : a.localeCompare(b, "ru", { numeric: true }));
+}
+
+function getProductModelLabel(product) {
+  const model = product.attributes?.model || product.name;
+  if (product.section === "iPhone") {
+    return model.replace(/^iPhone\s+/i, "").replace(/^Air$/i, "Air 17").replace(/\s+\d+\s*\/\s*\d+.*$/i, "").replace(/\s+RED$/i, " RED").trim();
+  }
+  if (product.section === "AirPods") {
+    if (/AirPods Pro 2/i.test(model)) return "AirPods Pro 2";
+    if (/AirPods Pro/i.test(model)) return "AirPods Pro";
+    if (/AirPods 4/i.test(model) && /Pro|ANC|шум/i.test(model)) return "AirPods 4 Pro";
+    if (/AirPods 4/i.test(model)) return "AirPods 4";
+    if (/AirPods 3/i.test(model)) return "AirPods 3";
+    if (/AirPods 2/i.test(model)) return "AirPods 2";
+    if (/AirPods Max/i.test(model)) return "AirPods Max";
+    return "AirPods";
+  }
+  if (product.section === "iPad") {
+    if (/iPad Pro/i.test(product.name)) return "iPad Pro";
+    if (/iPad Air/i.test(product.name)) return "iPad Air";
+    if (/iPad mini/i.test(product.name)) return "iPad mini";
+    return "iPad";
+  }
+  if (product.section === "Mac") {
+    if (/MacBook Pro/i.test(product.name)) return "MacBook Pro";
+    if (/MacBook Air/i.test(product.name)) return "MacBook Air";
+    if (/iMac/i.test(product.name)) return "iMac";
+    return "Mac";
+  }
+  return model;
+}
+
+function moveSelectedFirst(items, selected) {
+  if (!selected) return items;
+  return [...items].sort((a, b) => {
+    if (a === selected) return -1;
+    if (b === selected) return 1;
+    return 0;
+  });
+}
+
+function iphoneRank(label) {
+  const order = ["17 Pro Max", "17 Pro", "Air 17", "17", "17e", "16 Pro Max", "16 Pro", "16 Plus", "16", "16e", "15 Pro Max", "15 Pro", "15 Plus", "15", "14 Pro Max", "14 Pro", "14 Plus", "14", "13 Pro Max", "13 Pro", "13 mini", "13", "12 RED", "12", "11", "SE 2022"];
+  const index = order.findIndex((item) => item.toLowerCase() === String(label).toLowerCase());
+  return index === -1 ? 999 : index;
+}
+
+function productRelevanceRank(product, category) {
+  if (category === "iPhone") return 1000 - iphoneRank(getProductModelLabel(product));
+  return Number(product.name.match(/\b(20\d{2})\b/)?.[1] || 0) || product.retailPrice || 0;
+}
+
+function formatProductCardTitle(product) {
+  const memory = getMemoryLabel(product);
+  const color = getColorLabel(product);
+  const rawModel = getProductModelLabel(product);
+  const model = product.section === "iPhone" && !/^iPhone/i.test(rawModel) ? `iPhone ${rawModel}` : rawModel;
+  const brand = product.brand === "Apple" && /^(iPhone|iPad|Mac|AirPods|Apple Watch)/i.test(model) ? "Apple" : product.brand;
+  return [brand, model, memory, color].filter(Boolean).join(", ").replace(", ,", ",");
+}
+
+function getMemoryLabel(product) {
+  const source = product.attributes?.memory || product.name;
+  const match = String(source).match(/\b(64|128|256|512|1024|1|2)\s*(GB|Gb|ГБ|Гб|TB|Tb|ТБ|Тб)\b/i);
+  if (!match) return "";
+  const amount = Number(match[1]);
+  const unit = match[2].toLowerCase();
+  if (unit.includes("t") || unit.includes("т") || amount === 1024) {
+    return amount === 2 ? "2 ТБ" : "1 ТБ";
+  }
+  return `${amount} ГБ`;
+}
+
+function getColorLabel(product) {
+  const candidates = [
+    product.attributes?.color,
+    product.name.match(/\(([^()]+)\)\s*$/)?.[1],
+    product.name.split(",").pop()
+  ];
+  for (const item of candidates) {
+    const color = normalizeCardColor(item);
+    if (color) return color;
+  }
+  return "";
+}
+
+function normalizeCardColor(value) {
+  const raw = String(value || "").replace(/[()]/g, "").trim();
+  if (!raw || /^\d{4}$/.test(raw) || raw.length > 28 || /CPU|GPU|SSD|Wi-?Fi|USB|PRODUCT|Charger|футляр|заряд/i.test(raw)) return "";
+  if (/[А-ЯA-Z0-9]{4,}/.test(raw) && !/\s/.test(raw)) return "";
+  const lower = raw.toLowerCase();
+  const map = {
+    "белый": "белый",
+    "черный": "черный",
+    "чёрный": "черный",
+    "синий": "синий",
+    "голубой": "голубой",
+    "зеленый": "зеленый",
+    "зелёный": "зеленый",
+    "серый": "серый",
+    "серебристый": "серебристый",
+    "серый космос": "серый космос",
+    "розовый": "розовый",
+    "фиолетовый": "фиолетовый",
+    "красный": "красный",
+    "золотистый": "золотистый",
+    "графит": "графит"
+  };
+  return map[lower] || raw.toLowerCase();
+}
+
+function slugify(value) {
+  return String(value).toLowerCase().replace(/\+/g, " plus ").replace(/[^a-zа-яё0-9]+/gi, "-").replace(/^-+|-+$/g, "");
+}
+
+function unslugify(value) {
+  const text = String(value || "").split("-").join(" ");
+  return text.replace(/^iphone/i, "iPhone").replace(/^ipad/i, "iPad").replace(/^mac/i, "Mac");
+}
+
 function MapSection() {
   return (
     <section className="map-section" id="route" aria-labelledby="route-title">
@@ -699,19 +1026,12 @@ function ProductCard({ product, index, onAdd, onOpen, isFavorite = false, onTogg
       </div>
       <div className="product-meta">
         <div>
-          <span className="product-sku">{product.sku}</span>
-          <h3>{product.name}</h3>
+          <h3>{formatProductCardTitle(product)}</h3>
         </div>
-        <p>{product.description}</p>
       </div>
-      <div className="price-row" tabIndex={0} aria-label={`Розница ${formatRub(product.retailPrice)}, опт ${formatRub(product.wholesalePrice)}`}>
+      <div className="price-row single-price" tabIndex={0} aria-label={`Цена ${formatRub(product.retailPrice)}`}>
         <div className="retail-panel">
-          <span>Розница</span>
           <b>{formatRub(product.retailPrice)}</b>
-        </div>
-        <div className="wholesale-panel" tabIndex={0}>
-          <span>Опт</span>
-          <b>{formatRub(product.wholesalePrice)}</b>
         </div>
       </div>
       <button

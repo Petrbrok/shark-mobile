@@ -15,29 +15,39 @@ async function seed() {
       await client.query(
         `
           INSERT INTO products
-            (sku, name, category, brand, retail_price, wholesale_price, stock_qty, image_url, description)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            (sku, slug, name, section, category, subcategory, brand, retail_price, wholesale_price, stock_qty, image_url, gallery, description, attributes)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12::jsonb, $13, $14::jsonb)
           ON CONFLICT (sku) DO UPDATE SET
+            slug = EXCLUDED.slug,
             name = EXCLUDED.name,
+            section = EXCLUDED.section,
             category = EXCLUDED.category,
+            subcategory = EXCLUDED.subcategory,
             brand = EXCLUDED.brand,
             retail_price = EXCLUDED.retail_price,
             wholesale_price = EXCLUDED.wholesale_price,
             stock_qty = EXCLUDED.stock_qty,
             image_url = EXCLUDED.image_url,
+            gallery = EXCLUDED.gallery,
             description = EXCLUDED.description,
+            attributes = EXCLUDED.attributes,
             updated_at = now()
         `,
         [
           product.sku,
+          product.slug || product.sku.toLowerCase(),
           product.name,
+          product.section || product.category,
           product.category,
+          product.subcategory || "",
           product.brand,
           product.retailPrice,
           product.wholesalePrice,
           product.stockQty,
           product.imageUrl,
-          product.description
+          JSON.stringify(product.gallery || []),
+          product.description,
+          JSON.stringify(product.attributes || {})
         ]
       );
     }
