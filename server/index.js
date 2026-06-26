@@ -17,7 +17,7 @@ const rootDir = path.resolve(__dirname, "..");
 const distDir = path.join(rootDir, "dist");
 
 app.set("trust proxy", 1);
-app.use(express.json({ limit: "2mb" }));
+app.use(express.json({ limit: "5mb" }));
 app.use(
   cookieSession({
     name: "shark_session",
@@ -514,7 +514,7 @@ app.patch("/api/admin/products/:id", requireAdmin, async (req, res, next) => {
       return res.status(400).json({ error: "Остаток должен быть целым числом от 0." });
     }
     if (imageUrl && !isValidProductImageUrl(imageUrl)) {
-      return res.status(400).json({ error: "Фото должно быть ссылкой, путем /assets/... или JPG/PNG/WebP до 1 МБ." });
+      return res.status(400).json({ error: "Фото слишком большое. Максимум 3 МБ, формат JPG, PNG или WebP." });
     }
 
     const { rows } = await query(
@@ -602,7 +602,7 @@ function normalizePickupTime(value) {
 }
 
 function isValidProductImageUrl(value) {
-  if (value.length > 1_450_000) {
+  if (value.length > 4_300_000) {
     return false;
   }
   return (

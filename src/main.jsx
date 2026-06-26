@@ -172,15 +172,19 @@ function App() {
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const currentLegalDocument = legalDocuments[path.replace(/\/$/, "")];
-  const addToCart = (product, sourceRect) => {
+  const productRouteMatch = path.match(/^\/product\/([^/]+)\/?$/);
+  const selectedProduct = productRouteMatch
+    ? products.find((product) => product.id === decodeURIComponent(productRouteMatch[1]) || product.sku === decodeURIComponent(productRouteMatch[1]))
+    : null;
+  const addToCart = (product, sourceRect, qty = 1) => {
     setCart((current) => {
       const existing = current.find((item) => item.productId === product.id);
       if (existing) {
         return current.map((item) =>
-          item.productId === product.id ? { ...item, qty: Math.min(item.qty + 1, product.stockQty) } : item
+          item.productId === product.id ? { ...item, qty: Math.min(item.qty + qty, product.stockQty) } : item
         );
       }
-      return [...current, { productId: product.id, qty: 1 }];
+      return [...current, { productId: product.id, qty: Math.min(qty, product.stockQty) }];
     });
     if (sourceRect) {
       const cartTarget = document.querySelector("[data-cart-target]")?.getBoundingClientRect();
@@ -277,6 +281,16 @@ function App() {
             <RepairPage navigate={navigate} />
           ) : path === "/admin" ? (
             <AdminPage products={products} setProducts={setProducts} />
+          ) : productRouteMatch ? (
+            <ProductDetailPage
+              product={selectedProduct}
+              products={products}
+              loading={loadingProducts}
+              addToCart={addToCart}
+              navigate={navigate}
+              isFavorite={selectedProduct ? favorites.includes(selectedProduct.id) : false}
+              toggleFavorite={toggleFavorite}
+            />
           ) : currentLegalDocument ? (
             <LegalPage document={currentLegalDocument} navigate={navigate} />
           ) : (
@@ -590,6 +604,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
                     product={product}
                     index={index}
                     onAdd={addToCart}
+                    onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)}
                     isFavorite={favorites.includes(product.id)}
                     onToggleFavorite={toggleFavorite}
                   />
@@ -653,19 +668,34 @@ function MapSection() {
   );
 }
 
-function ProductCard({ product, index, onAdd, isFavorite = false, onToggleFavorite }) {
+function ProductCard({ product, index, onAdd, onOpen, isFavorite = false, onToggleFavorite }) {
   const available = product.stockQty > 0;
   return (
-    <article className="product-card reveal-card" style={{ "--delay": `${Math.min(index, 8) * 42}ms` }}>
+    <article
+      className="product-card reveal-card"
+      style={{ "--delay": `${Math.min(index, 8) * 42}ms` }}
+      onClick={onOpen}
+      onKeyDown={(event) => {
+        if (event.target === event.currentTarget && event.key === "Enter") {
+          onOpen?.();
+        }
+      }}
+      role="link"
+      tabIndex={0}
+      aria-label={`Открыть товар ${product.name}`}
+    >
       <button
         className={`favorite-toggle ${isFavorite ? "is-active" : ""}`}
-        onClick={() => onToggleFavorite?.(product.id)}
+        onClick={(event) => {
+          event.stopPropagation();
+          onToggleFavorite?.(product.id);
+        }}
         aria-label={isFavorite ? "Убрать из избранного" : "Добавить в избранное"}
       >
         <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
       </button>
-      <div className="product-photo" aria-label="Фото будет добавлено позже">
-        <span>{product.brand}</span>
+      <div className="product-photo" aria-label={`Фото товара ${product.name}`}>
+        {product.imageUrl ? <img src={product.imageUrl} alt={product.name} loading="lazy" /> : <span>{product.brand}</span>}
       </div>
       <div className="product-meta">
         <div>
@@ -684,11 +714,185 @@ function ProductCard({ product, index, onAdd, isFavorite = false, onToggleFavori
           <b>{formatRub(product.wholesalePrice)}</b>
         </div>
       </div>
-      <button className="add-button" onClick={(event) => onAdd(product, event.currentTarget.closest(".product-card")?.querySelector(".product-photo")?.getBoundingClientRect())} disabled={!available}>
+      <button
+        className="add-button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onAdd(product, event.currentTarget.closest(".product-card")?.querySelector(".product-photo")?.getBoundingClientRect());
+        }}
+        disabled={!available}
+      >
         {available ? "В корзину" : "Нет в наличии"}
         {available && <Plus size={18} />}
       </button>
     </article>
+  );
+}
+
+function ProductDetailPage({ product, products, loading, addToCart, navigate, isFavorite, toggleFavorite }) {
+  const [qty, setQty] = useState(1);
+
+  useEffect(() => {
+    setQty(1);
+  }, [product?.id]);
+
+  if (loading) {
+    return (
+      <section className="page-section product-detail-page">
+        <div className="product-detail-shell">
+          <div className="product-detail-photo skeleton" />
+          <div className="product-detail-info">
+            <p className="eyebrow">Загрузка</p>
+            <h1>Товар</h1>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!product) {
+    return (
+      <section className="page-section product-detail-page">
+        <div className="empty-favorites">
+          <ShoppingBag size={34} />
+          <h2>Товар не найден</h2>
+          <p>Позиция могла быть удалена или ссылка устарела.</p>
+          <button className="submit-button narrow" onClick={() => navigate("/")}>
+            В каталог
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  const available = product.stockQty > 0;
+  const safeQty = Math.min(Math.max(qty, 1), Math.max(product.stockQty, 1));
+  const relatedProducts = products
+    .filter((item) => item.id !== product.id && (item.category === product.category || item.brand === product.brand))
+    .slice(0, 3);
+
+  const buyProduct = () => {
+    if (!available) {
+      return;
+    }
+    addToCart(product, null, safeQty);
+    navigate("/cart");
+  };
+
+  return (
+    <section className="page-section product-detail-page">
+      <button className="price-link detail-back" type="button" onClick={() => navigate("/")}>
+        <ArrowLeft size={18} />
+        В каталог
+      </button>
+
+      <div className="product-detail-shell">
+        <div className="product-detail-photo">
+          {product.imageUrl ? <img src={product.imageUrl} alt={product.name} /> : <span>{product.brand}</span>}
+        </div>
+
+        <article className="product-detail-info">
+          <div className="product-detail-topline">
+            <span className="product-sku">{product.sku}</span>
+            <button
+              className={`favorite-toggle static ${isFavorite ? "is-active" : ""}`}
+              type="button"
+              onClick={() => toggleFavorite(product.id)}
+              aria-label={isFavorite ? "Убрать из избранного" : "Добавить в избранное"}
+            >
+              <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
+            </button>
+          </div>
+          <h1>{product.name}</h1>
+          <p className="product-detail-description">{product.description || "Описание скоро появится."}</p>
+
+          <div className="product-detail-tags">
+            <span>{product.brand}</span>
+            <span>{product.category}</span>
+            <span className={available ? "is-available" : "is-empty"}>{available ? `${product.stockQty} шт. в наличии` : "Нет в наличии"}</span>
+          </div>
+
+          <div className="product-detail-prices">
+            <div>
+              <span>Розница</span>
+              <b>{formatRub(product.retailPrice)}</b>
+            </div>
+            <div>
+              <span>Опт от 20 шт.</span>
+              <b>{formatRub(product.wholesalePrice)}</b>
+            </div>
+          </div>
+
+          <div className="product-buy-row">
+            <label>
+              Количество
+              <input
+                type="number"
+                min="1"
+                max={Math.max(product.stockQty, 1)}
+                value={safeQty}
+                disabled={!available}
+                onChange={(event) => setQty(Number(event.target.value) || 1)}
+              />
+            </label>
+            <button className="submit-button" type="button" onClick={buyProduct} disabled={!available}>
+              {available ? "В корзину" : "Нет в наличии"}
+              {available && <ShoppingBag size={18} />}
+            </button>
+          </div>
+
+          <div className="product-detail-benefits">
+            <span><Clock size={18} /> Самовывоз 10:00-19:00</span>
+            <span><MapPin size={18} /> Юнона, павильон 506</span>
+            <span><BadgeCheck size={18} /> Проверим товар при выдаче</span>
+          </div>
+        </article>
+      </div>
+
+      <div className="product-detail-blocks">
+        <article>
+          <h2>Характеристики</h2>
+          <dl>
+            <div><dt>SKU</dt><dd>{product.sku}</dd></div>
+            <div><dt>Бренд</dt><dd>{product.brand}</dd></div>
+            <div><dt>Категория</dt><dd>{product.category}</dd></div>
+            <div><dt>Наличие</dt><dd>{available ? `${product.stockQty} шт.` : "нет"}</dd></div>
+          </dl>
+        </article>
+        <article>
+          <h2>Покупка</h2>
+          <p>Заказ собирается для самовывоза. После оформления владелец увидит заказ в админке и Telegram, подтвердит наличие и время выдачи.</p>
+        </article>
+        <article>
+          <h2>Возврат и обмен</h2>
+          <p>Если товар не подойдет, скажите об этом до выдачи. Условия обмена после покупки уточняются на точке по состоянию товара и упаковки.</p>
+        </article>
+      </div>
+
+      {relatedProducts.length > 0 && (
+        <section className="related-products">
+          <div className="section-title-row">
+            <div>
+              <p className="eyebrow">Похожие товары</p>
+              <h2>Еще из этой группы</h2>
+            </div>
+          </div>
+          <div className="product-grid">
+            {relatedProducts.map((item, index) => (
+              <ProductCard
+                key={item.id}
+                product={item}
+                index={index}
+                onAdd={addToCart}
+                onOpen={() => navigate(`/product/${encodeURIComponent(item.id)}`)}
+                isFavorite={false}
+                onToggleFavorite={toggleFavorite}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+    </section>
   );
 }
 
@@ -946,6 +1150,7 @@ function FavoritesPage({ products, favorites, toggleFavorite, addToCart, navigat
               product={product}
               index={index}
               onAdd={addToCart}
+              onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)}
               isFavorite
               onToggleFavorite={toggleFavorite}
             />
@@ -1450,8 +1655,8 @@ function AdminPage({ products, setProducts }) {
       setProductError("Загрузите фото JPG, PNG или WebP.");
       return;
     }
-    if (file.size > 1024 * 1024) {
-      setProductError("Фото должно быть до 1 МБ.");
+    if (file.size > 3 * 1024 * 1024) {
+      setProductError("Фото слишком большое. Максимум 3 МБ.");
       return;
     }
 
@@ -1686,6 +1891,12 @@ function AdminPage({ products, setProducts }) {
                         <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => handleProductImage(product.id, event)} />
                       </label>
                     </div>
+                    {form.imageUrl && (
+                      <button className="price-link full muted" type="button" onClick={() => updateProductForm(product.id, { imageUrl: "" })}>
+                        Удалить фото
+                        <X size={18} />
+                      </button>
+                    )}
                     <button className="price-link full" type="button" onClick={() => saveProduct(product.id)} disabled={savingProductId === product.id}>
                       {savingProductId === product.id ? "Сохранение..." : "Сохранить"}
                       <Check size={18} />
