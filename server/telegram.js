@@ -283,6 +283,7 @@ async function getOrder(orderId) {
         status,
         pickup_date,
         pickup_time,
+        created_at,
         total_amount
       FROM orders
       WHERE id = $1
@@ -367,7 +368,8 @@ function renderOrdersListMessage(orders) {
     ...(orders.length
       ? orders.map((order, index) => {
           const pickup = formatPickup(order.pickup_date, order.pickup_time);
-          return `${index + 1}. ${escapeHtml(order.order_number)} · ${escapeHtml(statuses[order.status] || order.status)} · ${escapeHtml(formatRub(order.total_amount))} · ${escapeHtml(pickup)}`;
+          const created = formatOrderCreatedShort(order.created_at);
+          return `${index + 1}. ${escapeHtml(order.order_number)} · ${escapeHtml(created)} · ${escapeHtml(statuses[order.status] || order.status)} · ${escapeHtml(formatRub(order.total_amount))} · ${escapeHtml(pickup)}`;
         })
       : ["Заказов пока нет."])
   ];
@@ -409,6 +411,7 @@ function renderOrderMessage(order, items) {
     order.customer_telegram ? `Telegram: ${escapeHtml(order.customer_telegram)}` : null,
     "────────────",
     "<b>Доставка</b>",
+    order.created_at ? `Оформлен: ${escapeHtml(formatOrderCreated(order.created_at))}` : null,
     `Цена: ${escapeHtml(order.price_mode === "wholesale" ? "опт" : "розница")}`,
     `Самовывоз: ${escapeHtml(formatPickup(order.pickup_date, order.pickup_time))}`,
     `Сумма: <b>${escapeHtml(formatRub(order.total_amount))}</b>`,
@@ -554,6 +557,25 @@ function formatDate(value) {
 
 function formatPickup(date, time) {
   return `${formatDate(date)}${time ? ` в ${String(time).slice(0, 5)}` : ""}`;
+}
+
+function formatOrderCreated(value) {
+  return new Intl.DateTimeFormat("ru-RU", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value));
+}
+
+function formatOrderCreatedShort(value) {
+  return new Intl.DateTimeFormat("ru-RU", {
+    day: "2-digit",
+    month: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value));
 }
 
 function escapeHtml(value) {

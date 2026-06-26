@@ -1852,7 +1852,7 @@ td {
 }
 
 .order-list,
-.stock-list {
+.product-admin-list {
   display: grid;
   max-height: 70dvh;
   overflow: auto;
@@ -1870,6 +1870,16 @@ td {
 .owner-order > div {
   display: grid;
   gap: 6px;
+}
+
+.owner-order b span {
+  display: block;
+  margin-top: 4px;
+  color: var(--blue-2);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .owner-order span,
@@ -1911,15 +1921,115 @@ td {
   opacity: 1;
 }
 
-.stock-list label {
-  grid-template-columns: 1fr 86px;
+.admin-search {
+  display: grid;
+  grid-template-columns: 18px 1fr;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.035);
 }
 
-.stock-list input {
-  width: 86px;
+.admin-search input {
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  outline: 0;
+}
+
+.product-admin-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 12px;
+  border: 1px solid var(--line);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.product-admin-card.is-low {
+  border-color: rgba(255, 190, 92, 0.58);
+}
+
+.product-admin-card.is-out {
+  border-color: rgba(255, 120, 135, 0.74);
+  background: rgba(92, 31, 43, 0.18);
+}
+
+.product-admin-media {
+  display: grid;
+  place-items: center;
+  min-height: 112px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+
+.product-admin-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-admin-media span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.product-admin-fields,
+.product-admin-fields label {
+  display: grid;
+  gap: 8px;
+}
+
+.product-admin-fields label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.product-admin-fields input,
+.product-admin-fields textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 10px 11px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.045);
+  outline: 0;
+}
+
+.product-admin-fields textarea {
+  resize: vertical;
+}
+
+.product-admin-meta,
+.product-admin-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.product-admin-meta span {
+  border: 1px solid rgba(47, 145, 255, 0.24);
+  padding: 5px 7px;
+  color: var(--blue-2);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: rgba(47, 145, 255, 0.08);
+}
+
+.product-admin-row label {
+  flex: 1 1 120px;
+}
+
+.photo-upload input {
+  padding: 8px;
 }
 
 .legal-page {
@@ -3241,8 +3351,12 @@ h1 span {
     min-height: auto;
   }
 
-  .stock-list label {
+  .product-admin-card {
     grid-template-columns: 1fr;
+  }
+
+  .product-admin-media {
+    min-height: 180px;
   }
 
   .customer-head {

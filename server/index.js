@@ -17,7 +17,7 @@ const rootDir = path.resolve(__dirname, "..");
 const distDir = path.join(rootDir, "dist");
 
 app.set("trust proxy", 1);
-app.use(express.json({ limit: "1mb" }));
+app.use(express.json({ limit: "2mb" }));
 app.use(
   cookieSession({
     name: "shark_session",
@@ -502,19 +502,48 @@ app.patch("/api/admin/orders/:id/status", requireAdmin, async (req, res, next) =
 
 app.patch("/api/admin/products/:id", requireAdmin, async (req, res, next) => {
   try {
+    const name = String(req.body.name || "").trim();
+    const description = String(req.body.description ?? "").trim();
     const stockQty = Number(req.body.stockQty);
+    const imageUrl = req.body.imageUrl == null ? null : String(req.body.imageUrl).trim() || null;
+
+    if (!name) {
+      return res.status(400).json({ error: "Название товара не может быть пустым." });
+    }
     if (!Number.isInteger(stockQty) || stockQty < 0) {
       return res.status(400).json({ error: "Остаток должен быть целым числом от 0." });
     }
+    if (imageUrl && !isValidProductImageUrl(imageUrl)) {
+      return res.status(400).json({ error: "Фото должно быть ссылкой, путем /assets/... или JPG/PNG/WebP до 1 МБ." });
+    }
+
     const { rows } = await query(
       `
         UPDATE products
-        SET stock_qty = $1, updated_at = now()
-        WHERE id = $2
-        RETURNING id, stock_qty AS "stockQty"
+        SET
+          name = $1,
+          description = $2,
+          stock_qty = $3,
+          image_url = $4,
+          updated_at = now()
+        WHERE id = $5
+        RETURNING
+          id,
+          sku,
+          name,
+          category,
+          brand,
+          retail_price AS "retailPrice",
+          wholesale_price AS "wholesalePrice",
+          stock_qty AS "stockQty",
+          image_url AS "imageUrl",
+          description
       `,
-      [stockQty, req.params.id]
+      [name, description, stockQty, imageUrl, req.params.id]
     );
+    if (!rows[0]) {
+      return res.status(404).json({ error: "Товар не найден." });
+    }
     res.json({ product: rows[0] });
   } catch (error) {
     next(error);
@@ -570,6 +599,17 @@ function normalizePickupTime(value) {
     return null;
   }
   return time;
+}
+
+function isValidProductImageUrl(value) {
+  if (value.length > 1_450_000) {
+    return false;
+  }
+  return (
+    /^data:image\/(jpeg|png|webp);base64,[a-z0-9+/=]+$/i.test(value) ||
+    /^https?:\/\/\S+$/i.test(value) ||
+    /^\/\S*$/.test(value)
+  );
 }
 
 async function nextOrderNumber(client) {

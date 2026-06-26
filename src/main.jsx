@@ -1339,6 +1339,10 @@ function AdminPage({ products, setProducts }) {
   const [isAuthed, setIsAuthed] = useState(false);
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState("");
+  const [productForms, setProductForms] = useState({});
+  const [productSearch, setProductSearch] = useState("");
+  const [productError, setProductError] = useState("");
+  const [savingProductId, setSavingProductId] = useState("");
 
   const loadOrders = async () => {
     const response = await fetch("/api/admin/orders");
@@ -1352,6 +1356,37 @@ function AdminPage({ products, setProducts }) {
   useEffect(() => {
     loadOrders();
   }, []);
+
+  useEffect(() => {
+    setProductForms((current) =>
+      Object.fromEntries(
+        products.map((product) => {
+          const nextForm =
+            current[product.id] || {
+              name: product.name || "",
+              description: product.description || "",
+              stockQty: String(product.stockQty ?? 0),
+              imageUrl: product.imageUrl || ""
+            };
+          return [product.id, nextForm];
+        })
+      )
+    );
+  }, [products]);
+
+  const getProductForm = (product) => ({
+    name: product.name || "",
+    description: product.description || "",
+    stockQty: String(product.stockQty ?? 0),
+    imageUrl: product.imageUrl || ""
+  });
+
+  const resetProductForm = (product) => {
+    setProductForms((current) => ({
+      ...current,
+      [product.id]: getProductForm(product)
+    }));
+  };
 
   const submitLogin = async (event) => {
     event.preventDefault();
@@ -1395,14 +1430,66 @@ function AdminPage({ products, setProducts }) {
     loadOrders();
   };
 
-  const changeStock = async (productId, stockQty) => {
-    const response = await fetch(`/api/admin/products/${productId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ stockQty: Number(stockQty) })
-    });
-    if (response.ok) {
-      setProducts(products.map((product) => (product.id === productId ? { ...product, stockQty: Number(stockQty) } : product)));
+  const updateProductForm = (productId, patch) => {
+    setProductForms((current) => ({
+      ...current,
+      [productId]: {
+        ...(current[productId] || {}),
+        ...patch
+      }
+    }));
+  };
+
+  const handleProductImage = (productId, event) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) {
+      return;
+    }
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      setProductError("Загрузите фото JPG, PNG или WebP.");
+      return;
+    }
+    if (file.size > 1024 * 1024) {
+      setProductError("Фото должно быть до 1 МБ.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setProductError("");
+      updateProductForm(productId, { imageUrl: String(reader.result || "") });
+    };
+    reader.onerror = () => setProductError("Не удалось прочитать фото.");
+    reader.readAsDataURL(file);
+  };
+
+  const saveProduct = async (productId) => {
+    const form = productForms[productId] || {};
+    setProductError("");
+    setSavingProductId(productId);
+    try {
+      const response = await fetch(`/api/admin/products/${productId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          description: form.description,
+          stockQty: Number(form.stockQty),
+          imageUrl: form.imageUrl || null
+        })
+      });
+      const data = await readJson(response);
+      if (!response.ok) {
+        setProductError(data.error || "Не удалось сохранить товар.");
+        return;
+      }
+      setProducts((current) => current.map((product) => (product.id === productId ? { ...product, ...data.product } : product)));
+      resetProductForm(data.product);
+    } catch {
+      setProductError("Не удалось сохранить товар.");
+    } finally {
+      setSavingProductId("");
     }
   };
 
@@ -1417,6 +1504,13 @@ function AdminPage({ products, setProducts }) {
     active: orders.filter((order) => ["new", "confirmed", "ready"].includes(order.status)).length,
     lowStock: products.filter((product) => product.stockQty <= 3).length
   };
+  const productSearchValue = productSearch.trim().toLowerCase();
+  const filteredProducts = products.filter((product) => {
+    if (!productSearchValue) {
+      return true;
+    }
+    return `${product.name} ${product.sku}`.toLowerCase().includes(productSearchValue);
+  });
 
   if (!isAuthed) {
     return (
@@ -1495,7 +1589,10 @@ function AdminPage({ products, setProducts }) {
               orders.map((order) => (
                 <div className="owner-order" key={order.id}>
                   <div>
-                    <b>{order.orderNumber}</b>
+                    <b>
+                      {order.orderNumber}
+                      <span>{formatOrderCreated(order.createdAt)}</span>
+                    </b>
                     <span>
                       {order.customerName} · {order.customerPhone} · {formatRub(order.totalAmount)}
                     </span>
@@ -1531,20 +1628,72 @@ function AdminPage({ products, setProducts }) {
         <article className="admin-panel">
           <div className="panel-title">
             <Boxes size={22} />
-            <h2>Наличие</h2>
+            <h2>Товары</h2>
           </div>
-          <div className="stock-list">
-            {products.map((product) => (
-              <label key={product.id}>
-                <span>{product.name}</span>
-                <input
-                  type="number"
-                  min="0"
-                  value={product.stockQty}
-                  onChange={(event) => changeStock(product.id, event.target.value)}
-                />
-              </label>
-            ))}
+          <label className="admin-search">
+            <Search size={16} />
+            <input
+              value={productSearch}
+              onChange={(event) => setProductSearch(event.target.value)}
+              placeholder="Поиск по названию или SKU"
+            />
+          </label>
+          {productError && <p className="form-error" role="alert">{productError}</p>}
+          <div className="product-admin-list">
+            {filteredProducts.map((product) => {
+              const form = productForms[product.id] || {
+                name: product.name || "",
+                description: product.description || "",
+                stockQty: String(product.stockQty ?? 0),
+                imageUrl: product.imageUrl || ""
+              };
+              const stockClass = Number(form.stockQty) === 0 ? "is-out" : Number(form.stockQty) <= 3 ? "is-low" : "";
+              return (
+                <div className={`product-admin-card ${stockClass}`} key={product.id}>
+                  <div className="product-admin-media">
+                    {form.imageUrl ? <img src={form.imageUrl} alt={form.name || product.name} /> : <span>Нет фото</span>}
+                  </div>
+                  <div className="product-admin-fields">
+                    <div className="product-admin-meta">
+                      <span>{product.sku}</span>
+                      <span>{product.brand}</span>
+                      <span>{product.category}</span>
+                    </div>
+                    <label>
+                      Название
+                      <input value={form.name} onChange={(event) => updateProductForm(product.id, { name: event.target.value })} />
+                    </label>
+                    <label>
+                      Описание
+                      <textarea
+                        value={form.description}
+                        rows="3"
+                        onChange={(event) => updateProductForm(product.id, { description: event.target.value })}
+                      />
+                    </label>
+                    <div className="product-admin-row">
+                      <label>
+                        Остаток
+                        <input
+                          type="number"
+                          min="0"
+                          value={form.stockQty}
+                          onChange={(event) => updateProductForm(product.id, { stockQty: event.target.value })}
+                        />
+                      </label>
+                      <label className="photo-upload">
+                        Фото
+                        <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => handleProductImage(product.id, event)} />
+                      </label>
+                    </div>
+                    <button className="price-link full" type="button" onClick={() => saveProduct(product.id)} disabled={savingProductId === product.id}>
+                      {savingProductId === product.id ? "Сохранение..." : "Сохранить"}
+                      <Check size={18} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </article>
       </div>
@@ -1647,6 +1796,19 @@ function formatDate(value) {
 
 function formatPickup(date, time) {
   return `${formatDate(date)}${time ? ` в ${String(time).slice(0, 5)}` : ""}`;
+}
+
+function formatOrderCreated(value) {
+  if (!value) {
+    return "Оформлен: нет времени";
+  }
+  return `Оформлен: ${new Intl.DateTimeFormat("ru-RU", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value))}`;
 }
 
 function getDefaultPickupDate() {
