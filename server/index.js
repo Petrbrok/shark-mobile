@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
 import { waitUntil } from "@vercel/functions";
 import { pool, query, withTransaction } from "./db.js";
-import { handleTelegramUpdate, notifyOwner } from "./telegram.js";
+import { handleTelegramUpdate, notifyOwner, syncOrderNotifications } from "./telegram.js";
 
 dotenv.config();
 
@@ -487,6 +487,13 @@ app.patch("/api/admin/orders/:id/status", requireAdmin, async (req, res, next) =
       `,
       [req.body.status, req.params.id]
     );
+    if (rows[0]) {
+      waitUntil(
+        syncOrderNotifications(rows[0].id).catch((error) => {
+          console.error(error.message);
+        })
+      );
+    }
     res.json({ order: rows[0] });
   } catch (error) {
     next(error);
