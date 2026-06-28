@@ -1033,7 +1033,7 @@ function QuickCatalogNav({ category, navigate, products = [] }) {
             {menuItems.map((item, index) => (
               <button key={item.label} type="button" style={{ "--menu-index": index }} onClick={() => navigate(item.to)}>
                 <span className="quick-catalog-menu-image" aria-hidden="true">
-                  <PhotoPlaceholder compact />
+                  {item.image ? <img src={item.image} alt="" loading="lazy" /> : <span />}
                 </span>
                 <span>
                   <b>{hoveredCategory === "iPhone" ? item.model : item.label}</b>
@@ -1255,7 +1255,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
       <QuickCatalogNav category="Все" navigate={navigate} products={products} />
       <section className="hero-shop">
         <div className="mobile-mark" aria-hidden="true">
-          <PhotoPlaceholder compact />
+          <img src="/assets/logo-background.png" alt="" />
         </div>
         <div className="hero-copy reveal-up">
           <div className="micro-row" aria-label="Информация о месте">
@@ -1289,10 +1289,10 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
           </div>
         </div>
         <div className="hero-phone-visual reveal-up" aria-hidden="true">
-          <PhotoPlaceholder />
+          <img src="/assets/hero-iphone-user.png" alt="" />
         </div>
         <div className="hero-logo reveal-up" aria-label="Логотип Shark Mobile">
-          <PhotoPlaceholder compact />
+          <img src="/assets/logo-background.png" alt="Shark Mobile" />
         </div>
       </section>
 
@@ -1411,7 +1411,7 @@ function BrandCarousel({ onSelect, selectedBrand }) {
         {brands.map((brand) => (
           <button className={`brand-card ${selectedBrand === brand.name ? "is-selected" : ""}`} key={brand.name} onClick={() => onSelect(brand.name)}>
             {brand.logo ? (
-              <PhotoPlaceholder compact />
+              <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
             ) : (
               <span className={brand.markClass || "brand-wordmark"}>{brand.name}</span>
             )}
@@ -2517,7 +2517,7 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
             {gallery.length > 0 ? (
               gallery.map((photo, photoIndex) => (
                 <div className={`product-detail-photo view-${photo.view || "main"}`} key={`${product.id}-detail-${photo.src}-${photoIndex}`}>
-                  <PhotoPlaceholder />
+                  <img src={photo.src} alt={`${product.name}, фото ${photoIndex + 1}`} />
                 </div>
               ))
             ) : (
@@ -2536,7 +2536,7 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
                   onClick={() => scrollDetailPhoto(photoIndex)}
                   aria-label={`Показать фото ${photoIndex + 1}`}
                 >
-                  <PhotoPlaceholder compact />
+                  <img src={photo.src} alt="" loading="lazy" />
                 </button>
               ))}
             </div>
@@ -3612,7 +3612,7 @@ function AdminPage({ products, setProducts }) {
               return (
                 <div className={`product-admin-card ${stockClass}`} key={product.id}>
                   <div className="product-admin-media">
-                    <PhotoPlaceholder compact />
+                    {form.imageUrl ? <img src={form.imageUrl} alt={form.name || product.name} /> : <span>Нет фото</span>}
                   </div>
                   <div className="product-admin-fields">
                     <div className="product-admin-meta">
