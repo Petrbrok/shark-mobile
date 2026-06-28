@@ -7010,9 +7010,9 @@ export const seedProducts = [
     "retailPrice": 40290,
     "wholesalePrice": 40290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2021-256gb-wi-fi-cellular-serebristyy-01.png",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2021-64gb-wi-fi-cellular-serebristyy-01.png",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2021-256gb-wi-fi-cellular-serebristyy-01.png"
+      "/assets/catalog/planshet-apple-ipad-2021-64gb-wi-fi-cellular-serebristyy-01.png"
     ],
     "description": "Планшет Apple iPad &#40;2021&#41; Wi-Fi &#43; Cellular — мощный, простой в использовании и доступный девайс для работы, учебы и творчества. iPad &#40;2021&#41; оснащен дисплеем Multi‑Touch с диагональю 10,2 дюйма, подсветкой LED и технологией IPS. Разрешение экрана планшета составляет 2160×1620 пикселей.",
     "attributes": {
@@ -7035,9 +7035,9 @@ export const seedProducts = [
     "retailPrice": 41590,
     "wholesalePrice": 41590,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2021-256gb-wi-fi-cellular-seryy-kosmos-01.png",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2021-64gb-wi-fi-cellular-seryy-kosmos-01.png",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2021-256gb-wi-fi-cellular-seryy-kosmos-01.png"
+      "/assets/catalog/planshet-apple-ipad-2021-64gb-wi-fi-cellular-seryy-kosmos-01.png"
     ],
     "description": "Планшет Apple iPad &#40;2021&#41; Wi-Fi &#43; Cellular — мощный, простой в использовании и доступный девайс для работы, учебы и творчества. iPad &#40;2021&#41; оснащен дисплеем Multi‑Touch с диагональю 10,2 дюйма, подсветкой LED и технологией IPS. Разрешение экрана планшета составляет 2160×1620 пикселей.",
     "attributes": {
@@ -7560,9 +7560,9 @@ export const seedProducts = [
     "retailPrice": 46990,
     "wholesalePrice": 46990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-128gb-zheltyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-128gb-rozovyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-128gb-zheltyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-128gb-rozovyy-01.jpg"
     ],
     "description": "Apple iPad (2025) Wi-Fi + Cellular — это не просто планшет, а универсальное устройство, которое подойдет для работы, учебы и развлечений. Он сочетает в себе мощь, стиль и удобство, делая повседневные задачи проще, а творчество — увлекательнее.",
     "attributes": {
@@ -7760,9 +7760,9 @@ export const seedProducts = [
     "retailPrice": 68490,
     "wholesalePrice": 68490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-512gb-serebristyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-128gb-serebristyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-512gb-serebristyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-128gb-serebristyy-01.jpg"
     ],
     "description": "Apple iPad (2025) Wi-Fi + Cellular — это не просто планшет, а универсальное устройство, которое подойдет для работы, учебы и развлечений. Он сочетает в себе мощь, стиль и удобство, делая повседневные задачи проще, а творчество — увлекательнее.",
     "attributes": {
@@ -8010,9 +8010,9 @@ export const seedProducts = [
     "retailPrice": 58490,
     "wholesalePrice": 58490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-rozovyy-01.png",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-128gb-rozovyy-01.png",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-rozovyy-01.png"
+      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-128gb-rozovyy-01.png"
     ],
     "description": "Apple iPad (2025) Wi-Fi — это не просто планшет, а универсальное устройство, которое подойдет для работы, учебы и развлечений. Он сочетает в себе мощь, стиль и удобство, делая повседневные задачи проще, а творчество — увлекательнее.",
     "attributes": {
@@ -8035,9 +8035,9 @@ export const seedProducts = [
     "retailPrice": 54790,
     "wholesalePrice": 54790,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-serebristyy-01.png",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-128gb-serebristyy-01.png",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-serebristyy-01.png"
+      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-128gb-serebristyy-01.png"
     ],
     "description": "Apple iPad (2025) Wi-Fi — это не просто планшет, а универсальное устройство, которое подойдет для работы, учебы и развлечений. Он сочетает в себе мощь, стиль и удобство, делая повседневные задачи проще, а творчество — увлекательнее.",
     "attributes": {
@@ -8060,9 +8060,9 @@ export const seedProducts = [
     "retailPrice": 58990,
     "wholesalePrice": 58990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-siniy-01.png",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-512gb-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-siniy-01.png"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-512gb-siniy-01.jpg"
     ],
     "description": "Apple iPad (2025) Wi-Fi — это не просто планшет, а универсальное устройство, которое подойдет для работы, учебы и развлечений. Он сочетает в себе мощь, стиль и удобство, делая повседневные задачи проще, а творчество — увлекательнее.",
     "attributes": {
@@ -8085,9 +8085,9 @@ export const seedProducts = [
     "retailPrice": 55990,
     "wholesalePrice": 55990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-zheltyy-01.png",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-512gb-zheltyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-512gb-zheltyy-01.png"
+      "/assets/catalog/planshet-apple-ipad-2025-wi-fi-cellular-512gb-zheltyy-01.jpg"
     ],
     "description": "Apple iPad (2025) Wi-Fi — это не просто планшет, а универсальное устройство, которое подойдет для работы, учебы и развлечений. Он сочетает в себе мощь, стиль и удобство, делая повседневные задачи проще, а творчество — увлекательнее.",
     "attributes": {
@@ -8135,9 +8135,9 @@ export const seedProducts = [
     "retailPrice": 48790,
     "wholesalePrice": 48790,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-cellular-bezhevyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-cellular-bezhevyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg"
     ],
     "description": "Apple iPad Air (2022) Wi-Fi + Cellular — современный мощный планшет, оснащенный великолепным дисплеем Liquid Retina с диагональю 10.9\". Матрица имеет разрешение 2360 х 1640 пикселей, максимальная яркость 500 нит. В новом iPad Air 5-го поколения используется производительный процессор Apple M1, благодаря которому планшет превращается в мощный инструмент для творчества и запуска современных игр. Для фото- и видео съемки в Apple iPad Air (2022) Wi-Fi + Cellular есть 12-мегапиксельная камера с диафрагмой ƒ/1.8, в качестве фронталки — 12 Мп сверхширик ƒ/2.4 с 2-кратным зумом на уменьшение.",
     "attributes": {
@@ -8160,9 +8160,9 @@ export const seedProducts = [
     "retailPrice": 48190,
     "wholesalePrice": 48190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-cellular-siniy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-cellular-siniy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg"
     ],
     "description": "Apple iPad Air (2022) Wi-Fi + Cellular — современный мощный планшет, оснащенный великолепным дисплеем Liquid Retina с диагональю 10.9\". Матрица имеет разрешение 2360 х 1640 пикселей, максимальная яркость 500 нит. В новом iPad Air 5-го поколения используется производительный процессор Apple M1, благодаря которому планшет превращается в мощный инструмент для творчества и запуска современных игр. Для фото- и видео съемки в Apple iPad Air (2022) Wi-Fi + Cellular есть 12-мегапиксельная камера с диафрагмой ƒ/1.8, в качестве фронталки — 12 Мп сверхширик ƒ/2.4 с 2-кратным зумом на уменьшение.",
     "attributes": {
@@ -8210,9 +8210,9 @@ export const seedProducts = [
     "retailPrice": 41690,
     "wholesalePrice": 41690,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg"
     ],
     "description": "Apple iPad Air (2022) Wi-Fi — современный мощный планшет, оснащенный великолепным дисплеем Liquid Retina с диагональю 10.9\". Матрица имеет разрешение 2360 х 1640 пикселей, максимальная яркость 500 нит. В новом iPad Air 5-го поколения используется производительный процессор Apple M1, благодаря которому планшет превращается в мощный инструмент для творчества и запуска современных игр. Для фото- и видео съемки в Apple iPad Air 2022 есть 12-мегапиксельная камера с диафрагмой ƒ/1.8, в качестве фронталки — 12 Мп сверхширик ƒ/2.4 с 2-кратным зумом на уменьшение.",
     "attributes": {
@@ -8260,9 +8260,9 @@ export const seedProducts = [
     "retailPrice": 75090,
     "wholesalePrice": 75090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8285,9 +8285,9 @@ export const seedProducts = [
     "retailPrice": 74290,
     "wholesalePrice": 74290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-siyayuschaya-zvezda-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-siyayuschaya-zvezda-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8310,9 +8310,9 @@ export const seedProducts = [
     "retailPrice": 75090,
     "wholesalePrice": 75090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-fioletovyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8335,9 +8335,9 @@ export const seedProducts = [
     "retailPrice": 48090,
     "wholesalePrice": 48090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-goluboy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-goluboy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8435,9 +8435,9 @@ export const seedProducts = [
     "retailPrice": 208290,
     "wholesalePrice": 208290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-cellular-goluboy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-cellular-goluboy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8460,9 +8460,9 @@ export const seedProducts = [
     "retailPrice": 207190,
     "wholesalePrice": 207190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-cellular-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-cellular-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8485,9 +8485,9 @@ export const seedProducts = [
     "retailPrice": 208290,
     "wholesalePrice": 208290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-cellular-siyayuschaya-zvezda-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-cellular-siyayuschaya-zvezda-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8510,9 +8510,9 @@ export const seedProducts = [
     "retailPrice": 190290,
     "wholesalePrice": 190290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-goluboy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-goluboy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-goluboy-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8535,9 +8535,9 @@ export const seedProducts = [
     "retailPrice": 190290,
     "wholesalePrice": 190290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8560,9 +8560,9 @@ export const seedProducts = [
     "retailPrice": 192490,
     "wholesalePrice": 192490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-siyayuschaya-zvezda-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-siyayuschaya-zvezda-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8585,9 +8585,9 @@ export const seedProducts = [
     "retailPrice": 190290,
     "wholesalePrice": 190290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-fioletovyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-1tb-wi-fi-fioletovyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-fioletovyy-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8635,9 +8635,9 @@ export const seedProducts = [
     "retailPrice": 85790,
     "wholesalePrice": 85790,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-seryy-kosmos-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-seryy-kosmos-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8660,9 +8660,9 @@ export const seedProducts = [
     "retailPrice": 70490,
     "wholesalePrice": 70490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-fioletovyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-goluboy-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8785,9 +8785,9 @@ export const seedProducts = [
     "retailPrice": 106290,
     "wholesalePrice": 106290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-512gb-wi-fi-cellular-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-512gb-wi-fi-cellular-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8810,9 +8810,9 @@ export const seedProducts = [
     "retailPrice": 110090,
     "wholesalePrice": 110090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-512gb-wi-fi-seryy-kosmos-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2024-512gb-wi-fi-seryy-kosmos-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg"
     ],
     "description": "Обновленный iPad Air оснащен чипом Apple M2 с 8-ядерным ЦП, 10-ядерным ГП и 16-ядерным ускорителем алгоритмов ИИ Neural Engine. По сравнению с чипом M1 производительность планшета выросла на 50%. Передняя 12-мегапиксельная камера поддерживает функцию Center Stage. Задняя 12-мегапиксельная камера обеспечивает видеосъемку в разрешении 4K с частотой до 240 к/с.",
     "attributes": {
@@ -8835,9 +8835,9 @@ export const seedProducts = [
     "retailPrice": 72990,
     "wholesalePrice": 72990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-seryy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-seryy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, серый. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -8860,9 +8860,9 @@ export const seedProducts = [
     "retailPrice": 72990,
     "wholesalePrice": 72990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-siniy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-siniy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-siniy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, синий. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -8885,9 +8885,9 @@ export const seedProducts = [
     "retailPrice": 66890,
     "wholesalePrice": 66890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-siyayuschaya-zvezda-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-siyayuschaya-zvezda-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-siyayuschaya-zvezda-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-siyayuschaya-zvezda-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, сияющая звезда. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -8910,9 +8910,9 @@ export const seedProducts = [
     "retailPrice": 69090,
     "wholesalePrice": 69090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-fioletovyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-128gb-fioletovyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-fioletovyy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, фиолетовый. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -8935,9 +8935,9 @@ export const seedProducts = [
     "retailPrice": 84490,
     "wholesalePrice": 84490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-seryy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-seryy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, серый. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -8960,9 +8960,9 @@ export const seedProducts = [
     "retailPrice": 84490,
     "wholesalePrice": 84490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-siniy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-siniy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-siniy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, синий. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -8985,9 +8985,9 @@ export const seedProducts = [
     "retailPrice": 84490,
     "wholesalePrice": 84490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-siyayuschaya-zvezda-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-siyayuschaya-zvezda-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-siyayuschaya-zvezda-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-siyayuschaya-zvezda-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, сияющая звезда. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -9010,9 +9010,9 @@ export const seedProducts = [
     "retailPrice": 84490,
     "wholesalePrice": 84490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-fioletovyy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-256gb-fioletovyy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-256gb-fioletovyy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, фиолетовый. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -9035,9 +9035,9 @@ export const seedProducts = [
     "retailPrice": 96990,
     "wholesalePrice": 96990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-512gb-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-512gb-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-512gb-seryy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-512gb-seryy-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 512Gb, серый. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -9060,9 +9060,9 @@ export const seedProducts = [
     "retailPrice": 103990,
     "wholesalePrice": 103990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-512gb-siyayuschaya-zvezda-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-512gb-siyayuschaya-zvezda-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-cellular-512gb-siyayuschaya-zvezda-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-512gb-siyayuschaya-zvezda-01.jpg"
     ],
     "description": "Планшет Apple iPad Air 11 (2025) Wi-Fi + Cellular 512Gb, сияющая звезда. Цена и наличие соответствуют общей витрине склада.",
     "attributes": {
@@ -9185,9 +9185,9 @@ export const seedProducts = [
     "retailPrice": 99890,
     "wholesalePrice": 99890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-1tb-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-1tb-seryy-01.jpg"
+      "/assets/catalog/planshet-apple-ipad-air-11-2025-wi-fi-128gb-seryy-01.jpg"
     ],
     "description": "Apple iPad Air 11 (2025) Wi-Fi — это планшет, который легко справляется с задачами: от работы, учебы до творчества и развлечений. Сочетает мощь, стильный дизайн, удобство.",
     "attributes": {
@@ -9835,9 +9835,9 @@ export const seedProducts = [
     "retailPrice": 45890,
     "wholesalePrice": 45890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-13-128gb-zelenyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-13-128gb-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-13-128gb-zelenyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-13-128gb-chernyy-01.jpg"
     ],
     "description": "Смартфон iPhone 13 — совершенный гаджет от Apple, работающий под управлением операционной системы iOS 15. Смартфон поддерживает диапазоны 5G, оснащен современным мощным и быстрым чипом A15 Bionic и системой двух 12 Мп камер, поддерживающими новые возможности вычислительной фотографии. Снимайте качественные фото и видео, играйте без тормозов, серфите и общайтесь!",
     "attributes": {
@@ -10135,9 +10135,9 @@ export const seedProducts = [
     "retailPrice": 58690,
     "wholesalePrice": 58690,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-13-512gb-zelenyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-13-256gb-zelenyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-13-512gb-zelenyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-13-256gb-zelenyy-01.jpg"
     ],
     "description": "Смартфон iPhone 13 — совершенный гаджет от Apple, работающий под управлением операционной системы iOS 15. Смартфон поддерживает диапазоны 5G, оснащен современным мощным и быстрым чипом A15 Bionic и системой двух 12 Мп камер, поддерживающими новые возможности вычислительной фотографии. Снимайте качественные фото и видео, играйте без тормозов, серфите и общайтесь!",
     "attributes": {
@@ -10433,9 +10433,9 @@ export const seedProducts = [
     "retailPrice": 44290,
     "wholesalePrice": 44290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-belyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-128gb-belyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-belyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-128gb-belyy-01.jpg"
     ],
     "description": "Смартфон Apple iPhone 14 получил яркий 6.1-дюймовый OLED-дисплей Super Retina XDR с привычной «челкой», а на тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 от падений. Разрешение экрана составляет 2532 x 1170 пикселей. Apple iPhone 14 работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Технические характеристики iPhone 14 как всегда на высоте. Новая модель работает на базе привычного процессора A15 Bionic, который был улучшен. Обновленный шестиядерный чип с 5-ядерным графическим процессором обеспечит айфону более крутую графику и прирост производительности в играх как минимум на 25&#37;.",
     "attributes": {
@@ -10458,9 +10458,9 @@ export const seedProducts = [
     "retailPrice": 47990,
     "wholesalePrice": 47990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-zheltyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-zheltyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-zheltyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-zheltyy-01.jpg"
     ],
     "description": "Смартфон Apple iPhone 14 получил яркий 6.1-дюймовый OLED-дисплей Super Retina XDR с привычной «челкой», а на тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 от падений. Разрешение экрана составляет 2532 x 1170 пикселей. Apple iPhone 14 работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Технические характеристики iPhone 14 как всегда на высоте. Новая модель работает на базе привычного процессора A15 Bionic, который был улучшен. Обновленный шестиядерный чип с 5-ядерным графическим процессором обеспечит айфону более крутую графику и прирост производительности в играх как минимум на 25&#37;.",
     "attributes": {
@@ -10483,9 +10483,9 @@ export const seedProducts = [
     "retailPrice": 47190,
     "wholesalePrice": 47190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-krasnyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-krasnyy-01.png",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-krasnyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-krasnyy-01.png"
     ],
     "description": "Смартфон Apple iPhone 14 получил яркий 6.1-дюймовый OLED-дисплей Super Retina XDR с привычной «челкой», а на тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 от падений. Разрешение экрана составляет 2532 x 1170 пикселей. Apple iPhone 14 работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Технические характеристики iPhone 14 как всегда на высоте. Новая модель работает на базе привычного процессора A15 Bionic, который был улучшен. Обновленный шестиядерный чип с 5-ядерным графическим процессором обеспечит айфону более крутую графику и прирост производительности в играх как минимум на 25&#37;.",
     "attributes": {
@@ -10508,9 +10508,9 @@ export const seedProducts = [
     "retailPrice": 52090,
     "wholesalePrice": 52090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-chernyy-01.png",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-128gb-dual-sim-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-chernyy-01.png"
     ],
     "description": "Смартфон Apple iPhone 14 получил яркий 6.1-дюймовый OLED-дисплей Super Retina XDR с привычной «челкой», а на тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 от падений. Разрешение экрана составляет 2532 x 1170 пикселей. Apple iPhone 14 работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Технические характеристики iPhone 14 как всегда на высоте. Новая модель работает на базе привычного процессора A15 Bionic, который был улучшен. Обновленный шестиядерный чип с 5-ядерным графическим процессором обеспечит айфону более крутую графику и прирост производительности в играх как минимум на 25&#37;.",
     "attributes": {
@@ -10633,9 +10633,9 @@ export const seedProducts = [
     "retailPrice": 54290,
     "wholesalePrice": 54290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-128gb-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-fioletovyy-01.png",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-128gb-fioletovyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-fioletovyy-01.png"
     ],
     "description": "Смартфон Apple iPhone 14 получил яркий 6.1-дюймовый OLED-дисплей Super Retina XDR с привычной «челкой», а на тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 от падений. Разрешение экрана составляет 2532 x 1170 пикселей. Apple iPhone 14 работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Технические характеристики iPhone 14 как всегда на высоте. Новая модель работает на базе привычного процессора A15 Bionic, который был улучшен. Обновленный шестиядерный чип с 5-ядерным графическим процессором обеспечит айфону более крутую графику и прирост производительности в играх как минимум на 25&#37;.",
     "attributes": {
@@ -10783,9 +10783,9 @@ export const seedProducts = [
     "retailPrice": 56990,
     "wholesalePrice": 56990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-256gb-fioletovyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-256gb-fioletovyy-01.png",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-256gb-fioletovyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-256gb-fioletovyy-01.png"
     ],
     "description": "Смартфон Apple iPhone 14 получил яркий 6.1-дюймовый OLED-дисплей Super Retina XDR с привычной «челкой», а на тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 от падений. Разрешение экрана составляет 2532 x 1170 пикселей. Apple iPhone 14 работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Технические характеристики iPhone 14 как всегда на высоте. Новая модель работает на базе привычного процессора A15 Bionic, который был улучшен. Обновленный шестиядерный чип с 5-ядерным графическим процессором обеспечит айфону более крутую графику и прирост производительности в играх как минимум на 25&#37;.",
     "attributes": {
@@ -10983,9 +10983,9 @@ export const seedProducts = [
     "retailPrice": 57090,
     "wholesalePrice": 57090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-belyy-01.png",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-siniy-01.png",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-belyy-01.png"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-128gb-siniy-01.png"
     ],
     "description": "Смартфон Apple iPhone 14 Plus получил OLED-дисплей Super Retina XDR увеличенного размера — 6.7 дюймовый экран с привычной «челкой» отличается высокой яркостью и контрастностью. На тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 Plus от падений. Разрешение экрана составляет 2778×1284 пикселей. Apple iPhone 14 Plus работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Apple iPhone 14 Plus оснащен новой основной камерой с 12Мп датчиком, который захватывает до 49&#37; больше света при съемке в недостаточных условиях освещения. А сверхширокоугольная камера позволит запечатлеть уникальные ракурсы и гораздо большие сцены.",
     "attributes": {
@@ -11133,9 +11133,9 @@ export const seedProducts = [
     "retailPrice": 55990,
     "wholesalePrice": 55990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-256gb-belyy-01.png",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-256gb-siniy-01.png",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-plus-256gb-belyy-01.png"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-256gb-siniy-01.png"
     ],
     "description": "Смартфон Apple iPhone 14 Plus получил OLED-дисплей Super Retina XDR увеличенного размера — 6.7 дюймовый экран с привычной «челкой» отличается высокой яркостью и контрастностью. На тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 Plus от падений. Разрешение экрана составляет 2778×1284 пикселей. Apple iPhone 14 Plus работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Apple iPhone 14 Plus оснащен новой основной камерой с 12Мп датчиком, который захватывает до 49&#37; больше света при съемке в недостаточных условиях освещения. А сверхширокоугольная камера позволит запечатлеть уникальные ракурсы и гораздо большие сцены.",
     "attributes": {
@@ -11283,9 +11283,9 @@ export const seedProducts = [
     "retailPrice": 59190,
     "wholesalePrice": 59190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-512gb-dual-sim-zheltyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-14-plus-512gb-zheltyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-14-plus-512gb-dual-sim-zheltyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-14-plus-512gb-zheltyy-01.jpg"
     ],
     "description": "Смартфон Apple iPhone 14 Plus получил OLED-дисплей Super Retina XDR увеличенного размера — 6.7 дюймовый экран с привычной «челкой» отличается высокой яркостью и контрастностью. На тыльной стороне девайса по диагонали расположены линзы в модуле основной камеры. Прочная передняя панель Ceramic Shield надежно защищает iPhone 14 Plus от падений. Разрешение экрана составляет 2778×1284 пикселей. Apple iPhone 14 Plus работает под управлением операционной системы iOS 16, позволяющей гибко настроить экран блокировки. Apple iPhone 14 Plus оснащен новой основной камерой с 12Мп датчиком, который захватывает до 49&#37; больше света при съемке в недостаточных условиях освещения. А сверхширокоугольная камера позволит запечатлеть уникальные ракурсы и гораздо большие сцены.",
     "attributes": {
@@ -12231,9 +12231,9 @@ export const seedProducts = [
     "retailPrice": 70090,
     "wholesalePrice": 70090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-256gb-goluboy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-256gb-goluboy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12331,9 +12331,9 @@ export const seedProducts = [
     "retailPrice": 65990,
     "wholesalePrice": 65990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-256gb-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-128gb-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-256gb-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-128gb-chernyy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12531,9 +12531,9 @@ export const seedProducts = [
     "retailPrice": 64190,
     "wholesalePrice": 64190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-zelenyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-zelenyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12556,9 +12556,9 @@ export const seedProducts = [
     "retailPrice": 64890,
     "wholesalePrice": 64890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-rozovyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-rozovyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12581,9 +12581,9 @@ export const seedProducts = [
     "retailPrice": 64890,
     "wholesalePrice": 64890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12606,9 +12606,9 @@ export const seedProducts = [
     "retailPrice": 65490,
     "wholesalePrice": 65490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-goluboy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-goluboy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12631,9 +12631,9 @@ export const seedProducts = [
     "retailPrice": 72090,
     "wholesalePrice": 72090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-zheltyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-zheltyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-zheltyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-256gb-zheltyy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12656,9 +12656,9 @@ export const seedProducts = [
     "retailPrice": 67490,
     "wholesalePrice": 67490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-zelenyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-rozovyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-zelenyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-rozovyy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12706,9 +12706,9 @@ export const seedProducts = [
     "retailPrice": 67490,
     "wholesalePrice": 67490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-rozovyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-plus-dual-sim-512gb-rozovyy-01.jpg"
     ],
     "description": "Одной из особенностей iPhone 15 Plus является расширение возможностей Dynamic Island – революционного интерфейса, который меняет взгляд на взаимодействие с смартфоном. Dynamic Island представляет собой инновационную технологию, которая позволяет пользователям мгновенно переключаться между различными режимами работы устройства. Этот интерфейс адаптируется к вашим потребностям и предоставляет быстрый доступ к приложениям, функциям и уведомлениям.",
     "attributes": {
@@ -12781,9 +12781,9 @@ export const seedProducts = [
     "retailPrice": 72890,
     "wholesalePrice": 72890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-128gb-natural-titanium-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-128gb-natural-titanium-seryy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -12831,9 +12831,9 @@ export const seedProducts = [
     "retailPrice": 105790,
     "wholesalePrice": 105790,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-1tb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-black-titanium-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-1tb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-black-titanium-chernyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -12931,9 +12931,9 @@ export const seedProducts = [
     "retailPrice": 84890,
     "wholesalePrice": 84890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-256gb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-256gb-black-titanium-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-256gb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-256gb-black-titanium-chernyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13031,9 +13031,9 @@ export const seedProducts = [
     "retailPrice": 102690,
     "wholesalePrice": 102690,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-512gb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-512gb-black-titanium-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-512gb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-512gb-black-titanium-chernyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13181,9 +13181,9 @@ export const seedProducts = [
     "retailPrice": 146690,
     "wholesalePrice": 146690,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-1tb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-black-titanium-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-1tb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-black-titanium-chernyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13206,9 +13206,9 @@ export const seedProducts = [
     "retailPrice": 133290,
     "wholesalePrice": 133290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-1tb-blue-titanium-siniy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-blue-titanium-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-1tb-blue-titanium-siniy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-blue-titanium-siniy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13231,9 +13231,9 @@ export const seedProducts = [
     "retailPrice": 134390,
     "wholesalePrice": 134390,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-1tb-natural-titanium-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-1tb-natural-titanium-seryy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13256,9 +13256,9 @@ export const seedProducts = [
     "retailPrice": 92990,
     "wholesalePrice": 92990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-natural-titanium-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-natural-titanium-seryy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13331,9 +13331,9 @@ export const seedProducts = [
     "retailPrice": 91790,
     "wholesalePrice": 91790,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-white-titanium-belyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-blue-titanium-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-white-titanium-belyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-256gb-blue-titanium-siniy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13356,9 +13356,9 @@ export const seedProducts = [
     "retailPrice": 70990,
     "wholesalePrice": 70990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-128gb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-128gb-black-titanium-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-128gb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-128gb-black-titanium-chernyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13381,9 +13381,9 @@ export const seedProducts = [
     "retailPrice": 70990,
     "wholesalePrice": 70990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-128gb-natural-titanium-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-128gb-natural-titanium-seryy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13406,9 +13406,9 @@ export const seedProducts = [
     "retailPrice": 96990,
     "wholesalePrice": 96990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-1tb-blue-titanium-siniy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-256gb-blue-titanium-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-1tb-blue-titanium-siniy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-256gb-blue-titanium-siniy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13431,9 +13431,9 @@ export const seedProducts = [
     "retailPrice": 91490,
     "wholesalePrice": 91490,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-1tb-natural-titanium-seryy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-natural-titanium-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-1tb-natural-titanium-seryy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-natural-titanium-seryy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13456,9 +13456,9 @@ export const seedProducts = [
     "retailPrice": 97890,
     "wholesalePrice": 97890,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-1tb-white-titanium-belyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-white-titanium-belyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-1tb-white-titanium-belyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-white-titanium-belyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13481,9 +13481,9 @@ export const seedProducts = [
     "retailPrice": 83990,
     "wholesalePrice": 83990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-esim-256gb-black-titanium-chernyy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-256gb-black-titanium-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-esim-256gb-black-titanium-chernyy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-256gb-black-titanium-chernyy-01.jpg"
     ],
     "description": "iPhone 15 Pro выполнен в новой титановой рамке, что делает его самым легким айфоном Pro серии. Этот смартфон также может похвастаться самыми тонкими рамками среди всех моделей iPhone, что позволяет максимально использовать площадь дисплея и погрузиться в мир ярких и качественных изображений. Дисплей iPhone 15 Pro – это настоящий шедевр технологии. Его 6,1-дюймовый Super Retina XDR экран обеспечивает потрясающие яркие и насыщенные цвета, а пиковая яркость впечатляет своими 2000 кд/м2. Это делает изображения невероятно четкими и яркими, а HDR-контент просто ошеломляет своей реалистичностью.",
     "attributes": {
@@ -13629,9 +13629,9 @@ export const seedProducts = [
     "retailPrice": 108590,
     "wholesalePrice": 108590,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-blue-titanium-siniy-01.jpg",
+    "imageUrl": "/assets/catalog/smartfon-apple-iphone-15-pro-max-256gb-blue-titanium-siniy-01.jpg",
     "gallery": [
-      "/assets/catalog/smartfon-apple-iphone-15-pro-max-1tb-blue-titanium-siniy-01.jpg"
+      "/assets/catalog/smartfon-apple-iphone-15-pro-max-256gb-blue-titanium-siniy-01.jpg"
     ],
     "description": "Одним из первых заметных изменений в iPhone 15 Pro Max является его титановый корпус. Этот материал обеспечивает невероятную прочность и устойчивость к внешним воздействиям, при этом оставаясь легким и приятным на ощупь. Кроме того, новый iPhone имеет самые тонкие рамки среди всех моделей этой линейки, что делает его дизайн еще более изысканным и современным. iPhone 15 Pro Max оснащен потрясающим 6,7-дюймовым Super Retina XDR дисплеем, который обеспечивает невероятно четкое и насыщенное изображение. Дисплей также поддерживает частоту обновления до 120 Гц, что делает визуальный опыт более плавным и реалистичным, особенно сильно это ощущается в играх.",
     "attributes": {
@@ -13904,9 +13904,9 @@ export const seedProducts = [
     "retailPrice": 98990,
     "wholesalePrice": 98990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly03-apple-m2-8-core-8gb-512gb-ssd-serebristy-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly03-apple-m2-8-core-8gb-512gb-ssd-serebristy-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2022) в совершенно новом дизайне стал еще мощнее. Быстрый, легкий и красивый ноутбук работает на чипе M2, благодаря которому обработка изображений стала на 39% быстрее. Вычислительная производительность в многоядерном тесте показала прирост до 16%. Также эффективность чипа M2 в MacBook Air обеспечивает высокую производительность без вентилятора. Ноутбук работает абсолютно бесшумно независимо от сложности задачи. MacBook Air 13 M2 (2022) оснащен потрясающим 13,6-дюймовым дисплеем Liquid Retina, поддерживающим 1 миллиард цветов. Текст на экране становится сверхчетким, а фото и видео — яркими и контрастными. Встроенный аккумулятор обеспечивает до 18 часов работы MacBook Air 13 M2 (2022) без подзарядки.",
     "attributes": {
@@ -14004,9 +14004,9 @@ export const seedProducts = [
     "retailPrice": 103990,
     "wholesalePrice": 103990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14029,9 +14029,9 @@ export const seedProducts = [
     "retailPrice": 104990,
     "wholesalePrice": 104990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14054,9 +14054,9 @@ export const seedProducts = [
     "retailPrice": 104990,
     "wholesalePrice": 104990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-space-gray--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-space-gray--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14079,9 +14079,9 @@ export const seedProducts = [
     "retailPrice": 104990,
     "wholesalePrice": 104990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-starlight-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-starlight-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14104,9 +14104,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14129,9 +14129,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14154,9 +14154,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14179,9 +14179,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-space-gray--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-space-gray--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14204,9 +14204,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-starlight-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-24-gb-512-gb-ssd-starlight-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14229,9 +14229,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-midnight-tem-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-midnight-tem-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14254,9 +14254,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-space-gray-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-space-gray-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Отличный выбор для тех, кто хочет получить максимум производительности без лишнего веса. С чипом M3, улучшенной графикой и увеличенной памятью он легко справляется с любыми задачами — от работы и учебы до развлечений.",
     "attributes": {
@@ -14279,9 +14279,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-midnight-tem-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-midnight-tem-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14304,9 +14304,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-silver-sereb-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-silver-sereb-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14329,9 +14329,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-space-gray-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-space-gray-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14354,9 +14354,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-starlight-si-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-starlight-si-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14379,9 +14379,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-8-gb-256-gb-ssd-silver-serebr-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-8-gb-256-gb-ssd-silver-serebr-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14404,9 +14404,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-8-gb-256-gb-ssd-space-gray-se-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-8-gb-256-gb-ssd-space-gray-se-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14429,9 +14429,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-8-gb-256-gb-ssd-starlight-siy-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m3-8c-cpu-8c-gpu-2024-8-gb-256-gb-ssd-starlight-siy-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -14454,9 +14454,9 @@ export const seedProducts = [
     "retailPrice": 99990,
     "wholesalePrice": 99990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-midnight-t-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-midnight-t-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14479,9 +14479,9 @@ export const seedProducts = [
     "retailPrice": 99990,
     "wholesalePrice": 99990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-silver-ser-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-silver-ser-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14504,9 +14504,9 @@ export const seedProducts = [
     "retailPrice": 99990,
     "wholesalePrice": 99990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-sky-blue-n-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-sky-blue-n-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14529,9 +14529,9 @@ export const seedProducts = [
     "retailPrice": 99990,
     "wholesalePrice": 99990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-starlight--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-starlight--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14554,9 +14554,9 @@ export const seedProducts = [
     "retailPrice": 205090,
     "wholesalePrice": 205090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-24-gb-1-tb-ssd-midnight-tem-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-24-gb-1-tb-ssd-midnight-tem-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14579,9 +14579,9 @@ export const seedProducts = [
     "retailPrice": 209190,
     "wholesalePrice": 209190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-24-gb-1-tb-ssd-silver-z1ct0-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-24-gb-1-tb-ssd-silver-z1ct0-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14604,9 +14604,9 @@ export const seedProducts = [
     "retailPrice": 201990,
     "wholesalePrice": 201990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-24-gb-1tb-ssd-silver-z1cu00-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-24-gb-1tb-ssd-silver-z1cu00-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14629,9 +14629,9 @@ export const seedProducts = [
     "retailPrice": 222590,
     "wholesalePrice": 222590,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-midnight-z1cy-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-midnight-z1cy-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14654,9 +14654,9 @@ export const seedProducts = [
     "retailPrice": 207090,
     "wholesalePrice": 207090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-midnight-z1gu-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-midnight-z1gu-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14679,9 +14679,9 @@ export const seedProducts = [
     "retailPrice": 207690,
     "wholesalePrice": 207690,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-silver-z1ct00-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-silver-z1ct00-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14704,9 +14704,9 @@ export const seedProducts = [
     "retailPrice": 207290,
     "wholesalePrice": 207290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-silver-z1cu00-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-silver-z1cu00-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14729,9 +14729,9 @@ export const seedProducts = [
     "retailPrice": 207090,
     "wholesalePrice": 207090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-sky-blue-z1h8-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-10c-gpu-2025-32-gb-1tb-ssd-sky-blue-z1h8-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14754,9 +14754,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14779,9 +14779,9 @@ export const seedProducts = [
     "retailPrice": 108990,
     "wholesalePrice": 108990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14804,9 +14804,9 @@ export const seedProducts = [
     "retailPrice": 108990,
     "wholesalePrice": 108990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14829,9 +14829,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14854,9 +14854,9 @@ export const seedProducts = [
     "retailPrice": 108990,
     "wholesalePrice": 108990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14879,9 +14879,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-sky-blue-ne-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-sky-blue-ne-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14904,9 +14904,9 @@ export const seedProducts = [
     "retailPrice": 110090,
     "wholesalePrice": 110090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-sky-blue-ne-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-sky-blue-ne-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14929,9 +14929,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-starlight-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-starlight-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14954,9 +14954,9 @@ export const seedProducts = [
     "retailPrice": 110090,
     "wholesalePrice": 110090,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-starlight-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m4-10c-cpu-8c-gpu-2025-16-gb-256-gb-ssd-starlight-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (M4, 2025)– это сочетание передовых технологий, легкости и стиля. Он идеально подходит как для работы, так и для творчества, предлагая высокую производительность и удобство в использовании. Компактный и элегантный, он легко помещается в сумку и становится надежным спутником в любых задачах.",
     "attributes": {
@@ -14979,9 +14979,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-midnight-tem-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-midnight-tem-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15004,9 +15004,9 @@ export const seedProducts = [
     "retailPrice": 119990,
     "wholesalePrice": 119990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-silver-sereb-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-silver-sereb-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15029,9 +15029,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-sky-blue-neb-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-sky-blue-neb-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15054,9 +15054,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-starlight-si-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-10c-gpu-2026-16-gb-1-tb-ssd-starlight-si-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15079,9 +15079,9 @@ export const seedProducts = [
     "retailPrice": 104990,
     "wholesalePrice": 104990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15104,9 +15104,9 @@ export const seedProducts = [
     "retailPrice": 105990,
     "wholesalePrice": 105990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15129,9 +15129,9 @@ export const seedProducts = [
     "retailPrice": 104990,
     "wholesalePrice": 104990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-sky-blue-ne-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-sky-blue-ne-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15154,9 +15154,9 @@ export const seedProducts = [
     "retailPrice": 104990,
     "wholesalePrice": 104990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-starlight-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-m5-10c-cpu-8c-gpu-2026-16-gb-512-gb-ssd-starlight-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 (2026) — это тонкий и легкий ноутбук, предназначенный для мобильной работы. Корпус из переработанного алюминия, высота устройства составляет всего 1,13 см, ширина — 30,41 см, глубина — 21,5 см, а вес — 1,23 кг. Устройство оснащено бесшумной системой охлаждения. Интеграция с экосистемой Apple обеспечивается функциями Continuity, позволяющими копировать контент между iPhone и Mac, принимать звонки и сообщения на ноутбуке, использовать зеркалирование экрана смартфона и быстро передавать файлы без дополнительных настроек.",
     "attributes": {
@@ -15179,9 +15179,9 @@ export const seedProducts = [
     "retailPrice": 101790,
     "wholesalePrice": 101790,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2022-16-gb-256-gb-polunochnyy-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2022-16-gb-256-gb-polunochnyy-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15204,9 +15204,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2022-16-gb-256-gb-serebristyy-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2022-16-gb-256-gb-serebristyy-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15229,9 +15229,9 @@ export const seedProducts = [
     "retailPrice": 94990,
     "wholesalePrice": 94990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2022-16-gb-256-gb-seryy-kosmo-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mlxx3-apple-m2-8-core-8gb-512gb-ssd-seryy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2022-16-gb-256-gb-seryy-kosmo-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mlxx3-apple-m2-8-core-8gb-512gb-ssd-seryy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15254,9 +15254,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-midnigh-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-midnigh-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15279,9 +15279,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-space-g-01.webp",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-space-g-01.webp"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15304,9 +15304,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-starlig-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-2024-16-gb-256-gb-ssd-starlig-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15329,9 +15329,9 @@ export const seedProducts = [
     "retailPrice": 89990,
     "wholesalePrice": 89990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-16-gb-256-gb-ssd-silver-sereb-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-2024-m2-8c-cpu-8c-gpu-16-gb-256-gb-ssd-silver-sereb-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 13 M2 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M2 с восьмиядерным центральным процессором и интегрированным графическим процессором с 8 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15354,9 +15354,9 @@ export const seedProducts = [
     "retailPrice": 74990,
     "wholesalePrice": 74990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg"
     ],
     "description": "MacBook Air, самый тонкий и легкий ноутбук Apple, с новым чипом M1 стал суперсильным и супермобильным. 8-ядерный центральный процессор в сочетании с 7-ядерным графическим процессором и 16-ядерной системой Neural Engine творят настоящие чудеса. Чтобы раскрыть весь потенциал MacBook Air 13 M1, инженеры Apple установили в ноутбук до 16 ГБ высокоскоростной объединенной памяти, которая может похвастаться высокой пропускной способностью и минимальной задержкой при обращении.",
     "attributes": {
@@ -15379,9 +15379,9 @@ export const seedProducts = [
     "retailPrice": 78990,
     "wholesalePrice": 78990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg"
     ],
     "description": "MacBook Air, самый тонкий и легкий ноутбук Apple, с новым чипом M1 стал суперсильным и супермобильным. 8-ядерный центральный процессор в сочетании с 7-ядерным графическим процессором и 16-ядерной системой Neural Engine творят настоящие чудеса. Чтобы раскрыть весь потенциал MacBook Air 13 M1, инженеры Apple установили в ноутбук до 16 ГБ высокоскоростной объединенной памяти, которая может похвастаться высокой пропускной способностью и минимальной задержкой при обращении.",
     "attributes": {
@@ -15404,9 +15404,9 @@ export const seedProducts = [
     "retailPrice": 74990,
     "wholesalePrice": 74990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg"
     ],
     "description": "MacBook Air, самый тонкий и легкий ноутбук Apple, с новым чипом M1 стал суперсильным и супермобильным. 8-ядерный центральный процессор в сочетании с 7-ядерным графическим процессором и 16-ядерной системой Neural Engine творят настоящие чудеса. Чтобы раскрыть весь потенциал MacBook Air 13 M1, инженеры Apple установили в ноутбук до 16 ГБ высокоскоростной объединенной памяти, которая может похвастаться высокой пропускной способностью и минимальной задержкой при обращении.",
     "attributes": {
@@ -15429,9 +15429,9 @@ export const seedProducts = [
     "retailPrice": 74990,
     "wholesalePrice": 74990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-13-late-2020-mgn63-apple-m1-13-3-2560x1600-8gb-256gb-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg"
     ],
     "description": "MacBook Air, самый тонкий и легкий ноутбук Apple, с новым чипом M1 стал суперсильным и супермобильным. 8-ядерный центральный процессор в сочетании с 7-ядерным графическим процессором и 16-ядерной системой Neural Engine творят настоящие чудеса. Чтобы раскрыть весь потенциал MacBook Air 13 M1, инженеры Apple установили в ноутбук до 16 ГБ высокоскоростной объединенной памяти, которая может похвастаться высокой пропускной способностью и минимальной задержкой при обращении.",
     "attributes": {
@@ -15454,9 +15454,9 @@ export const seedProducts = [
     "retailPrice": 106990,
     "wholesalePrice": 106990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m2-8c-cpu-10c-gpu-2023-8-gb-256-gb-ssd-midnight-tem-01.png",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m2-8c-cpu-10c-gpu-2023-8-gb-256-gb-ssd-midnight-tem-01.png"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple Macbook Air 15 M2 &#40;2023&#41; — впечатляюще большой и невероятно тонкий ноутбук. Он оснащен ярким Liquid Retina дисплеем с разрешением 2880x1864, плотностью — 224 пикселя и поддержкой 1 миллиарда цветов. Фотографии и видео отличаются высокой контрастностью и детализацией, а текст выглядит сверхчетким и легко читается. За высокую производительность в MacBook Air 15 &#40;2023&#41; отвечает мощный чип M2.",
     "attributes": {
@@ -15479,9 +15479,9 @@ export const seedProducts = [
     "retailPrice": 109990,
     "wholesalePrice": 109990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-midnight-ch-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-midnight-ch-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Новый MacBook Air с чипом M3: мощное обновление для эффективной работы и развлечений.",
     "attributes": {
@@ -15504,9 +15504,9 @@ export const seedProducts = [
     "retailPrice": 109990,
     "wholesalePrice": 109990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Новый MacBook Air с чипом M3: мощное обновление для эффективной работы и развлечений.",
     "attributes": {
@@ -15529,9 +15529,9 @@ export const seedProducts = [
     "retailPrice": 109990,
     "wholesalePrice": 109990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-space-grey--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-space-grey--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Новый MacBook Air с чипом M3: мощное обновление для эффективной работы и развлечений.",
     "attributes": {
@@ -15554,9 +15554,9 @@ export const seedProducts = [
     "retailPrice": 105990,
     "wholesalePrice": 105990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-starlight-z-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-256-gb-ssd-starlight-z-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Новый MacBook Air с чипом M3: мощное обновление для эффективной работы и развлечений.",
     "attributes": {
@@ -15579,9 +15579,9 @@ export const seedProducts = [
     "retailPrice": 116990,
     "wholesalePrice": 116990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-midnight-te-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-midnight-te-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15604,9 +15604,9 @@ export const seedProducts = [
     "retailPrice": 116990,
     "wholesalePrice": 116990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-silver-sere-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-silver-sere-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15629,9 +15629,9 @@ export const seedProducts = [
     "retailPrice": 116990,
     "wholesalePrice": 116990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-space-gray--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-space-gray--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15654,9 +15654,9 @@ export const seedProducts = [
     "retailPrice": 116990,
     "wholesalePrice": 116990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-starlight-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-16-gb-512-gb-ssd-starlight-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 (2024) в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15679,9 +15679,9 @@ export const seedProducts = [
     "retailPrice": 101990,
     "wholesalePrice": 101990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-256-gb-ssd-silver-sereb-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-256-gb-ssd-silver-sereb-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15704,9 +15704,9 @@ export const seedProducts = [
     "retailPrice": 97990,
     "wholesalePrice": 97990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-256-gb-ssd-space-gray-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-256-gb-ssd-space-gray-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15729,9 +15729,9 @@ export const seedProducts = [
     "retailPrice": 101990,
     "wholesalePrice": 101990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-256-gb-ssd-starlight-si-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-256-gb-ssd-starlight-si-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15754,9 +15754,9 @@ export const seedProducts = [
     "retailPrice": 112990,
     "wholesalePrice": 112990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-midnight-tem-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-midnight-tem-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15779,9 +15779,9 @@ export const seedProducts = [
     "retailPrice": 112990,
     "wholesalePrice": 112990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-space-gray-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-space-gray-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15804,9 +15804,9 @@ export const seedProducts = [
     "retailPrice": 112990,
     "wholesalePrice": 112990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-space-gray-s-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-space-gray-s-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15829,9 +15829,9 @@ export const seedProducts = [
     "retailPrice": 118290,
     "wholesalePrice": 118290,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-starlight-si-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m3-8c-cpu-10c-gpu-2024-8-gb-512-gb-ssd-starlight-si-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Air 15 M3 &#40;2024&#41; в привычном дизайне стал еще мощнее. Ноутбук работает на чипе Apple M3 с восьмиядерным центральным процессором и интегрированным графическим процессором с 10 ядрами. Обработка изображений и вычислительная производительность поднялись на новый уровень, а Wi-Fi стал быстрее в два раза.",
     "attributes": {
@@ -15854,9 +15854,9 @@ export const seedProducts = [
     "retailPrice": 109990,
     "wholesalePrice": 109990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-midnight-t-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-midnight-t-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -15879,9 +15879,9 @@ export const seedProducts = [
     "retailPrice": 117990,
     "wholesalePrice": 117990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-midnight-t-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-midnight-t-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -15904,9 +15904,9 @@ export const seedProducts = [
     "retailPrice": 114990,
     "wholesalePrice": 114990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-silver-ser-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-silver-ser-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -15929,9 +15929,9 @@ export const seedProducts = [
     "retailPrice": 107990,
     "wholesalePrice": 107990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-sky-blue-n-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-sky-blue-n-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -15954,9 +15954,9 @@ export const seedProducts = [
     "retailPrice": 114990,
     "wholesalePrice": 114990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-sky-blue-n-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-sky-blue-n-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -15979,9 +15979,9 @@ export const seedProducts = [
     "retailPrice": 109990,
     "wholesalePrice": 109990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-starlight--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-starlight--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -16004,9 +16004,9 @@ export const seedProducts = [
     "retailPrice": 116990,
     "wholesalePrice": 116990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-starlight--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-256-gb-ssd-starlight--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -16029,9 +16029,9 @@ export const seedProducts = [
     "retailPrice": 122990,
     "wholesalePrice": 122990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-starlight--01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-16-gb-512-gb-ssd-starlight--01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -16054,9 +16054,9 @@ export const seedProducts = [
     "retailPrice": 192390,
     "wholesalePrice": 192390,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-24-gb-1-tb-ssd-starlight-si-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-24-gb-1-tb-ssd-starlight-si-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -16079,9 +16079,9 @@ export const seedProducts = [
     "retailPrice": 222190,
     "wholesalePrice": 222190,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-32-gb-512-gb-ssd-sky-blue-z-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-air-15-m4-10c-cpu-10c-gpu-2025-32-gb-512-gb-ssd-sky-blue-z-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "Apple MacBook Air 15 (M4, 2025) — это идеальный баланс между мощными технологиями, легкостью и элегантным дизайном. Этот ноутбук подходит как для продуктивной работы, так и для творчества, обеспечивая превосходную производительность и комфорт в использовании. Компактный и стильный, он станет надежным спутником в любых задачах.",
     "attributes": {
@@ -16104,9 +16104,9 @@ export const seedProducts = [
     "retailPrice": 66990,
     "wholesalePrice": 66990,
     "stockQty": 3,
-    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-neo-a18-pro-6c-cpu-5c-gpu-2026-8-gb-256-gb-ssd-blush-rozov-01.jpg",
+    "imageUrl": "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
     "gallery": [
-      "/assets/catalog/noutbuk-apple-macbook-neo-a18-pro-6c-cpu-5c-gpu-2026-8-gb-256-gb-ssd-blush-rozov-01.jpg"
+      "/assets/catalog/noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg"
     ],
     "description": "MacBook Neo создан для тех, кому нужен удобный и быстрый ноутбук на каждый день. Он хорошо подходит для учебы, работы с документами, общения и развлечений. Благодаря компактным размерам и небольшому весу его легко брать с собой куда угодно: на учебу, в поездки или просто перемещаться по дому.",
     "attributes": {

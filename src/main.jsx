@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import {
   ArrowLeft,
@@ -55,15 +56,427 @@ const brands = [
   { name: "DJI", logo: "https://cdn.simpleicons.org/dji/050608" }
 ];
 
-const categories = ["Все", "iPhone", "iPad", "Mac", "Apple Watch", "AirPods", "Android", "Аксессуары"];
+const categories = ["Все", "iPhone", "iPad", "Mac", "Apple Watch", "Смартфоны", "Планшеты", "AirPods"];
 const topCategories = [
   { label: "iPhone", value: "iPhone", Icon: Smartphone, slug: "iphone" },
   { label: "iPad", value: "iPad", Icon: Tablet, slug: "ipad" },
   { label: "Mac", value: "Mac", Icon: Laptop, slug: "mac" },
   { label: "Apple Watch", value: "Apple Watch", Icon: Watch, slug: "apple-watch" },
-  { label: "Смартфоны", value: "Android", Icon: Smartphone, slug: "smartphones" },
-  { label: "Планшеты", value: "iPad", Icon: Tablet, slug: "tablets" }
+  { label: "Смартфоны", value: "Смартфоны", Icon: Smartphone, slug: "smartphones" },
+  { label: "Планшеты", value: "Планшеты", Icon: Tablet, slug: "tablets" }
 ];
+const quickCatalogMenus = {
+  iPhone: [
+    { label: "17 Pro Max", model: "iPhone 17 Pro Max", to: "/catalog/iphone/iphone-17-pro-max" },
+    { label: "17 Pro", model: "iPhone 17 Pro", to: "/catalog/iphone/iphone-17-pro" },
+    { label: "Air", model: "iPhone Air", to: "/catalog/iphone/iphone-air" },
+    { label: "17", model: "iPhone 17", to: "/catalog/iphone/iphone-17" },
+    { label: "17e", model: "iPhone 17e", to: "/catalog/iphone/iphone-17e" },
+    { label: "16 Pro Max", model: "iPhone 16 Pro Max", to: "/catalog/iphone/iphone-16-pro-max" },
+    { label: "16 Pro", model: "iPhone 16 Pro", to: "/catalog/iphone/iphone-16-pro" },
+    { label: "16 Plus", model: "iPhone 16 Plus", to: "/catalog/iphone/iphone-16-plus" },
+    { label: "16", model: "iPhone 16", to: "/catalog/iphone/iphone-16" },
+    { label: "16e", model: "iPhone 16e", to: "/catalog/iphone/iphone-16e" },
+    { label: "15 Pro Max", model: "iPhone 15 Pro Max", to: "/catalog/iphone/iphone-15-pro-max" },
+    { label: "15 Pro", model: "iPhone 15 Pro", to: "/catalog/iphone/iphone-15-pro" },
+    { label: "15 Plus", model: "iPhone 15 Plus", to: "/catalog/iphone/iphone-15-plus" },
+    { label: "15", model: "iPhone 15", to: "/catalog/iphone/iphone-15" },
+    { label: "14 Pro Max", model: "iPhone 14 Pro Max", to: "/catalog/iphone/iphone-14-pro-max" },
+    { label: "14 Pro", model: "iPhone 14 Pro", to: "/catalog/iphone/iphone-14-pro" },
+    { label: "14 Plus", model: "iPhone 14 Plus", to: "/catalog/iphone/iphone-14-plus" },
+    { label: "14", model: "iPhone 14", to: "/catalog/iphone/iphone-14" },
+    { label: "13 Pro Max", model: "iPhone 13 Pro Max", to: "/catalog/iphone/iphone-13-pro-max" },
+    { label: "13 Pro", model: "iPhone 13 Pro", to: "/catalog/iphone/iphone-13-pro" },
+    { label: "13 mini", model: "iPhone 13 mini", to: "/catalog/iphone/iphone-13-mini" },
+    { label: "13", model: "iPhone 13", to: "/catalog/iphone/iphone-13" },
+    { label: "12 Pro Max", model: "iPhone 12 Pro Max", to: "/catalog/iphone/iphone-12-pro-max" },
+    { label: "12 Pro", model: "iPhone 12 Pro", to: "/catalog/iphone/iphone-12-pro" },
+    { label: "12", model: "iPhone 12", to: "/catalog/iphone/iphone-12" },
+    { label: "11 Pro Max", model: "iPhone 11 Pro Max", to: "/catalog/iphone/iphone-11-pro-max" },
+    { label: "11 Pro", model: "iPhone 11 Pro", to: "/catalog/iphone/iphone-11-pro" },
+    { label: "11", model: "iPhone 11", to: "/catalog/iphone/iphone-11" },
+    { label: "SE 2022", model: "iPhone SE 2022", to: "/catalog/iphone/iphone-se-2022" }
+  ],
+  iPad: [
+    { label: "iPad Pro", to: "/catalog/ipad/ipad-pro" },
+    { label: "iPad Air", to: "/catalog/ipad/ipad-air" },
+    { label: "iPad mini", to: "/catalog/ipad/ipad-mini" },
+    { label: "Базовый iPad", to: "/catalog/ipad/ipad" }
+  ],
+  Mac: [
+    { label: "MacBook Air", to: "/catalog/mac/macbook-air" },
+    { label: "MacBook Pro", to: "/catalog/mac/macbook-pro" },
+    { label: "iMac", to: "/catalog/mac/imac" }
+  ],
+  "Apple Watch": [
+    { label: "Apple Watch SE", to: "/catalog/apple-watch/apple-watch-se" },
+    { label: "Apple Watch Series", to: "/catalog/apple-watch/apple-watch-series" },
+    { label: "Apple Watch Ultra", to: "/catalog/apple-watch/apple-watch-ultra" },
+    { label: "40/41 мм", to: "/catalog/apple-watch/41-mm" },
+    { label: "44/45/49 мм", to: "/catalog/apple-watch/45-mm" }
+  ],
+  Смартфоны: [
+    { label: "Apple (iPhone)", brand: "Apple", to: "/catalog/smartphones/apple" },
+    { label: "Samsung", brand: "Samsung", to: "/catalog/smartphones/samsung" },
+    { label: "Xiaomi", brand: "Xiaomi", to: "/catalog/smartphones/xiaomi" },
+    { label: "Redmi", brand: "Redmi", to: "/catalog/smartphones/redmi" },
+    { label: "Google", brand: "Google", to: "/catalog/smartphones/google" },
+    { label: "Honor", brand: "Honor", to: "/catalog/smartphones/honor" },
+    { label: "Huawei", brand: "Huawei", to: "/catalog/smartphones/huawei" },
+    { label: "OnePlus", brand: "OnePlus", to: "/catalog/smartphones/oneplus" },
+    { label: "Realme", brand: "Realme", to: "/catalog/smartphones/realme" }
+  ],
+  Планшеты: [
+    { label: "iPad", brand: "Apple", to: "/catalog/tablets/ipad" },
+    { label: "Samsung", brand: "Samsung", to: "/catalog/tablets/samsung" },
+    { label: "Xiaomi", brand: "Xiaomi", to: "/catalog/tablets/xiaomi" },
+    { label: "Huawei", brand: "Huawei", to: "/catalog/tablets/huawei" },
+    { label: "Honor", brand: "Honor", to: "/catalog/tablets/honor" }
+  ]
+};
+const iphoneFilterGroups = [
+  { key: "model", label: "Модель", values: [] },
+  { key: "memory", label: "Встроенная память", values: ["64 ГБ", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ", "2 ТБ"] },
+  { key: "color", label: "Цвет", values: [] },
+  { key: "simType", label: "Тип SIM-карты", values: ["nano-SIM", "2x nano-SIM", "nano-SIM + eSIM", "eSIM"] },
+  { key: "ram", label: "Оперативная память", values: ["4 ГБ", "6 ГБ", "8 ГБ", "12 ГБ"] },
+  { key: "physicalSim", label: "Количество физических SIM", values: ["0", "1", "2"] },
+  { key: "resolution", label: "Разрешение экрана", values: ["1334 × 750", "1792 × 828", "2340 × 1080", "2532 × 1170", "2556 × 1179", "2622 × 1206", "2736 × 1260", "2778 × 1284", "2796 × 1290", "2868 × 1320"] },
+  { key: "refreshRate", label: "Частота обновления экрана", values: ["60 Гц", "120 Гц"] },
+  { key: "screenSize", label: "Диагональ экрана", values: ["4.7", "5.4", "6.1", "6.3", "6.5", "6.7", "6.9"] }
+];
+const categoryFilterTemplates = {
+  iPad: [
+    { key: "model", label: "Линейка", values: [] },
+    { key: "memory", label: "Встроенная память", values: [] },
+    { key: "color", label: "Цвет", values: [] },
+    { key: "connectivity", label: "Связь", values: [] },
+    { key: "screenSize", label: "Диагональ экрана", values: [] }
+  ],
+  Mac: [
+    { key: "model", label: "Модель", values: [] },
+    { key: "chip", label: "Процессор", values: [] },
+    { key: "ram", label: "Оперативная память", values: [] },
+    { key: "memory", label: "Накопитель", values: [] },
+    { key: "color", label: "Цвет", values: [] }
+  ],
+  "Apple Watch": [
+    { key: "model", label: "Линейка", values: [] },
+    { key: "size", label: "Размер корпуса", values: [] },
+    { key: "caseMaterial", label: "Корпус", values: [] },
+    { key: "color", label: "Цвет", values: [] },
+    { key: "strap", label: "Ремешок", values: [] }
+  ],
+  AirPods: [
+    { key: "model", label: "Модель", values: [] },
+    { key: "color", label: "Цвет", values: [] },
+    { key: "noiseControl", label: "Шумоподавление", values: [] },
+    { key: "chargingCase", label: "Футляр", values: [] }
+  ],
+  Смартфоны: [
+    { key: "brand", label: "Бренд", values: [] },
+    { key: "model", label: "Модель", values: [] },
+    { key: "memory", label: "Встроенная память", values: [] },
+    { key: "color", label: "Цвет", values: [] },
+    { key: "simType", label: "Тип SIM-карты", values: [] },
+    { key: "ram", label: "Оперативная память", values: [] },
+    { key: "physicalSim", label: "Количество физических SIM", values: [] },
+    { key: "resolution", label: "Разрешение экрана", values: [] },
+    { key: "refreshRate", label: "Частота обновления экрана", values: [] },
+    { key: "screenSize", label: "Диагональ экрана", values: [] }
+  ],
+  Планшеты: [
+    { key: "brand", label: "Бренд", values: [] },
+    { key: "model", label: "Линейка", values: [] },
+    { key: "memory", label: "Встроенная память", values: [] },
+    { key: "color", label: "Цвет", values: [] },
+    { key: "connectivity", label: "Связь", values: [] }
+  ],
+  Все: [
+    { key: "brand", label: "Бренд", values: [] },
+    { key: "productType", label: "Тип товара", values: [] },
+    { key: "memory", label: "Память", values: [] },
+    { key: "color", label: "Цвет", values: [] }
+  ]
+};
+const filterSearchIndex = {
+  brand: "бренд производитель",
+  model: "модель линейка версия",
+  memory: "память встроенная gb гб storage",
+  color: "цвет корпус",
+  simType: "sim сим eSIM nano физическая",
+  ram: "оперативная память ram озу",
+  physicalSim: "количество физических sim сим",
+  resolution: "разрешение экрана пиксели",
+  refreshRate: "частота обновления экран герц гц",
+  screenSize: "диагональ экран дюйм",
+  connectivity: "wi-fi cellular lte 5g связь",
+  chip: "процессор cpu m1 m2 m3 m4",
+  size: "размер корпус мм",
+  caseMaterial: "материал корпус алюминий титан сталь",
+  strap: "ремешок браслет loop band",
+  noiseControl: "шумоподавление anc",
+  chargingCase: "футляр зарядка magsafe lightning usb-c",
+  productType: "тип товара категория"
+};
+const emptyAdvancedFilters = {
+  priceMin: "",
+  priceMax: ""
+};
+
+const officialApple = "https://www.apple.com";
+const officialAppleStore = "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is";
+
+function appleOverviewImage(path) {
+  return `${officialApple}${path}`;
+}
+
+function appleStoreImage(base, variant = "", size = "1000", format = "jpeg") {
+  return `${officialAppleStore}/${base}${variant}?wid=${size}&hei=${size}&fmt=${format}&qlt=95`;
+}
+
+const supplementalIphones = [
+  {
+    model: "iPhone 17 Pro Max",
+    slug: "smartfon-apple-iphone-17-pro-max-256gb-cosmic-orange",
+    color: "Cosmic Orange",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 179990,
+    gallery: [
+      appleOverviewImage("/v/iphone-17-pro/g/images/overview/welcome/hero__bsveixlwbms2_xlarge.jpg"),
+      appleOverviewImage("/v/iphone-17-pro/g/images/overview/product-viewer/colors_orange__cr2oq3n1dwk2_large.jpg"),
+      appleOverviewImage("/v/iphone-17-pro/g/images/overview/product-viewer/initial__d2ghrz27b54y_large.jpg")
+    ]
+  },
+  {
+    model: "iPhone 17 Pro",
+    slug: "smartfon-apple-iphone-17-pro-256gb-deep-blue",
+    color: "Deep Blue",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 164990,
+    gallery: [
+      appleOverviewImage("/v/iphone-17-pro/g/images/overview/product-viewer/colors_blue__li170wg4gkae_large.jpg"),
+      appleOverviewImage("/v/iphone-17-pro/g/images/overview/contrast/iphone_17_pro__c4qscr35qsq6_large.jpg"),
+      appleOverviewImage("/v/iphone-17-pro/g/images/overview/design/design_startframe__fcp8vrjh5eeu_large.jpg")
+    ]
+  },
+  {
+    model: "iPhone 17",
+    slug: "smartfon-apple-iphone-17-256gb-mist-blue",
+    color: "Mist Blue",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 129990,
+    gallery: [
+      appleOverviewImage("/v/iphone-17/g/images/overview/product-viewer/colors_mist_blue__700uff6zu2qa_large.jpg"),
+      appleOverviewImage("/v/iphone-17/g/images/overview/product-viewer/initial__fgfrnz7ag26i_large.jpg"),
+      appleOverviewImage("/v/iphone-17/g/images/overview/contrast/iphone_17__di090vk53j6u_large.jpg")
+    ]
+  },
+  {
+    model: "iPhone 17e",
+    slug: "smartfon-apple-iphone-17e-128gb-black",
+    color: "Black",
+    memory: "128GB",
+    sim: "nano-SIM + eSIM",
+    price: 94990,
+    gallery: [
+      appleOverviewImage("/v/iphone/home/cj/images/overview/select/iphone_17e__cq5ygzct314y_large.jpg"),
+      appleOverviewImage("/v/iphone-17/g/images/site/localnav/nav_iphone_17e__e25na5rotz0i_large.png"),
+      appleOverviewImage("/v/iphone/home/cj/images/overview/chapternav/nav_iphone_17e__dea363vi6ggi_large.png")
+    ]
+  },
+  {
+    model: "iPhone Air",
+    slug: "smartfon-apple-iphone-air-256gb-space-black",
+    color: "Space Black",
+    memory: "256GB",
+    sim: "eSIM",
+    price: 139990,
+    gallery: [
+      appleOverviewImage("/v/iphone-air/g/images/overview/product-viewer/color_static_black__bavqefsedg82_large.jpg"),
+      appleOverviewImage("/v/iphone-air/g/images/overview/product-viewer/initial__fawwxxx0sday_large.jpg"),
+      appleOverviewImage("/v/iphone-air/g/images/overview/contrast/iphone_air__bpnodv7do9ua_large.jpg")
+    ]
+  },
+  {
+    model: "iPhone 16 Pro Max",
+    slug: "smartfon-apple-iphone-16-pro-max-256gb-desert-titanium",
+    color: "Desert Titanium",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 149990,
+    gallery: [
+      appleStoreImage("refurb-iphone-16-pro-max-deserttitanium-202509"),
+      appleStoreImage("refurb-iphone-16-pro-max-deserttitanium-202509", "_AV1_GEO_US"),
+      appleStoreImage("refurb-iphone-16-pro-max-deserttitanium-202509", "_AV2")
+    ]
+  },
+  {
+    model: "iPhone 16 Pro",
+    slug: "smartfon-apple-iphone-16-pro-256gb-black-titanium",
+    color: "Black Titanium",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 134990,
+    gallery: [
+      appleStoreImage("refurb-iphone-16-pro-blacktitanium-202509"),
+      appleStoreImage("refurb-iphone-16-pro-blacktitanium-202509", "_AV1_GEO_US"),
+      appleStoreImage("refurb-iphone-16-pro-blacktitanium-202509", "_AV2")
+    ]
+  },
+  {
+    model: "iPhone 16 Plus",
+    slug: "smartfon-apple-iphone-16-plus-128gb-ultramarine",
+    color: "Ultramarine",
+    memory: "128GB",
+    sim: "nano-SIM + eSIM",
+    price: 104990,
+    gallery: [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-ultramarine-select-202409?wid=940&hei=1112&fmt=png-alpha",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-ultramarine-select-202409_AV2?wid=750&hei=506&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-ultramarine-select-202409_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90"
+    ]
+  },
+  {
+    model: "iPhone 16",
+    slug: "smartfon-apple-iphone-16-128gb-teal",
+    color: "Teal",
+    memory: "128GB",
+    sim: "nano-SIM + eSIM",
+    price: 92990,
+    gallery: [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-teal-select-202409?wid=940&hei=1112&fmt=png-alpha",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-teal-select-202409_AV2?wid=750&hei=506&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-teal-select-202409_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90"
+    ]
+  },
+  {
+    model: "iPhone 16e",
+    slug: "smartfon-apple-iphone-16e-128gb-white",
+    color: "White",
+    memory: "128GB",
+    sim: "nano-SIM + eSIM",
+    price: 74990,
+    gallery: [
+      appleOverviewImage("/v/iphone/home/cj/images/overview/select/iphone_16__b6tkv86m2gc2_large.jpg"),
+      appleOverviewImage("/v/iphone/home/cj/images/overview/chapternav/nav_iphone_16__qsxcpuia0oam_large.png"),
+      appleOverviewImage("/v/iphone/home/cj/images/overview/select/iphone_16__b6tkv86m2gc2_medium.jpg")
+    ]
+  },
+  {
+    model: "iPhone 13 Pro Max",
+    slug: "smartfon-apple-iphone-13-pro-max-256gb-graphite",
+    color: "Graphite",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 79990,
+    gallery: [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_iPhone-13-Pro-Max_09142021_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_Colors_09142021_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_New-Camera-System_09142021_Full-Bleed-Image.jpg.large.jpg"
+    ]
+  },
+  {
+    model: "iPhone 13 Pro",
+    slug: "smartfon-apple-iphone-13-pro-256gb-alpine-green",
+    color: "Alpine Green",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 71990,
+    gallery: [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_Colors_09142021_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_iPhone-13-Pro-Max_09142021_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_New-Camera-System_09142021_Full-Bleed-Image.jpg.large.jpg"
+    ]
+  },
+  {
+    model: "iPhone 12 Pro Max",
+    slug: "smartfon-apple-iphone-12-pro-max-256gb-pacific-blue",
+    color: "Pacific Blue",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 57990,
+    gallery: [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone12pro-pacific-blue_10132020_Full-Bleed-Image.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone12pro-back-camera_10132020_big.jpg.large.jpg"
+    ]
+  },
+  {
+    model: "iPhone 12 Pro",
+    slug: "smartfon-apple-iphone-12-pro-256gb-gold",
+    color: "Gold",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 52990,
+    gallery: [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone12pro-stainless-steel-gold_10132020_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone12pro-back-camera_10132020_big.jpg.large.jpg"
+    ]
+  },
+  {
+    model: "iPhone 11 Pro Max",
+    slug: "smartfon-apple-iphone-11-pro-max-256gb-space-gray",
+    color: "Space Gray",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 52990,
+    gallery: [
+      appleStoreImage("refurb-iphone-11-pro-max-space-gray-2019"),
+      appleStoreImage("refurb-iphone-11-pro-max-space-gray-2019", "_AV1"),
+      appleStoreImage("refurb-iphone-11-pro-max-space-gray-2019", "_AV2")
+    ]
+  },
+  {
+    model: "iPhone 11 Pro",
+    slug: "smartfon-apple-iphone-11-pro-256gb-midnight-green",
+    color: "Midnight Green",
+    memory: "256GB",
+    sim: "nano-SIM + eSIM",
+    price: 46990,
+    gallery: [
+      appleStoreImage("refurb-iphone-11-pro-midnight-green-2019"),
+      appleStoreImage("refurb-iphone-11-pro-midnight-green-2019", "_AV1"),
+      appleStoreImage("refurb-iphone-11-pro-midnight-green-2019", "_AV2")
+    ]
+  }
+].map((item, index) => ({
+  id: `supplemental-${item.slug}`,
+  sku: `SM-SUP-IPHONE-${index + 1}`,
+  slug: item.slug,
+  name: `Apple ${item.model} ${item.memory}, ${item.color}`,
+  section: "iPhone",
+  category: "iPhone",
+  subcategory: item.model,
+  brand: "Apple",
+  retailPrice: item.price,
+  wholesalePrice: item.price,
+  stockQty: 3,
+  imageUrl: item.gallery[0],
+  gallery: item.gallery,
+  description: `${item.model} ${item.color} ${item.memory} ${item.sim}`,
+  attributes: {
+    model: item.model,
+    memory: item.memory,
+    color: item.color,
+    sim: item.sim,
+    availability: "In stock",
+    productType: "phone"
+  }
+}));
+
+function hydrateCatalogProducts(products) {
+  const ids = new Set(products.map((product) => product.id || product.sku || product.slug));
+  const slugs = new Set(products.map((product) => product.slug).filter(Boolean));
+  return [
+    ...products,
+    ...supplementalIphones.filter((product) => !ids.has(product.id) && !ids.has(product.sku) && !slugs.has(product.slug))
+  ];
+}
 const orderStatuses = {
   new: "Новый",
   confirmed: "Подтвержден",
@@ -151,13 +564,15 @@ function App() {
         }
         return response.json();
       })
-      .then((data) => setProducts(data.products || []))
+      .then((data) => setProducts(hydrateCatalogProducts(data.products || [])))
       .catch(() =>
         setProducts(
+          hydrateCatalogProducts(
           seedProducts.map((product) => ({
             ...product,
             id: product.sku
           }))
+          )
         )
       )
       .finally(() => setLoadingProducts(false));
@@ -470,11 +885,15 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
   const [selectedModel, setSelectedModel] = useState(initial.model);
   const [modelsExpanded, setModelsExpanded] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
+  const [advancedFilters, setAdvancedFilters] = useState(emptyAdvancedFilters);
+  const filterGroups = getFilterGroups(products, category);
   const modelChips = category === "Все" ? [] : moveSelectedFirst(getModelChips(products, category), selectedModel);
   const visibleModelChips = modelsExpanded ? modelChips : modelChips.slice(0, 8);
   const filtered = products
     .filter((product) => matchesCatalogCategory(product, category))
-    .filter((product) => !selectedModel || getProductModelLabel(product).toLowerCase().includes(selectedModel.toLowerCase()))
+    .filter((product) => matchesCatalogSubfilter(product, category, selectedModel))
+    .filter((product) => matchesAdvancedFilters(product, category, advancedFilters, filterGroups))
     .filter((product) => `${product.name} ${product.brand} ${product.sku}`.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => productRelevanceRank(b, category) - productRelevanceRank(a, category));
 
@@ -482,12 +901,28 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
     setCategory(item);
     setSelectedModel("");
     setModelsExpanded(false);
+    setAdvancedFilters(emptyAdvancedFilters);
     navigate(`/catalog/${catalogSlug(item)}`);
+  };
+  const resetFilters = () => {
+    setSelectedModel("");
+    setSearch("");
+    setAdvancedFilters(emptyAdvancedFilters);
   };
 
   return (
     <>
       <QuickCatalogNav category={category} navigate={navigate} products={products} />
+      <MobileFilterDrawer
+        open={filterDrawerOpen}
+        category={category}
+        groups={filterGroups}
+        filters={advancedFilters}
+        setFilters={setAdvancedFilters}
+        onClose={() => setFilterDrawerOpen(false)}
+        onReset={resetFilters}
+        resultCount={filtered.length}
+      />
       <section className="catalog-section is-full-catalog" id="catalog">
         <div className="section-title-row">
           <div>
@@ -500,7 +935,12 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
           </button>
         </div>
         <div className="shop-layout">
-          <button className="filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
+          <button className="filter-toggle mobile-filter-page-button" onClick={() => setFilterDrawerOpen(true)} aria-expanded={filterDrawerOpen}>
+            <SlidersHorizontal size={18} />
+            Фильтры {category !== "Все" ? category : ""}
+            <ChevronRight size={18} />
+          </button>
+          <button className="filter-toggle desktop-filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
             <SlidersHorizontal size={18} />
             Фильтры
             <ChevronRight size={18} />
@@ -523,7 +963,7 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
                     className={selectedModel === item ? "is-selected" : ""}
                     onClick={() => {
                       setSelectedModel(item);
-                      navigate(`/catalog/${catalogSlug(category)}/${slugify(item)}`);
+                      navigate(`/catalog/${catalogSlug(category)}/${slugify(getRouteLabel(category, item))}`);
                     }}
                   >
                     {item}
@@ -540,8 +980,8 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
               <Search size={18} />
               <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Поиск по бренду, SKU, названию" />
             </label>
-            {(selectedModel || search) && (
-              <button className="clear-filter" onClick={() => { setSelectedModel(""); setSearch(""); }}>
+            {(selectedModel || search || hasAdvancedFilters(advancedFilters)) && (
+              <button className="clear-filter" onClick={resetFilters}>
                 Сбросить фильтр
               </button>
             )}
@@ -550,7 +990,7 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
             ) : (
               <div className="product-grid">
                 {filtered.map((product, index) => (
-                  <ProductCard key={product.id} product={product} index={index} onAdd={addToCart} onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)} isFavorite={favorites.includes(product.id)} onToggleFavorite={toggleFavorite} />
+                  <ProductCard key={product.id} product={product} products={products} index={index} onAdd={addToCart} onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)} isFavorite={favorites.includes(product.id)} onToggleFavorite={toggleFavorite} />
                 ))}
               </div>
             )}
@@ -563,12 +1003,23 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
 
 function QuickCatalogNav({ category, navigate, products = [] }) {
   const [hoveredCategory, setHoveredCategory] = useState("");
-  const menuItems = hoveredCategory === "Все" ? [] : getModelChips(products, hoveredCategory).slice(0, 12);
+  const menuItems = getQuickCatalogMenu(hoveredCategory, products);
   return (
-    <section className="quick-catalog" aria-label="Категории каталога" onMouseLeave={() => setHoveredCategory("")}>
+    <section
+      className="quick-catalog"
+      aria-label="Категории каталога"
+      onMouseLeave={() => setHoveredCategory("")}
+      onPointerLeave={() => setHoveredCategory("")}
+    >
       <div className="quick-catalog-track">
         {topCategories.map(({ label, value, Icon }) => (
-          <div className="quick-catalog-item" key={label} onMouseEnter={() => setHoveredCategory(value)}>
+          <div
+            className="quick-catalog-item"
+            key={label}
+            onMouseEnter={() => setHoveredCategory(value)}
+            onMouseOver={() => setHoveredCategory(value)}
+            onPointerEnter={() => setHoveredCategory(value)}
+          >
             <button className={category === value ? "is-selected" : ""} onClick={() => navigate(`/catalog/${catalogSlug(value)}`)}>
               <Icon size={24} />
               <span>{label}</span>
@@ -577,14 +1028,16 @@ function QuickCatalogNav({ category, navigate, products = [] }) {
         ))}
       </div>
       {hoveredCategory && menuItems.length > 0 && (
-        <div className="quick-catalog-menu simple-menu">
+        <div key={hoveredCategory} className="quick-catalog-menu simple-menu">
           <div className="quick-catalog-menu-column">
-            {menuItems.map((item) => (
-              <button key={item} type="button" onClick={() => navigate(`/catalog/${catalogSlug(hoveredCategory)}/${slugify(item)}`)}>
-                <span className="quick-catalog-menu-image">
-                  <Smartphone size={28} />
+            {menuItems.map((item, index) => (
+              <button key={item.label} type="button" style={{ "--menu-index": index }} onClick={() => navigate(item.to)}>
+                <span className="quick-catalog-menu-image" aria-hidden="true">
+                  <PhotoPlaceholder compact />
                 </span>
-                <span>{item}</span>
+                <span>
+                  <b>{hoveredCategory === "iPhone" ? item.model : item.label}</b>
+                </span>
               </button>
             ))}
           </div>
@@ -592,6 +1045,174 @@ function QuickCatalogNav({ category, navigate, products = [] }) {
       )}
     </section>
   );
+}
+
+function PhotoPlaceholder({ compact = false }) {
+  return (
+    <span className={`photo-placeholder ${compact ? "is-compact" : ""}`} aria-hidden="true">
+      Скоро здесь будет фото
+    </span>
+  );
+}
+
+function MobileFilterDrawer({ open, category, groups, filters, setFilters, onClose, onReset, resultCount }) {
+  const [filterSearch, setFilterSearch] = useState("");
+  const visibleGroups = groups.filter((group) => {
+    const query = filterSearch.trim().toLowerCase();
+    if (!query) return true;
+    return `${group.label} ${filterSearchIndex[group.key] || ""} ${group.values.join(" ")}`.toLowerCase().includes(query);
+  });
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+  const toggleValue = (key, value) => {
+    setFilters((current) => {
+      const values = current[key] || [];
+      return {
+        ...current,
+        [key]: values.includes(value) ? values.filter((item) => item !== value) : [...values, value]
+      };
+    });
+  };
+  const updatePrice = (key, value) => setFilters((current) => ({ ...current, [key]: value.replace(/[^\d]/g, "") }));
+
+  return createPortal(
+    <div className={`mobile-filter-drawer ${open ? "is-open" : ""}`} aria-hidden={!open}>
+      <button className="mobile-filter-scrim" type="button" onClick={onClose} aria-label="Закрыть фильтры" />
+      <aside className="mobile-filter-panel" aria-label={`Фильтры ${category}`}>
+        <div className="mobile-filter-head">
+          <button type="button" className="filter-reset-pill" onClick={onReset}>Сбросить</button>
+          <div>
+            <h2>{category === "Все" ? "Каталог" : category}</h2>
+          </div>
+          <button type="button" className="filter-close-button" onClick={onClose} aria-label="Закрыть фильтры">
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="mobile-filter-body">
+          <label className="filter-search-field">
+            <input value={filterSearch} onChange={(event) => setFilterSearch(event.target.value)} placeholder="Поиск фильтров" />
+          </label>
+
+          <section className="filter-group">
+            <h3>Цена <ChevronRight size={16} /></h3>
+            <div className="price-filter-fields">
+              <label>
+                От
+                <input inputMode="numeric" value={filters.priceMin} onChange={(event) => updatePrice("priceMin", event.target.value)} />
+              </label>
+              <label>
+                До
+                <input inputMode="numeric" value={filters.priceMax} onChange={(event) => updatePrice("priceMax", event.target.value)} />
+              </label>
+            </div>
+            <div className="filter-range-line" aria-hidden="true"><span /><span /></div>
+          </section>
+
+          {groups.length === 0 ? (
+            <section className="filter-group">
+              <h3>Основные</h3>
+              <p>Для этой категории доступны цена и поиск. Подробные характеристики заполнены для iPhone.</p>
+            </section>
+          ) : (
+            visibleGroups.map((group) => (
+              <section className="filter-group" key={group.key}>
+                <h3>{group.label} <ChevronRight size={16} /></h3>
+                <div className="filter-chip-grid">
+                  {group.values.map((value) => (
+                    <button
+                      key={value}
+                      type="button"
+                      className={(filters[group.key] || []).includes(value) ? "is-selected" : ""}
+                      onClick={() => toggleValue(group.key, value)}
+                    >
+                      {value}
+                    </button>
+                  ))}
+                </div>
+              </section>
+            ))
+          )}
+        </div>
+
+        <div className="mobile-filter-actions">
+          <button type="button" className="submit-button" onClick={onClose}>Показать {resultCount}</button>
+        </div>
+      </aside>
+    </div>,
+    document.body
+  );
+}
+
+function getQuickCatalogMenu(category, products) {
+  const base = quickCatalogMenus[category] || [];
+  if (base.length === 0) return [];
+  return base.map((item) => {
+    const slug = item.to.split("/").filter(Boolean).pop() || item.label;
+    const label = item.model || item.brand || unslugify(slug);
+    const section = category === "Смартфоны" ? "Смартфоны" : category === "Планшеты" ? "Планшеты" : category;
+    const scoped = products.filter((product) => matchesCatalogCategory(product, section) && matchesCatalogSubfilter(product, section, label));
+    return {
+      ...item,
+      image: item.image || getQuickMenuImage(scoped, category, item.model || item.label, products)
+    };
+  });
+}
+
+function getQuickMenuImage(products, category, label, allProducts = products) {
+  if (category === "iPhone") {
+    return getIphoneMenuImage(label) || products[0]?.imageUrl || getClosestIphoneImage(allProducts, label) || "";
+  }
+  return products[0]?.imageUrl || "";
+}
+
+function getIphoneMenuImage(label) {
+  const key = String(label || "").toLowerCase().replace(/^iphone\s+/, "");
+  const piter = "https://pitergsm.ru";
+  const images = {
+    "17 pro max": `${piter}/upload/resize_cache/iblock/ac1/90_100_1/6293nng7pkgtq7y0xbwpihedss9zyy6e.png`,
+    "17 pro": `${piter}/upload/resize_cache/iblock/fc0/90_100_1/e875q8j02sq49ulnbvgsngesi64wzsb5.png`,
+    "air": `${piter}/upload/resize_cache/iblock/5b0/90_100_1/4wt9x7sa3ddx2lj4dj8jez2p4t7lss7k.png`,
+    "17": `${piter}/upload/resize_cache/iblock/cd4/90_100_1/hjnvprchdpmycef8vs3r8yi0mjqdukj2.png`,
+    "17e": `${piter}/upload/resize_cache/iblock/26b/90_100_1/58iswn9o3jb0s8n64zebtur9tv062yno.png`,
+    "16 pro max": `${piter}/upload/resize_cache/iblock/357/90_100_1/3n1t841avlcycqp5m62e7sk658ewz9lr.png`,
+    "16 pro": `${piter}/upload/resize_cache/iblock/46e/90_100_1/evkgi01m193mxndka5vbcbd5350v31f9.png`,
+    "16 plus": `${piter}/upload/resize_cache/iblock/ffa/90_100_1/9pkui9wtxw72o8nsywsmkv29tynidyys.png`,
+    "16": `${piter}/upload/resize_cache/iblock/036/90_100_1/rsy8fmvf2eqt6ulsex0m0w1yhi94i81w.png`,
+    "16e": `${piter}/upload/resize_cache/iblock/417/90_100_1/c8vwv1p3q5a0ygdiqltywkdosgusdm5t.jpg`,
+    "15 pro max": `${piter}/upload/resize_cache/iblock/381/90_100_1/1t99uw8lyp6bmpuej4u8c6w72i9crc8w.jpg`,
+    "15 pro": `${piter}/upload/resize_cache/iblock/e49/90_100_1/pb7fcuhn5g980gxagjbz0400o14kougu.jpeg`,
+    "15 plus": `${piter}/upload/resize_cache/iblock/72a/90_100_1/m22u9sbj6pmqtqsra63r7zdiukfohm41.png`,
+    "15": `${piter}/upload/resize_cache/iblock/216/90_100_1/dcu25ut14lelfs1el51pjq8nd3jnqwp7.png`,
+    "14 pro max": `${piter}/upload/resize_cache/iblock/612/90_100_1/7mwf4qy2y6ujy1ybo1w2frhei2hy31yo.png`,
+    "14 pro": `${piter}/upload/resize_cache/iblock/9f1/90_100_1/6u3hux07iosc65sz7yv4vv083z4vs3gl.png`,
+    "14 plus": `${piter}/upload/resize_cache/iblock/22a/90_100_1/e00hkbxgczyxio6gccdxz2amr260crld.jpg`,
+    "14": `${piter}/upload/resize_cache/iblock/292/90_100_1/59nxz1r6xsxmwnroh7daawxrvxsh3nit.png`,
+    "13 pro max": `${piter}/upload/resize_cache/iblock/bc4/90_100_1/826mvi2ui6yuqqua8uceg0pp3f7mdb8x.png`,
+    "13 pro": `${piter}/upload/resize_cache/iblock/c4b/90_100_1/wjbdj4qsb93r4ap8762rmmhte58ideku.jpeg`,
+    "13 mini": `${piter}/upload/resize_cache/iblock/4d5/90_100_1/qohgcu2j1317o4vwiumkhcwjystq4pu8.jpg`,
+    "13": `${piter}/upload/resize_cache/iblock/e71/90_100_1/83ytgcpveu6w29ak57t6nk6edhtrphri.png`,
+    "12 pro max": `${piter}/upload/resize_cache/iblock/612/90_100_1/7mwf4qy2y6ujy1ybo1w2frhei2hy31yo.png`,
+    "12 pro": `${piter}/upload/resize_cache/iblock/9f1/90_100_1/6u3hux07iosc65sz7yv4vv083z4vs3gl.png`,
+    "12": `${piter}/upload/resize_cache/iblock/71c/90_100_1/8z28xjma2ekmmuqhrzx9fisxkrc59prv.jpg`,
+    "11 pro max": `${piter}/upload/resize_cache/iblock/bc4/90_100_1/826mvi2ui6yuqqua8uceg0pp3f7mdb8x.png`,
+    "11 pro": `${piter}/upload/resize_cache/iblock/c4b/90_100_1/wjbdj4qsb93r4ap8762rmmhte58ideku.jpeg`,
+    "11": `${piter}/upload/resize_cache/iblock/53c/90_100_1/eiwdhn1kaad4cwqen1xtd6x3572ztp66.png`,
+    "se 2022": `${piter}/upload/resize_cache/iblock/fa7/90_100_1/g0bnq361b65su72x5mbfgxaqyslzp584.png`
+  };
+  return images[key] || "";
+}
+
+function getClosestIphoneImage(products, label) {
+  const series = String(label || "").match(/\b(11|12|13|14|15|16|17)\b/)?.[1];
+  if (!series) return "";
+  return products.find((product) => product.section === "iPhone" && getProductModelLabel(product).includes(series))?.imageUrl || "";
 }
 
 function HomePage({ products, loading, addToCart, navigate, search, setSearch, favorites, toggleFavorite }) {
@@ -608,6 +1229,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
       return byCategory && byBrand && bySearch;
     });
   }, [products, category, selectedBrand, search]);
+  const previewProducts = filtered.slice(0, 8);
 
   const selectBrand = (brandName) => {
     setSelectedBrand(brandName);
@@ -633,7 +1255,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
       <QuickCatalogNav category="Все" navigate={navigate} products={products} />
       <section className="hero-shop">
         <div className="mobile-mark" aria-hidden="true">
-          <img src="/assets/logo-background.png" alt="" />
+          <PhotoPlaceholder compact />
         </div>
         <div className="hero-copy reveal-up">
           <div className="micro-row" aria-label="Информация о месте">
@@ -667,10 +1289,10 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
           </div>
         </div>
         <div className="hero-phone-visual reveal-up" aria-hidden="true">
-          <img src="/assets/hero-iphone-user.png" alt="" />
+          <PhotoPlaceholder />
         </div>
         <div className="hero-logo reveal-up" aria-label="Логотип Shark Mobile">
-          <img src="/assets/logo-background.png" alt="Shark Mobile" />
+          <PhotoPlaceholder compact />
         </div>
       </section>
 
@@ -686,10 +1308,10 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
         <div className="section-title-row">
           <div>
             <p className="eyebrow">Каталог</p>
-            <h2>{selectedBrand ? `${selectedBrand}: товары в наличии` : "Полный ассортимент точки"}</h2>
+            <h2>{selectedBrand ? `${selectedBrand}: товары в наличии` : "Короткий каталог"}</h2>
           </div>
-          <button className="price-link" onClick={() => navigate("/price")}>
-            Прайс-лист
+          <button className="price-link" onClick={() => navigate("/catalog")}>
+            Полный каталог
             <ChevronRight size={18} />
           </button>
         </div>
@@ -753,10 +1375,11 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
               </div>
             ) : (
               <div className="product-grid">
-                {filtered.map((product, index) => (
+                {previewProducts.map((product, index) => (
                   <ProductCard
                     key={product.id}
                     product={product}
+                    products={products}
                     index={index}
                     onAdd={addToCart}
                     onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)}
@@ -765,6 +1388,12 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
                   />
                 ))}
               </div>
+            )}
+            {!loading && filtered.length > previewProducts.length && (
+              <button className="catalog-preview-more" type="button" onClick={() => navigate("/catalog")}>
+                Смотреть все товары
+                <ChevronRight size={18} />
+              </button>
             )}
           </div>
         </div>
@@ -782,7 +1411,7 @@ function BrandCarousel({ onSelect, selectedBrand }) {
         {brands.map((brand) => (
           <button className={`brand-card ${selectedBrand === brand.name ? "is-selected" : ""}`} key={brand.name} onClick={() => onSelect(brand.name)}>
             {brand.logo ? (
-              <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+              <PhotoPlaceholder compact />
             ) : (
               <span className={brand.markClass || "brand-wordmark"}>{brand.name}</span>
             )}
@@ -801,8 +1430,9 @@ function getCatalogState(route) {
     ipad: "iPad",
     mac: "Mac",
     "apple-watch": "Apple Watch",
-    smartphones: "Android",
-    tablets: "iPad"
+    smartphones: "Смартфоны",
+    tablets: "Планшеты",
+    airpods: "AirPods"
   };
   const category = map[section] || "Все";
   let selectedModel = model ? unslugify(model) : "";
@@ -820,6 +1450,7 @@ function catalogSlug(category) {
     Mac: "mac",
     "Apple Watch": "apple-watch",
     Android: "smartphones",
+    Смартфоны: "smartphones",
     Планшеты: "tablets",
     Аксессуары: "accessories",
     AirPods: "airpods"
@@ -828,24 +1459,125 @@ function catalogSlug(category) {
 
 function matchesCatalogCategory(product, category) {
   if (category === "Все") return true;
+  if (category === "Смартфоны") return product.attributes?.productType === "phone" || ["iPhone", "Android"].includes(product.section);
+  if (category === "Планшеты") return product.attributes?.productType === "tablet" || product.section === "iPad";
   return product.section === category || product.category === category;
 }
 
+function matchesCatalogSubfilter(product, category, selected) {
+  if (!selected) return true;
+  const selectedText = normalizeSubfilter(category, selected).toLowerCase();
+  if (["Смартфоны", "Планшеты"].includes(category)) {
+    return [product.brand, product.section, product.category].some((value) => String(value || "").toLowerCase() === selectedText);
+  }
+  if (category === "iPhone") {
+    return getProductModelLabel(product).toLowerCase() === selectedText;
+  }
+  return getProductModelLabel(product).toLowerCase().includes(selectedText);
+}
+
+function matchesAdvancedFilters(product, category, filters, groups) {
+  const min = Number(filters.priceMin || 0);
+  const max = Number(filters.priceMax || 0);
+  if (min && Number(product.retailPrice || 0) < min) return false;
+  if (max && Number(product.retailPrice || 0) > max) return false;
+  return groups.every((group) => {
+    const selected = filters[group.key] || [];
+    if (selected.length === 0) return true;
+    const value = getProductFilterValue(product, group.key);
+    return selected.includes(value);
+  });
+}
+
+function hasAdvancedFilters(filters) {
+  return Boolean(filters.priceMin || filters.priceMax || Object.entries(filters).some(([key, value]) => key !== "priceMin" && key !== "priceMax" && Array.isArray(value) && value.length > 0));
+}
+
+function getFilterGroups(products, category) {
+  const scoped = products.filter((product) => matchesCatalogCategory(product, category));
+  const templates = category === "iPhone" ? iphoneFilterGroups : categoryFilterTemplates[category] || categoryFilterTemplates["Все"];
+  return templates
+    .map((template) => {
+      const values = template.values.length > 0
+        ? template.values.filter((value) => scoped.some((product) => getProductFilterValue(product, template.key) === value))
+        : getUniqueFilterValues(scoped, template.key);
+      return { ...template, values };
+    })
+    .filter((group) => group.values.length > 0);
+}
+
+function getUniqueFilterValues(products, key) {
+  return [...new Set(products.map((product) => getProductFilterValue(product, key)).filter(Boolean))]
+    .sort((a, b) => String(a).localeCompare(String(b), "ru", { numeric: true }));
+}
+
+function getProductFilterValue(product, key) {
+  if (key === "brand") return product.brand;
+  if (key === "model") {
+    const model = getProductModelLabel(product);
+    return product.section === "iPhone" && !/^iPhone/i.test(model) ? `iPhone ${model}` : model;
+  }
+  if (key === "memory") return getMemoryLabel(product);
+  if (key === "color") return getColorLabel(product);
+  if (key === "simType") return getSimLabel(product);
+  if (key === "ram") return getRamLabel(product);
+  if (key === "physicalSim") return getPhysicalSimLabel(product);
+  if (key === "resolution") return getPhoneDisplaySpec(product).resolution;
+  if (key === "refreshRate") return getPhoneDisplaySpec(product).refreshRate;
+  if (key === "screenSize") return getScreenSizeLabel(product);
+  if (key === "connectivity") return getConnectivityLabel(product);
+  if (key === "chip") return getChipLabel(product);
+  if (key === "size") return getWatchSizeLabel(product);
+  if (key === "caseMaterial") return getWatchCaseLabel(product);
+  if (key === "strap") return getWatchStrapLabel(product);
+  if (key === "noiseControl") return getNoiseControlLabel(product);
+  if (key === "chargingCase") return getChargingCaseLabel(product);
+  if (key === "productType") return getProductTypeLabel(product.attributes?.productType || product.section || product.category);
+  return "";
+}
+
 function getModelChips(products, category) {
+  if (["Смартфоны", "Планшеты"].includes(category)) {
+    const preferred = category === "Смартфоны"
+      ? ["Apple (iPhone)", "Samsung", "Xiaomi", "Redmi", "Google", "Honor", "Huawei", "OnePlus", "Realme"]
+      : ["iPad", "Samsung", "Xiaomi", "Huawei", "Honor"];
+    return preferred;
+  }
   const base = [...new Set(products.filter((product) => matchesCatalogCategory(product, category)).map(getProductModelLabel).filter(Boolean))];
   if (category === "iPhone") {
     [
-      "17 Pro Max", "17 Pro", "Air 17", "17", "17e",
+      "17 Pro Max", "17 Pro", "17", "17e", "Air",
       "16 Pro Max", "16 Pro", "16 Plus", "16", "16e",
       "15 Pro Max", "15 Pro", "15 Plus", "15",
       "14 Pro Max", "14 Pro", "14 Plus", "14",
       "13 Pro Max", "13 Pro", "13 mini", "13",
-      "12", "11", "SE 2022"
+      "12 Pro Max", "12 Pro", "12 mini", "12",
+      "11 Pro Max", "11 Pro", "11", "SE 2022"
     ].forEach((item) => {
       if (!base.includes(item)) base.push(item);
     });
   }
-  return base.sort((a, b) => category === "iPhone" ? iphoneRank(a) - iphoneRank(b) : a.localeCompare(b, "ru", { numeric: true }));
+  if (category === "iPhone") {
+    return base
+      .map((item) => item.replace(/^iPhone\s+/i, ""))
+      .filter((item, index, items) => items.indexOf(item) === index)
+      .sort((a, b) => iphoneRank(a) - iphoneRank(b));
+  }
+  return base.sort((a, b) => a.localeCompare(b, "ru", { numeric: true }));
+}
+
+function normalizeSubfilter(category, value) {
+  const text = String(value || "").trim();
+  if (category === "iPhone") return text.replace(/^iPhone\s+/i, "");
+  if (category === "Смартфоны" && /^Apple/i.test(text)) return "Apple";
+  if (category === "Планшеты" && /^iPad$/i.test(text)) return "iPad";
+  if (category === "Смартфоны" && /^iPhone$/i.test(text)) return "iPhone";
+  return text;
+}
+
+function getRouteLabel(category, value) {
+  if (category === "iPhone" && !/^iPhone/i.test(value)) return `iPhone ${value}`;
+  return value;
 }
 
 function getProductModelLabel(product) {
@@ -888,7 +1620,7 @@ function moveSelectedFirst(items, selected) {
 }
 
 function iphoneRank(label) {
-  const order = ["17 Pro Max", "17 Pro", "Air 17", "17", "17e", "16 Pro Max", "16 Pro", "16 Plus", "16", "16e", "15 Pro Max", "15 Pro", "15 Plus", "15", "14 Pro Max", "14 Pro", "14 Plus", "14", "13 Pro Max", "13 Pro", "13 mini", "13", "12 RED", "12", "11", "SE 2022"];
+  const order = ["17 Pro Max", "17 Pro", "17", "17e", "Air", "Air 17", "16 Pro Max", "16 Pro", "16 Plus", "16", "16e", "15 Pro Max", "15 Pro", "15 Plus", "15", "14 Pro Max", "14 Pro", "14 Plus", "14", "13 Pro Max", "13 Pro", "13 mini", "13", "12 Pro Max", "12 Pro", "12 mini", "12 RED", "12", "11 Pro Max", "11 Pro", "11", "SE 2022"];
   const index = order.findIndex((item) => item.toLowerCase() === String(label).toLowerCase());
   return index === -1 ? 999 : index;
 }
@@ -907,7 +1639,634 @@ function formatProductCardTitle(product) {
   return [brand, model, memory, color].filter(Boolean).join(", ").replace(", ,", ",");
 }
 
+function formatShortProductDescription(product) {
+  const parts = getProductSpecs(product).map(([, value]) => value).filter((value) => value && value !== "audio");
+  if (parts.length > 0) return parts.slice(0, 4).join(" · ");
+  return product.category || product.section || product.brand;
+}
+
+function getProductSpecs(product) {
+  const specs = [];
+  const model = getProductModelLabel(product);
+  const memory = getMemoryLabel(product);
+  const color = getColorLabel(product);
+  const sim = getSimLabel(product);
+  if (model) specs.push(["Модель", product.section === "iPhone" && !/^iPhone/i.test(model) ? `iPhone ${model}` : model]);
+  if (color) specs.push(["Цвет", color]);
+  if (memory) specs.push(["Память", memory]);
+  if (sim) specs.push(["SIM", sim]);
+  if (product.section === "AirPods") {
+    const noise = getNoiseControlLabel(product);
+    const caseLabel = getChargingCaseLabel(product);
+    if (caseLabel) specs.push(["Футляр", caseLabel]);
+    if (noise && noise !== "без ANC") specs.push(["Звук", noise]);
+  }
+  if (specs.length < 3 && product.attributes?.productType && product.attributes.productType !== "audio") specs.push(["Тип", getProductTypeLabel(product.attributes.productType)]);
+  return specs;
+}
+
+function getIphoneFilterSpec(product) {
+  const model = getProductModelLabel(product);
+  const modelText = model.toLowerCase();
+  const memory = getMemoryLabel(product);
+  const simType = getSimLabel(product) || (/dual/i.test(product.name) ? "2x nano-SIM" : "nano-SIM + eSIM");
+  const pro = /\bpro\b/i.test(model);
+  const proMax = /pro max/i.test(model);
+  const plus = /plus/i.test(model);
+  const mini = /mini/i.test(model);
+  const se = /\bse\b/i.test(model);
+  const series = Number(model.match(/\b(11|12|13|14|15|16|17)\b/)?.[1] || 15);
+  const screenSize = se ? "4.7" : mini ? "5.4" : proMax && series >= 16 ? "6.9" : proMax ? "6.7" : plus ? "6.7" : series >= 16 && pro ? "6.3" : "6.1";
+  const resolution = getIphoneResolution({ series, pro, proMax, plus, mini, se });
+  return {
+    memory,
+    simType,
+    ram: series >= 16 ? "8 ГБ" : series >= 15 && pro ? "8 ГБ" : series >= 14 ? "6 ГБ" : "4 ГБ",
+    physicalSim: simType === "eSIM" ? "0" : simType.includes("2x") ? "2" : "1",
+    resolution,
+    refreshRate: pro ? "120 Гц" : "60 Гц",
+    screenSize
+  };
+}
+
+function getIphoneResolution({ series, pro, proMax, plus, mini, se }) {
+  if (se) return "1334 × 750";
+  if (mini) return "2340 × 1080";
+  if (proMax && series >= 16) return "2868 × 1320";
+  if (proMax && series >= 14) return "2796 × 1290";
+  if (pro && series >= 16) return "2622 × 1206";
+  if (pro && series >= 14) return "2556 × 1179";
+  if (plus && series >= 14) return "2778 × 1284";
+  if (series >= 12) return "2532 × 1170";
+  return "1792 × 828";
+}
+
+function getProductGallery(product, products = []) {
+  const official = getOfficialProductGallery(product);
+  if (official.length > 0) return official.map((src, index) => ({ src, view: `official-${index}` }));
+  const own = getRawGallery(product);
+  if (own.length === 0) return [];
+  return own.slice(0, 5).map((src, index) => ({ src, view: `local-${index}` }));
+}
+
+function getOfficialGalleryModel(product) {
+  const model = getProductModelLabel(product);
+  if (product.section === "iPhone" && !/^iPhone/i.test(model)) {
+    return `iPhone ${model}`.replace(/^iPhone Air 17$/i, "iPhone Air");
+  }
+  return model;
+}
+
+function getOfficialProductGallery(product) {
+  const model = getOfficialGalleryModel(product);
+  const color = getColorLabel(product);
+  const appleColor = getAppleColorSlug(color, model);
+
+  const iphoneNewsroomGallery = getIphoneNewsroomGallery(product, model, color);
+  if (iphoneNewsroomGallery.length > 0) return iphoneNewsroomGallery;
+
+  const iphone15Base = getIphone15GalleryBase(product, model, color);
+  if (iphone15Base) return appleStoreGallery(iphone15Base);
+
+  const iphone14Base = getIphone14GalleryBase(product, model, color);
+  if (iphone14Base) return appleStoreGallery(iphone14Base);
+
+  const iphone13Base = getIphone13GalleryBase(product, model, color);
+  if (iphone13Base) return appleStoreGallery(iphone13Base);
+
+  const iphone12Base = getIphone12GalleryBase(product, model, color);
+  if (iphone12Base) return appleStoreGallery(iphone12Base);
+
+  if (/AirPods 4/i.test(model)) {
+    return [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-4-hero-select-202409?wid=976&hei=916&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-4-down-compare-202409?wid=420&hei=500&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-4-up-compare-202409?wid=420&hei=500&fmt=jpeg&qlt=90"
+    ];
+  }
+
+  if (/AirPods 3/i.test(model)) {
+    return [
+      "https://www.apple.com/newsroom/images/product/airpods/standard/Apple_AirPods-3rd-gen_hero_10182021_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/airpods/standard/Apple_AirPods-3rd-gen_MagSafe-charging_10182021_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/airpods/standard/Apple_AirPods-3rd-gen_spatial-audio_10182021_big.jpg.large.jpg"
+    ];
+  }
+
+  if (/AirPods Pro/i.test(model)) {
+    return [
+      "https://www.apple.com/v/airpods-pro/s/images/overview/welcome/hero__b0eal3mn03ua_large.jpg",
+      "https://www.apple.com/v/airpods-pro/s/images/overview/welcome/hero_endframe__vzawkxxoc72u_large.jpg",
+      "https://www.apple.com/v/airpods-pro/s/images/overview/welcome/hero_startframe__bfinf01b59si_large.jpg"
+    ];
+  }
+
+  if (/AirPods Max/i.test(model)) {
+    return [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-hero-select-202409?wid=1000&hei=1000&fmt=jpeg&qlt=95",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-select-202409-blue?wid=1000&hei=1000&fmt=jpeg&qlt=95",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-select-202409-midnight?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ];
+  }
+
+  if (/AirPods 2/i.test(model)) {
+    return [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-charge-case-201910?wid=1000&hei=1000&fmt=jpeg&qlt=95",
+      "https://www.apple.com/newsroom/images/product/airpods/standard/Apple-AirPods-worlds-most-popular-wireless-headphones_03202019_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/airpods/standard/Apple-AirPods-worlds-most-popular-wireless-headphones-hey-siri_03202019_big.jpg.large.jpg"
+    ];
+  }
+
+  if (/Watch SE/i.test(model)) {
+    return [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-se-202509?wid=520&hei=520&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-se3-swatches-202509?wid=60&hei=24&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-se-og-image-202509?wid=400&hei=400&fmt=jpeg&qlt=90"
+    ];
+  }
+
+  if (/Watch Series/i.test(model)) {
+    return [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-s11-202509?wid=520&hei=520&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-series11-swatches-202509?wid=240&hei=24&fmt=jpeg&qlt=90",
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-ultra3-202509_GEO_US?wid=520&hei=520&fmt=jpeg&qlt=90"
+    ];
+  }
+
+  if (/MacBook Air/i.test(model) || /^Mac(Book)?$/i.test(model)) {
+    return [
+      "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png",
+      "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_startframe__c0rhv2ultfau_large.png",
+      "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_endframe__c67cz35iy9me_large.png"
+    ];
+  }
+
+  if (/MacBook Pro/i.test(model)) {
+    return [
+      "https://www.apple.com/v/macbook-pro/ax/images/overview/welcome/hero_endframe__fwev9ebh42mq_large.jpg",
+      "https://www.apple.com/v/macbook-pro/ax/images/overview/welcome/hero_startframe__ek0dqbh61vau_large.jpg",
+      "https://www.apple.com/v/macbook-pro/ax/images/overview/highlights/highlights_chip_endframe__dp975gwqppw2_large.jpg"
+    ];
+  }
+
+  if (/iPad Pro/i.test(model)) {
+    return [
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg",
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/closer-look/space-black/slide_1A__gnqepv0kr3ee_large.jpg",
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/closer-look/space-black/slide_1B__fxu0jie3i0ya_large.jpg"
+    ];
+  }
+
+  if (/iPad Air/i.test(model)) {
+    return [
+      "https://www.apple.com/v/ipad-air/ah/images/overview/hero/hero_endframe__6gl84bccyaqi_large.png",
+      "https://www.apple.com/v/ipad-air/ah/images/overview/closer-look/all-colors/slide_1A__u8zw91uc6iaq_large.jpg",
+      "https://www.apple.com/v/ipad-air/ah/images/overview/closer-look/all-colors/slide_2A__p74br7miwoiq_large.jpg"
+    ];
+  }
+
+  if (/iPad mini/i.test(model)) {
+    return [
+      "https://www.apple.com/v/ipad-mini/v/images/overview/design/colors__ed8x8u1yg6uu_large.jpg",
+      "https://www.apple.com/v/ipad-mini/v/images/overview/hero/fan__mub6p4ua0t2y_large.jpg",
+      "https://www.apple.com/v/ipad-mini/v/images/overview/design/liquid_retina_1__eh1ihtzkw8wi_large.jpg"
+    ];
+  }
+
+  if (/^iPad$/i.test(model) && /space|серый космос|seryy-kosmos/i.test(`${color || ""} ${product.slug || ""}`)) {
+    return [
+      "https://www.apple.com/newsroom/images/product/ipad/standard/Apple_iPad-10-2-inch_Ninth-Gen_09142021_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/ipad/standard/Apple_iPad-10-2-inch_Connect_09142021_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/ipad/standard/Apple_iPad-10-2-inch_Family_09142021_big.jpg.large.jpg"
+    ];
+  }
+
+  const androidGallery = getAndroidOfficialGallery(product, model);
+  if (androidGallery.length > 0) return androidGallery;
+
+  if (!appleColor) return [];
+
+  if (/^iPhone 16$/i.test(model)) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-${appleColor}-select-202409?wid=940&hei=1112&fmt=png-alpha`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-${appleColor}-select-202409_AV2?wid=750&hei=506&fmt=jpeg&qlt=90`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-${appleColor}-select-202409_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90`
+    ];
+  }
+
+  if (/^iPhone 16 Plus$/i.test(model)) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-${appleColor}-select-202409?wid=940&hei=1112&fmt=png-alpha`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-${appleColor}-select-202409_AV2?wid=750&hei=506&fmt=jpeg&qlt=90`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-${appleColor}-select-202409_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90`
+    ];
+  }
+
+  if (/^iPad$/i.test(model) && ["pink", "blue", "silver", "yellow"].includes(appleColor)) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-${appleColor}?wid=1200&hei=630&fmt=jpeg&qlt=95`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-${appleColor}-wifi-witb-202210?wid=618&hei=678&fmt=jpeg&qlt=90`,
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-model-unselect-gallery-1-202503?wid=5120&hei=2880&fmt=p-jpg&qlt=80"
+    ];
+  }
+
+  return [];
+}
+
+function appleStoreGallery(base) {
+  return [
+    `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}?wid=1000&hei=1000&fmt=jpeg&qlt=95`,
+    `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}_AV1_GEO_US?wid=1000&hei=1000&fmt=jpeg&qlt=95`,
+    `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95`
+  ];
+}
+
+function getIphoneNewsroomGallery(product, model, color) {
+  const text = `${color || ""} ${product.slug || ""} ${product.name || ""}`.toLowerCase();
+  const isRed = /red|krasn/.test(text);
+  if (isRed && /^iPhone 14( Plus)?$/i.test(model)) {
+    return [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-iPhone-14-Plus-2up-PRODUCT-RED-220907_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-iPhone-14-Plus-5up-hero-220907_Full-Bleed-Image.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/watch/standard/Apple-iPhone-14-iPhone-14-Plus-back-camera-220907_inline.jpg.large.jpg"
+    ];
+  }
+  if (isRed && /^iPhone 13( mini)?$/i.test(model)) {
+    return [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_hero_09142021_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_colors_09142021_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_design_09142021_big.jpg.large.jpg"
+    ];
+  }
+  if (isRed && /^iPhone 12( RED)?$/i.test(model)) {
+    return [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/apple_iphone-12-spring21_hero_us_04202021_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/apple_iphone-12-spring21_durable-design-display_us_04202021_Full-Bleed-Image.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/apple_iphone-12-spring21_camera_04202021_big.jpg.large.jpg"
+    ];
+  }
+  if (/^iPhone 11$/i.test(model)) {
+    return [
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-wallpaper-screen-091019_inline.jpg.large.jpg",
+      "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-family-lineup-091019_big.jpg.large.jpg"
+    ];
+  }
+  return [];
+}
+
+function getAndroidOfficialGallery(product, model) {
+  const text = `${product.brand || ""} ${model || ""} ${product.name || ""} ${product.slug || ""}`.toLowerCase();
+  if (/google|pixel/.test(text)) {
+    if (/9a|10a/.test(text)) {
+      return [
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/image_global_P9a_2024Q4_24H077x0.width-1200.format-webp.webp",
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/9a_all.width-100.format-webp.webp",
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MacroFocus.width-100.format-webp.webp"
+      ];
+    }
+    if (/fold/.test(text)) {
+      return [
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/P9PFold_YT_Thumbnail_Opt1.width-600.format-webp.webp",
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/P9P9PThumbnail_16x9_Opt2_1.width-100.format-webp.webp",
+        "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/compare-sizes-desktop-caimanporce.width-100.format-webp_00xdY7w.webp"
+      ];
+    }
+    return [
+      "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/image_P9P_2024Q2_23H121x002_Ortho.width-600.format-webp_KIn6IAr.webp",
+      "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/P9P9PThumbnail_16x9_Opt2_1.width-100.format-webp.webp",
+      "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/compare-sizes-desktop-caimanporce.width-100.format-webp_00xdY7w.webp"
+    ];
+  }
+
+  if (/honor/.test(text)) {
+    if (/x9d|x9c|x9/.test(text)) {
+      return [
+        "https://www.honor.com/content/dam/honor/common/product-list/product-series/honor-x9d/honor-x9d-red-list.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-x9d/honor-x9d-red-back.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-x9d/honor-x9d-red-front.png"
+      ];
+    }
+    if (/x7d|x7c|x7/.test(text)) {
+      return [
+        "https://www.honor.com/content/dam/honor/common/products/smartphone/honor-x7d/assets/share-x7d.jpg",
+        "https://www.honor.com/content/dam/honor/common/product-list/product-series/honor-x7d/honor-x7d-gold-list.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-400/honor-400-id-gold-front.png"
+      ];
+    }
+    if (/600/.test(text)) {
+      return [
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-600/honor-600-id-orange-back.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-600/honor-600-id-orange-front.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-600-lite/honor-600-lite-id-green-back.png"
+      ];
+    }
+    if (/magic v|magic8|magic7/.test(text)) {
+      return [
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-magic-v6/honor-magic-v5-id-red.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-magic-v5/honor-magic-v5-id-gold.png",
+        "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-magic7-pro/honor-magic7-pro-id-gary-front.png"
+      ];
+    }
+    return [
+      "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-400/honor-400-id-gold-back.png",
+      "https://www-file.honor.com/content/dam/honor/common/product-list/product-series/honor-400/honor-400-id-gold-front.png",
+      "https://www.honor.com/content/dam/honor/common/product-list/product-series/honor-400/honor-400-gold-list.png"
+    ];
+  }
+
+  if (/huawei/.test(text)) {
+    const exactLocal = product.imageUrl ? [product.imageUrl] : [];
+    if (/mate xt/.test(text)) {
+      return [
+        ...exactLocal,
+        "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate-xt-ultimate-design/wx-share.jpg",
+        "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate-x7/list-white.png"
+      ].slice(0, 3);
+    }
+    if (/mate x/.test(text)) {
+      return [
+        ...exactLocal,
+        "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate-x7/list-white.png",
+        "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/admin-image/phones/mate-x6/list/red.png",
+        "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate-x6/wxshare.jpg"
+      ].slice(0, 3);
+    }
+    return [
+      ...exactLocal,
+      "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones-v5/0507-2026-huawei-innovative-product-launch/kv/nova15-max-wxshare.jpg",
+      "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/admin-image/phones/mate-x6/list/red.png",
+      "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate-x6/wxshare.jpg"
+    ].slice(0, 3);
+  }
+
+  return [];
+}
+
+function getIphone15GalleryBase(product, model, color) {
+  if (!/^iPhone 15/i.test(model)) return "";
+  const text = `${color || ""} ${product.slug || ""} ${product.name || ""}`.toLowerCase();
+  const isProMax = /pro max/i.test(model);
+  const isPro = /pro/i.test(model);
+  const isPlus = /plus/i.test(model);
+  const colorSlug = isPro
+    ? getTitaniumColorSlug(text)
+    : getIphoneColorSlug(text);
+  if (!colorSlug) return "";
+  const prefix = isProMax ? "refurb-iphone-15-pro-max" : isPro ? "refurb-iphone-15-pro" : isPlus ? "refurb-iphone-15-plus" : "refurb-iphone-15";
+  return `${prefix}-${colorSlug}-202412`;
+}
+
+function getIphone14GalleryBase(product, model, color) {
+  if (!/^iPhone 14/i.test(model)) return "";
+  const text = `${color || ""} ${product.slug || ""} ${product.name || ""}`.toLowerCase();
+  const isProMax = /pro max/i.test(model);
+  const isPro = /pro/i.test(model);
+  const isPlus = /plus/i.test(model);
+  const colorSlug = isPro ? getIphone14ProColorSlug(text) : getIphone14ColorSlug(text);
+  if (!colorSlug) return "";
+  const prefix = isProMax ? "refurb-iphone-14-pro-max" : isPro ? "refurb-iphone-14-pro" : isPlus ? "refurb-iphone-14-plus" : "refurb-iphone-14";
+  return `${prefix}-${colorSlug}-202404`;
+}
+
+function getIphone13GalleryBase(product, model, color) {
+  const text = `${color || ""} ${product.slug || ""} ${product.name || ""}`.toLowerCase();
+  if (/^iPhone 13 mini/i.test(model)) {
+    const colorSlug = getIphone13MiniColorSlug(text);
+    return colorSlug ? `refurb-iphone-13-mini-${colorSlug}-2022` : "";
+  }
+  if (/^iPhone 13$/i.test(model)) {
+    const colorSlug = getIphone13MiniColorSlug(text);
+    return colorSlug ? `refurb-iphone-13-${colorSlug}-2023` : "";
+  }
+  return "";
+}
+
+function getIphone12GalleryBase(product, model, color) {
+  if (!/^iPhone 12$/i.test(model)) return "";
+  const text = `${color || ""} ${product.slug || ""} ${product.name || ""}`.toLowerCase();
+  const colorSlug = getIphone12ColorSlug(text);
+  return colorSlug ? `refurb-iphone-12-${colorSlug}` : "";
+}
+
+function getIphone12ColorSlug(value) {
+  if (/black|chern/.test(value)) return "black-2020";
+  if (/white|bel|starlight/.test(value)) return "white-2020";
+  if (/blue|golub|siniy/.test(value)) return "blue-2020";
+  if (/green|zelen/.test(value)) return "green-2020";
+  if (/purple|fiolet/.test(value)) return "purple-2021";
+  return "";
+}
+
+function getIphone14ProColorSlug(value) {
+  if (/black|черн|chern|space/.test(value)) return "spaceblack";
+  if (/silver|сереб|white|бел|bel/.test(value)) return "silver";
+  if (/gold|золот|zolot/.test(value)) return "gold";
+  if (/purple|фиолет|fiolet|deep/.test(value)) return "deeppurple";
+  return "";
+}
+
+function getIphone14ColorSlug(value) {
+  if (/red|krasn/.test(value)) return "red";
+  if (/blue|голуб|син|golub|siniy/.test(value)) return "blue";
+  if (/black|черн|chern|midnight/.test(value)) return "midnight";
+  if (/white|бел|bel|starlight/.test(value)) return "starlight";
+  if (/purple|фиолет|fiolet/.test(value)) return "purple";
+  if (/yellow|желт|жёлт|zhelt/.test(value)) return "yellow";
+  return "";
+}
+
+function getIphone13MiniColorSlug(value) {
+  if (/white|бел|bel|starlight/.test(value)) return "starlight";
+  if (/black|черн|chern|midnight/.test(value)) return "midnight";
+  if (/blue|голуб|син|golub|siniy/.test(value)) return "blue";
+  if (/pink|роз|roz/.test(value)) return "pink";
+  if (/green|зел|zelen/.test(value)) return "green";
+  return "";
+}
+
+function getTitaniumColorSlug(value) {
+  if (/black|черн|chern/.test(value)) return "blacktitanium";
+  if (/blue|син|siniy|golub/.test(value)) return "bluetitanium";
+  if (/natural|сер|ser/.test(value)) return "naturaltitanium";
+  if (/white|бел|bel/.test(value)) return "whitetitanium";
+  return "";
+}
+
+function getIphoneColorSlug(value) {
+  if (/pink|роз|roz/.test(value)) return "pink";
+  if (/blue|голуб|син|golub|siniy/.test(value)) return "blue";
+  if (/green|зел|zelen/.test(value)) return "green";
+  if (/black|черн|chern/.test(value)) return "black";
+  if (/yellow|желт|жёлт|zhelt/.test(value)) return "yellow";
+  return "";
+}
+
+function getAppleColorSlug(color, model = "") {
+  const value = String(color || "").toLowerCase();
+  const modelText = String(model || "").toLowerCase();
+  if (/pink|роз|коралл/.test(value)) return "pink";
+  if (/blue|син|голуб|ultramarine/.test(value)) return /iphone 16/.test(modelText) ? "ultramarine" : "blue";
+  if (/teal|бирюз/.test(value)) return "teal";
+  if (/зел/.test(value)) return /iphone 16/.test(modelText) ? "teal" : "green";
+  if (/white|бел|starlight|сия/.test(value)) return "white";
+  if (/black|чер|midnight|obsidian/.test(value)) return "black";
+  if (/silver|сереб/.test(value)) return "silver";
+  if (/yellow|желт|жёлт/.test(value)) return "yellow";
+  return "";
+}
+
+function getRawGallery(product) {
+  const gallery = Array.isArray(product.gallery) ? product.gallery : [];
+  return uniqueImages([product.imageUrl, ...gallery].filter(Boolean));
+}
+
+function uniqueImages(items) {
+  return [...new Set(items.filter((item) => typeof item === "string" && item.trim()))];
+}
+
+function getSimLabel(product) {
+  const value = String(product.attributes?.sim || product.name || "");
+  if (/eSIM/i.test(value)) return "eSIM";
+  if (/dual\s*sim|2\s*sim|две\s*sim/i.test(value)) return "2x nano-SIM";
+  if (/nano/i.test(value)) return "nano-SIM";
+  if (/sim/i.test(value)) return "nano-SIM + eSIM";
+  if (product.section === "iPhone") return "nano-SIM + eSIM";
+  if (product.attributes?.productType === "phone") return "nano-SIM";
+  return "";
+}
+
+function getPhysicalSimLabel(product) {
+  const sim = getSimLabel(product);
+  if (sim === "eSIM") return "0";
+  if (sim.includes("2x")) return "2";
+  return sim ? "1" : "";
+}
+
+function getRamLabel(product) {
+  const source = `${product.attributes?.memory || ""} ${product.name || ""}`;
+  const slash = String(source).match(/\b(4|6|8|12|16|24|32|36|48|64)\s*[\/-]\s*(64|128|256|512|1024)\s*(GB|ГБ|Gb|Гб|TB|ТБ|Tb|Тб)\b/i);
+  if (slash) return `${Number(slash[1])} ГБ`;
+  const ram = String(source).match(/\b(4|6|8|12|16|24|32|36|48|64)\s*(GB|ГБ|Gb|Гб)\s*(RAM|ОЗУ|Unified|памяти)?\b/i);
+  if (ram && /Mac|Pixel|Honor|Huawei|Xiaomi|Samsung|ОЗУ|RAM|Unified/i.test(source)) return `${Number(ram[1])} ГБ`;
+  if (product.section === "iPhone") return getIphoneFilterSpec(product).ram;
+  return "";
+}
+
+function getPhoneDisplaySpec(product) {
+  if (product.section === "iPhone") return getIphoneFilterSpec(product);
+  if (product.attributes?.productType !== "phone" && product.section !== "Android") {
+    return { resolution: "", refreshRate: "", screenSize: "" };
+  }
+  const slug = String(product.slug || "").toLowerCase();
+  if (/pixel-(10|9)-pro-fold/.test(slug)) {
+    return { resolution: "2076 × 2152", refreshRate: "120 Гц", screenSize: "8.0" };
+  }
+  if (/pixel-(10|9)-pro-xl/.test(slug)) {
+    return { resolution: "2992 × 1344", refreshRate: "120 Гц", screenSize: "6.8" };
+  }
+  if (/pixel-(10|9)-pro/.test(slug)) {
+    return { resolution: "2856 × 1280", refreshRate: "120 Гц", screenSize: "6.3" };
+  }
+  if (/pixel-(10|9)a|pixel-(10|9)/.test(slug)) {
+    return { resolution: "2424 × 1080", refreshRate: "120 Гц", screenSize: "6.3" };
+  }
+  if (/honor-magic-v|huawei-mate-x|mate-xt/.test(slug)) {
+    return { resolution: "2344 × 2156", refreshRate: "120 Гц", screenSize: "7.9" };
+  }
+  if (/honor-.*pro|huawei-mate-.*pro|huawei-nova-.*pro/.test(slug)) {
+    return { resolution: "2800 × 1260", refreshRate: "120 Гц", screenSize: "6.8" };
+  }
+  if (/honor-x|honor-.*lite|huawei-nova/.test(slug)) {
+    return { resolution: "2412 × 1080", refreshRate: "90 Гц", screenSize: "6.7" };
+  }
+  return { resolution: "", refreshRate: "", screenSize: "" };
+}
+
+function getScreenSizeLabel(product) {
+  if (product.section === "iPhone" || product.section === "Android" || product.attributes?.productType === "phone") {
+    return getPhoneDisplaySpec(product).screenSize;
+  }
+  const match = String(product.name).match(/\b(10\.9|11|12\.9|13|14|15|16|40|41|42|44|45|46|49)\b(?=.*(дюйм|inch|mm|мм|iPad|MacBook|Watch))/i);
+  return match ? match[1] : "";
+}
+
+function getConnectivityLabel(product) {
+  const text = `${product.attributes?.sim || ""} ${product.name || ""}`;
+  if (/cellular|lte|5g/i.test(text)) return "Wi-Fi + Cellular";
+  if (/wi-?fi/i.test(text)) return "Wi-Fi";
+  return "";
+}
+
+function getChipLabel(product) {
+  const match = String(product.name).match(/\b(Apple\s+)?(M1|M2|M3|M4|M5|A16|A17|A18|A19)\b/i);
+  return match ? match[2].toUpperCase() : "";
+}
+
+function getWatchSizeLabel(product) {
+  const match = String(product.name).match(/\b(40|41|42|44|45|46|49)\s*mm\b/i);
+  return match ? `${match[1]} мм` : "";
+}
+
+function getWatchCaseLabel(product) {
+  const text = String(product.name).toLowerCase();
+  if (/titanium|титан/.test(text)) return "титан";
+  if (/stainless|steel|сталь/.test(text)) return "сталь";
+  if (/aluminum|aluminium|алюмин/.test(text)) return "алюминий";
+  return "";
+}
+
+function getWatchStrapLabel(product) {
+  const text = String(product.name);
+  if (/milanese/i.test(text)) return "Milanese Loop";
+  if (/sport\s+loop/i.test(text)) return "Sport Loop";
+  if (/sport\s+band/i.test(text)) return "Sport Band";
+  return "";
+}
+
+function getNoiseControlLabel(product) {
+  const text = `${product.name} ${product.attributes?.model || ""}`;
+  if (/ANC|шум|noise/i.test(text)) return "ANC";
+  if (/Pro/i.test(text)) return "ANC";
+  return "без ANC";
+}
+
+function getChargingCaseLabel(product) {
+  const text = String(product.name);
+  if (/usb-c|type-c/i.test(text)) return "USB-C";
+  if (/magsafe/i.test(text)) return "MagSafe";
+  if (/lightning/i.test(text)) return "Lightning";
+  if (/футляр|case/i.test(text)) return "зарядный футляр";
+  return "";
+}
+
+function getProductTypeLabel(type) {
+  return {
+    phone: "смартфон",
+    tablet: "планшет",
+    laptop: "ноутбук",
+    watch: "часы",
+    headphones: "наушники",
+    audio: "наушники",
+    AirPods: "наушники",
+    iPhone: "смартфон",
+    Android: "смартфон",
+    iPad: "планшет",
+    Mac: "ноутбук",
+    "Apple Watch": "часы"
+  }[type] || type;
+}
+
 function getMemoryLabel(product) {
+  if (product.section === "Mac") {
+    const storage = String(product.name).match(/\b(128|256|512|1024|1|2)\s*(GB|Gb|ГБ|Гб|TB|Tb|ТБ|Тб)\s*SSD\b/i);
+    if (storage) {
+      const amount = Number(storage[1]);
+      const unit = storage[2].toLowerCase();
+      if (unit.includes("t") || unit.includes("т") || amount === 1024) return amount === 2 ? "2 ТБ" : "1 ТБ";
+      return `${amount} ГБ`;
+    }
+  }
   const source = product.attributes?.memory || product.name;
   const match = String(source).match(/\b(64|128|256|512|1024|1|2)\s*(GB|Gb|ГБ|Гб|TB|Tb|ТБ|Тб)\b/i);
   if (!match) return "";
@@ -995,12 +2354,29 @@ function MapSection() {
   );
 }
 
-function ProductCard({ product, index, onAdd, onOpen, isFavorite = false, onToggleFavorite }) {
+function ProductCard({ product, products = [], index, onAdd, onOpen, isFavorite = false, onToggleFavorite }) {
   const available = product.stockQty > 0;
+  const gallery = getProductGallery(product, products).slice(0, 3);
+  const [activePhoto, setActivePhoto] = useState(0);
+  const photoIndex = Math.min(activePhoto, gallery.length - 1);
+  const movePhoto = (event) => {
+    if (event.pointerType && event.pointerType !== "mouse") return;
+    if (gallery.length < 2) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const next = Math.min(gallery.length - 1, Math.max(0, Math.floor(((event.clientX - rect.left) / rect.width) * gallery.length)));
+    setActivePhoto(next);
+  };
+  const syncPhotoScroll = (event) => {
+    if (gallery.length < 2) return;
+    const node = event.currentTarget;
+    const next = Math.round(node.scrollLeft / Math.max(node.clientWidth, 1));
+    setActivePhoto(Math.min(gallery.length - 1, Math.max(0, next)));
+  };
   return (
     <article
       className="product-card reveal-card"
-      style={{ "--delay": `${Math.min(index, 8) * 42}ms` }}
+      style={{ "--delay": `${Math.min(index, 8) * 42}ms`, "--active-photo": photoIndex, "--photo-count": gallery.length }}
+      onPointerMove={movePhoto}
       onClick={onOpen}
       onKeyDown={(event) => {
         if (event.target === event.currentTarget && event.key === "Enter") {
@@ -1021,12 +2397,20 @@ function ProductCard({ product, index, onAdd, onOpen, isFavorite = false, onTogg
       >
         <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
       </button>
-      <div className="product-photo" aria-label={`Фото товара ${product.name}`}>
-        {product.imageUrl ? <img src={product.imageUrl} alt={product.name} loading="lazy" /> : <span>{product.brand}</span>}
+      <div className="product-photo" onScroll={syncPhotoScroll} aria-label={`Фото товара ${product.name}`}>
+        <PhotoPlaceholder />
+        {gallery.length > 1 && (
+          <div className="photo-progress" aria-hidden="true">
+            {gallery.map((photo, itemIndex) => (
+              <span className={itemIndex === photoIndex ? "is-active" : ""} key={`${photo.src}-${photo.view}-${itemIndex}`} />
+            ))}
+          </div>
+        )}
       </div>
       <div className="product-meta">
         <div>
           <h3>{formatProductCardTitle(product)}</h3>
+          <p>{formatShortProductDescription(product)}</p>
         </div>
       </div>
       <div className="price-row single-price" tabIndex={0} aria-label={`Цена ${formatRub(product.retailPrice)}`}>
@@ -1051,9 +2435,12 @@ function ProductCard({ product, index, onAdd, onOpen, isFavorite = false, onTogg
 
 function ProductDetailPage({ product, products, loading, addToCart, navigate, isFavorite, toggleFavorite }) {
   const [qty, setQty] = useState(1);
+  const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const detailGalleryRef = useRef(null);
 
   useEffect(() => {
     setQty(1);
+    setSelectedPhoto(0);
   }, [product?.id]);
 
   if (loading) {
@@ -1087,6 +2474,9 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
 
   const available = product.stockQty > 0;
   const safeQty = Math.min(Math.max(qty, 1), Math.max(product.stockQty, 1));
+  const gallery = getProductGallery(product, products);
+  const activePhoto = Math.min(selectedPhoto, Math.max(gallery.length - 1, 0));
+  const specs = getProductSpecs(product);
   const relatedProducts = products
     .filter((item) => item.id !== product.id && (item.category === product.category || item.brand === product.brand))
     .slice(0, 3);
@@ -1099,6 +2489,21 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
     navigate("/cart");
   };
 
+  const scrollDetailPhoto = (photoIndex) => {
+    setSelectedPhoto(photoIndex);
+    const galleryNode = detailGalleryRef.current;
+    if (!galleryNode) return;
+    galleryNode.scrollTo({ left: galleryNode.clientWidth * photoIndex, behavior: "smooth" });
+  };
+
+  const syncDetailPhoto = (event) => {
+    const node = event.currentTarget;
+    const next = Math.round(node.scrollLeft / Math.max(node.clientWidth, 1));
+    if (next !== selectedPhoto) {
+      setSelectedPhoto(Math.min(next, Math.max(gallery.length - 1, 0)));
+    }
+  };
+
   return (
     <section className="page-section product-detail-page">
       <button className="price-link detail-back" type="button" onClick={() => navigate("/")}>
@@ -1107,8 +2512,35 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
       </button>
 
       <div className="product-detail-shell">
-        <div className="product-detail-photo">
-          {product.imageUrl ? <img src={product.imageUrl} alt={product.name} /> : <span>{product.brand}</span>}
+        <div className="product-detail-gallery">
+          <div className="product-detail-strip" ref={detailGalleryRef} onScroll={syncDetailPhoto}>
+            {gallery.length > 0 ? (
+              gallery.map((photo, photoIndex) => (
+                <div className={`product-detail-photo view-${photo.view || "main"}`} key={`${product.id}-detail-${photo.src}-${photoIndex}`}>
+                  <PhotoPlaceholder />
+                </div>
+              ))
+            ) : (
+              <div className="product-detail-photo">
+                <span>{product.brand}</span>
+              </div>
+            )}
+          </div>
+          {gallery.length > 1 && (
+            <div className="product-gallery-thumbs" aria-label="Галерея товара">
+              {gallery.map((photo, photoIndex) => (
+                <button
+                  key={`${photo.src}-${photo.view}-${photoIndex}`}
+                  type="button"
+                  className={photoIndex === activePhoto ? "is-selected" : ""}
+                  onClick={() => scrollDetailPhoto(photoIndex)}
+                  aria-label={`Показать фото ${photoIndex + 1}`}
+                >
+                  <PhotoPlaceholder compact />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <article className="product-detail-info">
@@ -1123,12 +2555,12 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
               <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
             </button>
           </div>
-          <h1>{product.name}</h1>
-          <p className="product-detail-description">{product.description || "Описание скоро появится."}</p>
+          <h1>{formatProductCardTitle(product)}</h1>
+          <p className="product-detail-description">{formatShortProductDescription(product)}</p>
 
           <div className="product-detail-tags">
             <span>{product.brand}</span>
-            <span>{product.category}</span>
+            <span>{getProductModelLabel(product)}</span>
             <span className={available ? "is-available" : "is-empty"}>{available ? `${product.stockQty} шт. в наличии` : "Нет в наличии"}</span>
           </div>
 
@@ -1175,7 +2607,9 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
           <dl>
             <div><dt>SKU</dt><dd>{product.sku}</dd></div>
             <div><dt>Бренд</dt><dd>{product.brand}</dd></div>
-            <div><dt>Категория</dt><dd>{product.category}</dd></div>
+            {specs.map(([label, value]) => (
+              <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+            ))}
             <div><dt>Наличие</dt><dd>{available ? `${product.stockQty} шт.` : "нет"}</dd></div>
           </dl>
         </article>
@@ -1202,6 +2636,7 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
               <ProductCard
                 key={item.id}
                 product={item}
+                products={products}
                 index={index}
                 onAdd={addToCart}
                 onOpen={() => navigate(`/product/${encodeURIComponent(item.id)}`)}
@@ -1468,6 +2903,7 @@ function FavoritesPage({ products, favorites, toggleFavorite, addToCart, navigat
             <ProductCard
               key={product.id}
               product={product}
+              products={products}
               index={index}
               onAdd={addToCart}
               onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)}
@@ -2176,7 +3612,7 @@ function AdminPage({ products, setProducts }) {
               return (
                 <div className={`product-admin-card ${stockClass}`} key={product.id}>
                   <div className="product-admin-media">
-                    {form.imageUrl ? <img src={form.imageUrl} alt={form.name || product.name} /> : <span>Нет фото</span>}
+                    <PhotoPlaceholder compact />
                   </div>
                   <div className="product-admin-fields">
                     <div className="product-admin-meta">
