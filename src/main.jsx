@@ -34,6 +34,8 @@ import {
   Wrench,
   X
 } from "lucide-react";
+import { normalizedCatalogImages } from "./generated/normalizedCatalogImages.js";
+import { piterCatalogProducts } from "./generated/piterCatalogProducts.js";
 import { seedProducts } from "../server/products.seed.js";
 import "./styles.css";
 
@@ -98,22 +100,26 @@ const quickCatalogMenus = {
     { label: "SE 2022", model: "iPhone SE 2022", to: "/catalog/iphone/iphone-se-2022" }
   ],
   iPad: [
-    { label: "iPad Pro", to: "/catalog/ipad/ipad-pro" },
-    { label: "iPad Air", to: "/catalog/ipad/ipad-air" },
-    { label: "iPad mini", to: "/catalog/ipad/ipad-mini" },
-    { label: "Базовый iPad", to: "/catalog/ipad/ipad" }
+    { label: "iPad Pro", model: "iPad Pro", to: "/catalog/ipad/ipad-pro" },
+    { label: "iPad Air", model: "iPad Air", to: "/catalog/ipad/ipad-air" },
+    { label: "iPad mini", model: "iPad mini", to: "/catalog/ipad/ipad-mini" },
+    { label: "Базовый iPad", model: "iPad", to: "/catalog/ipad/ipad" }
   ],
   Mac: [
-    { label: "MacBook Air", to: "/catalog/mac/macbook-air" },
-    { label: "MacBook Pro", to: "/catalog/mac/macbook-pro" },
-    { label: "iMac", to: "/catalog/mac/imac" }
+    { label: "MacBook Air", model: "MacBook Air", to: "/catalog/mac/macbook-air" },
+    { label: "MacBook Pro", model: "MacBook Pro", to: "/catalog/mac/macbook-pro" },
+    { label: "MacBook Neo", model: "MacBook Neo", to: "/catalog/mac/macbook-neo" },
+    { label: "iMac", model: "iMac", to: "/catalog/mac/imac" },
+    { label: "Mac mini", model: "Mac mini", to: "/catalog/mac/mac-mini" },
+    { label: "Mac Studio", model: "Mac Studio", to: "/catalog/mac/mac-studio" },
+    { label: "Studio Display", model: "Apple Studio Display", to: "/catalog/mac/apple-studio-display" }
   ],
   "Apple Watch": [
-    { label: "Apple Watch SE", to: "/catalog/apple-watch/apple-watch-se" },
-    { label: "Apple Watch Series", to: "/catalog/apple-watch/apple-watch-series" },
-    { label: "Apple Watch Ultra", to: "/catalog/apple-watch/apple-watch-ultra" },
-    { label: "40/41 мм", to: "/catalog/apple-watch/41-mm" },
-    { label: "44/45/49 мм", to: "/catalog/apple-watch/45-mm" }
+    { label: "Apple Watch SE", model: "Apple Watch SE", to: "/catalog/apple-watch/apple-watch-se" },
+    { label: "Apple Watch Series", model: "Apple Watch Series", to: "/catalog/apple-watch/apple-watch-series" },
+    { label: "Apple Watch Ultra", model: "Apple Watch Ultra", to: "/catalog/apple-watch/apple-watch-ultra" },
+    { label: "40/41 мм", model: "Apple Watch Series", to: "/catalog/apple-watch/41-mm" },
+    { label: "44/45/49 мм", model: "Apple Watch Ultra", to: "/catalog/apple-watch/45-mm" }
   ],
   Смартфоны: [
     { label: "Apple (iPhone)", brand: "Apple", to: "/catalog/smartphones/apple" },
@@ -469,13 +475,154 @@ const supplementalIphones = [
   }
 }));
 
+const supplementalAppleProducts = [
+  {
+    type: "tablet",
+    section: "iPad",
+    model: "iPad Pro",
+    slug: "planshet-apple-ipad-pro-13-m4-256gb-wi-fi-space-black",
+    name: "Apple iPad Pro 13 M4 256GB Wi-Fi, Space Black",
+    price: 129990,
+    memory: "256GB",
+    color: "Space Black",
+    gallery: [
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg",
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/closer-look/space-black/slide_1A__gnqepv0kr3ee_large.jpg",
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/closer-look/space-black/slide_1B__fxu0jie3i0ya_large.jpg"
+    ]
+  },
+  {
+    type: "tablet",
+    section: "iPad",
+    model: "iPad Pro",
+    slug: "planshet-apple-ipad-pro-11-m4-256gb-wi-fi-silver",
+    name: "Apple iPad Pro 11 M4 256GB Wi-Fi, Silver",
+    price: 104990,
+    memory: "256GB",
+    color: "Silver",
+    gallery: [
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg",
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg",
+      "https://www.apple.com/v/ipad-pro/aw/images/overview/closer-look/silver/slide_1B__ftu7ibp8jrm6_large.jpg"
+    ]
+  },
+  {
+    type: "tablet",
+    section: "iPad",
+    model: "iPad mini",
+    slug: "planshet-apple-ipad-mini-a17-pro-128gb-wi-fi-purple",
+    name: "Apple iPad mini A17 Pro 128GB Wi-Fi, Purple",
+    price: 59990,
+    memory: "128GB",
+    color: "Purple",
+    gallery: [
+      "https://www.apple.com/v/ipad-mini/v/images/overview/hero/fan__mub6p4ua0t2y_large.jpg",
+      "https://www.apple.com/v/ipad-mini/v/images/overview/hero/fan__mub6p4ua0t2y_large.jpg",
+      "https://www.apple.com/v/ipad-mini/v/images/overview/design/liquid_retina_1__eh1ihtzkw8wi_large.jpg"
+    ]
+  },
+  {
+    type: "computer",
+    section: "Mac",
+    model: "MacBook Pro",
+    slug: "noutbuk-apple-macbook-pro-14-m4-16gb-512gb-space-black",
+    name: "Apple MacBook Pro 14 M4 16GB 512GB SSD, Space Black",
+    price: 199990,
+    memory: "512GB",
+    color: "Space Black",
+    gallery: [
+      "https://www.apple.com/v/macbook-pro/ax/images/overview/welcome/hero_endframe__fwev9ebh42mq_large.jpg",
+      "https://www.apple.com/v/macbook-pro/ax/images/overview/welcome/hero_startframe__ek0dqbh61vau_large.jpg",
+      "https://www.apple.com/v/macbook-pro/ax/images/overview/highlights/highlights_chip_endframe__dp975gwqppw2_large.jpg"
+    ]
+  },
+  {
+    type: "computer",
+    section: "Mac",
+    model: "iMac",
+    slug: "monoblok-apple-imac-24-m4-16gb-256gb-blue",
+    name: "Apple iMac 24 M4 16GB 256GB SSD, Blue",
+    price: 159990,
+    memory: "256GB",
+    color: "Blue",
+    gallery: [
+      "https://www.apple.com/v/imac/v/images/meta/imac__d7trotporb6u_og.png",
+      "https://www.apple.com/v/imac/p/images/overview/colors/colors_blue__eb3w8d7fao2u_large.jpg",
+      "https://www.apple.com/v/imac/p/images/overview/router/router__dexju5j7gb42_large.jpg"
+    ]
+  },
+  {
+    type: "computer",
+    section: "Mac",
+    model: "Mac mini",
+    slug: "kompyuter-apple-mac-mini-m4-16gb-256gb",
+    name: "Apple Mac mini M4 16GB 256GB SSD",
+    price: 79990,
+    memory: "256GB",
+    color: "Silver",
+    gallery: [
+      "https://www.apple.com/v/mac-mini/aa/images/meta/mac-mini__dvce2jrm11w2_og.jpg",
+      "https://www.apple.com/v/mac-mini/u/images/overview/design/design__bvk4nqv13dte_large.jpg",
+      "https://www.apple.com/v/mac-mini/u/images/overview/consider/boc_performance__d6m3ksxbbz0m_large.jpg"
+    ]
+  },
+  {
+    type: "computer",
+    section: "Mac",
+    model: "Mac Studio",
+    slug: "kompyuter-apple-mac-studio-m4-max-36gb-512gb",
+    name: "Apple Mac Studio M4 Max 36GB 512GB SSD",
+    price: 279990,
+    memory: "512GB",
+    color: "Silver",
+    gallery: [
+      "https://www.apple.com/v/mac-studio/m/images/meta/mac-studio_overview__eedzbosm1t26_og.png",
+      "https://www.apple.com/v/mac-studio/c/images/overview/design/design_studio_display__fxf9n5705e2q_large.jpg",
+      "https://www.apple.com/v/mac-studio/c/images/overview/performance/performance_m4max__eo0j1v69w5ua_large.jpg"
+    ]
+  }
+].map((item, index) => ({
+  id: `supplemental-${item.slug}`,
+  sku: `SM-SUP-APPLE-${index + 1}`,
+  slug: item.slug,
+  name: item.name,
+  section: item.section,
+  category: item.section,
+  subcategory: item.model,
+  brand: "Apple",
+  retailPrice: item.price,
+  wholesalePrice: item.price,
+  stockQty: 3,
+  imageUrl: item.gallery[0],
+  gallery: item.gallery,
+  description: `${item.model} ${item.memory}, ${item.color}`,
+  attributes: {
+    model: item.model,
+    memory: item.memory,
+    color: item.color,
+    sim: item.section === "iPad" ? "Wi-Fi" : "",
+    availability: "In stock",
+    productType: item.type
+  }
+}));
+
 function hydrateCatalogProducts(products) {
-  const ids = new Set(products.map((product) => product.id || product.sku || product.slug));
-  const slugs = new Set(products.map((product) => product.slug).filter(Boolean));
+  const appleSections = new Set(["iPhone", "iPad", "Mac"]);
+  const baseProducts = products.filter((product) => !appleSections.has(product.section));
+  const ids = new Set(baseProducts.map((product) => product.id || product.sku || product.slug));
+  const slugs = new Set(baseProducts.map((product) => product.slug).filter(Boolean));
+  const names = new Set(baseProducts.map((product) => normalizeProductName(product.name)).filter(Boolean));
   return [
-    ...products,
-    ...supplementalIphones.filter((product) => !ids.has(product.id) && !ids.has(product.sku) && !slugs.has(product.slug))
+    ...baseProducts,
+    ...piterCatalogProducts.filter((product) => {
+      if (ids.has(product.id) || ids.has(product.sku) || slugs.has(product.slug)) return false;
+      return !names.has(normalizeProductName(product.name));
+    })
   ];
+}
+
+function normalizeProductName(value) {
+  return String(value || "").toLowerCase().replace(/&quot;/g, "\"").replace(/\s+/g, " ").trim();
 }
 const orderStatuses = {
   new: "Новый",
@@ -884,6 +1031,7 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
   const [category, setCategory] = useState(initial.category);
   const [selectedModel, setSelectedModel] = useState(initial.model);
   const [modelsExpanded, setModelsExpanded] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(24);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [advancedFilters, setAdvancedFilters] = useState(emptyAdvancedFilters);
@@ -896,11 +1044,17 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
     .filter((product) => matchesAdvancedFilters(product, category, advancedFilters, filterGroups))
     .filter((product) => `${product.name} ${product.brand} ${product.sku}`.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => productRelevanceRank(b, category) - productRelevanceRank(a, category));
+  const visibleProducts = filtered.slice(0, visibleCount);
+
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [category, selectedModel, search, advancedFilters]);
 
   const selectCategory = (item) => {
     setCategory(item);
     setSelectedModel("");
     setModelsExpanded(false);
+    setVisibleCount(24);
     setAdvancedFilters(emptyAdvancedFilters);
     navigate(`/catalog/${catalogSlug(item)}`);
   };
@@ -963,6 +1117,7 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
                     className={selectedModel === item ? "is-selected" : ""}
                     onClick={() => {
                       setSelectedModel(item);
+                      setVisibleCount(24);
                       navigate(`/catalog/${catalogSlug(category)}/${slugify(getRouteLabel(category, item))}`);
                     }}
                   >
@@ -988,11 +1143,21 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
             {loading ? (
               <div className="skeleton-grid">{Array.from({ length: 6 }).map((_, index) => <div className="product-card skeleton" key={index} />)}</div>
             ) : (
-              <div className="product-grid">
-                {filtered.map((product, index) => (
-                  <ProductCard key={product.id} product={product} products={products} index={index} onAdd={addToCart} onOpen={() => navigate(`/product/${encodeURIComponent(product.id)}`)} isFavorite={favorites.includes(product.id)} onToggleFavorite={toggleFavorite} />
-                ))}
-              </div>
+              <>
+                <div className="product-grid">
+                  {visibleProducts.map((product, index) => (
+                    <ProductCard key={product.id || product.sku || product.slug} product={product} products={products} index={index} onAdd={addToCart} onOpen={() => navigate(`/product/${encodeURIComponent(product.id || product.sku || product.slug)}`)} isFavorite={favorites.includes(product.id)} onToggleFavorite={toggleFavorite} />
+                  ))}
+                </div>
+                {visibleProducts.length < filtered.length && (
+                  <div className="catalog-load-more">
+                    <button type="button" className="submit-button" onClick={() => setVisibleCount((current) => current + 24)}>
+                      Показать ещё {Math.min(24, filtered.length - visibleProducts.length)}
+                    </button>
+                    <span>{visibleProducts.length} из {filtered.length}</span>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
@@ -1166,10 +1331,40 @@ function getQuickCatalogMenu(category, products) {
 }
 
 function getQuickMenuImage(products, category, label, allProducts = products) {
+  return getNormalizedQuickMenuImage(products, category, label, allProducts);
+}
+
+function getNormalizedQuickMenuImage(products, category, label, allProducts = products) {
+  const scopedImage = products.map(getNormalizedProductImage).find(Boolean);
+  if (scopedImage) return scopedImage;
   if (category === "iPhone") {
-    return getIphoneMenuImage(label) || products[0]?.imageUrl || getClosestIphoneImage(allProducts, label) || "";
+    const fallback = getClosestIphoneImage(allProducts, label);
+    return getNormalizedCatalogImage(fallback);
   }
-  return products[0]?.imageUrl || "";
+  return "";
+}
+
+function getAppleMenuImage(category, label) {
+  const key = `${category}:${String(label || "").toLowerCase()}`;
+  const images = {
+    "iPad:ipad pro": "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg",
+    "iPad:ipad air": "https://www.apple.com/v/ipad-air/ah/images/overview/hero/hero_endframe__6gl84bccyaqi_large.png",
+    "iPad:ipad mini": "https://www.apple.com/v/ipad-mini/v/images/overview/hero/fan__mub6p4ua0t2y_large.jpg",
+    "iPad:ipad": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-blue?wid=1200&hei=630&fmt=jpeg&qlt=95",
+    "Mac:macbook air": "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png",
+    "Mac:macbook pro": "https://www.apple.com/v/macbook-pro/ax/images/overview/welcome/hero_endframe__fwev9ebh42mq_large.jpg",
+    "Mac:macbook neo": "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png",
+    "Mac:imac": "https://www.apple.com/v/imac/v/images/meta/imac__d7trotporb6u_og.png",
+    "Mac:mac mini": "https://www.apple.com/v/mac-mini/aa/images/meta/mac-mini__dvce2jrm11w2_og.jpg",
+    "Mac:mac studio": "https://www.apple.com/v/mac-studio/m/images/meta/mac-studio_overview__eedzbosm1t26_og.png",
+    "Apple Watch:apple watch se": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-se-202509?wid=520&hei=520&fmt=jpeg&qlt=90",
+    "Apple Watch:apple watch series": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-s11-202509?wid=520&hei=520&fmt=jpeg&qlt=90",
+    "Apple Watch:apple watch ultra": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-compare-ultra3-202509_GEO_US?wid=520&hei=520&fmt=jpeg&qlt=90"
+  };
+  if (category === "Apple Watch" && /\d/.test(label)) {
+    return /49/.test(label) ? images["Apple Watch:apple watch ultra"] : images["Apple Watch:apple watch series"];
+  }
+  return images[key] || "";
 }
 
 function getIphoneMenuImage(label) {
@@ -1602,8 +1797,11 @@ function getProductModelLabel(product) {
     return "iPad";
   }
   if (product.section === "Mac") {
-    if (/MacBook Pro/i.test(product.name)) return "MacBook Pro";
-    if (/MacBook Air/i.test(product.name)) return "MacBook Air";
+    const macBookLabel = getMacBookModelLabel(product);
+    if (macBookLabel) return macBookLabel;
+    if (/Mac mini/i.test(product.name)) return "Mac mini";
+    if (/Mac Studio/i.test(product.name)) return "Mac Studio";
+    if (/Studio Display/i.test(product.name)) return "Apple Studio Display";
     if (/iMac/i.test(product.name)) return "iMac";
     return "Mac";
   }
@@ -1627,7 +1825,29 @@ function iphoneRank(label) {
 
 function productRelevanceRank(product, category) {
   if (category === "iPhone") return 1000 - iphoneRank(getProductModelLabel(product));
+  if (category === "Mac" || category === "iPad") {
+    const price = Number(product.retailPrice || 0);
+    return price > 0 ? -price : -999999999;
+  }
   return Number(product.name.match(/\b(20\d{2})\b/)?.[1] || 0) || product.retailPrice || 0;
+}
+
+function getMacBookModelLabel(product) {
+  const name = String(product.name || "");
+  const family = name.match(/MacBook\s+(Air|Pro|Neo)/i)?.[1];
+  if (!family) return "";
+
+  const size = name.match(/MacBook\s+(?:Air|Pro)\s+(\d{2}(?:[.,]\d)?)/i)?.[1]?.replace(",", ".");
+  const chip = name.match(/\b(M\d|A18\s*Pro)\b/i)?.[1]?.replace(/\s+/g, " ");
+  const cpuGpu = name.match(/\b(\d+C)\s*CPU\s*\/\s*(\d+C)\s*GPU\b/i);
+  const year = name.match(/\b(20\d{2})\b/)?.[1];
+
+  const parts = ["MacBook", family];
+  if (size) parts.push(size);
+  if (chip) parts.push(chip.toUpperCase().replace("A18 PRO", "A18 Pro"));
+  if (cpuGpu) parts.push(`${cpuGpu[1].toUpperCase()}/${cpuGpu[2].toUpperCase()}`);
+  if (year) parts.push(year);
+  return parts.join(" ");
 }
 
 function formatProductCardTitle(product) {
@@ -1702,11 +1922,8 @@ function getIphoneResolution({ series, pro, proMax, plus, mini, se }) {
 }
 
 function getProductGallery(product, products = []) {
-  const official = getOfficialProductGallery(product);
-  if (official.length > 0) return official.map((src, index) => ({ src, view: `official-${index}` }));
-  const own = getRawGallery(product);
-  if (own.length === 0) return [];
-  return own.slice(0, 5).map((src, index) => ({ src, view: `local-${index}` }));
+  const normalized = getNormalizedProductImage(product);
+  return normalized ? [{ src: normalized, view: "normalized" }] : [];
 }
 
 function getOfficialGalleryModel(product) {
@@ -2121,11 +2338,54 @@ function getRawGallery(product) {
   return uniqueImages([product.imageUrl, ...gallery].filter(Boolean));
 }
 
+function getNormalizedProductImage(product) {
+  return getRawGallery(product).map((src) => getNormalizedCatalogImage(src, product)).find(Boolean) || getNormalizedCatalogImageBySlug(product);
+}
+
+function getNormalizedCatalogImage(src, product = null) {
+  const value = String(src || "").trim();
+  if (!value) return "";
+  const fileName = value.split("?")[0].split("/").pop();
+  if (!fileName) return "";
+  const normalizedName = fileName.endsWith(".normalized.jpg")
+    ? fileName
+    : fileName.replace(/\.(jpe?g|png|webp)$/i, ".normalized.jpg");
+  if (!normalizedCatalogImages.has(normalizedName)) return "";
+  if (product?.slug && !normalizedName.startsWith(`${product.slug}-`)) return "";
+  return `/assets/catalog-normalized/${normalizedName}`;
+}
+
+function getNormalizedCatalogImageBySlug(product) {
+  const slug = String(product?.slug || "").trim();
+  if (!slug) return "";
+  const variants = getNormalizedSlugVariants(slug);
+  for (const variant of variants) {
+    const directNames = [`${variant}.normalized.jpg`, `${variant}-01.normalized.jpg`];
+    const direct = directNames.find((name) => normalizedCatalogImages.has(name));
+    if (direct) return `/assets/catalog-normalized/${direct}`;
+    const prefix = `${variant}-`;
+    const prefixed = [...normalizedCatalogImages].find((name) => name.startsWith(prefix));
+    if (prefixed) return `/assets/catalog-normalized/${prefixed}`;
+  }
+  return "";
+}
+
+function getNormalizedSlugVariants(slug) {
+  const variants = new Set([slug]);
+  for (const item of [...variants]) {
+    variants.add(item.replace(/-plus-cellular/g, "-cellular"));
+    variants.add(item.replace(/-wi-fi-plus-cellular/g, "-wi-fi-cellular"));
+    variants.add(item.replace(/gb/g, "gb"));
+  }
+  return [...variants].filter(Boolean);
+}
+
 function uniqueImages(items) {
   return [...new Set(items.filter((item) => typeof item === "string" && item.trim()))];
 }
 
 function getSimLabel(product) {
+  if (product.section === "Mac" || product.attributes?.productType === "computer") return "";
   const value = String(product.attributes?.sim || product.name || "");
   if (/eSIM/i.test(value)) return "eSIM";
   if (/dual\s*sim|2\s*sim|две\s*sim/i.test(value)) return "2x nano-SIM";
@@ -2295,7 +2555,14 @@ function normalizeCardColor(value) {
   const raw = String(value || "").replace(/[()]/g, "").trim();
   if (!raw || /^\d{4}$/.test(raw) || raw.length > 28 || /CPU|GPU|SSD|Wi-?Fi|USB|PRODUCT|Charger|футляр|заряд/i.test(raw)) return "";
   if (/[А-ЯA-Z0-9]{4,}/.test(raw) && !/\s/.test(raw)) return "";
-  const lower = raw.toLowerCase();
+  const cleaned = raw
+    .replace(/\b[A-Z]{1,4}\d[A-Z0-9]{1,5}(?:\s*(?:RU\/?A?|LL\/?A?))?\b/gi, "")
+    .replace(/\b(?:RU\/?A?|LL\/?A?|RU|LL)\b/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const appleColor = getKnownAppleColor(cleaned || raw);
+  if (appleColor) return appleColor;
+  const lower = (cleaned || raw).toLowerCase();
   const map = {
     "белый": "белый",
     "черный": "черный",
@@ -2313,7 +2580,22 @@ function normalizeCardColor(value) {
     "золотистый": "золотистый",
     "графит": "графит"
   };
-  return map[lower] || raw.toLowerCase();
+  return map[lower] || lower;
+}
+
+function getKnownAppleColor(value) {
+  const text = String(value || "").toLowerCase();
+  if (/space\s*gr[ae]y|seryy[-\s]*kosmos/.test(text)) return "Space Gray";
+  if (/space\s*black/.test(text)) return "Space Black";
+  if (/midnight/.test(text)) return "Midnight";
+  if (/sky\s*blue/.test(text)) return "Sky Blue";
+  if (/starlight/.test(text)) return "Starlight";
+  if (/silver/.test(text)) return "Silver";
+  if (/gold/.test(text)) return "Gold";
+  if (/blush/.test(text)) return "Blush";
+  if (/indigo/.test(text)) return "Indigo";
+  if (/citrus/.test(text)) return "Citrus";
+  return "";
 }
 
 function slugify(value) {
@@ -2398,7 +2680,17 @@ function ProductCard({ product, products = [], index, onAdd, onOpen, isFavorite 
         <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
       </button>
       <div className="product-photo" onScroll={syncPhotoScroll} aria-label={`Фото товара ${product.name}`}>
-        <PhotoPlaceholder />
+        {gallery.length > 0 ? (
+          <div className="product-photo-strip">
+            {gallery.map((photo, itemIndex) => (
+              <div className="product-photo-frame" key={`${photo.src}-${photo.view}-${itemIndex}`}>
+                <img src={photo.src} alt={product.name} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <PhotoPlaceholder />
+        )}
         {gallery.length > 1 && (
           <div className="photo-progress" aria-hidden="true">
             {gallery.map((photo, itemIndex) => (

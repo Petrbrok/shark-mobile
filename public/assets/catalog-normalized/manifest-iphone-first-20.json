@@ -1,0 +1,282 @@
+﻿[
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 11 128GB (Р‘РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-11-128GB-BELYY-392",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-11-128gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-11-128gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  589,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 11 128GB (Р§РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-11-128GB-CHERNYY-393",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-11-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-11-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  591,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 11 64GB (Р‘РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-11-64GB-BELYY-391",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-11-64gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-11-64gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  589,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 11 64GB (Р§РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-11-64GB-CHERNYY-390",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-11-64gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-11-64gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  591,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 128GB (Р‘РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-128GB-BELYY-385",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-128gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-128gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 128GB (Р—РµР»РµРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-128GB-ZELENYY-386",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-128gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-128gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 128GB (РЎРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-128GB-SINIY-387",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-128gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 128GB (Р¤РёРѕР»РµС‚РѕРІС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-128GB-FIOLETOVYY-001",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-128gb-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-128gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  1585,
+                     "height":  2153,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 128GB (Р§РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-128GB-CHERNYY-384",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 128GB (PRODUCT)RED (РљСЂР°СЃРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-128GB-PRODUCT-RED-KRASNYY-388",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-128gb-product-red-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-128gb-product-red-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 256GB (Р¤РёРѕР»РµС‚РѕРІС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-256GB-FIOLETOVYY-389",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-256gb-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-256gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  1585,
+                     "height":  2153,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 64GB (Р‘РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-64GB-BELYY-378",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-64gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-64gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 64GB (Р—РµР»РµРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-64GB-ZELENYY-381",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-64gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-64gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 64GB (РЎРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-64GB-SINIY-382",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-64gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-64gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 64GB (Р¤РёРѕР»РµС‚РѕРІС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-64GB-FIOLETOVYY-383",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-64gb-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-64gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  1585,
+                     "height":  2153,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 64GB (Р§РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-64GB-CHERNYY-379",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-64gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-64gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 12 64GB (PRODUCT)RED",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-12-64GB-PRODUCT-RED-380",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-12-64gb-product-red-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-12-64gb-product-red-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  509,
+                     "height":  689,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 128GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-128GB-BELYY-005",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-128gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-13-128gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 128GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-128GB-ZELENYY-372",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-13-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 128GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-128GB-KRASNYY-009",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-128gb-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\iphone-first-20\\smartfon-apple-iphone-13-128gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    }
+]

@@ -1,0 +1,2578 @@
+﻿[
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2021) 256Gb Wi-Fi + Cellular, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2021-256GB-WI-FI-CELLULAR-SEREBRIS-621",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2021-64gb-wi-fi-cellular-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2021-64gb-wi-fi-cellular-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  597,
+                     "height":  693,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2021) 256Gb Wi-Fi + Cellular, СЃРµСЂС‹Р№ РєРѕСЃРјРѕСЃ",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2021-256GB-WI-FI-CELLULAR-SERYY-KO-622",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2021-64gb-wi-fi-cellular-seryy-kosmos-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2021-64gb-wi-fi-cellular-seryy-kosmos-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  597,
+                     "height":  693,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2021) 256Gb Wi-Fi, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2021-256GB-WI-FI-SEREBRISTYY-470",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2021-256gb-wi-fi-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2021-256gb-wi-fi-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  597,
+                     "height":  693,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2021) 256Gb Wi-Fi, СЃРµСЂС‹Р№ РєРѕСЃРјРѕСЃ",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2021-256GB-WI-FI-SERYY-KOSMOS-469",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2021-256gb-wi-fi-seryy-kosmos-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2021-256gb-wi-fi-seryy-kosmos-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  597,
+                     "height":  693,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2021) 64Gb Wi-Fi, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2021-64GB-WI-FI-SEREBRISTYY-466",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2021-64gb-wi-fi-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2021-64gb-wi-fi-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  597,
+                     "height":  693,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2021) 64Gb Wi-Fi, СЃРµСЂС‹Р№ РєРѕСЃРјРѕСЃ",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2021-64GB-WI-FI-SERYY-KOSMOS-465",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2021-64gb-wi-fi-seryy-kosmos-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2021-64gb-wi-fi-seryy-kosmos-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  597,
+                     "height":  693,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi + Cellular 256Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-CELLULAR-256GB-ZHELTYY-426",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-cellular-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-cellular-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi + Cellular 256Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-CELLULAR-256GB-ROZOVYY-450",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-cellular-256gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-cellular-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi + Cellular 64Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-CELLULAR-64GB-ZHELTYY-402",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi + Cellular 64Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-CELLULAR-64GB-ROZOVYY-620",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi + Cellular 64Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-CELLULAR-64GB-SEREBRIST-401",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-serebristyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  704,
+                     "height":  797,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi + Cellular 64Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-CELLULAR-64GB-SINIY-476",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-cellular-64gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  704,
+                     "height":  797,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 256Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-256GB-ZHELTYY-400",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 256Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-256GB-ROZOVYY-480",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-256gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 256Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-256GB-SEREBRISTYY-478",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-256gb-serebristyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-256gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  704,
+                     "height":  797,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 256Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-256GB-SINIY-479",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-256gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  704,
+                     "height":  797,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 64Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-64GB-ZHELTYY-468",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-64gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-64gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 64Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-64GB-ROZOVYY-617",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-64gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-64gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  706,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 64Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-64GB-SEREBRISTYY-467",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-64gb-serebristyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-64gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  704,
+                     "height":  797,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2022) Wi-Fi 64Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2022-WI-FI-64GB-SINIY-618",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2022-wi-fi-64gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2022-wi-fi-64gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  704,
+                     "height":  797,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 128Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-128GB-ZHELTYY-623",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-128gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-128gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1593,
+                     "height":  1794,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 128Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-128GB-SEREBRIS-411",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-128gb-serebristyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-128gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1584,
+                     "height":  1794,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 128Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-128GB-SINIY-412",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-128gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1585,
+                     "height":  1794,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 256Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-256GB-ROZOVYY-441",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-256gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1593,
+                     "height":  1794,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 256Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-256GB-SEREBRIS-439",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-256gb-serebristyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-256gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1584,
+                     "height":  1794,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 256Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-256GB-SINIY-440",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-256gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1585,
+                     "height":  1794,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 512Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-512GB-ZHELTYY-615",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-512gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-512gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1597,
+                     "height":  1794,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi + Cellular 512Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-CELLULAR-512GB-SINIY-616",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-cellular-512gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-cellular-512gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1585,
+                     "height":  1794,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 128Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-128GB-ZHELTYY-474",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-128gb-zheltyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-128gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  441,
+                     "height":  497,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 128Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-128GB-ROZOVYY-473",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-128gb-rozovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-128gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1589,
+                     "height":  1807,
+                     "x":  14
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 128Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-128GB-SEREBRISTYY-471",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-128gb-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-128gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  433,
+                     "height":  493,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 128Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-128GB-SINIY-472",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-128gb-siniy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1589,
+                     "height":  1807,
+                     "x":  22
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 256Gb, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-256GB-ZHELTYY-407",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-256gb-zheltyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  441,
+                     "height":  497,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 256Gb, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-256GB-ROZOVYY-406",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-256gb-rozovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1589,
+                     "height":  1807,
+                     "x":  14
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 256Gb, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-256GB-SEREBRISTYY-404",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-256gb-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-256gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  433,
+                     "height":  493,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 256Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-256GB-SINIY-405",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-2025-wi-fi-256gb-siniy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-2025-wi-fi-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1589,
+                     "height":  1807,
+                     "x":  22
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad (2025) Wi-Fi 512Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-2025-WI-FI-512GB-SINIY-627",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-512gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-512gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  703,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air (2022), 256 Р“Р‘, Wi-Fi, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-2022-256-GB-WI-FI-FIOLETOVYY-421",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-2022-256-gb-wi-fi-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-2022-256-gb-wi-fi-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  470,
+                     "height":  545,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air (2022), 64 Р“Р‘ Wi-Fi Cellular, Р±РµР¶РµРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-2022-64-GB-WI-FI-CELLULAR-BEZH-631",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-2022-64-gb-wi-fi-bezhevyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  6,
+                     "width":  470,
+                     "height":  541,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 128Gb Wi-Fi + Cellular, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-128GB-WI-FI-CELLULAR-G-438",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-cellular-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1397,
+                     "height":  1585,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 128Gb Wi-Fi + Cellular, СЃРµСЂС‹Р№ РєРѕСЃРјРѕСЃ",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-128GB-WI-FI-CELLULAR-S-637",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-seryy-kosmos-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1399,
+                     "height":  1586,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 128Gb Wi-Fi + Cellular, СЃРёСЏСЋС‰Р°СЏ Р·РІРµР·РґР°",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-128GB-WI-FI-CELLULAR-S-636",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-siyayuschaya-zvezda-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  1407,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 128Gb Wi-Fi, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-128GB-WI-FI-FIOLETOVYY-415",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-128gb-wi-fi-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1399,
+                     "height":  1586,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 1Tb Wi-Fi, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-1TB-WI-FI-GOLUBOY-666",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1397,
+                     "height":  1585,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 256Gb Wi-Fi + Cellular, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-256GB-WI-FI-CELLULAR-G-463",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-cellular-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1397,
+                     "height":  1585,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 256Gb Wi-Fi + Cellular, СЃРµСЂС‹Р№ РєРѕСЃРјРѕСЃ",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-256GB-WI-FI-CELLULAR-S-645",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-seryy-kosmos-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-seryy-kosmos-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1399,
+                     "height":  1586,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 256Gb Wi-Fi, СЃРёСЏСЋС‰Р°СЏ Р·РІРµР·РґР°",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-256GB-WI-FI-SIYAYUSCHA-430",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-siyayuschaya-zvezda-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-siyayuschaya-zvezda-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  1407,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2024) 256Gb Wi-Fi, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2024-256GB-WI-FI-FIOLETOVYY-429",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2024-256gb-wi-fi-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1399,
+                     "height":  1586,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, СЃРµСЂС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-128GB-S-561",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  701,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-128GB-S-560",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  703,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, СЃРёСЏСЋС‰Р°СЏ Р·РІРµР·РґР°",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-128GB-S-633",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-siyayuschaya-zvezda-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-siyayuschaya-zvezda-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  701,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 128Gb, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-128GB-F-634",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-128gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  703,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, СЃРµСЂС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-256GB-S-585",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  701,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, СЃРёРЅРёР№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-256GB-S-582",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  703,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, СЃРёСЏСЋС‰Р°СЏ Р·РІРµР·РґР°",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-256GB-S-584",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-siyayuschaya-zvezda-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-siyayuschaya-zvezda-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  701,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 256Gb, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-256GB-F-583",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-256gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  703,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 512Gb, СЃРµСЂС‹Р№",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-512GB-S-653",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-512gb-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-512gb-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  701,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РџР»Р°РЅС€РµС‚ Apple iPad Air 11 (2025) Wi-Fi + Cellular 512Gb, СЃРёСЏСЋС‰Р°СЏ Р·РІРµР·РґР°",
+        "sku":  "SM-PLANSHET-APPLE-IPAD-AIR-11-2025-WI-FI-CELLULAR-512GB-S-655",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\planshet-apple-ipad-air-11-2025-wi-fi-512gb-siyayuschaya-zvezda-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\planshet-apple-ipad-air-11-2025-wi-fi-512gb-siyayuschaya-zvezda-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  701,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 128GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-128GB-ROZOVYY-006",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-128gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-128gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  598,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 128GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-128GB-SINIY-004",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-128gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 128GB, С‡РµСЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-128GB-CHERNYY-003",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 256GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-256GB-BELYY-030",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-256gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-256gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 256GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-256GB-ZELENYY-032",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-256gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-256gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  594,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 256GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-256GB-KRASNYY-031",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-256gb-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-256gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 256GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-256GB-ROZOVYY-027",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-256gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  598,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 256GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-256GB-SINIY-028",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-256gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 256GB, С‡РµСЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-256GB-CHERNYY-029",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-256gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-256gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 512GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-512GB-BELYY-376",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-512gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-512gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 512GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-512GB-KRASNYY-377",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-512gb-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-512gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 512GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-512GB-ROZOVYY-373",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-512gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-512gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  598,
+                     "height":  800,
+                     "x":  2
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 512GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-512GB-SINIY-374",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-512gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-512gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 512GB, С‡РµСЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-512GB-CHERNYY-375",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-512gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-512gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  596,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 mini 128GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-MINI-128GB-BELYY-365",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-mini-128gb-belyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-mini-128gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  98,
+                     "width":  305,
+                     "height":  413,
+                     "x":  82
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 mini 128GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-MINI-128GB-KRASNYY-002",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-mini-128gb-krasnyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-mini-128gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  98,
+                     "width":  305,
+                     "height":  413,
+                     "x":  82
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 mini 256GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-MINI-256GB-KRASNYY-370",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-mini-256gb-krasnyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-mini-256gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  98,
+                     "width":  305,
+                     "height":  413,
+                     "x":  82
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 mini 256GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-MINI-256GB-ROZOVYY-368",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-mini-256gb-rozovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-mini-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  98,
+                     "width":  305,
+                     "height":  413,
+                     "x":  82
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 mini 256GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-MINI-256GB-SINIY-369",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-mini-256gb-siniy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-mini-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  98,
+                     "width":  305,
+                     "height":  413,
+                     "x":  82
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 13 mini 256GB, С‡РµСЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-13-MINI-256GB-CHERNYY-366",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-13-mini-256gb-chernyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-13-mini-256gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  98,
+                     "width":  305,
+                     "height":  413,
+                     "x":  82
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB Dual Sim, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-DUAL-SIM-BELYY-359",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-128gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-128gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1191,
+                     "height":  1592,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB Dual Sim, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-DUAL-SIM-ZHELTYY-361",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-128gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-128gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  589,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB Dual Sim, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-DUAL-SIM-KRASNYY-360",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-128gb-krasnyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-128gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1274,
+                     "height":  1719,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB Dual Sim, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-DUAL-SIM-CHERNYY-362",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-128gb-chernyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1263,
+                     "height":  1721,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-ZHELTYY-008",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-128gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-128gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  749,
+                     "height":  989,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-KRASNYY-007",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-128gb-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-128gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1196,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-SINIY-010",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-128gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-FIOLETOVYY-363",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-128gb-fioletovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-128gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1260,
+                     "height":  1719,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 128GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-128GB-CHERNYY-011",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1194,
+                     "height":  1587,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 256GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-256GB-BELYY-021",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-256gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-256gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1191,
+                     "height":  1592,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 256GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-256GB-ZHELTYY-016",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  749,
+                     "height":  989,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 256GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-256GB-KRASNYY-017",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-256gb-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-256gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1196,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 256GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-256GB-SINIY-024",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-256gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 256GB, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-256GB-FIOLETOVYY-364",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-256gb-fioletovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-256gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1260,
+                     "height":  1719,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 256GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-256GB-CHERNYY-022",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-256gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-256gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1194,
+                     "height":  1587,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 512GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-512GB-BELYY-035",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-512gb-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-512gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1191,
+                     "height":  1592,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 512GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-512GB-ZHELTYY-019",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-512gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-512gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  2,
+                     "width":  749,
+                     "height":  989,
+                     "x":  6
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 512GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-512GB-KRASNYY-033",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-512gb-krasnyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-512gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1196,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 512GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-512GB-SINIY-036",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-512gb-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-512gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  597,
+                     "height":  797,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 512GB, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-512GB-FIOLETOVYY-037",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-512gb-fioletovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-512gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1191,
+                     "height":  1601,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 512GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-512GB-CHERNYY-034",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-512gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-512gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1194,
+                     "height":  1587,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 128GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-128GB-BELYY-347",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-128gb-siniy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-128gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1260,
+                     "height":  1729,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 256GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-256GB-BELYY-346",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-256gb-siniy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-256gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1260,
+                     "height":  1729,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 256GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-256GB-ZHELTYY-020",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  589,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 256GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-256GB-KRASNYY-356",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-256gb-krasnyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-256gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1274,
+                     "height":  1719,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 256GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-256GB-CHERNYY-353",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-256gb-chernyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-256gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1263,
+                     "height":  1721,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 512GB Dual Sim, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-512GB-DUAL-SIM-ZHELTYY-348",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-512gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-512gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  589,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 512GB, Р±РµР»С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-512GB-BELYY-349",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-512gb-belyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-512gb-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1250,
+                     "height":  1716,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 512GB, РєСЂР°СЃРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-512GB-KRASNYY-355",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-512gb-krasnyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-512gb-krasnyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1274,
+                     "height":  1719,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 512GB, СЃРёРЅРёР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-512GB-SINIY-350",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-512gb-siniy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-512gb-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1260,
+                     "height":  1729,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 512GB, С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-512GB-FIOLETOVYY-351",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-512gb-fioletovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-512gb-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1260,
+                     "height":  1719,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Plus 512GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PLUS-512GB-CHERNYY-358",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-plus-512gb-chernyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-plus-512gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1263,
+                     "height":  1721,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 128GB, Р·РѕР»РѕС‚РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-128GB-ZOLOTOY-345",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-128gb-zolotoy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-128gb-zolotoy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1281,
+                     "height":  1575,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 1TB, Р·РѕР»РѕС‚РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-1TB-ZOLOTOY-343",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-1tb-zolotoy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-1tb-zolotoy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1281,
+                     "height":  1575,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 1TB, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-1TB-SEREBRISTYY-344",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-1tb-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-1tb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1287,
+                     "height":  1580,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 1TB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-1TB-CHERNYY-340",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-1tb-chernyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-1tb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1287,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 256GB, Р·РѕР»РѕС‚РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-256GB-ZOLOTOY-337",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-256gb-zolotoy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-256gb-zolotoy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1281,
+                     "height":  1575,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 256GB, С‚РµРјРЅРѕ-С„РёРѕР»РµС‚РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-256GB-TEMNO-FIOLETOVY-341",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-256gb-temno-fioletovyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-256gb-temno-fioletovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1290,
+                     "height":  1582,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 256GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-256GB-CHERNYY-336",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-256gb-chernyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-256gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1287,
+                     "height":  1593,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 512GB, Р·РѕР»РѕС‚РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-512GB-ZOLOTOY-339",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-512gb-zolotoy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-512gb-zolotoy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1281,
+                     "height":  1575,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 14 Pro Max 512GB, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-14-PRO-MAX-512GB-SEREBRISTYY-342",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-14-pro-max-512gb-serebristyy-01.png",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-14-pro-max-512gb-serebristyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1287,
+                     "height":  1580,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 128GB, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-128GB-GOLUBOY-025",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-128gb-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-128gb-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 128GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-128GB-ZHELTYY-023",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-128gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-128gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 128GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-128GB-ZELENYY-047",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-128gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-128gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 128GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-128GB-ROZOVYY-324",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-128gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-128gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 128GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-128GB-CHERNYY-026",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 256GB, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-256GB-GOLUBOY-326",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-256gb-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-256gb-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 256GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-256GB-ZHELTYY-331",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 256GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-256GB-ZELENYY-327",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-256gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-256gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 256GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-256GB-ROZOVYY-328",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-256gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 256GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-256GB-CHERNYY-325",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-256gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-256gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 512GB, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-512GB-GOLUBOY-332",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-512gb-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-512gb-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 512GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-512GB-ZHELTYY-329",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-512gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-512gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 512GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-512GB-ZELENYY-330",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-512gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-512gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 512GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-512GB-ROZOVYY-334",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-512gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-512gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 512GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-512GB-CHERNYY-333",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-512gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-512gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Dual Sim 512GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-DUAL-SIM-512GB-CHERNYY-335",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-dual-sim-512gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-dual-sim-512gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  603,
+                     "height":  793,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 128GB, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-128GB-GOLUBOY-045",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-128gb-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-128gb-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  645,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 128GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-128GB-ZHELTYY-039",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-128gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-128gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 128GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-128GB-ZELENYY-040",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-128gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-128gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 128GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-128GB-ROZOVYY-041",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-128gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-128gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 128GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-128GB-CHERNYY-316",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-128gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-128gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 256GB, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-256GB-GOLUBOY-310",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-dual-sim-256gb-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  645,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 256GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-256GB-ZHELTYY-317",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 256GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-256GB-ZELENYY-318",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-256gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-256gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 256GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-256GB-ROZOVYY-319",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-256gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-256gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 512GB, РіРѕР»СѓР±РѕР№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-512GB-GOLUBOY-314",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-512gb-goluboy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-512gb-goluboy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  645,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 512GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-512GB-ZHELTYY-312",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-512gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-512gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 512GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-512GB-ZELENYY-313",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-512gb-zelenyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-512gb-zelenyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 512GB, СЂРѕР·РѕРІС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-512GB-ROZOVYY-315",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-512gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-512gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus 512GB, С‡С‘СЂРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-512GB-CHERNYY-320",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-512gb-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-512gb-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus Dual Sim 256GB, Р¶РµР»С‚С‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-DUAL-SIM-256GB-ZHELTYY-323",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-dual-sim-256gb-zheltyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-dual-sim-256gb-zheltyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Plus Dual Sim 512GB, Р·РµР»РµРЅС‹Р№",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PLUS-DUAL-SIM-512GB-ZELENYY-309",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-plus-dual-sim-512gb-rozovyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-plus-dual-sim-512gb-rozovyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  646,
+                     "height":  864,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 128GB, Black Titanium (С‡РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-128GB-BLACK-TITANIUM-CHER-288",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-128gb-black-titanium-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-128gb-black-titanium-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 128GB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-128GB-BLUE-TITANIUM-SINIY-287",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-128gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-128gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 128GB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-128GB-NATURAL-TITANIUM-SE-274",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-dual-sim-128gb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 128GB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-128GB-WHITE-TITANIUM-BELY-290",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-128gb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-128gb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 1TB, Black Titanium (С‡РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-1TB-BLACK-TITANIUM-CHERNY-283",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-1tb-black-titanium-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-1tb-black-titanium-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 1TB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-1TB-BLUE-TITANIUM-SINIY-270",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-1tb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-1tb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 1TB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-1TB-NATURAL-TITANIUM-SERY-269",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-1tb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-1tb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 1TB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-1TB-WHITE-TITANIUM-BELYY-271",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-1tb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-1tb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 256GB, Black Titanium (С‡РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-256GB-BLACK-TITANIUM-CHER-277",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-256gb-black-titanium-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-256gb-black-titanium-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 256GB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-256GB-BLUE-TITANIUM-SINIY-292",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-256gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-256gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 256GB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-256GB-NATURAL-TITANIUM-SE-294",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-256gb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-256gb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 256GB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-256GB-WHITE-TITANIUM-BELY-295",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-256gb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-256gb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 512GB, Black Titanium (С‡РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-512GB-BLACK-TITANIUM-CHER-268",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-512gb-black-titanium-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-512gb-black-titanium-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 512GB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-512GB-BLUE-TITANIUM-SINIY-300",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-512gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-512gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 512GB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-512GB-NATURAL-TITANIUM-SE-302",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-512gb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-512gb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro 512GB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-512GB-WHITE-TITANIUM-BELY-301",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-512gb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-512gb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Dual Sim 128GB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-DUAL-SIM-128GB-BLUE-TITAN-289",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-dual-sim-128gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-dual-sim-128gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Dual Sim 256GB, Black Titanium (С‡РµСЂРЅС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-DUAL-SIM-256GB-BLACK-TITA-280",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-dual-sim-256gb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-dual-sim-256gb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Dual Sim 256GB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-DUAL-SIM-256GB-BLUE-TITAN-296",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-dual-sim-256gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-dual-sim-256gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro eSim 1TB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-ESIM-1TB-BLUE-TITANIUM-SI-281",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-esim-256gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-esim-256gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro eSim 1TB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-ESIM-1TB-NATURAL-TITANIUM-278",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-1tb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-1tb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro eSim 1TB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-ESIM-1TB-WHITE-TITANIUM-B-282",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-1tb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-1tb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro eSim 256GB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-ESIM-256GB-WHITE-TITANIUM-291",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-esim-256gb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-esim-256gb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro eSim 512GB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-ESIM-512GB-WHITE-TITANIUM-298",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-esim-512gb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-esim-512gb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  641,
+                     "height":  791,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Max 1TB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-MAX-1TB-BLUE-TITANIUM-SIN-250",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-256gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-256gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Max 256GB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-MAX-256GB-NATURAL-TITANIU-253",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-256gb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-256gb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Max 256GB, White Titanium (Р±РµР»С‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-MAX-256GB-WHITE-TITANIUM--255",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-256gb-white-titanium-belyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-256gb-white-titanium-belyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Max 512GB, Blue Titanium (СЃРёРЅРёР№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-MAX-512GB-BLUE-TITANIUM-S-260",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-512gb-blue-titanium-siniy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-512gb-blue-titanium-siniy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РЎРјР°СЂС‚С„РѕРЅ Apple iPhone 15 Pro Max 512GB, Natural Titanium (СЃРµСЂС‹Р№)",
+        "sku":  "SM-SMARTFON-APPLE-IPHONE-15-PRO-MAX-512GB-NATURAL-TITANIU-261",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\smartfon-apple-iphone-15-pro-max-512gb-natural-titanium-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\smartfon-apple-iphone-15-pro-max-512gb-natural-titanium-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  690,
+                     "height":  857,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РќРѕСѓС‚Р±СѓРє Apple MacBook Air 13 (2022) MLXX3, Apple M2 8 core 8Р“Р‘, 512Р“Р‘ SSD, СЃРµСЂС‹Р№",
+        "sku":  "SM-NOUTBUK-APPLE-MACBOOK-AIR-13-2022-MLXX3-APPLE-M2-8-COR-696",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\noutbuk-apple-macbook-air-13-2022-mlxx3-apple-m2-8-core-8gb-512gb-ssd-seryy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\noutbuk-apple-macbook-air-13-2022-mlxx3-apple-m2-8-core-8gb-512gb-ssd-seryy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1317,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РќРѕСѓС‚Р±СѓРє Apple MacBook Air 13 (2022) MLY03, Apple M2, 8 core, 8Р“Р‘, 512Р“Р‘ SSD, СЃРµСЂРµР±СЂРёСЃС‚С‹Р№",
+        "sku":  "SM-NOUTBUK-APPLE-MACBOOK-AIR-13-2022-MLY03-APPLE-M2-8-COR-699",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\noutbuk-apple-macbook-air-13-2022-mly23-apple-m2-8-core-8gb-512gb-ssd-zolotistyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1317,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РќРѕСѓС‚Р±СѓРє Apple MacBook Air 13 (2022) MLY33RU, Apple M2, 8 core, 8Р“Р‘, 256Р“Р‘ SSD, С‡РµСЂРЅС‹Р№",
+        "sku":  "SM-NOUTBUK-APPLE-MACBOOK-AIR-13-2022-MLY33RU-APPLE-M2-8-C-704",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\noutbuk-apple-macbook-air-13-2022-mly33ru-apple-m2-8-core-8gb-256gb-ssd-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1317,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    },
+    {
+        "name":  "РќРѕСѓС‚Р±СѓРє Apple MacBook Air 13 (2022) MLY43, Apple M2 8 core 8Р“Р‘, 512Р“Р‘ SSD, С‡РµСЂРЅС‹Р№",
+        "sku":  "SM-NOUTBUK-APPLE-MACBOOK-AIR-13-2022-MLY43-APPLE-M2-8-COR-698",
+        "source":  "C:\\Users\\nikn0\\OneDrive\\Рабочий стол\\гринд\\САЙТЫ\\shark-mobile\\public\\assets\\catalog\\noutbuk-apple-macbook-air-13-2022-mly43-apple-m2-8-core-8gb-512gb-ssd-chernyy-01.jpg",
+        "output":  "public\\assets\\catalog-normalized\\noutbuk-apple-macbook-air-13-2022-mly43-apple-m2-8-core-8gb-512gb-ssd-chernyy-01.normalized.jpg",
+        "crop":  {
+                     "y":  0,
+                     "width":  1317,
+                     "height":  800,
+                     "x":  0
+                 },
+        "canvas":  1000,
+        "padding":  90
+    }
+]

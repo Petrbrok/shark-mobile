@@ -1,0 +1,8 @@
+[2m12:34:18[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/products[39m
+AggregateError [EACCES]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m12:34:18[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/customer/me[39m
+AggregateError [EACCES]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)

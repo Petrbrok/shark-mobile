@@ -1,0 +1,6 @@
+
+> shark-mobile-shop@1.0.0 server
+> node server/index.js
+
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+Shark Mobile API listening on 3000
