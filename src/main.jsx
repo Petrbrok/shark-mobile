@@ -607,7 +607,7 @@ const supplementalAppleProducts = [
 }));
 
 function hydrateCatalogProducts(products) {
-  const appleSections = new Set(["iPhone", "iPad", "Mac"]);
+  const appleSections = new Set(["iPhone", "iPad", "Mac", "Apple Watch", "AirPods"]);
   const baseProducts = products.filter((product) => !appleSections.has(product.section));
   const ids = new Set(baseProducts.map((product) => product.id || product.sku || product.slug));
   const slugs = new Set(baseProducts.map((product) => product.slug).filter(Boolean));

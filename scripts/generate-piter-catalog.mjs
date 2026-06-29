@@ -12,7 +12,9 @@ const sourceUrls = [
   "/catalog/mac/imac/",
   "/catalog/mac/mac-mini/",
   "/catalog/mac/mac-studio/",
-  "/catalog/elektronika/computers/apple-studio-display/"
+  "/catalog/elektronika/computers/apple-studio-display/",
+  "/catalog/watch/apple-watch/",
+  "/catalog/audio/naushniki/airpods/"
 ];
 
 function extractImpressions(html) {
@@ -69,6 +71,8 @@ function sectionFor(name) {
   if (/iPhone/i.test(name)) return "iPhone";
   if (/iPad/i.test(name)) return "iPad";
   if (/MacBook|Mac mini|Mac Mini|Mac Studio|iMac|Studio Display/i.test(name)) return "Mac";
+  if (/Apple\s+Watch/i.test(name)) return "Apple Watch";
+  if (/AirPods/i.test(name)) return "AirPods";
   return "";
 }
 
@@ -89,6 +93,12 @@ function modelFor(name, section) {
   if (/Mac\s+Studio/i.test(name)) return "Mac Studio";
   if (/Studio\s+Display/i.test(name)) return "Apple Studio Display";
   if (/iMac/i.test(name)) return "iMac";
+  if (section === "Apple Watch") {
+    return name.match(/Apple\s+Watch\s+(Ultra\s*\d*|Series\s+\d+|SE\s*\d*)/i)?.[0] || "Apple Watch";
+  }
+  if (section === "AirPods") {
+    return name.match(/AirPods\s+(Max|Pro\s*\d*|\d+)/i)?.[0] || "AirPods";
+  }
   return "Mac";
 }
 
@@ -133,6 +143,7 @@ for (const { html } of pages) {
     seen.add(id);
     const model = modelFor(name, section);
     const price = Number(item.price || 0);
+    if (!Number.isFinite(price) || price <= 0) continue;
     products.push({
       id,
       sku: `PITER-${item.id}`,
@@ -154,7 +165,7 @@ for (const { html } of pages) {
         color: "",
         sim: "",
         availability: "In stock",
-        productType: section === "iPhone" ? "phone" : section === "iPad" ? "tablet" : "computer",
+        productType: section === "iPhone" ? "phone" : section === "iPad" ? "tablet" : section === "AirPods" ? "audio" : section === "Apple Watch" ? "watch" : "computer",
         source: "PiterGSM"
       }
     });
