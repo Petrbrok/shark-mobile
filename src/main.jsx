@@ -624,6 +624,35 @@ function hydrateCatalogProducts(products) {
 function normalizeProductName(value) {
   return String(value || "").toLowerCase().replace(/&quot;/g, "\"").replace(/\s+/g, " ").trim();
 }
+
+function isAccessoryProduct(product) {
+  const techSections = new Set(["iPhone", "iPad", "Mac", "Apple Watch", "AirPods", "Android"]);
+  const techTypes = new Set(["phone", "tablet", "computer", "watch", "audio"]);
+  const section = String(product.section || "");
+  const category = String(product.category || "");
+  const productType = String(product.attributes?.productType || "");
+  if (/аксессуар|accessor/i.test(`${section} ${category} ${productType}`)) {
+    return true;
+  }
+  return !techSections.has(section) && !techTypes.has(productType);
+}
+
+const adminSectionPriority = {
+  iPhone: 0,
+  iPad: 1,
+  Mac: 2,
+  "Apple Watch": 3,
+  AirPods: 4,
+  Android: 5
+};
+
+function getAdminProductSortKey(product) {
+  const familyRank = isAccessoryProduct(product) ? 99 : adminSectionPriority[String(product.section || "")] ?? 50;
+  const brand = String(product.brand || "").toLowerCase();
+  const name = String(product.name || "").toLowerCase();
+  return [familyRank, brand, name].join("|");
+}
+
 const orderStatuses = {
   new: "Новый",
   confirmed: "Подтвержден",
@@ -747,8 +776,9 @@ function App() {
   const currentLegalDocument = legalDocuments[path.replace(/\/$/, "")];
   const productRouteMatch = path.match(/^\/product\/([^/]+)\/?$/);
   const catalogRouteMatch = path.match(/^\/catalog(?:\/(.+))?\/?$/);
+  const visibleProducts = products.filter((product) => !product.hidden && !isAccessoryProduct(product));
   const selectedProduct = productRouteMatch
-    ? products.find((product) => product.id === decodeURIComponent(productRouteMatch[1]) || product.sku === decodeURIComponent(productRouteMatch[1]))
+    ? visibleProducts.find((product) => product.id === decodeURIComponent(productRouteMatch[1]) || product.sku === decodeURIComponent(productRouteMatch[1]))
     : null;
   const addToCart = (product, sourceRect, qty = 1) => {
     setCart((current) => {
@@ -821,11 +851,11 @@ function App() {
       <main>
         <div className="route-frame" key={path}>
           {path === "/price" ? (
-            <PricePage products={products} loading={loadingProducts} navigate={navigate} />
+            <PricePage products={visibleProducts} loading={loadingProducts} navigate={navigate} />
           ) : path === "/cart" || path === "/korzina" ? (
             <CartPage
               cart={cart}
-              products={products}
+              products={visibleProducts}
               updateQty={updateQty}
               clearCart={() => setCart([])}
               navigate={navigate}
@@ -837,7 +867,7 @@ function App() {
               setCustomer={setCustomer}
               favorites={favorites}
               setFavorites={setFavorites}
-              products={products}
+              products={visibleProducts}
               ordersReloadKey={cart.length}
               addToCart={addToCart}
               toggleFavorite={toggleFavorite}
@@ -845,7 +875,7 @@ function App() {
             />
           ) : path === "/favorites" || path === "/favorites/" ? (
             <FavoritesPage
-              products={products}
+              products={visibleProducts}
               favorites={favorites}
               toggleFavorite={toggleFavorite}
               addToCart={addToCart}
@@ -858,7 +888,7 @@ function App() {
           ) : catalogRouteMatch ? (
             <CatalogPage
               route={catalogRouteMatch[1] || ""}
-              products={products}
+              products={visibleProducts}
               loading={loadingProducts}
               addToCart={addToCart}
               navigate={navigate}
@@ -870,7 +900,7 @@ function App() {
           ) : productRouteMatch ? (
             <ProductDetailPage
               product={selectedProduct}
-              products={products}
+              products={visibleProducts}
               loading={loadingProducts}
               addToCart={addToCart}
               navigate={navigate}
@@ -881,7 +911,7 @@ function App() {
             <LegalPage document={currentLegalDocument} navigate={navigate} />
           ) : (
             <HomePage
-              products={products}
+              products={visibleProducts}
               loading={loadingProducts}
               addToCart={addToCart}
               navigate={navigate}
@@ -3591,14 +3621,26 @@ function AdminPage({ products, setProducts }) {
   const [telegramId, setTelegramId] = useState("");
   const [isAuthed, setIsAuthed] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [orderView, setOrderView] = useState("active");
   const [error, setError] = useState("");
   const [productForms, setProductForms] = useState({});
   const [productSearch, setProductSearch] = useState("");
+  const [productKind, setProductKind] = useState("all");
+  const [productFamily, setProductFamily] = useState("all");
+  const [productFilter, setProductFilter] = useState("all");
   const [productError, setProductError] = useState("");
   const [savingProductId, setSavingProductId] = useState("");
+  const [toast, setToast] = useState(null);
+  const toastTimerRef = useRef(null);
 
-  const loadOrders = async () => {
-    const response = await fetch("/api/admin/orders");
+  const showToast = (message, type = "success") => {
+    setToast({ message, type });
+    window.clearTimeout(toastTimerRef.current);
+    toastTimerRef.current = window.setTimeout(() => setToast(null), 2600);
+  };
+
+  const loadOrders = async (view = orderView) => {
+    const response = await fetch(`/api/admin/orders?archived=${view === "archive" ? "1" : "0"}`);
     if (response.ok) {
       const data = await response.json();
       setOrders(data.orders || []);
@@ -3608,7 +3650,7 @@ function AdminPage({ products, setProducts }) {
 
   useEffect(() => {
     loadOrders();
-  }, []);
+  }, [orderView]);
 
   useEffect(() => {
     setProductForms((current) =>
@@ -3618,8 +3660,11 @@ function AdminPage({ products, setProducts }) {
             current[product.id] || {
               name: product.name || "",
               description: product.description || "",
+              retailPrice: String(product.retailPrice ?? ""),
+              wholesalePrice: String(product.wholesalePrice ?? ""),
               stockQty: String(product.stockQty ?? 0),
-              imageUrl: product.imageUrl || ""
+              imageUrl: product.imageUrl || "",
+              hidden: Boolean(product.hidden)
             };
           return [product.id, nextForm];
         })
@@ -3630,8 +3675,11 @@ function AdminPage({ products, setProducts }) {
   const getProductForm = (product) => ({
     name: product.name || "",
     description: product.description || "",
+    retailPrice: String(product.retailPrice ?? ""),
+    wholesalePrice: String(product.wholesalePrice ?? ""),
     stockQty: String(product.stockQty ?? 0),
-    imageUrl: product.imageUrl || ""
+    imageUrl: product.imageUrl || "",
+    hidden: Boolean(product.hidden)
   });
 
   const resetProductForm = (product) => {
@@ -3675,11 +3723,22 @@ function AdminPage({ products, setProducts }) {
   };
 
   const changeStatus = async (orderId, status) => {
-    await fetch(`/api/admin/orders/${orderId}/status`, {
+    const response = await fetch(`/api/admin/orders/${orderId}/status`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status })
     });
+    showToast(response.ok ? "Статус обновлен" : "Ошибка сервера", response.ok ? "success" : "error");
+    loadOrders();
+  };
+
+  const archiveOrder = async (orderId, archive = true) => {
+    const response = await fetch(`/api/admin/orders/${orderId}/archive`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ archive })
+    });
+    showToast(response.ok ? (archive ? "Заказ в архиве" : "Заказ возвращен") : "Ошибка сервера", response.ok ? "success" : "error");
     loadOrders();
   };
 
@@ -3728,19 +3787,25 @@ function AdminPage({ products, setProducts }) {
         body: JSON.stringify({
           name: form.name,
           description: form.description,
+          retailPrice: Number(form.retailPrice),
+          wholesalePrice: Number(form.wholesalePrice),
           stockQty: Number(form.stockQty),
-          imageUrl: form.imageUrl || null
+          imageUrl: form.imageUrl || null,
+          hidden: Boolean(form.hidden)
         })
       });
       const data = await readJson(response);
       if (!response.ok) {
         setProductError(data.error || "Не удалось сохранить товар.");
+        showToast(data.error || "Ошибка сервера", "error");
         return;
       }
       setProducts((current) => current.map((product) => (product.id === productId ? { ...product, ...data.product } : product)));
       resetProductForm(data.product);
+      showToast("Товар сохранен");
     } catch {
       setProductError("Не удалось сохранить товар.");
+      showToast("Ошибка сервера", "error");
     } finally {
       setSavingProductId("");
     }
@@ -3755,15 +3820,34 @@ function AdminPage({ products, setProducts }) {
   const stats = {
     new: orders.filter((order) => order.status === "new").length,
     active: orders.filter((order) => ["new", "confirmed", "ready"].includes(order.status)).length,
-    lowStock: products.filter((product) => product.stockQty <= 3).length
+    lowStock: products.filter((product) => product.stockQty <= 3).length,
+    hidden: products.filter((product) => product.hidden).length
   };
   const productSearchValue = productSearch.trim().toLowerCase();
-  const filteredProducts = products.filter((product) => {
-    if (!productSearchValue) {
-      return true;
-    }
-    return `${product.name} ${product.sku}`.toLowerCase().includes(productSearchValue);
-  });
+  const filteredProducts = [...products]
+    .sort((a, b) => getAdminProductSortKey(a).localeCompare(getAdminProductSortKey(b), "ru"))
+    .filter((product) => {
+      const form = productForms[product.id] || {};
+      if (productKind === "tech" && isAccessoryProduct(product)) return false;
+      if (productKind === "accessories" && !isAccessoryProduct(product)) return false;
+      if (productFamily !== "all") {
+        const family = String(product.section || "");
+        const familyMatch =
+          (productFamily === "iphone" && family === "iPhone") ||
+          (productFamily === "ipad" && family === "iPad") ||
+          (productFamily === "mac" && family === "Mac") ||
+          (productFamily === "watch" && family === "Apple Watch") ||
+          (productFamily === "airpods" && family === "AirPods") ||
+          (productFamily === "android" && family === "Android") ||
+          (productFamily === "accessories" && isAccessoryProduct(product));
+        if (!familyMatch) return false;
+      }
+      if (productFilter === "hidden" && !form.hidden) return false;
+      if (productFilter === "low" && Number(form.stockQty ?? product.stockQty) > 3) return false;
+      if (!productSearchValue) return true;
+      return `${form.name || product.name} ${product.sku || ""} ${product.brand || ""}`.toLowerCase().includes(productSearchValue);
+    });
+  const toastNode = toast ? <div className={`admin-toast is-${toast.type}`} role="status">{toast.message}</div> : null;
 
   if (!isAuthed) {
     return (
@@ -3813,6 +3897,7 @@ function AdminPage({ products, setProducts }) {
 
   return (
     <section className="page-section admin-page">
+      {toastNode}
       <div className="admin-head">
         <div>
           <p className="eyebrow">Админ-панель</p>
@@ -3821,6 +3906,7 @@ function AdminPage({ products, setProducts }) {
             <span>Новые: {stats.new}</span>
             <span>В работе: {stats.active}</span>
             <span>Мало остатков: {stats.lowStock}</span>
+            <span>Скрыто: {stats.hidden}</span>
           </div>
         </div>
         <button className="cart-button" onClick={logout}>
@@ -3830,17 +3916,21 @@ function AdminPage({ products, setProducts }) {
       </div>
 
       <div className="admin-grid">
-        <article className="admin-panel">
-          <div className="panel-title">
-            <ClipboardList size={22} />
-            <h2>Заказы</h2>
+        <article className="admin-panel admin-orders-panel">
+          <div className="panel-title compact"><ClipboardList size={20} /><h2>Заказы</h2></div>
+          <div className="admin-segmented">
+            <button className={orderView === "active" ? "is-selected" : ""} onClick={() => setOrderView("active")}>Активные</button>
+            <button className={orderView === "archive" ? "is-selected" : ""} onClick={() => setOrderView("archive")}>Архив</button>
           </div>
           <div className="order-list">
             {orders.length === 0 ? (
               <p className="empty-note">Заказов пока нет.</p>
             ) : (
               orders.map((order) => (
-                <div className="owner-order" key={order.id}>
+                <div className="owner-order compact" key={order.id}>
+                  <button className="order-archive-button" onClick={() => archiveOrder(order.id, orderView !== "archive")} aria-label={orderView === "archive" ? "Вернуть" : "В архив"}>
+                    {orderView === "archive" ? <History size={16} /> : <X size={16} />}
+                  </button>
                   <div>
                     <b>
                       {order.orderNumber}
@@ -3853,7 +3943,7 @@ function AdminPage({ products, setProducts }) {
                     {order.customerTelegram && <span>Telegram: {order.customerTelegram}</span>}
                     {order.customerId && <span className="customer-chip">Кабинет</span>}
                   </div>
-                  <div className="admin-status-row" role="group" aria-label={`Статус ${order.orderNumber}`}>
+                  <div className="admin-status-row compact" role="group" aria-label={`Статус ${order.orderNumber}`}>
                     {Object.entries(orderStatuses).map(([value, label]) => (
                       <button
                         key={value}
@@ -3878,19 +3968,33 @@ function AdminPage({ products, setProducts }) {
           </div>
         </article>
 
-        <article className="admin-panel">
-          <div className="panel-title">
-            <Boxes size={22} />
-            <h2>Товары</h2>
+        <article className="admin-panel admin-products-panel">
+          <div className="panel-title compact"><Boxes size={20} /><h2>Товары</h2></div>
+          <div className="admin-product-toolbar">
+            <div className="admin-product-filters">
+              <div className="admin-segmented">
+                <button className={productKind === "all" ? "is-selected" : ""} onClick={() => setProductKind("all")}>Все</button>
+                <button className={productKind === "tech" ? "is-selected" : ""} onClick={() => setProductKind("tech")}>Техника</button>
+                <button className={productKind === "accessories" ? "is-selected" : ""} onClick={() => setProductKind("accessories")}>Аксессуары</button>
+              </div>
+              <div className="admin-segmented">
+                <button className={productFamily === "all" ? "is-selected" : ""} onClick={() => setProductFamily("all")}>Все</button>
+                <button className={productFamily === "iphone" ? "is-selected" : ""} onClick={() => setProductFamily("iphone")}>iPhone</button>
+                <button className={productFamily === "ipad" ? "is-selected" : ""} onClick={() => setProductFamily("ipad")}>iPad</button>
+                <button className={productFamily === "mac" ? "is-selected" : ""} onClick={() => setProductFamily("mac")}>Mac</button>
+                <button className={productFamily === "watch" ? "is-selected" : ""} onClick={() => setProductFamily("watch")}>Watch</button>
+                <button className={productFamily === "airpods" ? "is-selected" : ""} onClick={() => setProductFamily("airpods")}>AirPods</button>
+                <button className={productFamily === "android" ? "is-selected" : ""} onClick={() => setProductFamily("android")}>Android</button>
+                <button className={productFamily === "accessories" ? "is-selected" : ""} onClick={() => setProductFamily("accessories")}>Аксессуары</button>
+              </div>
+            </div>
+            <label className="admin-search"><Search size={16} /><input value={productSearch} onChange={(event) => setProductSearch(event.target.value)} placeholder="Поиск товара" /></label>
+            <div className="admin-segmented">
+              <button className={productFilter === "all" ? "is-selected" : ""} onClick={() => setProductFilter("all")}>Все</button>
+              <button className={productFilter === "low" ? "is-selected" : ""} onClick={() => setProductFilter("low")}>Мало</button>
+              <button className={productFilter === "hidden" ? "is-selected" : ""} onClick={() => setProductFilter("hidden")}>Скрытые</button>
+            </div>
           </div>
-          <label className="admin-search">
-            <Search size={16} />
-            <input
-              value={productSearch}
-              onChange={(event) => setProductSearch(event.target.value)}
-              placeholder="Поиск по названию или SKU"
-            />
-          </label>
           {productError && <p className="form-error" role="alert">{productError}</p>}
           <div className="product-admin-list">
             {filteredProducts.map((product) => {
@@ -3902,7 +4006,7 @@ function AdminPage({ products, setProducts }) {
               };
               const stockClass = Number(form.stockQty) === 0 ? "is-out" : Number(form.stockQty) <= 3 ? "is-low" : "";
               return (
-                <div className={`product-admin-card ${stockClass}`} key={product.id}>
+                <div className={`product-admin-card ${stockClass} ${form.hidden ? "is-hidden-product" : ""}`} key={product.id}>
                   <div className="product-admin-media">
                     {form.imageUrl ? <img src={form.imageUrl} alt={form.name || product.name} /> : <span>Нет фото</span>}
                   </div>
@@ -3916,15 +4020,15 @@ function AdminPage({ products, setProducts }) {
                       Название
                       <input value={form.name} onChange={(event) => updateProductForm(product.id, { name: event.target.value })} />
                     </label>
-                    <label>
-                      Описание
-                      <textarea
-                        value={form.description}
-                        rows="3"
-                        onChange={(event) => updateProductForm(product.id, { description: event.target.value })}
-                      />
-                    </label>
                     <div className="product-admin-row">
+                      <label>
+                        Розница
+                        <input type="number" min="0" value={form.retailPrice} onChange={(event) => updateProductForm(product.id, { retailPrice: event.target.value })} />
+                      </label>
+                      <label>
+                        Опт
+                        <input type="number" min="0" value={form.wholesalePrice} onChange={(event) => updateProductForm(product.id, { wholesalePrice: event.target.value })} />
+                      </label>
                       <label>
                         Остаток
                         <input
@@ -3934,11 +4038,23 @@ function AdminPage({ products, setProducts }) {
                           onChange={(event) => updateProductForm(product.id, { stockQty: event.target.value })}
                         />
                       </label>
-                      <label className="photo-upload">
-                        Фото
-                        <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => handleProductImage(product.id, event)} />
-                      </label>
                     </div>
+                    <label>
+                      Описание
+                      <textarea
+                        value={form.description}
+                        rows="2"
+                        onChange={(event) => updateProductForm(product.id, { description: event.target.value })}
+                      />
+                    </label>
+                    <label className="admin-checkline">
+                      <input type="checkbox" checked={Boolean(form.hidden)} onChange={(event) => updateProductForm(product.id, { hidden: event.target.checked })} />
+                      Скрыть товар
+                    </label>
+                    <label className="photo-upload">
+                      Фото
+                      <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => handleProductImage(product.id, event)} />
+                    </label>
                     {form.imageUrl && (
                       <button className="price-link full muted" type="button" onClick={() => updateProductForm(product.id, { imageUrl: "" })}>
                         Удалить фото
