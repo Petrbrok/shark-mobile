@@ -70,9 +70,30 @@ app.get("/api/products", async (_req, res, next) => {
   }
 });
 
+app.get("/api/product-overrides", async (_req, res, next) => {
+  try {
+    const { rows } = await query(`
+      SELECT
+        product_id AS "productId",
+        retail_price AS "retailPrice",
+        wholesale_price AS "wholesalePrice",
+        stock_qty AS "stockQty",
+        name,
+        description,
+        image_url AS "imageUrl",
+        hidden
+      FROM product_overrides
+    `);
+    res.json({ overrides: rows });
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.post("/api/orders", async (req, res, next) => {
   try {
-    const { customerName, customerPhone, customerTelegram, priceMode = "retail", items = [] } = req.body;
+    const { customerName, customerPhone, customerTelegram, items = [] } = req.body;
+    const priceMode = "retail";
     const pickupDate = normalizePickupDate(req.body.pickupDate);
     const pickupTime = normalizePickupTime(req.body.pickupTime);
     if (!customerName?.trim() || !customerPhone?.trim()) {
@@ -438,8 +459,9 @@ app.delete("/api/customer/favorites/:productId", requireCustomer, async (req, re
   }
 });
 
-app.get("/api/admin/orders", requireAdmin, async (_req, res, next) => {
+app.get("/api/admin/orders", requireAdmin, async (req, res, next) => {
   try {
+    const archived = req.query.archived === "1";
     const { rows: orders } = await query(`
       SELECT
         id,
@@ -453,8 +475,10 @@ app.get("/api/admin/orders", requireAdmin, async (_req, res, next) => {
         pickup_date AS "pickupDate",
         pickup_time AS "pickupTime",
         total_amount AS "totalAmount",
-        created_at AS "createdAt"
+        created_at AS "createdAt",
+        archived_at AS "archivedAt"
       FROM orders
+      WHERE archived_at IS ${archived ? "NOT NULL" : "NULL"}
       ORDER BY created_at DESC
       LIMIT 100
     `);
@@ -500,6 +524,126 @@ app.patch("/api/admin/orders/:id/status", requireAdmin, async (req, res, next) =
       );
     }
     res.json({ order: rows[0] });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.patch("/api/admin/orders/:id/archive", requireAdmin, async (req, res, next) => {
+  try {
+    const archive = req.body.archive !== false;
+    const { rows } = await query(
+      `
+        UPDATE orders
+        SET archived_at = ${archive ? "COALESCE(archived_at, now())" : "NULL"}, updated_at = now()
+        WHERE id = $1
+        RETURNING id, archived_at AS "archivedAt"
+      `,
+      [req.params.id]
+    );
+    if (!rows[0]) {
+      return res.status(404).json({ error: "Order not found." });
+    }
+    res.json({ order: rows[0] });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.patch("/api/admin/products/:id", requireAdmin, async (req, res, next) => {
+  try {
+    const name = String(req.body.name || "").trim();
+    const description = String(req.body.description ?? "").trim();
+    const retailPrice = Number(req.body.retailPrice);
+    const wholesalePrice = Number(req.body.wholesalePrice);
+    const stockQty = Number(req.body.stockQty);
+    const imageUrl = req.body.imageUrl == null ? null : String(req.body.imageUrl).trim() || null;
+    const hidden = Boolean(req.body.hidden);
+    const attributes = req.body.attributes && typeof req.body.attributes === "object" ? req.body.attributes : {};
+    const gallery = Array.isArray(req.body.gallery) ? req.body.gallery.filter(Boolean) : imageUrl ? [imageUrl] : [];
+
+    if (!name) {
+      return res.status(400).json({ error: "Name is required." });
+    }
+    if (!Number.isInteger(stockQty) || stockQty < 0) {
+      return res.status(400).json({ error: "Stock must be a whole number from 0." });
+    }
+    if (!Number.isInteger(retailPrice) || retailPrice < 0 || !Number.isInteger(wholesalePrice) || wholesalePrice < 0) {
+      return res.status(400).json({ error: "Price must be a whole number from 0." });
+    }
+    if (imageUrl && !isValidProductImageUrl(imageUrl)) {
+      return res.status(400).json({ error: "Image is too large or has an unsupported format." });
+    }
+
+    const overrideResult = await query(
+      `
+        INSERT INTO product_overrides
+          (product_id, retail_price, wholesale_price, stock_qty, name, description, image_url, hidden, updated_at)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, now())
+        ON CONFLICT (product_id) DO UPDATE
+        SET
+          retail_price = EXCLUDED.retail_price,
+          wholesale_price = EXCLUDED.wholesale_price,
+          stock_qty = EXCLUDED.stock_qty,
+          name = EXCLUDED.name,
+          description = EXCLUDED.description,
+          image_url = EXCLUDED.image_url,
+          hidden = EXCLUDED.hidden,
+          updated_at = now()
+        RETURNING
+          product_id AS "productId",
+          retail_price AS "retailPrice",
+          wholesale_price AS "wholesalePrice",
+          stock_qty AS "stockQty",
+          name,
+          description,
+          image_url AS "imageUrl",
+          hidden
+      `,
+      [req.params.id, retailPrice, wholesalePrice, stockQty, name, description, imageUrl, hidden]
+    );
+
+    if (!isUuid(req.params.id)) {
+      return res.json({ product: { id: req.params.id, ...overrideResult.rows[0] } });
+    }
+
+    const { rows } = await query(
+      `
+        UPDATE products
+        SET
+          name = $1,
+          description = $2,
+          retail_price = $3,
+          wholesale_price = $4,
+          stock_qty = $5,
+          image_url = $6,
+          gallery = $7::jsonb,
+          attributes = $8::jsonb,
+          updated_at = now()
+        WHERE id = $9
+        RETURNING
+          id,
+          sku,
+          slug,
+          name,
+          section,
+          category,
+          subcategory,
+          brand,
+          retail_price AS "retailPrice",
+          wholesale_price AS "wholesalePrice",
+          stock_qty AS "stockQty",
+          image_url AS "imageUrl",
+          gallery,
+          description,
+          attributes
+      `,
+      [name, description, retailPrice, wholesalePrice, stockQty, imageUrl, JSON.stringify(gallery), JSON.stringify(attributes), req.params.id]
+    );
+    if (!rows[0]) {
+      return res.status(404).json({ error: "Product not found." });
+    }
+    res.json({ product: { ...rows[0], hidden } });
   } catch (error) {
     next(error);
   }
@@ -588,6 +732,10 @@ function requireCustomer(req, res, next) {
     return res.status(401).json({ error: "Нужен вход в кабинет покупателя." });
   }
   next();
+}
+
+function isUuid(value) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(value || ""));
 }
 
 function normalizeLogin(value) {
