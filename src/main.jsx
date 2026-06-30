@@ -108,11 +108,11 @@ const quickCatalogMenus = {
   Mac: [
     { label: "MacBook Air", model: "MacBook Air", to: "/catalog/mac/macbook-air" },
     { label: "MacBook Pro", model: "MacBook Pro", to: "/catalog/mac/macbook-pro" },
-    { label: "MacBook Neo", model: "MacBook Neo", to: "/catalog/mac/macbook-neo" },
+    { label: "MacBook базовый", model: "MacBook Neo", to: "/catalog/mac/macbook-neo" },
     { label: "iMac", model: "iMac", to: "/catalog/mac/imac" },
     { label: "Mac mini", model: "Mac mini", to: "/catalog/mac/mac-mini" },
     { label: "Mac Studio", model: "Mac Studio", to: "/catalog/mac/mac-studio" },
-    { label: "Studio Display", model: "Apple Studio Display", to: "/catalog/mac/apple-studio-display" }
+    { label: "Studio Display", model: "Studio Display", to: "/catalog/mac/apple-studio-display" }
   ],
   "Apple Watch": [
     { label: "Apple Watch SE", model: "Apple Watch SE", to: "/catalog/apple-watch/apple-watch-se" },
@@ -122,7 +122,6 @@ const quickCatalogMenus = {
     { label: "44/45/49 мм", model: "Apple Watch Ultra", to: "/catalog/apple-watch/45-mm" }
   ],
   Смартфоны: [
-    { label: "Apple (iPhone)", brand: "Apple", to: "/catalog/smartphones/apple" },
     { label: "Samsung", brand: "Samsung", to: "/catalog/smartphones/samsung" },
     { label: "Xiaomi", brand: "Xiaomi", to: "/catalog/smartphones/xiaomi" },
     { label: "Redmi", brand: "Redmi", to: "/catalog/smartphones/redmi" },
@@ -133,7 +132,6 @@ const quickCatalogMenus = {
     { label: "Realme", brand: "Realme", to: "/catalog/smartphones/realme" }
   ],
   Планшеты: [
-    { label: "iPad", brand: "Apple", to: "/catalog/tablets/ipad" },
     { label: "Samsung", brand: "Samsung", to: "/catalog/tablets/samsung" },
     { label: "Xiaomi", brand: "Xiaomi", to: "/catalog/tablets/xiaomi" },
     { label: "Huawei", brand: "Huawei", to: "/catalog/tablets/huawei" },
@@ -606,23 +604,72 @@ const supplementalAppleProducts = [
   }
 }));
 
+const appleSections = new Set(["iPhone", "iPad", "Mac", "Apple Watch", "AirPods"]);
+const seedAppleProducts = seedProducts.filter((product) => appleSections.has(product.section));
+
 function hydrateCatalogProducts(products) {
-  const appleSections = new Set(["iPhone", "iPad", "Mac", "Apple Watch", "AirPods"]);
-  const baseProducts = products.filter((product) => !appleSections.has(product.section));
-  const ids = new Set(baseProducts.map((product) => product.id || product.sku || product.slug));
-  const slugs = new Set(baseProducts.map((product) => product.slug).filter(Boolean));
-  const names = new Set(baseProducts.map((product) => normalizeProductName(product.name)).filter(Boolean));
+  return dedupeCatalogProducts([
+    ...products.filter((product) => !appleSections.has(product.section)),
+    ...seedAppleProducts,
+    ...supplementalAppleProducts,
+    ...piterCatalogProducts
+  ]);
+}
+
+function dedupeCatalogProducts(products) {
+  const seenIds = new Set();
+  const seenSlugs = new Map();
+  const seenKeys = new Set();
+  return products.filter((product) => {
+    const idKeys = [product.id, product.sku].map((value) => String(value || "").trim()).filter(Boolean);
+    const slug = String(product.slug || "").trim();
+    const key = getProductDedupeKey(product);
+    const slugName = normalizeProductName(product.name);
+    if (idKeys.some((value) => seenIds.has(value)) || (slug && seenSlugs.get(slug)?.has(slugName)) || seenKeys.has(key)) {
+      return false;
+    }
+    idKeys.forEach((value) => seenIds.add(value));
+    if (slug) {
+      if (!seenSlugs.has(slug)) seenSlugs.set(slug, new Set());
+      seenSlugs.get(slug).add(slugName);
+    }
+    seenKeys.add(key);
+    return true;
+  });
+}
+
+function getProductDedupeKey(product) {
+  const attrs = product.attributes || {};
   return [
-    ...baseProducts,
-    ...piterCatalogProducts.filter((product) => {
-      if (ids.has(product.id) || ids.has(product.sku) || slugs.has(product.slug)) return false;
-      return !names.has(normalizeProductName(product.name));
-    })
-  ];
+    product.section,
+    normalizeProductName(product.name),
+    normalizeProductName(attrs.model || product.subcategory || getProductModelLabel(product)),
+    normalizeProductName(attrs.memory || getMemoryLabel(product)),
+    normalizeProductName(attrs.color || getColorLabel(product)),
+    normalizeProductName(attrs.sim || attrs.simType || getSimLabel(product))
+  ].join("|");
+}
+
+function applyProductOverrides(products, overrides = []) {
+  const byId = new Map(overrides.map((override) => [String(override.productId), override]));
+  return products.map((product) => {
+    const override = byId.get(String(product.id));
+    if (!override) return product;
+    return {
+      ...product,
+      name: override.name || product.name,
+      description: override.description ?? product.description,
+      retailPrice: override.retailPrice ?? product.retailPrice,
+      wholesalePrice: override.wholesalePrice ?? product.wholesalePrice,
+      stockQty: override.stockQty ?? product.stockQty,
+      imageUrl: override.imageUrl ?? product.imageUrl,
+      hidden: Boolean(override.hidden)
+    };
+  });
 }
 
 function normalizeProductName(value) {
-  return String(value || "").toLowerCase().replace(/&quot;/g, "\"").replace(/\s+/g, " ").trim();
+  return String(value || "").toLowerCase().replace(/&quot;/g, "\"").replace(/[ё]/g, "е").replace(/\s+/g, " ").trim();
 }
 
 function isAccessoryProduct(product) {
@@ -733,24 +780,21 @@ function App() {
   }, [favorites]);
 
   useEffect(() => {
-    fetch("/api/products")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Products API unavailable");
-        }
+    Promise.all([
+      fetch("/api/products").then((response) => {
+        if (!response.ok) throw new Error("Products API unavailable");
         return response.json();
+      }),
+      fetch("/api/product-overrides").then((response) => (response.ok ? response.json() : { overrides: [] })).catch(() => ({ overrides: [] }))
+    ])
+      .then(([data, overrideData]) => setProducts(applyProductOverrides(hydrateCatalogProducts(data.products || []), overrideData.overrides || [])))
+      .catch(() => {
+        const fallbackProducts = hydrateCatalogProducts(seedProducts.map((product) => ({ ...product, id: product.sku })));
+        fetch("/api/product-overrides")
+          .then((response) => (response.ok ? response.json() : { overrides: [] }))
+          .then((overrideData) => setProducts(applyProductOverrides(fallbackProducts, overrideData.overrides || [])))
+          .catch(() => setProducts(fallbackProducts));
       })
-      .then((data) => setProducts(hydrateCatalogProducts(data.products || [])))
-      .catch(() =>
-        setProducts(
-          hydrateCatalogProducts(
-          seedProducts.map((product) => ({
-            ...product,
-            id: product.sku
-          }))
-          )
-        )
-      )
       .finally(() => setLoadingProducts(false));
   }, []);
 
@@ -1065,6 +1109,7 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [advancedFilters, setAdvancedFilters] = useState(emptyAdvancedFilters);
+  const [sortMode, setSortMode] = useState("popular");
   const filterGroups = getFilterGroups(products, category);
   const modelChips = category === "Все" ? [] : moveSelectedFirst(getModelChips(products, category), selectedModel);
   const visibleModelChips = modelsExpanded ? modelChips : modelChips.slice(0, 8);
@@ -1073,7 +1118,7 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
     .filter((product) => matchesCatalogSubfilter(product, category, selectedModel))
     .filter((product) => matchesAdvancedFilters(product, category, advancedFilters, filterGroups))
     .filter((product) => `${product.name} ${product.brand} ${product.sku}`.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => productRelevanceRank(b, category) - productRelevanceRank(a, category));
+    .sort((a, b) => sortCatalogProducts(a, b, category, sortMode));
   const visibleProducts = filtered.slice(0, visibleCount);
 
   useEffect(() => {
@@ -1126,17 +1171,27 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
           </button>
           <button className="filter-toggle desktop-filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
             <SlidersHorizontal size={18} />
-            Фильтры
+            Категории
             <ChevronRight size={18} />
           </button>
-          <aside className={`category-rail ${filtersOpen ? "is-open" : ""}`} aria-label="Категории товаров">
-            {categories.map((item) => (
-              <button key={item} className={category === item ? "is-selected" : ""} onClick={() => selectCategory(item)}>
-                <span>{item}</span>
-                <ChevronRight size={18} />
-              </button>
-            ))}
-          </aside>
+          <div className={`catalog-sidebar ${filtersOpen ? "is-open" : ""}`}>
+            <aside className="category-rail" aria-label="Категории товаров">
+              {categories.map((item) => (
+                <button key={item} className={category === item ? "is-selected" : ""} onClick={() => selectCategory(item)}>
+                  <span>{item}</span>
+                  <ChevronRight size={18} />
+                </button>
+              ))}
+            </aside>
+            <DesktopFilterPanel
+              category={category}
+              groups={filterGroups}
+              filters={advancedFilters}
+              setFilters={setAdvancedFilters}
+              resultCount={filtered.length}
+              onReset={resetFilters}
+            />
+          </div>
           <div className="product-zone">
             {modelChips.length > 0 && (
               <div className="catalog-model-bar" aria-label="Модели">
@@ -1165,11 +1220,23 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
               <Search size={18} />
               <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Поиск по бренду, SKU, названию" />
             </label>
-            {(selectedModel || search || hasAdvancedFilters(advancedFilters)) && (
-              <button className="clear-filter" onClick={resetFilters}>
-                Сбросить фильтр
-              </button>
-            )}
+            <div className="catalog-control-row">
+              {(selectedModel || search || hasAdvancedFilters(advancedFilters)) && (
+                <button className="clear-filter" onClick={resetFilters}>
+                  Сбросить фильтр
+                </button>
+              )}
+              <label className="catalog-sort">
+                <span>Сортировка</span>
+                <select value={sortMode} onChange={(event) => setSortMode(event.target.value)}>
+                  <option value="cheap">Сначала дешевые</option>
+                  <option value="expensive">Сначала дорогие</option>
+                  <option value="popular">Популярные</option>
+                  <option value="new">Новые</option>
+                  <option value="old">Старые</option>
+                </select>
+              </label>
+            </div>
             {loading ? (
               <div className="skeleton-grid">{Array.from({ length: 6 }).map((_, index) => <div className="product-card skeleton" key={index} />)}</div>
             ) : (
@@ -1199,12 +1266,18 @@ function CatalogPage({ route, products, loading, addToCart, navigate, search, se
 function QuickCatalogNav({ category, navigate, products = [] }) {
   const [hoveredCategory, setHoveredCategory] = useState("");
   const menuItems = getQuickCatalogMenu(hoveredCategory, products);
+  const moveGlass = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+    event.currentTarget.style.setProperty("--my", `${event.clientY - rect.top}px`);
+  };
   return (
     <section
       className="quick-catalog"
       aria-label="Категории каталога"
       onMouseLeave={() => setHoveredCategory("")}
       onPointerLeave={() => setHoveredCategory("")}
+      onPointerMove={moveGlass}
     >
       <div className="quick-catalog-track">
         {topCategories.map(({ label, value, Icon }) => (
@@ -1290,50 +1363,25 @@ function MobileFilterDrawer({ open, category, groups, filters, setFilters, onClo
           </button>
         </div>
 
-        <div className="mobile-filter-body">
+        <div className="mobile-filter-body catalog-filter-body">
           <label className="filter-search-field">
             <input value={filterSearch} onChange={(event) => setFilterSearch(event.target.value)} placeholder="Поиск фильтров" />
           </label>
 
-          <section className="filter-group">
-            <h3>Цена <ChevronRight size={16} /></h3>
-            <div className="price-filter-fields">
-              <label>
-                От
-                <input inputMode="numeric" value={filters.priceMin} onChange={(event) => updatePrice("priceMin", event.target.value)} />
-              </label>
-              <label>
-                До
-                <input inputMode="numeric" value={filters.priceMax} onChange={(event) => updatePrice("priceMax", event.target.value)} />
-              </label>
-            </div>
-            <div className="filter-range-line" aria-hidden="true"><span /><span /></div>
-          </section>
+          <CatalogFilterControls
+            groups={visibleGroups}
+            allGroups={groups}
+            filters={filters}
+            onToggle={toggleValue}
+            onPrice={updatePrice}
+          />
 
           {groups.length === 0 ? (
             <section className="filter-group">
               <h3>Основные</h3>
               <p>Для этой категории доступны цена и поиск. Подробные характеристики заполнены для iPhone.</p>
             </section>
-          ) : (
-            visibleGroups.map((group) => (
-              <section className="filter-group" key={group.key}>
-                <h3>{group.label} <ChevronRight size={16} /></h3>
-                <div className="filter-chip-grid">
-                  {group.values.map((value) => (
-                    <button
-                      key={value}
-                      type="button"
-                      className={(filters[group.key] || []).includes(value) ? "is-selected" : ""}
-                      onClick={() => toggleValue(group.key, value)}
-                    >
-                      {value}
-                    </button>
-                  ))}
-                </div>
-              </section>
-            ))
-          )}
+          ) : null}
         </div>
 
         <div className="mobile-filter-actions">
@@ -1342,6 +1390,100 @@ function MobileFilterDrawer({ open, category, groups, filters, setFilters, onClo
       </aside>
     </div>,
     document.body
+  );
+}
+
+function DesktopFilterPanel({ category, groups, filters, setFilters, resultCount, onReset }) {
+  const toggleValue = (key, value) => {
+    setFilters((current) => {
+      const values = current[key] || [];
+      return {
+        ...current,
+        [key]: values.includes(value) ? values.filter((item) => item !== value) : [...values, value]
+      };
+    });
+  };
+  const updatePrice = (key, value) => setFilters((current) => ({ ...current, [key]: value.replace(/[^\d]/g, "") }));
+
+  return (
+    <aside className="desktop-filter-panel" aria-label={`Фильтры ${category}`}>
+      <div className="desktop-filter-head">
+        <div>
+          <span>Фильтры</span>
+          <b>{resultCount} товаров</b>
+        </div>
+        <button type="button" onClick={onReset} disabled={!hasAdvancedFilters(filters)}>
+          Сбросить
+        </button>
+      </div>
+      <div className="catalog-filter-body">
+        <CatalogFilterControls groups={groups} allGroups={groups} filters={filters} onToggle={toggleValue} onPrice={updatePrice} />
+        {groups.length === 0 && (
+          <section className="filter-group">
+            <h3>Основные</h3>
+            <p>Для этой категории доступны цена и поиск.</p>
+          </section>
+        )}
+      </div>
+    </aside>
+  );
+}
+
+function CatalogFilterControls({ groups, allGroups, filters, onToggle, onPrice }) {
+  return (
+    <>
+      <section className="filter-group">
+        <h3>Цена <ChevronRight size={16} /></h3>
+        <div className="price-filter-fields">
+          <label>
+            От
+            <input inputMode="numeric" value={filters.priceMin} onChange={(event) => onPrice("priceMin", event.target.value)} />
+          </label>
+          <label>
+            До
+            <input inputMode="numeric" value={filters.priceMax} onChange={(event) => onPrice("priceMax", event.target.value)} />
+          </label>
+        </div>
+        <div className="filter-range-line" aria-hidden="true"><span /><span /></div>
+      </section>
+
+      {groups.map((group) => (
+        <section className="filter-group" key={group.key}>
+          <h3>{group.label} <ChevronRight size={16} /></h3>
+          <div className={`filter-chip-grid ${group.key === "color" ? "is-color-grid" : ""}`}>
+            {group.values.map((value) => {
+              const selected = (filters[group.key] || []).includes(value);
+              if (group.key === "color") {
+                return (
+                  <button
+                    key={value}
+                    type="button"
+                    className={`color-filter-chip ${selected ? "is-selected" : ""}`}
+                    data-label={value}
+                    title={value}
+                    aria-label={`Цвет: ${value}`}
+                    onClick={() => onToggle(group.key, value)}
+                  >
+                    <span style={{ "--swatch": getColorSwatch(value) }} />
+                  </button>
+                );
+              }
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  className={selected ? "is-selected" : ""}
+                  onClick={() => onToggle(group.key, value)}
+                >
+                  {value}
+                </button>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+      {groups.length === 0 && allGroups.length > 0 && <p className="empty-note">Ничего не найдено.</p>}
+    </>
   );
 }
 
@@ -1383,6 +1525,7 @@ function getAppleMenuImage(category, label) {
     "iPad:ipad": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-blue?wid=1200&hei=630&fmt=jpeg&qlt=95",
     "Mac:macbook air": "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png",
     "Mac:macbook pro": "https://www.apple.com/v/macbook-pro/ax/images/overview/welcome/hero_endframe__fwev9ebh42mq_large.jpg",
+    "Mac:macbook базовый": "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png",
     "Mac:macbook neo": "https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png",
     "Mac:imac": "https://www.apple.com/v/imac/v/images/meta/imac__d7trotporb6u_og.png",
     "Mac:mac mini": "https://www.apple.com/v/mac-mini/aa/images/meta/mac-mini__dvce2jrm11w2_og.jpg",
@@ -1698,6 +1841,12 @@ function matchesCatalogSubfilter(product, category, selected) {
   if (category === "iPhone") {
     return getProductModelLabel(product).toLowerCase() === selectedText;
   }
+  if (category === "Mac") {
+    return getMacCatalogGroupLabel(product).toLowerCase() === selectedText;
+  }
+  if (category === "Apple Watch") {
+    return getWatchCatalogGroupLabels(product).some((label) => label.toLowerCase() === selectedText);
+  }
   return getProductModelLabel(product).toLowerCase().includes(selectedText);
 }
 
@@ -1764,8 +1913,8 @@ function getProductFilterValue(product, key) {
 function getModelChips(products, category) {
   if (["Смартфоны", "Планшеты"].includes(category)) {
     const preferred = category === "Смартфоны"
-      ? ["Apple (iPhone)", "Samsung", "Xiaomi", "Redmi", "Google", "Honor", "Huawei", "OnePlus", "Realme"]
-      : ["iPad", "Samsung", "Xiaomi", "Huawei", "Honor"];
+      ? ["Samsung", "Xiaomi", "Redmi", "Google", "Honor", "Huawei", "OnePlus", "Realme"]
+      : ["Samsung", "Xiaomi", "Huawei", "Honor"];
     return preferred;
   }
   const base = [...new Set(products.filter((product) => matchesCatalogCategory(product, category)).map(getProductModelLabel).filter(Boolean))];
@@ -1788,12 +1937,19 @@ function getModelChips(products, category) {
       .filter((item, index, items) => items.indexOf(item) === index)
       .sort((a, b) => iphoneRank(a) - iphoneRank(b));
   }
+  if (category === "Mac" || category === "Apple Watch") {
+    return quickCatalogMenus[category]
+      .map((item) => item.label)
+      .filter((label) => products.some((product) => matchesCatalogCategory(product, category) && matchesCatalogSubfilter(product, category, label)));
+  }
   return base.sort((a, b) => a.localeCompare(b, "ru", { numeric: true }));
 }
 
 function normalizeSubfilter(category, value) {
   const text = String(value || "").trim();
   if (category === "iPhone") return text.replace(/^iPhone\s+/i, "");
+  if (category === "Mac" && /^Apple\s+Studio\s+Display$/i.test(text)) return "Studio Display";
+  if (category === "Mac" && /^MacBook(\s+базовый)?$/i.test(text)) return "MacBook Neo";
   if (category === "Смартфоны" && /^Apple/i.test(text)) return "Apple";
   if (category === "Планшеты" && /^iPad$/i.test(text)) return "iPad";
   if (category === "Смартфоны" && /^iPhone$/i.test(text)) return "iPhone";
@@ -1808,7 +1964,7 @@ function getRouteLabel(category, value) {
 function getProductModelLabel(product) {
   const model = product.attributes?.model || product.name;
   if (product.section === "iPhone") {
-    return model.replace(/^iPhone\s+/i, "").replace(/^Air$/i, "Air 17").replace(/\s+\d+\s*\/\s*\d+.*$/i, "").replace(/\s+RED$/i, " RED").trim();
+    return model.replace(/^iPhone\s+/i, "").replace(/\s+\d+\s*\/\s*\d+.*$/i, "").replace(/\s+RED$/i, " RED").trim();
   }
   if (product.section === "AirPods") {
     if (/AirPods Pro 2/i.test(model)) return "AirPods Pro 2";
@@ -1826,16 +1982,42 @@ function getProductModelLabel(product) {
     if (/iPad mini/i.test(product.name)) return "iPad mini";
     return "iPad";
   }
+  if (product.section === "Apple Watch") {
+    if (/Ultra/i.test(model)) return "Apple Watch Ultra";
+    if (/SE/i.test(model)) return "Apple Watch SE";
+    return "Apple Watch Series";
+  }
   if (product.section === "Mac") {
     const macBookLabel = getMacBookModelLabel(product);
     if (macBookLabel) return macBookLabel;
     if (/Mac mini/i.test(product.name)) return "Mac mini";
     if (/Mac Studio/i.test(product.name)) return "Mac Studio";
-    if (/Studio Display/i.test(product.name)) return "Apple Studio Display";
+    if (/Studio Display/i.test(product.name)) return "Studio Display";
     if (/iMac/i.test(product.name)) return "iMac";
     return "Mac";
   }
   return model;
+}
+
+function getMacCatalogGroupLabel(product) {
+  const name = String(product.name || "");
+  if (/MacBook\s+Air/i.test(name)) return "MacBook Air";
+  if (/MacBook\s+Pro/i.test(name)) return "MacBook Pro";
+  if (/MacBook\s+Neo/i.test(name)) return "MacBook Neo";
+  if (/Mac mini/i.test(name)) return "Mac mini";
+  if (/Mac Studio/i.test(name)) return "Mac Studio";
+  if (/Studio Display/i.test(name)) return "Studio Display";
+  if (/iMac/i.test(name)) return "iMac";
+  return getProductModelLabel(product);
+}
+
+function getWatchCatalogGroupLabels(product) {
+  const model = getProductModelLabel(product);
+  const labels = [model];
+  const size = Number(String(product.name || "").match(/\b(40|41|42|44|45|46|49)\s*mm\b/i)?.[1] || 0);
+  if (size && size <= 41) labels.push("40/41 мм");
+  if (size && size >= 44) labels.push("44/45/49 мм");
+  return labels;
 }
 
 function moveSelectedFirst(items, selected) {
@@ -1862,6 +2044,30 @@ function productRelevanceRank(product, category) {
   return Number(product.name.match(/\b(20\d{2})\b/)?.[1] || 0) || product.retailPrice || 0;
 }
 
+function sortCatalogProducts(a, b, category, sortMode) {
+  if (sortMode === "cheap") return Number(a.retailPrice || 0) - Number(b.retailPrice || 0);
+  if (sortMode === "expensive") return Number(b.retailPrice || 0) - Number(a.retailPrice || 0);
+  if (sortMode === "new") return getProductYear(b) - getProductYear(a) || productRelevanceRank(b, category) - productRelevanceRank(a, category);
+  if (sortMode === "old") return getProductYear(a) - getProductYear(b) || productRelevanceRank(b, category) - productRelevanceRank(a, category);
+  return productRelevanceRank(b, category) - productRelevanceRank(a, category);
+}
+
+function getProductYear(product) {
+  const text = `${product.name || ""} ${product.slug || ""}`;
+  const explicit = Number(String(text).match(/\b(20\d{2})\b/)?.[1] || product.attributes?.year || 0);
+  if (explicit) return explicit;
+  if (product.section === "Apple Watch") {
+    if (/series\s*11/i.test(text)) return 2025;
+    if (/series\s*10/i.test(text)) return 2024;
+    if (/series\s*9/i.test(text)) return 2023;
+    if (/ultra\s*3/i.test(text)) return 2025;
+    if (/ultra\s*2/i.test(text)) return 2023;
+    if (/se\s*3/i.test(text)) return 2025;
+    if (/se\s*2/i.test(text)) return 2024;
+  }
+  return 0;
+}
+
 function getMacBookModelLabel(product) {
   const name = String(product.name || "");
   const family = name.match(/MacBook\s+(Air|Pro|Neo)/i)?.[1];
@@ -1870,41 +2076,72 @@ function getMacBookModelLabel(product) {
   const size = name.match(/MacBook\s+(?:Air|Pro)\s+(\d{2}(?:[.,]\d)?)/i)?.[1]?.replace(",", ".");
   const chip = name.match(/\b(M\d|A18\s*Pro)\b/i)?.[1]?.replace(/\s+/g, " ");
   const cpuGpu = name.match(/\b(\d+C)\s*CPU\s*\/\s*(\d+C)\s*GPU\b/i);
-  const year = name.match(/\b(20\d{2})\b/)?.[1];
 
   const parts = ["MacBook", family];
   if (size) parts.push(size);
   if (chip) parts.push(chip.toUpperCase().replace("A18 PRO", "A18 Pro"));
   if (cpuGpu) parts.push(`${cpuGpu[1].toUpperCase()}/${cpuGpu[2].toUpperCase()}`);
-  if (year) parts.push(year);
   return parts.join(" ");
 }
 
 function formatProductCardTitle(product) {
-  const memory = getMemoryLabel(product);
-  const color = getColorLabel(product);
   const rawModel = getProductModelLabel(product);
-  const model = product.section === "iPhone" && !/^iPhone/i.test(rawModel) ? `iPhone ${rawModel}` : rawModel;
-  const brand = product.brand === "Apple" && /^(iPhone|iPad|Mac|AirPods|Apple Watch)/i.test(model) ? "Apple" : product.brand;
-  return [brand, model, memory, color].filter(Boolean).join(", ").replace(", ,", ",");
+  let model = product.section === "iPhone" && !/^iPhone/i.test(rawModel) ? `iPhone ${rawModel}` : rawModel;
+  if (product.section === "iPad") {
+    const year = getProductYear(product);
+    if (year && !String(model).includes(String(year))) model = `${model} ${year}`;
+  }
+  const appleDevice = product.brand === "Apple" && /^(iPhone|iPad|Mac|AirPods|Apple Watch|MacBook|iMac|Studio Display)/i.test(model);
+  const brand = appleDevice ? "" : product.brand;
+  return [brand, model].filter(Boolean).join(" ").replace(/^Apple\s+(?=Studio Display)/i, "").trim();
 }
 
-function formatShortProductDescription(product) {
+function formatShortProductDescriptionLegacy(product) {
   const parts = getProductSpecs(product).map(([, value]) => value).filter((value) => value && value !== "audio");
   if (parts.length > 0) return parts.slice(0, 4).join(" · ");
   return product.category || product.section || product.brand;
 }
 
 function getProductSpecs(product) {
+  return getFlatProductSpecs(product);
+}
+
+function getFlatProductSpecs(product) {
   const specs = [];
   const model = getProductModelLabel(product);
   const memory = getMemoryLabel(product);
   const color = getColorLabel(product);
   const sim = getSimLabel(product);
+  const year = getProductYear(product);
   if (model) specs.push(["Модель", product.section === "iPhone" && !/^iPhone/i.test(model) ? `iPhone ${model}` : model]);
   if (color) specs.push(["Цвет", color]);
   if (memory) specs.push(["Память", memory]);
+  if (year) specs.push(["Год", String(year)]);
   if (sim) specs.push(["SIM", sim]);
+  if (product.section === "iPad") {
+    const chip = getChipLabel(product);
+    const connectivity = getConnectivityLabel(product);
+    const screen = getScreenSizeLabel(product);
+    if (chip) specs.push(["Чип", chip]);
+    if (connectivity) specs.push(["Связь", connectivity]);
+    if (screen) specs.push(["Экран", `${screen}″`]);
+  }
+  if (product.section === "Mac") {
+    const chip = getChipLabel(product);
+    const ram = getRamLabel(product);
+    const screen = getScreenSizeLabel(product) || getMonitorSizeLabel(product);
+    if (chip) specs.push(["Чип", chip]);
+    if (ram) specs.push(["ОЗУ", ram]);
+    if (screen) specs.push(["Экран", screen.includes("″") ? screen : `${screen}″`]);
+  }
+  if (product.section === "Apple Watch") {
+    const size = getWatchSizeLabel(product);
+    const caseLabel = getWatchCaseLabel(product);
+    const strap = getWatchStrapLabel(product);
+    if (size) specs.push(["Размер", size]);
+    if (caseLabel) specs.push(["Корпус", caseLabel]);
+    if (strap) specs.push(["Ремешок", strap]);
+  }
   if (product.section === "AirPods") {
     const noise = getNoiseControlLabel(product);
     const caseLabel = getChargingCaseLabel(product);
@@ -1912,7 +2149,170 @@ function getProductSpecs(product) {
     if (noise && noise !== "без ANC") specs.push(["Звук", noise]);
   }
   if (specs.length < 3 && product.attributes?.productType && product.attributes.productType !== "audio") specs.push(["Тип", getProductTypeLabel(product.attributes.productType)]);
-  return specs;
+  return dedupeSpecs(specs);
+}
+
+function dedupeSpecs(specs) {
+  const seen = new Set();
+  return specs.filter(([label, value]) => {
+    const key = `${label}:${value}`;
+    if (!value || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function getProductDetailSummary(product) {
+  const title = formatProductCardTitle(product);
+  const specs = getProductCardSpecValues(product).join(" • ");
+  const sectionMap = {
+    iPhone: "смартфон Apple",
+    iPad: "планшет Apple",
+    Mac: "устройство Apple",
+    "Apple Watch": "часы Apple",
+    AirPods: "наушники Apple",
+    Android: "смартфон"
+  };
+  const type = sectionMap[product.section] || getProductTypeLabel(product.attributes?.productType || product.section || product.category);
+  return [title, type, specs].filter(Boolean).join(". ") + ".";
+}
+
+function getProductDetailSpecGroups(product) {
+  const groups = [];
+  const addGroup = (title, rows) => {
+    const cleanRows = dedupeSpecs(rows.filter(([, value]) => String(value || "").trim()));
+    if (cleanRows.length > 0) groups.push({ title, rows: cleanRows });
+  };
+  const model = getProductModelLabel(product);
+  const titleModel = product.section === "iPhone" && !/^iPhone/i.test(model) ? `iPhone ${model}` : model;
+  const color = getColorLabel(product);
+  const memory = getMemoryLabel(product);
+  const sim = getSimLabel(product);
+  const chip = getChipLabel(product);
+  const year = getProductYear(product);
+  const screen = getScreenSizeLabel(product);
+  const ram = getRamLabel(product);
+
+  addGroup("Основное", [
+    ["Бренд", product.brand],
+    ["Модель", titleModel],
+    ["Цвет", color],
+    ["Год", year ? String(year) : ""],
+    ["SKU", product.sku]
+  ]);
+
+  if (product.section === "iPhone" || product.section === "Android" || product.attributes?.productType === "phone") {
+    const display = getPhoneDisplaySpec(product);
+    addGroup("Экран и система", [
+      ["Диагональ", display.screenSize ? `${display.screenSize}″` : ""],
+      ["Разрешение", display.resolution],
+      ["Частота", display.refreshRate],
+      ["Чип", chip]
+    ]);
+    addGroup("Память и связь", [
+      ["Память", memory],
+      ["SIM", sim],
+      ["Связь", getConnectivityLabel(product)]
+    ]);
+    return groups;
+  }
+
+  if (product.section === "iPad" || product.attributes?.productType === "tablet") {
+    addGroup("Экран и чип", [
+      ["Диагональ", screen ? `${screen}″` : ""],
+      ["Чип", chip],
+      ["Память", memory]
+    ]);
+    addGroup("Связь", [
+      ["Тип подключения", getConnectivityLabel(product)],
+      ["SIM", sim]
+    ]);
+    return groups;
+  }
+
+  if (product.section === "Mac" || product.attributes?.productType === "computer") {
+    addGroup("Производительность", [
+      ["Чип", chip],
+      ["ОЗУ", ram],
+      ["SSD", memory]
+    ]);
+    addGroup("Корпус и экран", [
+      ["Экран", getMonitorSizeLabel(product) || (screen ? `${screen}″` : "")],
+      ["Стекло", getDisplayGlassLabel(product)],
+      ["Цвет", color]
+    ]);
+    return groups;
+  }
+
+  if (product.section === "Apple Watch") {
+    addGroup("Часы", [
+      ["Серия", model],
+      ["Размер", getWatchSizeLabel(product)],
+      ["Цвет", color],
+      ["Год", year ? String(year) : ""]
+    ]);
+    addGroup("Корпус и ремешок", [
+      ["Корпус", getWatchCaseLabel(product)],
+      ["Ремешок", getWatchStrapLabel(product)]
+    ]);
+    return groups;
+  }
+
+  if (product.section === "AirPods") {
+    addGroup("Аудио", [
+      ["Модель", model],
+      ["Шумоподавление", getNoiseControlLabel(product)],
+      ["Цвет", color]
+    ]);
+    addGroup("Футляр", [
+      ["Кейс/разъём", getChargingCaseLabel(product)]
+    ]);
+    return groups;
+  }
+
+  addGroup("Характеристики", getFlatProductSpecs(product));
+  return groups;
+}
+
+function formatShortProductDescription(product) {
+  const parts = getProductCardSpecValues(product);
+  return parts.length > 0 ? parts.join(" • ") : "";
+}
+
+function getProductCardSpecValues(product) {
+  const color = getColorLabel(product);
+  const memory = getMemoryLabel(product);
+  const sim = getSimLabel(product);
+  const chip = getChipLabel(product);
+  const year = getProductYear(product);
+  const model = getProductModelLabel(product);
+
+  if (product.section === "iPhone" || product.section === "Android" || product.attributes?.productType === "phone") {
+    return cleanCardSpecParts([color, memory, sim]);
+  }
+  if (product.section === "iPad" || product.attributes?.productType === "tablet") {
+    return cleanCardSpecParts([color, chip, memory, year ? String(year) : ""]);
+  }
+  if (product.section === "Mac" || product.attributes?.productType === "computer") {
+    if (/Studio Display/i.test(model)) {
+      return cleanCardSpecParts([color, getMonitorSizeLabel(product), getDisplayGlassLabel(product)]);
+    }
+    const ramStorage = [getRamLabel(product), memory].filter(Boolean).join(" / ");
+    return cleanCardSpecParts([color, chip, ramStorage, year ? String(year) : ""]);
+  }
+  if (product.section === "Apple Watch") {
+    const materialStrap = [getWatchCaseLabel(product), getWatchStrapLabel(product)].filter(Boolean).join(" / ");
+    return cleanCardSpecParts([color, getWatchSizeLabel(product), materialStrap, year ? String(year) : ""]);
+  }
+  if (product.section === "AirPods" || /AirPods/i.test(model)) {
+    return cleanCardSpecParts([model, getChargingCaseLabel(product), color]);
+  }
+  return cleanCardSpecParts([color, memory, sim]);
+}
+
+function cleanCardSpecParts(parts) {
+  const blocked = /^(sku|computer|audio|accessory|phone|tablet|watch|headphones|undefined|null)$/i;
+  return [...new Set(parts.map((part) => String(part || "").trim()).filter((part) => part && !blocked.test(part)))].slice(0, 4);
 }
 
 function getIphoneFilterSpec(product) {
@@ -1952,8 +2352,62 @@ function getIphoneResolution({ series, pro, proMax, plus, mini, se }) {
 }
 
 function getProductGallery(product, products = []) {
+  const official = getColorSafeOfficialGallery(product);
+  if (official.length > 0) return limitProductGallery(product, official).map((src, index) => ({ src, view: `official-${index}` }));
   const normalized = getNormalizedProductImage(product);
-  return normalized ? [{ src: normalized, view: "normalized" }] : [];
+  if (normalized) return [{ src: normalized, view: "normalized" }];
+  return limitProductGallery(product, getRawGallery(product)).map((src, index) => ({ src, view: `raw-${index}` }));
+}
+
+function limitProductGallery(product, sources) {
+  const list = sources.filter(Boolean);
+  return product.section === "iPad" ? list.slice(0, 1) : list.slice(0, 3);
+}
+
+function getColorSafeOfficialGallery(product) {
+  const model = getOfficialGalleryModel(product);
+  const color = getColorLabel(product);
+  const appleColor = getAppleColorSlug(color, model);
+  const iphone16ProBase = getIphone16ProGalleryBase(product, model, color);
+  if (iphone16ProBase) return appleStoreGalleryVersioned(iphone16ProBase, "1751056853085");
+
+  if (/^iPhone 16e$/i.test(model) && ["white", "black"].includes(appleColor)) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16e-${appleColor}-select-202502?wid=940&hei=1112&fmt=png-alpha`
+    ];
+  }
+  if (/^iPhone 16$/i.test(model) && appleColor) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-${appleColor}-select-202409?wid=940&hei=1112&fmt=png-alpha`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-${appleColor}-select-202409_AV2?wid=750&hei=506&fmt=jpeg&qlt=90`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-${appleColor}-select-202409_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90`
+    ];
+  }
+  if (/^iPhone 16 Plus$/i.test(model) && appleColor) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-${appleColor}-select-202409?wid=940&hei=1112&fmt=png-alpha`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-${appleColor}-select-202409_AV2?wid=750&hei=506&fmt=jpeg&qlt=90`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-${appleColor}-select-202409_AV3?wid=1246&hei=518&fmt=jpeg&qlt=90`
+    ];
+  }
+
+  const iphone15Base = getIphone15GalleryBase(product, model, color);
+  if (iphone15Base) return appleStoreGallery(iphone15Base);
+  const iphone14Base = getIphone14GalleryBase(product, model, color);
+  if (iphone14Base) return appleStoreGallery(iphone14Base);
+  const iphone13Base = getIphone13GalleryBase(product, model, color);
+  if (iphone13Base) return appleStoreGallery(iphone13Base);
+  const iphone12Base = getIphone12GalleryBase(product, model, color);
+  if (iphone12Base) return appleStoreGallery(iphone12Base);
+
+  if (/^iPad$/i.test(model) && ["pink", "blue", "silver", "yellow"].includes(appleColor)) {
+    return [
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-${appleColor}?wid=1200&hei=630&fmt=jpeg&qlt=95`,
+      `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-${appleColor}-wifi-witb-202210?wid=618&hei=678&fmt=jpeg&qlt=90`
+    ];
+  }
+
+  return [];
 }
 
 function getOfficialGalleryModel(product) {
@@ -2126,6 +2580,31 @@ function appleStoreGallery(base) {
     `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}_AV1_GEO_US?wid=1000&hei=1000&fmt=jpeg&qlt=95`,
     `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95`
   ];
+}
+
+function appleStoreGalleryVersioned(base, version) {
+  return [
+    `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=${version}`,
+    `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}_AV1_GEO_US?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=${version}`,
+    `https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/${base}_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=${version}`
+  ];
+}
+
+function getIphone16ProGalleryBase(product, model, color) {
+  if (!/^iPhone 16 Pro/i.test(model)) return "";
+  const text = `${color || ""} ${product.attributes?.color || ""} ${product.slug || ""} ${product.name || ""}`.toLowerCase();
+  const colorSlug = getIphone16TitaniumColorSlug(text);
+  if (!colorSlug) return "";
+  const prefix = /pro max/i.test(model) ? "refurb-iphone-16-pro-max" : "refurb-iphone-16-pro";
+  return `${prefix}-${colorSlug}-202509`;
+}
+
+function getIphone16TitaniumColorSlug(value) {
+  if (/desert|bron|бронз/.test(value)) return "deserttitanium";
+  if (/natural|натурал|сер/.test(value)) return "naturaltitanium";
+  if (/white|бел|bel/.test(value)) return "whitetitanium";
+  if (/black|черн|чёрн|chern/.test(value)) return "blacktitanium";
+  return "";
 }
 
 function getIphoneNewsroomGallery(product, model, color) {
@@ -2481,6 +2960,18 @@ function getScreenSizeLabel(product) {
   return match ? match[1] : "";
 }
 
+function getMonitorSizeLabel(product) {
+  const match = String(product.name).match(/\b(24|27|32)\s*(?:["″]|inch|дюйм)?\b/i);
+  return match ? `${match[1]}″` : "";
+}
+
+function getDisplayGlassLabel(product) {
+  const text = String(product.name);
+  if (/nano/i.test(text)) return "Nano-texture Glass";
+  if (/standard|standart/i.test(text)) return "Standard Glass";
+  return "";
+}
+
 function getConnectivityLabel(product) {
   const text = `${product.attributes?.sim || ""} ${product.name || ""}`;
   if (/cellular|lte|5g/i.test(text)) return "Wi-Fi + Cellular";
@@ -2490,7 +2981,31 @@ function getConnectivityLabel(product) {
 
 function getChipLabel(product) {
   const match = String(product.name).match(/\b(Apple\s+)?(M1|M2|M3|M4|M5|A16|A17|A18|A19)\b/i);
-  return match ? match[2].toUpperCase() : "";
+  if (match) return match[2].toUpperCase();
+  if (product.section === "iPad") {
+    const model = getProductModelLabel(product);
+    const year = getProductYear(product);
+    if (/iPad Pro/i.test(model)) {
+      if (year >= 2024) return "M4";
+      if (year >= 2022) return "M2";
+      if (year >= 2021) return "M1";
+    }
+    if (/iPad Air/i.test(model)) {
+      if (year >= 2025) return "M3";
+      if (year >= 2024) return "M2";
+      if (year >= 2022) return "M1";
+    }
+    if (/iPad mini/i.test(model)) {
+      if (year >= 2024) return "A17 Pro";
+      if (year >= 2021) return "A15";
+    }
+    if (/^iPad$/i.test(model)) {
+      if (year >= 2025) return "A16";
+      if (year >= 2022) return "A14";
+      if (year >= 2021) return "A13";
+    }
+  }
+  return "";
 }
 
 function getWatchSizeLabel(product) {
@@ -2557,7 +3072,7 @@ function getMemoryLabel(product) {
       return `${amount} ГБ`;
     }
   }
-  const source = product.attributes?.memory || product.name;
+  const source = `${product.attributes?.memory || ""} ${product.name || ""} ${product.slug || ""}`;
   const match = String(source).match(/\b(64|128|256|512|1024|1|2)\s*(GB|Gb|ГБ|Гб|TB|Tb|ТБ|Тб)\b/i);
   if (!match) return "";
   const amount = Number(match[1]);
@@ -2569,8 +3084,11 @@ function getMemoryLabel(product) {
 }
 
 function getColorLabel(product) {
+  const knownFromName = findKnownColorInText(`${product.name || ""} ${product.slug || ""}`);
+  const explicit = normalizeCardColor(product.attributes?.color);
+  if (knownFromName) return knownFromName;
+  if (explicit) return explicit;
   const candidates = [
-    product.attributes?.color,
     product.name.match(/\(([^()]+)\)\s*$/)?.[1],
     product.name.split(",").pop()
   ];
@@ -2583,11 +3101,12 @@ function getColorLabel(product) {
 
 function normalizeCardColor(value) {
   const raw = String(value || "").replace(/[()]/g, "").trim();
-  if (!raw || /^\d{4}$/.test(raw) || raw.length > 28 || /CPU|GPU|SSD|Wi-?Fi|USB|PRODUCT|Charger|футляр|заряд/i.test(raw)) return "";
-  if (/[А-ЯA-Z0-9]{4,}/.test(raw) && !/\s/.test(raw)) return "";
+  if (!raw || /^\d{4}$/.test(raw) || raw.length > 34 || /CPU|GPU|SSD|Wi-?Fi|USB|PRODUCT|Charger|футляр|заряд|no charger|macos|english/i.test(raw)) return "";
+  if (/[A-ZА-Я]{2,}\d|[a-z]\d[a-z0-9]{3,}|z\d|m[cgjeruvx]\w{2,}/i.test(raw)) return "";
   const cleaned = raw
-    .replace(/\b[A-Z]{1,4}\d[A-Z0-9]{1,5}(?:\s*(?:RU\/?A?|LL\/?A?))?\b/gi, "")
+    .replace(/\b[A-Z]{1,4}\d[A-Z0-9]{1,8}(?:\s*(?:RU\/?A?|LL\/?A?))?\b/gi, "")
     .replace(/\b(?:RU\/?A?|LL\/?A?|RU|LL)\b/gi, "")
+    .replace(/\b(?:no charger|macos|english)\b/gi, "")
     .replace(/\s+/g, " ")
     .trim();
   const appleColor = getKnownAppleColor(cleaned || raw);
@@ -2608,24 +3127,110 @@ function normalizeCardColor(value) {
     "фиолетовый": "фиолетовый",
     "красный": "красный",
     "золотистый": "золотистый",
-    "графит": "графит"
+    "золотой": "золотой",
+    "графит": "графит",
+    "оранжевый": "оранжевый",
+    "коричневый": "коричневый",
+    "бежевый": "бежевый",
+    "лавандовый": "лавандовый"
   };
-  return map[lower] || lower;
+  if (map[lower]) return map[lower];
+  if (/черн|black|obsidian|midnight/i.test(lower)) return "черный";
+  if (/бел|white|porcelain/i.test(lower)) return "белый";
+  if (/син|blue|indigo|frost/i.test(lower)) return "синий";
+  if (/голуб/i.test(lower)) return "голубой";
+  if (/зелен|green|jade|lemongrass/i.test(lower)) return "зеленый";
+  if (/сер|gray|grey|moonstone|nebula/i.test(lower)) return "серый";
+  if (/сереб|silver/i.test(lower)) return "серебристый";
+  if (/роз|pink|peony|blush/i.test(lower)) return "розовый";
+  if (/фиолет|purple|violet|iris|lavender/i.test(lower)) return "фиолетовый";
+  if (/красн|red/i.test(lower)) return "красный";
+  if (/золот|gold/i.test(lower)) return "золотой";
+  if (/оранж|orange|citrus/i.test(lower)) return "оранжевый";
+  if (/корич|brown/i.test(lower)) return "коричневый";
+  if (/беж|beige/i.test(lower)) return "бежевый";
+  return "";
+}
+
+function findKnownColorInText(value) {
+  const text = String(value || "").toLowerCase();
+  if (/desert\s+titanium|bronze|bronzo/i.test(text)) return "Desert Titanium";
+  const checks = [
+    [/space\s*black|черн(?:ый|ий|ого)\s+космос|чёрн(?:ый|ий|ого)\s+космос/, "черный космос"],
+    [/space\s*gr[ae]y|сер(?:ый|ого)\s+космос/, "серый космос"],
+    [/starlight|сияющ(?:ая|ей)\s+звезд(?:а|ы)/, "сияющая звезда"],
+    [/midnight|темн(?:ая|ой)\s+ноч(?:ь|и)|полноч/, "темная ночь"],
+    [/sky\s*blue|небесно[-\s]?голуб/, "голубой"],
+    [/natural\s+titanium|натуральн(?:ый|ого)\s+титан/, "натуральный титан"],
+    [/blue\s*titanium|син(?:ий|его)\s+титан/, "синий титан"],
+    [/white\s*titanium|бел(?:ый|ого)\s+титан/, "белый титан"],
+    [/black\s*titanium|черн(?:ый|ого)\s+титан|чёрн(?:ый|ого)\s+титан/, "черный титан"],
+    [/\b(product\s*)?red\b|красн(?:ый|ого)/, "красный"],
+    [/ultramarine|ультрамарин/, "ультрамарин"],
+    [/teal|бирюз/, "бирюзовый"],
+    [/lavender|лаванд/, "лавандовый"],
+    [/purple|violet|фиолет/, "фиолетовый"],
+    [/pink|rose|blush|розов/, "розовый"],
+    [/orange|citrus|оранж/, "оранжевый"],
+    [/yellow|желт|жёлт/, "желтый"],
+    [/green|sage|mint|зел[её]н/, "зеленый"],
+    [/silver|серебр/, "серебристый"],
+    [/graphite|графит/, "графит"],
+    [/gray|grey|сер(?:ый|ого)/, "серый"],
+    [/gold|золот/, "золотой"],
+    [/white|porcelain|бел(?:ый|ого)/, "белый"],
+    [/black|obsidian|phantom\s*black|черн(?:ый|ого)|чёрн(?:ый|ого)/, "черный"],
+    [/blue|indigo|син(?:ий|его)/, "синий"],
+    [/brown|mocha|коричн/, "коричневый"],
+    [/beige|cream|беж/, "бежевый"]
+  ];
+  return checks.find(([pattern]) => pattern.test(text))?.[1] || "";
 }
 
 function getKnownAppleColor(value) {
   const text = String(value || "").toLowerCase();
-  if (/space\s*gr[ae]y|seryy[-\s]*kosmos/.test(text)) return "Space Gray";
-  if (/space\s*black/.test(text)) return "Space Black";
-  if (/midnight/.test(text)) return "Midnight";
-  if (/sky\s*blue/.test(text)) return "Sky Blue";
-  if (/starlight/.test(text)) return "Starlight";
-  if (/silver/.test(text)) return "Silver";
-  if (/gold/.test(text)) return "Gold";
-  if (/blush/.test(text)) return "Blush";
-  if (/indigo/.test(text)) return "Indigo";
-  if (/citrus/.test(text)) return "Citrus";
+  if (/space\s*gr[ae]y|seryy[-\s]*kosmos/.test(text)) return "серый космос";
+  if (/space\s*black/.test(text)) return "черный космос";
+  if (/midnight/.test(text)) return "темная ночь";
+  if (/sky\s*blue/.test(text)) return "голубой";
+  if (/starlight/.test(text)) return "сияющая звезда";
+  if (/silver/.test(text)) return "серебристый";
+  if (/gold/.test(text)) return "золотой";
+  if (/blush/.test(text)) return "розовый";
+  if (/indigo/.test(text)) return "синий";
+  if (/citrus/.test(text)) return "оранжевый";
   return "";
+}
+
+function getColorSwatch(value) {
+  const color = String(value || "").toLowerCase();
+  if (color.includes("космос") && color.includes("чер")) return "linear-gradient(135deg, #111827, #020617)";
+  if (color.includes("космос")) return "linear-gradient(135deg, #6b7280, #1f2937)";
+  if (color.includes("темная ночь")) return "linear-gradient(135deg, #0f172a, #1e3a8a)";
+  if (color.includes("сияющая звезда")) return "linear-gradient(135deg, #f8f1df, #c9b991)";
+  if (color.includes("натуральный титан")) return "linear-gradient(135deg, #d8d0c4, #9a9084)";
+  if (color.includes("синий титан")) return "linear-gradient(135deg, #6f7f91, #27384d)";
+  if (color.includes("белый титан")) return "linear-gradient(135deg, #fafafa, #c7c7c7)";
+  if (color.includes("черный титан")) return "linear-gradient(135deg, #262626, #050505)";
+  if (color.includes("ультрамарин")) return "#315bdc";
+  if (color.includes("бирюз")) return "#25b7ad";
+  if (color.includes("лаванд")) return "#b7a7e8";
+  if (color.includes("фиолет")) return "#7c3aed";
+  if (color.includes("роз")) return "#f4a7c2";
+  if (color.includes("оранж")) return "#f97316";
+  if (color.includes("желт")) return "#facc15";
+  if (color.includes("зелен")) return "#22c55e";
+  if (color.includes("сереб")) return "linear-gradient(135deg, #f8fafc, #aeb7c2)";
+  if (color.includes("графит")) return "#3f3f46";
+  if (color.includes("сер")) return "#7c8794";
+  if (color.includes("золот")) return "#d6b25e";
+  if (color.includes("бел")) return "#f8fafc";
+  if (color.includes("чер")) return "#050505";
+  if (color.includes("син") || color.includes("голуб")) return "#2f91ff";
+  if (color.includes("корич")) return "#7c4a2d";
+  if (color.includes("беж")) return "#d8c3a5";
+  if (color.includes("крас")) return "#ef4444";
+  return "linear-gradient(135deg, #94a3b8, #475569)";
 }
 
 function slugify(value) {
@@ -2799,6 +3404,8 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
   const gallery = getProductGallery(product, products);
   const activePhoto = Math.min(selectedPhoto, Math.max(gallery.length - 1, 0));
   const specs = getProductSpecs(product);
+  const specGroups = getProductDetailSpecGroups(product);
+  const detailSummary = getProductDetailSummary(product);
   const relatedProducts = products
     .filter((item) => item.id !== product.id && (item.category === product.category || item.brand === product.brand))
     .slice(0, 3);
@@ -2878,7 +3485,7 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
             </button>
           </div>
           <h1>{formatProductCardTitle(product)}</h1>
-          <p className="product-detail-description">{formatShortProductDescription(product)}</p>
+          <p className="product-detail-description">{detailSummary}</p>
 
           <div className="product-detail-tags">
             <span>{product.brand}</span>
@@ -2924,16 +3531,34 @@ function ProductDetailPage({ product, products, loading, addToCart, navigate, is
       </div>
 
       <div className="product-detail-blocks">
-        <article>
+        <article className="product-specs-panel">
+          <nav className="product-detail-tabs" aria-label="Разделы товара">
+            <span>О товаре</span>
+            <span className="is-active">Характеристики</span>
+            <span>Наличие и доставка</span>
+            <span>Оплата</span>
+          </nav>
           <h2>Характеристики</h2>
-          <dl>
-            <div><dt>SKU</dt><dd>{product.sku}</dd></div>
-            <div><dt>Бренд</dt><dd>{product.brand}</dd></div>
-            {specs.map(([label, value]) => (
-              <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+          <div className="product-spec-grid">
+            {specGroups.map((group) => (
+              <section key={group.title}>
+                <h3>{group.title}</h3>
+                <dl>
+                  {group.rows.map(([label, value]) => (
+                    <div key={`${group.title}-${label}`}><dt>{label}</dt><dd>{value}</dd></div>
+                  ))}
+                </dl>
+              </section>
             ))}
-            <div><dt>Наличие</dt><dd>{available ? `${product.stockQty} шт.` : "нет"}</dd></div>
-          </dl>
+            <section>
+              <h3>Магазин</h3>
+              <dl>
+                <div><dt>Наличие</dt><dd>{available ? `${product.stockQty} шт.` : "нет"}</dd></div>
+                <div><dt>Самовывоз</dt><dd>Юнона, павильон 506</dd></div>
+                <div><dt>Время</dt><dd>10:00-19:00</dd></div>
+              </dl>
+            </section>
+          </div>
         </article>
         <article>
           <h2>Покупка</h2>
@@ -3630,6 +4255,16 @@ function AdminPage({ products, setProducts }) {
   const [productFilter, setProductFilter] = useState("all");
   const [productError, setProductError] = useState("");
   const [savingProductId, setSavingProductId] = useState("");
+  const [selectedProductIds, setSelectedProductIds] = useState([]);
+  const [bulkPrice, setBulkPrice] = useState({
+    scope: "filtered",
+    mode: "percent",
+    direction: "increase",
+    value: "",
+    targets: ["retailPrice", "wholesalePrice"],
+    rounding: "round"
+  });
+  const [bulkSaving, setBulkSaving] = useState(false);
   const [toast, setToast] = useState(null);
   const toastTimerRef = useRef(null);
 
@@ -3811,6 +4446,86 @@ function AdminPage({ products, setProducts }) {
     }
   };
 
+  const updateBulkPrice = (patch) => {
+    setBulkPrice((current) => ({ ...current, ...patch }));
+  };
+
+  const toggleBulkTarget = (target) => {
+    setBulkPrice((current) => {
+      const targets = current.targets.includes(target)
+        ? current.targets.filter((item) => item !== target)
+        : [...current.targets, target];
+      return { ...current, targets };
+    });
+  };
+
+  const toggleProductSelection = (productId) => {
+    setSelectedProductIds((current) => (
+      current.includes(productId) ? current.filter((id) => id !== productId) : [...current, productId]
+    ));
+  };
+
+  const toggleFilteredSelection = () => {
+    const ids = filteredProducts.map((product) => product.id);
+    const allSelected = ids.length > 0 && ids.every((id) => selectedSet.has(id));
+    setSelectedProductIds((current) => (
+      allSelected ? current.filter((id) => !ids.includes(id)) : [...new Set([...current, ...ids])]
+    ));
+  };
+
+  const applyBulkPrices = async () => {
+    if (bulkTargetProducts.length === 0) {
+      showToast("Нет товаров для изменения", "error");
+      return;
+    }
+    if (!bulkPrice.value || Number(bulkPrice.value) <= 0) {
+      showToast("Введите процент или сумму", "error");
+      return;
+    }
+    const confirmed = window.confirm(`Изменить цены у ${bulkTargetProducts.length} товаров?`);
+    if (!confirmed) return;
+    setBulkSaving(true);
+    try {
+      const response = await fetch("/api/admin/products/bulk-prices", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productIds: bulkTargetProducts.map((product) => product.id),
+          scope: bulkPrice.scope,
+          mode: bulkPrice.mode,
+          value: bulkSignedValue,
+          targets: bulkTargets,
+          rounding: bulkPrice.rounding
+        })
+      });
+      const data = await readJson(response);
+      if (!response.ok) {
+        showToast(data.error || "Не удалось изменить цены", "error");
+        return;
+      }
+      setProducts((current) => current.map((product) => {
+        const updated = (data.products || []).find((item) => item.id === product.id);
+        return updated ? { ...product, ...updated } : product;
+      }));
+      setProductForms((current) => {
+        const next = { ...current };
+        (data.products || []).forEach((product) => {
+          next[product.id] = {
+            ...(next[product.id] || {}),
+            retailPrice: String(product.retailPrice ?? ""),
+            wholesalePrice: String(product.wholesalePrice ?? "")
+          };
+        });
+        return next;
+      });
+      showToast(`Цены обновлены: ${data.updatedCount}`);
+    } catch {
+      showToast("Ошибка сервера", "error");
+    } finally {
+      setBulkSaving(false);
+    }
+  };
+
   const logout = async () => {
     await fetch("/api/admin/logout", { method: "POST" });
     setIsAuthed(false);
@@ -3847,6 +4562,16 @@ function AdminPage({ products, setProducts }) {
       if (!productSearchValue) return true;
       return `${form.name || product.name} ${product.sku || ""} ${product.brand || ""}`.toLowerCase().includes(productSearchValue);
     });
+  const selectedSet = new Set(selectedProductIds);
+  const bulkTargetProducts = (bulkPrice.scope === "selected" ? filteredProducts.filter((product) => selectedSet.has(product.id)) : filteredProducts)
+    .filter((product) => !productForms[product.id]?.hidden);
+  const bulkSignedValue = Number(bulkPrice.value || 0) * (bulkPrice.direction === "decrease" ? -1 : 1);
+  const bulkTargets = bulkPrice.targets.length > 0 ? bulkPrice.targets : ["retailPrice"];
+  const bulkPreview = bulkTargetProducts.slice(0, 3).map((product) => ({
+    product,
+    retailPrice: bulkTargets.includes("retailPrice") ? calculateBulkPrice(Number(productForms[product.id]?.retailPrice ?? product.retailPrice), bulkPrice.mode, bulkSignedValue, bulkPrice.rounding) : Number(productForms[product.id]?.retailPrice ?? product.retailPrice),
+    wholesalePrice: bulkTargets.includes("wholesalePrice") ? calculateBulkPrice(Number(productForms[product.id]?.wholesalePrice ?? product.wholesalePrice), bulkPrice.mode, bulkSignedValue, bulkPrice.rounding) : Number(productForms[product.id]?.wholesalePrice ?? product.wholesalePrice)
+  }));
   const toastNode = toast ? <div className={`admin-toast is-${toast.type}`} role="status">{toast.message}</div> : null;
 
   if (!isAuthed) {
@@ -3996,6 +4721,69 @@ function AdminPage({ products, setProducts }) {
             </div>
           </div>
           {productError && <p className="form-error" role="alert">{productError}</p>}
+          <div className="bulk-price-panel">
+            <div className="bulk-price-head">
+              <div>
+                <b>Массовое изменение цен</b>
+                <span>{bulkTargetProducts.length} товаров будет изменено</span>
+              </div>
+              <button type="button" className="price-link" onClick={toggleFilteredSelection}>
+                {filteredProducts.length > 0 && filteredProducts.every((product) => selectedSet.has(product.id)) ? "Снять выбор" : "Выбрать фильтр"}
+              </button>
+            </div>
+            <div className="bulk-price-grid">
+              <label>
+                Область
+                <select value={bulkPrice.scope} onChange={(event) => updateBulkPrice({ scope: event.target.value })}>
+                  <option value="filtered">Текущий фильтр</option>
+                  <option value="selected">Выбранные товары</option>
+                </select>
+              </label>
+              <label>
+                Тип
+                <select value={bulkPrice.mode} onChange={(event) => updateBulkPrice({ mode: event.target.value })}>
+                  <option value="percent">Процент</option>
+                  <option value="amount">Сумма</option>
+                </select>
+              </label>
+              <label>
+                Действие
+                <select value={bulkPrice.direction} onChange={(event) => updateBulkPrice({ direction: event.target.value })}>
+                  <option value="increase">Увеличить</option>
+                  <option value="decrease">Уменьшить</option>
+                </select>
+              </label>
+              <label>
+                Значение
+                <input type="number" min="0" value={bulkPrice.value} onChange={(event) => updateBulkPrice({ value: event.target.value })} placeholder={bulkPrice.mode === "percent" ? "5" : "1000"} />
+              </label>
+              <label>
+                Округление
+                <select value={bulkPrice.rounding} onChange={(event) => updateBulkPrice({ rounding: event.target.value })}>
+                  <option value="round">До рубля</option>
+                  <option value="ten">До 10</option>
+                  <option value="hundred">До 100</option>
+                </select>
+              </label>
+            </div>
+            <div className="bulk-price-targets" role="group" aria-label="Какие цены менять">
+              <button type="button" className={bulkTargets.includes("retailPrice") ? "is-selected" : ""} onClick={() => toggleBulkTarget("retailPrice")}>Розница</button>
+              <button type="button" className={bulkTargets.includes("wholesalePrice") ? "is-selected" : ""} onClick={() => toggleBulkTarget("wholesalePrice")}>Опт</button>
+            </div>
+            {bulkPreview.length > 0 && (
+              <div className="bulk-price-preview">
+                {bulkPreview.map(({ product, retailPrice, wholesalePrice }) => (
+                  <span key={product.id}>
+                    {product.name}: {formatRub(Number(productForms[product.id]?.retailPrice ?? product.retailPrice))} {"→"} {formatRub(retailPrice)} / {formatRub(Number(productForms[product.id]?.wholesalePrice ?? product.wholesalePrice))} {"→"} {formatRub(wholesalePrice)}
+                  </span>
+                ))}
+              </div>
+            )}
+            <button type="button" className="price-link full" onClick={applyBulkPrices} disabled={bulkSaving || bulkTargetProducts.length === 0}>
+              {bulkSaving ? "Применение..." : "Применить к ценам"}
+              <Check size={18} />
+            </button>
+          </div>
           <div className="product-admin-list">
             {filteredProducts.map((product) => {
               const form = productForms[product.id] || {
@@ -4046,6 +4834,10 @@ function AdminPage({ products, setProducts }) {
                         rows="2"
                         onChange={(event) => updateProductForm(product.id, { description: event.target.value })}
                       />
+                    </label>
+                    <label className="admin-checkline">
+                      <input type="checkbox" checked={selectedSet.has(product.id)} onChange={() => toggleProductSelection(product.id)} />
+                      Выбрать для массовой цены
                     </label>
                     <label className="admin-checkline">
                       <input type="checkbox" checked={Boolean(form.hidden)} onChange={(event) => updateProductForm(product.id, { hidden: event.target.checked })} />
@@ -4163,6 +4955,15 @@ function Footer({ navigate }) {
 
 function formatRub(value) {
   return new Intl.NumberFormat("ru-RU").format(Number(value || 0)) + " ₽";
+}
+
+function calculateBulkPrice(price, mode, value, rounding = "round") {
+  const base = Number(price || 0);
+  const delta = mode === "percent" ? base * (Number(value || 0) / 100) : Number(value || 0);
+  const raw = Math.max(0, base + delta);
+  if (rounding === "hundred") return Math.round(raw / 100) * 100;
+  if (rounding === "ten") return Math.round(raw / 10) * 10;
+  return Math.round(raw);
 }
 
 function formatDate(value) {
