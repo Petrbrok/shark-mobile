@@ -574,9 +574,8 @@ const supplementalAppleProducts = [
     memory: "512GB",
     color: "Silver",
     gallery: [
-      "https://www.apple.com/v/mac-studio/m/images/meta/mac-studio_overview__eedzbosm1t26_og.png",
-      "https://www.apple.com/v/mac-studio/c/images/overview/design/design_studio_display__fxf9n5705e2q_large.jpg",
-      "https://www.apple.com/v/mac-studio/c/images/overview/performance/performance_m4max__eo0j1v69w5ua_large.jpg"
+      "/assets/catalog-normalized/apple-mac-studio-m4-max-14c-cpu-32c-gpu-2025-36-gb-512-gb-ssd-macos-serebro-mu963.normalized.jpg",
+      "https://www.apple.com/v/mac-studio/m/images/meta/mac-studio_overview__eedzbosm1t26_og.png"
     ]
   }
 ].map((item, index) => ({
@@ -1509,11 +1508,39 @@ function getQuickMenuImage(products, category, label, allProducts = products) {
 function getNormalizedQuickMenuImage(products, category, label, allProducts = products) {
   const scopedImage = products.map(getNormalizedProductImage).find(Boolean);
   if (scopedImage) return scopedImage;
+  const localFallback = getLocalQuickMenuImage(category, label);
+  if (localFallback) return localFallback;
+  const appleFallback = getAppleMenuImage(category, label);
+  if (appleFallback) return appleFallback;
   if (category === "iPhone") {
     const fallback = getClosestIphoneImage(allProducts, label);
     return getNormalizedCatalogImage(fallback);
   }
   return "";
+}
+
+function getLocalQuickMenuImage(category, label) {
+  const text = `${category} ${label}`.toLowerCase();
+  const rules = [
+    [/ipad pro/, ["planshet-apple-ipad-pro", "apple-ipad-pro", "ipad-pro"]],
+    [/ipad air/, ["planshet-apple-ipad-air", "apple-ipad-air", "ipad-air"]],
+    [/ipad mini/, ["planshet-apple-ipad-mini", "apple-ipad-mini", "ipad-mini"]],
+    [/\bipad\b/, ["planshet-apple-ipad", "apple-ipad"]],
+    [/macbook air|macbook базовый|macbook neo/, ["apple-macbook-air", "macbook-air"]],
+    [/macbook pro/, ["apple-macbook-pro", "macbook-pro"]],
+    [/\bimac\b/, ["apple-imac", "imac"]],
+    [/mac mini/, ["apple-mac-mini", "mac-mini"]],
+    [/mac studio/, ["apple-mac-studio", "mac-studio"]],
+    [/studio display/, ["monitor-apple-studio-display", "studio-display"]],
+    [/apple watch se/, ["apple-watch-se", "watch-se"]],
+    [/apple watch series|\d+\/\d+/, ["apple-watch-series", "watch-series"]],
+    [/apple watch ultra|49/, ["apple-watch-ultra", "watch-ultra"]]
+  ];
+  const match = rules.find(([pattern]) => pattern.test(text));
+  if (!match) return "";
+  const [, prefixes] = match;
+  const fileName = [...normalizedCatalogImages].find((name) => prefixes.some((prefix) => name.startsWith(prefix)));
+  return fileName ? `/assets/catalog-normalized/${fileName}` : "";
 }
 
 function getAppleMenuImage(category, label) {
