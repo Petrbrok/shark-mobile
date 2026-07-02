@@ -2379,16 +2379,16 @@ function getIphoneResolution({ series, pro, proMax, plus, mini, se }) {
 }
 
 function getProductGallery(product, products = []) {
-  const official = getColorSafeOfficialGallery(product);
-  if (official.length > 0) return limitProductGallery(product, official).map((src, index) => ({ src, view: `official-${index}` }));
   const normalized = getNormalizedProductImage(product);
   if (normalized) return [{ src: normalized, view: "normalized" }];
+  const official = getColorSafeOfficialGallery(product);
+  if (official.length > 0) return limitProductGallery(product, official).map((src, index) => ({ src, view: `official-${index}` }));
   return limitProductGallery(product, getRawGallery(product)).map((src, index) => ({ src, view: `raw-${index}` }));
 }
 
 function limitProductGallery(product, sources) {
   const list = sources.filter(Boolean);
-  return product.section === "iPad" ? list.slice(0, 1) : list.slice(0, 3);
+  return list.slice(0, 1);
 }
 
 function getColorSafeOfficialGallery(product) {
@@ -3300,7 +3300,7 @@ function MapSection() {
 
 function ProductCard({ product, products = [], index, onAdd, onOpen, isFavorite = false, onToggleFavorite }) {
   const available = product.stockQty > 0;
-  const gallery = getProductGallery(product, products).slice(0, 3);
+  const gallery = getProductGallery(product, products).slice(0, 1);
   const [activePhoto, setActivePhoto] = useState(0);
   const photoIndex = Math.min(activePhoto, gallery.length - 1);
   const movePhoto = (event) => {

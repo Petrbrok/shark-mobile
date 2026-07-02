@@ -774,7 +774,7 @@ select:focus-visible {
 .quick-catalog button svg {
   width: 17px;
   height: 17px;
-  color: rgba(244, 247, 251, 0.44);
+  color: rgba(244, 247, 251, 0.9);
 }
 
 .quick-catalog button span {
@@ -792,6 +792,11 @@ select:focus-visible {
     rgba(15, 24, 36, 0.95);
   transform: translateY(-1px);
   box-shadow: 0 10px 26px rgba(47, 145, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.quick-catalog button:hover svg,
+.quick-catalog button.is-selected svg {
+  color: #fff;
 }
 
 .quick-catalog button.is-selected {
