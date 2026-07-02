@@ -5356,3 +5356,91 @@ h1 span {
     transition-duration: 1ms !important;
   }
 }
+
+/* Compact retail hero polish. Keep the original service chips layout intact. */
+.hero-shop {
+  min-height: clamp(660px, calc(100svh - 164px), 760px);
+  padding-top: clamp(18px, 2.2vw, 34px);
+  padding-bottom: clamp(22px, 3vw, 44px);
+  background:
+    linear-gradient(90deg, rgba(3, 4, 5, 1) 0%, rgba(3, 4, 5, 0.98) 50%, rgba(3, 4, 5, 0.86) 100%),
+    radial-gradient(ellipse at 80% 48%, rgba(47, 145, 255, 0.16), transparent 36%),
+    radial-gradient(ellipse at 74% 78%, rgba(18, 91, 172, 0.13), transparent 30%),
+    #030405;
+}
+
+.hero-shop h1 {
+  font-size: clamp(64px, 6.3vw, 104px);
+}
+
+.hero-lead {
+  margin-top: clamp(12px, 1.8vh, 18px);
+}
+
+.hero-note {
+  max-width: 520px;
+  margin: 8px 0 0;
+  color: rgba(244, 247, 251, 0.45);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.micro-row .trade-mode {
+  border-color: rgba(116, 187, 255, 0.48);
+  color: rgba(250, 252, 255, 0.96);
+  background:
+    linear-gradient(180deg, rgba(47, 145, 255, 0.2), rgba(47, 145, 255, 0.06)),
+    rgba(8, 15, 25, 0.82);
+}
+
+.hero-actions {
+  margin-top: clamp(18px, 2.6vh, 26px);
+}
+
+.hero-services {
+  margin-top: clamp(14px, 2vh, 20px);
+}
+
+.hero-phone-visual {
+  height: clamp(580px, calc(100svh - 170px), 720px);
+  margin-top: clamp(-52px, -3.6vw, -28px);
+}
+
+.hero-phone-visual::before {
+  inset: 5% -12% 4%;
+  background:
+    radial-gradient(ellipse at 58% 48%, rgba(47, 145, 255, 0.2), transparent 62%),
+    linear-gradient(180deg, transparent 0%, rgba(3, 4, 5, 0.08) 62%, rgba(3, 4, 5, 0.9) 100%);
+  filter: blur(18px);
+}
+
+.hero-phone-visual::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 42%;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(3, 4, 5, 0), rgba(3, 4, 5, 0.94) 86%);
+}
+
+.hero-phone-visual img {
+  max-width: min(50vw, 760px);
+  max-height: min(76svh, 720px);
+  filter:
+    saturate(0.98)
+    contrast(1.05)
+    brightness(0.86)
+    drop-shadow(0 24px 52px rgba(0, 0, 0, 0.46))
+    drop-shadow(0 0 30px rgba(47, 145, 255, 0.14));
+}
+
+@media (max-width: 1120px) {
+  .hero-shop {
+    min-height: auto;
+    padding-bottom: 32px;
+  }
+}

@@ -1657,6 +1657,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
             <span>СПБ</span>
             <span>Юнона</span>
             <span>Павильон 506</span>
+            <span className="trade-mode">Опт и розница</span>
             <span className={`open-status ${openStatus.isOpen ? "is-open" : "is-closed"}`}>{openStatus.label}</span>
           </div>
           <h1>
@@ -1664,6 +1665,7 @@ function HomePage({ products, loading, addToCart, navigate, search, setSearch, f
             <span>Mobile</span>
           </h1>
           <p className="hero-lead">Телефоны и аксессуары в наличии на Юноне.</p>
+          <p className="hero-note">Розничные покупки и оптовые заказы от 20 единиц.</p>
           <div className="hero-actions">
             <a className="call-button hero-call" href={phoneHref}>
               <PhoneCall size={22} strokeWidth={2.4} />
