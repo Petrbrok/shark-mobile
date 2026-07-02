@@ -25,6 +25,18 @@
       "destination": "/index.html"
     },
     {
+      "source": "/catalog",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/catalog/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/catalog/(.*)",
+      "destination": "/index.html"
+    },
+    {
       "source": "/korzina",
       "destination": "/index.html"
     },
